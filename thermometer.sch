@@ -34,7 +34,7 @@ EELAYER 25 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 9 7
+Sheet 6 7
 Title ""
 Date ""
 Rev ""
@@ -67,8 +67,8 @@ P 4750 3950
 F 0 "R25" V 4830 3950 50  0000 C CNN
 F 1 "10K" V 4750 3950 50  0000 C CNN
 F 2 "Resistors_SMD:R_0603_HandSoldering" V 4680 3950 50  0001 C CNN
-F 3 "http://www.digikey.com/en/resources/datasheets/yageo/rc-series-l-suffix-datasheet" H 4750 3950 50  0001 C CNN
-F 4 "RC0603JR-0710KL" V 4750 3950 60  0001 C CNN "Part Number"
+F 3 "https://media.digikey.com/pdf/Data%20Sheets/TDK%20PDFs/NTCG163JF103FT1_Web.pdf" H 4750 3950 50  0001 C CNN
+F 4 "NTCG163JF103FT1" V 4750 3950 60  0001 C CNN "Part Number"
 	1    4750 3950
 	-1   0    0    1   
 $EndComp

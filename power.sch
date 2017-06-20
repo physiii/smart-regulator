@@ -137,8 +137,9 @@ U 1 1 5936E607
 P 4150 3550
 F 0 "U?" H 4500 3750 60  0000 C CNN
 F 1 "LM2576" H 4200 3350 60  0000 C CNN
-F 2 "" H 4550 3500 60  0001 C CNN
-F 3 "" H 4550 3500 60  0001 C CNN
+F 2 "TO_SOT_Packages_SMD:TO-263-5Lead" H 4550 3500 60  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/lm2576hv.pdf" H 4550 3500 60  0001 C CNN
+F 4 "LM2576SX-5.0/NOPB" H 4150 3550 60  0001 C CNN "Part Number "
 	1    4150 3550
 	1    0    0    -1  
 $EndComp
@@ -151,13 +152,13 @@ GND
 $Comp
 L C C?
 U 1 1 5936E8D1
-P 2100 2750
-F 0 "C?" H 2125 2850 50  0000 L CNN
-F 1 "100uF" H 2125 2650 50  0000 L CNN
-F 2 "footprints:smd-cap-13.5" H 2138 2600 50  0001 C CNN
-F 3 "http://www.yageo.com/documents/recent/UPY-GPHC_Y5V_6.3V-to-50V_6.pdf" H 2100 2750 50  0001 C CNN
-F 4 "EEV-FK1K101Q" H 2100 2750 60  0001 C CNN "Part Number"
-	1    2100 2750
+P 2800 3100
+F 0 "C?" H 2825 3200 50  0000 L CNN
+F 1 "100uF" H 2825 3000 50  0000 L CNN
+F 2 "footprints:smd-cap-13.5" H 2838 2950 50  0001 C CNN
+F 3 "http://www.yageo.com/documents/recent/UPY-GPHC_Y5V_6.3V-to-50V_6.pdf" H 2800 3100 50  0001 C CNN
+F 4 "EEV-FK1K101Q" H 2800 3100 60  0001 C CNN "Part Number"
+	1    2800 3100
 	-1   0    0    1   
 $EndComp
 Wire Wire Line
@@ -215,11 +216,23 @@ $Comp
 L CP C?
 U 1 1 593709F5
 P 3400 3500
-F 0 "C?" H 3425 3600 50  0000 L CNN
-F 1 "CP" H 3425 3400 50  0000 L CNN
-F 2 "" H 3438 3350 50  0000 C CNN
-F 3 "" H 3400 3500 50  0000 C CNN
+F 0 "C?" H 3200 3500 50  0000 L CNN
+F 1 "100uF" H 3150 3400 50  0000 L CNN
+F 2 "footprints:smd-cap-13.5" H 3438 3350 50  0001 C CNN
+F 3 "http://www.digikey.com/scripts/DkSearch/dksus.dll?Detail&itemSeq=229875680&uq=636335725805059383" H 3400 3500 50  0001 C CNN
+F 4 "EEE-FT1H331AP" H 3400 3500 60  0001 C CNN "Part Number"
 	1    3400 3500
+	1    0    0    -1  
+$EndComp
+$Comp
+L CP C?
+U 1 1 5949958C
+P 5400 3500
+F 0 "C?" H 5425 3600 50  0000 L CNN
+F 1 "1000uF" H 5425 3400 50  0000 L CNN
+F 2 "" H 5438 3350 50  0000 C CNN
+F 3 "" H 5400 3500 50  0000 C CNN
+	1    5400 3500
 	1    0    0    -1  
 $EndComp
 $EndSCHEMATC

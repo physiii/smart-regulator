@@ -45,111 +45,12 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Comp
-L PT5529B/L2/H2-F U2
-U 1 1 59098AF0
-P 7300 2600
-F 0 "U2" H 7000 2500 60  0000 C CNN
-F 1 "PT5529B/L2/H2-F" H 7350 2800 60  0000 C CNN
-F 2 "footprints:PT5529" H 7300 2600 60  0001 C CNN
-F 3 "http://www.everlight.com/file/ProductFile/PT5529B-L2-H2-F.pdf" H 7300 2600 60  0001 C CNN
-F 4 "1080-1161-ND" H 7300 2600 60  0001 C CNN "Part Number"
-	1    7300 2600
-	1    0    0    -1  
-$EndComp
-Text Label 7000 1850 0    60   ~ 0
-IR-Receive
-$Comp
-L GND #PWR05
-U 1 1 59098AF2
-P 7300 3050
-F 0 "#PWR05" H 7300 2800 50  0001 C CNN
-F 1 "GND" H 7300 2900 50  0000 C CNN
-F 2 "" H 7300 3050 50  0000 C CNN
-F 3 "" H 7300 3050 50  0000 C CNN
-	1    7300 3050
-	1    0    0    -1  
-$EndComp
-Text GLabel 6600 3000 0    60   Input ~ 0
-IO4
-$Comp
-L R R3
-U 1 1 59098AF3
-P 6850 3000
-F 0 "R3" V 6930 3000 50  0000 C CNN
-F 1 "1K" V 6850 3000 50  0000 C CNN
-F 2 "Resistors_SMD:R_0603_HandSoldering" V 6780 3000 50  0001 C CNN
-F 3 "http://www.digikey.com/en/resources/datasheets/yageo/rc-series-l-suffix-datasheet" H 6850 3000 50  0001 C CNN
-F 4 "RC0603JR-071KL" V 6850 3000 60  0001 C CNN "Part Number"
-	1    6850 3000
-	0    1    1    0   
-$EndComp
-$Comp
-L LED D1
-U 1 1 59098AF4
-P 7700 4600
-F 0 "D1" H 7700 4700 50  0000 C CNN
-F 1 "LED" H 7700 4500 50  0000 C CNN
-F 2 "LEDs:LED_D3.0mm" H 7700 4600 50  0001 C CNN
-F 3 "http://www.mouser.com/ds/2/149/QED123-890063.pdf" H 7700 4600 50  0001 C CNN
-F 4 "QED123" H 7700 4600 60  0001 C CNN "Part Number"
-	1    7700 4600
-	0    -1   -1   0   
-$EndComp
-$Comp
-L R R5
-U 1 1 59098AF5
-P 7700 4150
-F 0 "R5" V 7780 4150 50  0000 C CNN
-F 1 "36" V 7700 4150 50  0000 C CNN
-F 2 "Resistors_SMD:R_0603_HandSoldering" V 7630 4150 50  0001 C CNN
-F 3 "http://www.yageo.com.tw/exep/pages/download/literatures/PYu-R_INT-thick_7.pdf" H 7700 4150 50  0001 C CNN
-F 4 "RC0603JR-0736RL" V 7700 4150 60  0001 C CNN "Part Number"
-	1    7700 4150
-	1    0    0    -1  
-$EndComp
-$Comp
-L R R4
-U 1 1 59098AF6
-P 7000 5100
-F 0 "R4" V 7080 5100 50  0000 C CNN
-F 1 "1K" V 7000 5100 50  0000 C CNN
-F 2 "Resistors_SMD:R_0603_HandSoldering" V 6930 5100 50  0001 C CNN
-F 3 "http://www.digikey.com/en/resources/datasheets/yageo/rc-series-l-suffix-datasheet" H 7000 5100 50  0001 C CNN
-F 4 "RC0603JR-071KL" V 7000 5100 60  0001 C CNN "Part Number"
-	1    7000 5100
-	0    1    1    0   
-$EndComp
-$Comp
-L Q_NPN_BEC Q1
-U 1 1 59098AF8
-P 7600 5100
-F 0 "Q1" H 7900 5150 50  0000 R CNN
-F 1 "Q_NPN_BEC" H 8200 5050 50  0000 R CNN
-F 2 "TO_SOT_Packages_SMD:SOT-23" H 7800 5200 50  0001 C CNN
-F 3 "http://www.onsemi.com/pub/Collateral/MMBT3904LT1-D.PDF" H 7600 5100 50  0001 C CNN
-F 4 "MMBT3904LT1GOSCT-ND" H 7600 5100 60  0001 C CNN "Part Number"
-	1    7600 5100
-	1    0    0    -1  
-$EndComp
-$Comp
-L GND #PWR06
-U 1 1 59098AF9
-P 7700 5500
-F 0 "#PWR06" H 7700 5250 50  0001 C CNN
-F 1 "GND" H 7700 5350 50  0000 C CNN
-F 2 "" H 7700 5500 50  0000 C CNN
-F 3 "" H 7700 5500 50  0000 C CNN
-	1    7700 5500
-	1    0    0    -1  
-$EndComp
-Text GLabel 6550 5100 0    60   Input ~ 0
-IO17
-$Comp
 L CONN_01X03 P3
 U 1 1 59098B14
 P 4400 5000
 AR Path="/590982C4/59098B14" Ref="P3"  Part="1" 
 AR Path="/59096487/59098B14" Ref="P3"  Part="1" 
+AR Path="/5936D7EA/59098B14" Ref="P3"  Part="1" 
 F 0 "P3" H 4350 5200 50  0000 L CNN
 F 1 "CONN_01X03" H 4350 4800 50  0001 L CNN
 F 2 "Pin_Headers:Pin_Header_Straight_1x03_Pitch2.54mm" H 4477 4904 50  0001 L CNN
@@ -170,8 +71,6 @@ F 3 "" H 4150 4850 50  0000 C CNN
 $EndComp
 Text GLabel 4100 5000 0    60   Input ~ 0
 IO16
-Text Label 6800 4550 0    60   ~ 0
-IR-Transmit
 $Comp
 L OPA344 U6
 U 1 1 590B832C
@@ -261,28 +160,6 @@ F 3 "" H 3750 2900 50  0000 C CNN
 	0    1    1    0   
 $EndComp
 Wire Wire Line
-	6850 5100 6550 5100
-Wire Wire Line
-	7700 5300 7700 5500
-Wire Wire Line
-	7150 5100 7400 5100
-Wire Wire Line
-	7700 3850 7700 4000
-Wire Wire Line
-	6700 3000 6600 3000
-Wire Wire Line
-	7600 3000 7600 2900
-Wire Wire Line
-	7400 3000 7600 3000
-Wire Wire Line
-	7400 2900 7400 3000
-Wire Wire Line
-	7300 2900 7300 3050
-Wire Wire Line
-	7200 3000 7000 3000
-Wire Wire Line
-	7200 2900 7200 3000
-Wire Wire Line
 	4150 4850 4150 4900
 Wire Wire Line
 	4150 4900 4200 4900
@@ -292,10 +169,6 @@ Wire Wire Line
 	4150 5100 4150 5150
 Wire Wire Line
 	4100 5000 4200 5000
-Wire Wire Line
-	7700 4300 7700 4450
-Wire Wire Line
-	7700 4750 7700 4900
 Wire Wire Line
 	4850 2800 5050 2800
 Wire Wire Line
@@ -331,10 +204,6 @@ Wire Wire Line
 Wire Wire Line
 	4200 2200 4450 2200
 Connection ~ 4450 2200
-Text GLabel 7700 3850 1    60   Input ~ 0
-3V3
-Text GLabel 7600 2900 1    60   Input ~ 0
-5V
 Text GLabel 4450 2100 1    60   Input ~ 0
 5V
 Text GLabel 4150 5150 3    60   Input ~ 0
