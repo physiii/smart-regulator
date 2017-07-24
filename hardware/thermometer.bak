@@ -1,5 +1,4 @@
 EESchema Schematic File Version 2
-LIBS:open-automation
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -30,7 +29,7 @@ LIBS:atmel
 LIBS:contrib
 LIBS:valves
 LIBS:5v-solar-regulator-cache
-EELAYER 25 0
+EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
@@ -58,10 +57,10 @@ F 3 "" H 6150 2850 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR011
+L GND #PWR11
 U 1 1 5962DDD8
 P 5900 3050
-F 0 "#PWR011" H 5900 2800 50  0001 C CNN
+F 0 "#PWR11" H 5900 2800 50  0001 C CNN
 F 1 "GND" H 5900 2900 50  0000 C CNN
 F 2 "" H 5900 3050 50  0000 C CNN
 F 3 "" H 5900 3050 50  0000 C CNN

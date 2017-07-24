@@ -1,5 +1,4 @@
 EESchema Schematic File Version 2
-LIBS:open-automation
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -30,7 +29,7 @@ LIBS:atmel
 LIBS:contrib
 LIBS:valves
 LIBS:5v-solar-regulator-cache
-EELAYER 25 0
+EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
@@ -61,10 +60,10 @@ IO0
 Text GLabel 5150 3400 2    60   Input ~ 0
 EN
 $Comp
-L GND #PWR08
+L GND #PWR9
 U 1 1 59092D1C
 P 4900 4600
-F 0 "#PWR08" H 4900 4350 50  0001 C CNN
+F 0 "#PWR9" H 4900 4350 50  0001 C CNN
 F 1 "GND" H 4900 4450 50  0000 C CNN
 F 2 "" H 4900 4600 50  0000 C CNN
 F 3 "" H 4900 4600 50  0000 C CNN
@@ -72,10 +71,10 @@ F 3 "" H 4900 4600 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR09
+L GND #PWR8
 U 1 1 59092D1D
 P 4200 4600
-F 0 "#PWR09" H 4200 4350 50  0001 C CNN
+F 0 "#PWR8" H 4200 4350 50  0001 C CNN
 F 1 "GND" H 4200 4450 50  0000 C CNN
 F 2 "" H 4200 4600 50  0000 C CNN
 F 3 "" H 4200 4600 50  0000 C CNN
@@ -227,10 +226,10 @@ F 3 "http://www.digikey.com/scripts/DkSearch/dksus.dll?Detail&itemSeq=233279170&
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR010
+L GND #PWR10
 U 1 1 5969393D
 P 8150 2950
-F 0 "#PWR010" H 8150 2700 50  0001 C CNN
+F 0 "#PWR10" H 8150 2700 50  0001 C CNN
 F 1 "GND" H 8150 2800 50  0000 C CNN
 F 2 "" H 8150 2950 50  0000 C CNN
 F 3 "" H 8150 2950 50  0000 C CNN
