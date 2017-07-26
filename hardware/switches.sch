@@ -28,8 +28,9 @@ LIBS:opto
 LIBS:atmel
 LIBS:contrib
 LIBS:valves
-LIBS:5v-solar-regulator-cache
-EELAYER 26 0
+LIBS:open-automation
+LIBS:5v-smart-solar-regulator-cache
+EELAYER 25 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
@@ -60,10 +61,10 @@ IO0
 Text GLabel 5150 3400 2    60   Input ~ 0
 EN
 $Comp
-L GND #PWR9
+L GND #PWR08
 U 1 1 59092D1C
 P 4900 4600
-F 0 "#PWR9" H 4900 4350 50  0001 C CNN
+F 0 "#PWR08" H 4900 4350 50  0001 C CNN
 F 1 "GND" H 4900 4450 50  0000 C CNN
 F 2 "" H 4900 4600 50  0000 C CNN
 F 3 "" H 4900 4600 50  0000 C CNN
@@ -71,10 +72,10 @@ F 3 "" H 4900 4600 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR8
+L GND #PWR09
 U 1 1 59092D1D
 P 4200 4600
-F 0 "#PWR8" H 4200 4350 50  0001 C CNN
+F 0 "#PWR09" H 4200 4350 50  0001 C CNN
 F 1 "GND" H 4200 4450 50  0000 C CNN
 F 2 "" H 4200 4600 50  0000 C CNN
 F 3 "" H 4200 4600 50  0000 C CNN
@@ -221,15 +222,16 @@ P 8000 2550
 F 0 "P5" H 8250 2350 50  0000 C CNN
 F 1 "USB_A_2" H 7950 2750 50  0000 C CNN
 F 2 "footprints:USB_A_2" V 7950 2450 50  0001 C CNN
-F 3 "http://www.digikey.com/scripts/DkSearch/dksus.dll?Detail&itemSeq=233279170&uq=636356420089763334" V 7950 2450 50  0001 C CNN
+F 3 "https://www.digikey.com/product-detail/en/cnc-tech/1002-004-01010/1175-1018-ND/3064749" V 7950 2450 50  0001 C CNN
+F 4 "1002-004-01010" H 8000 2550 60  0001 C CNN "Part Number"
 	1    8000 2550
 	1    0    0    -1  
 $EndComp
 $Comp
-L GND #PWR10
+L GND #PWR010
 U 1 1 5969393D
 P 8150 2950
-F 0 "#PWR10" H 8150 2700 50  0001 C CNN
+F 0 "#PWR010" H 8150 2700 50  0001 C CNN
 F 1 "GND" H 8150 2800 50  0000 C CNN
 F 2 "" H 8150 2950 50  0000 C CNN
 F 3 "" H 8150 2950 50  0000 C CNN
@@ -249,4 +251,15 @@ Wire Wire Line
 	7550 2850 7550 2950
 Wire Wire Line
 	7550 2950 7500 2950
+$Comp
+L housing-mounts U4
+U 1 1 5978A2A6
+P 9350 4400
+F 0 "U4" H 9500 4300 60  0000 C CNN
+F 1 "housing-mounts" H 9350 4600 60  0000 C CNN
+F 2 "footprints:enclosure-25x38" H 9350 4450 60  0001 C CNN
+F 3 "https://www.mcmaster.com/#catalog/123/904/=18nyvt2" H 9350 4450 60  0001 C CNN
+	1    9350 4400
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC

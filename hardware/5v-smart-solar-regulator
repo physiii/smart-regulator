@@ -1,0 +1,33 @@
+Reference, Quantity, Value, Footprint, Datasheet, Part Number
+C1,1,100uF,footprints:smd-cap-13.5,https://www.digikey.com/product-detail/en/panasonic-electronic-components/EEV-FK1K101Q/PCE3493CT-ND/396352,EEV-FK1K101Q
+C2,1,1000uF,footprints:smd-cap-13.5,http://www.digikey.com/scripts/DkSearch/dksus.dll?Detail&itemSeq=233251459&uq=636356285176582557,UUG1E102MNQ1MS
+C3 C4,2,1uF,Capacitors_SMD:C_0603_HandSoldering,http://www.yageo.com/documents/recent/UPY-GPHC_Y5V_6.3V-to-50V_6.pdf,CC0603ZRY5V7BB105
+C5,1,4.7uF,Capacitors_SMD:C_0603_HandSoldering,http://media.digikey.com/pdf/Data%20Sheets/Samsung%20PDFs/CL_Series_MLCC_ds.pdf,CL10B475KQ8NQNC
+D1,1,D_Schottky,Diodes_SMD:D_SMA,http://www.digikey.com/scripts/DkSearch/dksus.dll?Detail&itemSeq=233263850&uq=636356340886764109,B330A-13-F
+D2,1,LED,LEDs:LED_0603,http://www.osram-os.com/Graphics/XPic9/00128792_0.pdf,475-2512-2-ND
+D3,1,LED,LEDs:LED_D3.0mm,http://www.ttelectronics.com/sites/default/files/download-files/OP993-999_0.pdf,365-1086-ND
+J1,1,CONN_02X16,Pin_Headers:Pin_Header_Straight_2x16_Pitch2.54mm,
+J2,1,CONN_01X02,footprints:battery_input,https://www.digikey.com/product-detail/en/phoenix-contact/1934861/277-1607-ND/568644
+L1,1,47uH,footprints:Inductor-SRR1210,http://www.digikey.com/scripts/DkSearch/dksus.dll?Detail&itemSeq=233263448&uq=636356458892291311,SRR1210-470M
+P3,1,CONN_01X03,footprints:PIR-SR501,http://sullinscorp.com/catalogs/101_PAGE114-115_.100_FEMALE_HDR.pdf
+P4,1,CONN_01X04,Pin_Headers:Pin_Header_Angled_1x04_Pitch2.54mm,
+P5,1,USB_A_2,footprints:USB_A_2,http://www.digikey.com/scripts/DkSearch/dksus.dll?Detail&itemSeq=233279170&uq=636356420089763334
+PROG1,1,SW_PUSH,Buttons_Switches_SMD:SW_SPST_KMR2,http://www.mouser.com/ds/2/60/KMR2_9aug12-25127.pdf,KMR211NG LFS
+Q2,1,Q_NMOS_GSD,TO_SOT_Packages_SMD:SOT-23,http://www.mouser.com/ds/2/308/2N7002L-D-105484.pdf,2N7002L
+Q3,1,Q_PMOS_GSD,TO_SOT_Packages_SMD:SOT-23,https://www.fairchildsemi.com/datasheets/BS/BSS84.pdf,BSS84
+R1 R2 R11 R25,4,10K,Resistors_SMD:R_0603_HandSoldering,http://www.digikey.com/en/resources/datasheets/yageo/rc-series-l-suffix-datasheet,RC0603JR-0710KL
+R14 R15 R16,3,1K,Resistors_SMD:R_0603_HandSoldering,http://www.digikey.com/en/resources/datasheets/yageo/rc-series-l-suffix-datasheet,RC0603JR-071KL
+R17,1,22K,Resistors_SMD:R_0603_HandSoldering,http://www.yageo.com/documents/recent/PYu-RC_Group_51_RoHS_L_7.pdf,RC0603JR-0722KL
+R18,1,1M,Resistors_SMD:R_0603_HandSoldering,http://www.yageo.com/documents/recent/PYu-RC_Group_51_RoHS_L_7.pdf,RC0603FR-071ML
+R19,1,180K,Resistors_SMD:R_0603_HandSoldering,http://www.yageo.com/documents/recent/PYu-RC_Group_51_RoHS_L_7.pdf,RC0603JR-07180KL
+R3,1,100K,Resistors_SMD:R_0603_HandSoldering,https://www.digikey.com/product-detail/en/yageo/RC0603JR-07100KL/311-100KGRCT-ND/729645,RC0603JR-07100KL
+R4,1,25K,Resistors_SMD:R_0603_HandSoldering,http://www.digikey.com/scripts/DkSearch/dksus.dll?Detail&itemSeq=233278333&uq=636356414024927194,RC0603FR-0724K9L
+R5,1,50m,Resistors_SMD:R_0805_HandSoldering,https://www.digikey.com/product-detail/en/susumu/RL1220T-R050-J/RL12T.05JCT-ND/567358,RL1220T-R050-J
+R6,1,5K,Resistors_SMD:R_0603_HandSoldering,http://www.digikey.com/en/resources/datasheets/yageo/rc-series-l-suffix-datasheet,RC0603JR-0710KL
+U1,1,ESP-WROOM-32,footprints:ESP-WROOM-32,https://www.espressif.com/sites/default/files/documentation/esp_wroom_32_datasheet_en.pdf
+U10,1,touchpad,footprints:touch-pad,
+U2,1,ZXCT1107,footprints:Current_sense-ZXCT1107,http://www.digikey.com/scripts/DkSearch/dksus.dll?Detail&itemSeq=233265175&uq=636356458892291311,ZXCT1107SA-7
+U3,1,LM2576,footprints:Regulator-LM2576,http://www.digikey.com/scripts/DkSearch/dksus.dll?Detail&itemSeq=233265175&uq=636356458892291311,ZXCT1107SA-7
+U4,1,housing-mounts,footprints:enclosure-25x38,https://www.mcmaster.com/#catalog/123/904/=18nyvt2
+U5,1,SPX3819,TO_SOT_Packages_SMD:SOT-23-5,https://www.exar.com/content/document.ashx?id=22106,1016-1873-1-ND
+U6,1,OPA344,TO_SOT_Packages_SMD:SOT-23-5,http://www.digikey.com/product-detail/en/texas-instruments/OPA344NA-3K/296-41475-1-ND/5222851,296-41475-1-ND
