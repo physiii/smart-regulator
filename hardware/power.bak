@@ -1,4 +1,5 @@
 EESchema Schematic File Version 2
+LIBS:5v-smart-solar-regulator-rescue
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -30,7 +31,7 @@ LIBS:contrib
 LIBS:valves
 LIBS:open-automation
 LIBS:5v-smart-solar-regulator-cache
-EELAYER 25 0
+EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
@@ -266,9 +267,11 @@ F 4 "B330A-13-F" H 5900 5250 60  0001 C CNN "Part Number"
 	0    1    1    0   
 $EndComp
 $Comp
-L ZXCT1107 U2
+L ZXCT1107-RESCUE-5v-smart-solar-regulator U2
 U 1 1 59691952
 P 2800 4800
+AR Path="/59691952" Ref="U2"  Part="1" 
+AR Path="/5936D89B/59691952" Ref="U2"  Part="1" 
 F 0 "U2" V 3000 4600 60  0000 C CNN
 F 1 "ZXCT1107" V 2550 5100 60  0000 C CNN
 F 2 "footprints:Current_sense-ZXCT1107" H 2800 4800 60  0001 C CNN

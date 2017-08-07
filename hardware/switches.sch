@@ -1,4 +1,5 @@
 EESchema Schematic File Version 2
+LIBS:5v-smart-solar-regulator-rescue
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -30,7 +31,7 @@ LIBS:contrib
 LIBS:valves
 LIBS:open-automation
 LIBS:5v-smart-solar-regulator-cache
-EELAYER 25 0
+EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
@@ -221,7 +222,7 @@ U 1 1 59693837
 P 8000 2550
 F 0 "P5" H 8250 2350 50  0000 C CNN
 F 1 "USB_A_2" H 7950 2750 50  0000 C CNN
-F 2 "footprints:USB_A_2" V 7950 2450 50  0001 C CNN
+F 2 "open-automation:USB_A_2" V 7950 2450 50  0001 C CNN
 F 3 "https://www.digikey.com/product-detail/en/cnc-tech/1002-004-01010/1175-1018-ND/3064749" V 7950 2450 50  0001 C CNN
 F 4 "1002-004-01010" H 8000 2550 60  0001 C CNN "Part Number"
 	1    8000 2550

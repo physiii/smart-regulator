@@ -1,4 +1,5 @@
 EESchema Schematic File Version 2
+LIBS:5v-smart-solar-regulator-rescue
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -30,7 +31,7 @@ LIBS:contrib
 LIBS:valves
 LIBS:open-automation
 LIBS:5v-smart-solar-regulator-cache
-EELAYER 25 0
+EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
@@ -55,7 +56,7 @@ F 3 "" H 4500 2600 50  0000 C CNN
 	1    4500 2600
 	-1   0    0    1   
 $EndComp
-Text GLabel 2600 3300 1    60   Input ~ 0
+Text GLabel 3350 3250 1    60   Input ~ 0
 IO15
 Text GLabel 5050 4600 3    60   Input ~ 0
 IO13
@@ -82,44 +83,28 @@ Text GLabel 4450 2750 0    60   Input ~ 0
 $Comp
 L R R1
 U 1 1 590979AC
-P 2600 3600
-F 0 "R1" V 2680 3600 50  0000 C CNN
-F 1 "10K" V 2600 3600 50  0000 C CNN
-F 2 "Resistors_SMD:R_0603_HandSoldering" V 2530 3600 50  0001 C CNN
-F 3 "http://www.digikey.com/en/resources/datasheets/yageo/rc-series-l-suffix-datasheet" H 2600 3600 50  0001 C CNN
-F 4 "RC0603JR-0710KL" V 2600 3600 60  0001 C CNN "Part Number"
-	1    2600 3600
+P 3350 3550
+F 0 "R1" V 3430 3550 50  0000 C CNN
+F 1 "10K" V 3350 3550 50  0000 C CNN
+F 2 "Resistors_SMD:R_0603_HandSoldering" V 3280 3550 50  0001 C CNN
+F 3 "http://www.digikey.com/en/resources/datasheets/yageo/rc-series-l-suffix-datasheet" H 3350 3550 50  0001 C CNN
+F 4 "RC0603JR-0710KL" V 3350 3550 60  0001 C CNN "Part Number"
+	1    3350 3550
 	1    0    0    -1  
 $EndComp
 $Comp
 L GND #PWR02
 U 1 1 590979AD
-P 2600 3850
-F 0 "#PWR02" H 2600 3600 50  0001 C CNN
-F 1 "GND" H 2600 3700 50  0000 C CNN
-F 2 "" H 2600 3850 50  0000 C CNN
-F 3 "" H 2600 3850 50  0000 C CNN
-	1    2600 3850
+P 3350 3800
+F 0 "#PWR02" H 3350 3550 50  0001 C CNN
+F 1 "GND" H 3350 3650 50  0000 C CNN
+F 2 "" H 3350 3800 50  0000 C CNN
+F 3 "" H 3350 3800 50  0000 C CNN
+	1    3350 3800
 	1    0    0    -1  
 $EndComp
 Text GLabel 5750 4600 3    60   Input ~ 0
 IO15
-Text GLabel 2850 3850 3    60   Input ~ 0
-IO2
-$Comp
-L R R2
-U 1 1 590979AE
-P 2850 3600
-F 0 "R2" V 2930 3600 50  0000 C CNN
-F 1 "10K" V 2850 3600 50  0000 C CNN
-F 2 "Resistors_SMD:R_0603_HandSoldering" V 2780 3600 50  0001 C CNN
-F 3 "http://www.digikey.com/en/resources/datasheets/yageo/rc-series-l-suffix-datasheet" H 2850 3600 50  0001 C CNN
-F 4 "RC0603JR-0710KL" V 2850 3600 60  0001 C CNN "Part Number"
-	1    2850 3600
-	1    0    0    -1  
-$EndComp
-Text GLabel 2850 3250 1    60   Input ~ 0
-3v3
 $Comp
 L ESP-WROOM-32 U1
 U 1 1 590979AF
@@ -392,13 +377,9 @@ Wire Wire Line
 Wire Wire Line
 	4500 2600 4500 2650
 Wire Wire Line
-	2850 3250 2850 3450
+	3350 3700 3350 3800
 Wire Wire Line
-	2850 3850 2850 3750
-Wire Wire Line
-	2600 3750 2600 3850
-Wire Wire Line
-	2600 3300 2600 3450
+	3350 3250 3350 3400
 Wire Wire Line
 	4450 4050 4550 4050
 Wire Wire Line
