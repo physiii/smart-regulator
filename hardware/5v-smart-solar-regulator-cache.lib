@@ -1,13 +1,33 @@
 EESchema-LIBRARY Version 2.3
 #encoding utf-8
 #
+# 100K
+#
+DEF 100K R 0 0 N Y 1 F N
+F0 "R" 80 0 50 V V C CNN
+F1 "100K" 0 0 50 V V C CNN
+F2 "Resistors_SMD:R_0603_HandSoldering" -70 0 50 V I C CNN
+F3 "https://www.digikey.com/product-detail/en/yageo/RC0603JR-07100KL/311-100KGRCT-ND/729645" 80 0 50 V I C CNN
+F4 "RC0603JR-07###L" 180 100 60 V I C CNN "Part Number"
+$FPLIST
+ R_*
+ R_*
+$ENDFPLIST
+DRAW
+S -40 -100 40 100 0 1 10 N
+X ~ 1 0 150 50 D 50 50 1 1 P
+X ~ 2 0 -150 50 U 50 50 1 1 P
+ENDDRAW
+ENDDEF
+#
 # AP2204K-5.0TRG1
 #
 DEF AP2204K-5.0TRG1 U1 0 40 Y Y 1 F N
 F0 "U1" 200 -350 50 H V C CNN
 F1 "AP2204K-5.0TRG1" 0 350 50 H V C CNN
-F2 "" 0 -400 50 H V C CIN
-F3 "" 50 -500 50 H I C CNN
+F2 "TO_SOT_Packages_SMD:SOT-23-5" 0 -400 50 H I C CIN
+F3 "https://www.digikey.com/product-detail/en/diodes-incorporated/AP2204K-5.0TRG1/AP2204K-5.0TRG1DITR-ND/4470810" 50 -500 50 H I C CNN
+F4 "AP2204K-5.0TRG1" 300 -250 60 H I C CNN "Part Number"
 $FPLIST
  SOT-23*
  SOT-23*

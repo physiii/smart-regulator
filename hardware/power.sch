@@ -637,4 +637,16 @@ F 4 "RC0603JR-0782KL" V 7150 4050 60  0001 C CNN "Part Number"
 	1    7150 4050
 	1    0    0    -1  
 $EndComp
+$Comp
+L 100K R?
+U 1 1 5991CC02
+P 6000 3850
+F 0 "R?" V 6080 3850 50  0000 C CNN
+F 1 "100K" V 6000 3850 50  0000 C CNN
+F 2 "Resistors_SMD:R_0603_HandSoldering" V 5930 3850 50  0001 C CNN
+F 3 "https://www.digikey.com/product-detail/en/yageo/RC0603JR-07100KL/311-100KGRCT-ND/729645" V 6080 3850 50  0001 C CNN
+F 4 "RC0603JR-07###L" V 6180 3950 60  0001 C CNN "Part Number"
+	1    6000 3850
+	1    0    0    -1  
+$EndComp
 $EndSCHEMATC
