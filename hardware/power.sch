@@ -31,7 +31,7 @@ LIBS:contrib
 LIBS:valves
 LIBS:open-automation
 LIBS:5v-smart-solar-regulator-cache
-EELAYER 25 0
+EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
@@ -234,10 +234,10 @@ L R R6
 U 1 1 59691C3F
 P 2750 5400
 F 0 "R6" V 2830 5400 50  0000 C CNN
-F 1 "5K" V 2750 5400 50  0000 C CNN
+F 1 "10K" V 2750 5400 50  0000 C CNN
 F 2 "Resistors_SMD:R_0603_HandSoldering" V 2680 5400 50  0001 C CNN
-F 3 "https://www.digikey.com/product-detail/en/yageo/RC0402FR-074K99L/311-4.99KLRCT-ND/2827886" H 2750 5400 50  0001 C CNN
-F 4 "RC0402FR-074K99L" V 2750 5400 60  0001 C CNN "Part Number"
+F 3 "https://www.digikey.com/product-detail/en/yageo/RC0603JR-0710KL/311-10KGRCT-ND/729647" H 2750 5400 50  0001 C CNN
+F 4 "RC0603JR-0710KL" V 2750 5400 60  0001 C CNN "Part Number"
 	1    2750 5400
 	-1   0    0    1   
 $EndComp
@@ -478,6 +478,7 @@ F 0 "U11" H 4950 4800 50  0000 C CNN
 F 1 "SPX1117M3-L-3-3/TR" H 4850 5350 50  0000 C CNN
 F 2 "TO_SOT_Packages_SMD:SOT-223" H 4850 4700 50  0001 C CIN
 F 3 "https://www.digikey.com/product-detail/en/exar-corporation/SPX1117M3-L-3-3-TR/1016-1848-1-ND/3586565" H 4900 4600 50  0001 C CNN
+F 4 " SPX1117M3-L-3-3/TR" H 4850 5100 60  0001 C CNN "Part Number"
 	1    4850 5100
 	1    0    0    -1  
 $EndComp
@@ -635,18 +636,6 @@ F 2 "Resistors_SMD:R_0603_HandSoldering" V 7080 4050 50  0001 C CNN
 F 3 "https://www.digikey.com/product-detail/en/yageo/RC0603JR-0782KL/311-82KGRCT-ND/729782" H 7150 4050 50  0001 C CNN
 F 4 "RC0603JR-0782KL" V 7150 4050 60  0001 C CNN "Part Number"
 	1    7150 4050
-	1    0    0    -1  
-$EndComp
-$Comp
-L 100K R?
-U 1 1 5991CC02
-P 6000 3850
-F 0 "R?" V 6080 3850 50  0000 C CNN
-F 1 "100K" V 6000 3850 50  0000 C CNN
-F 2 "Resistors_SMD:R_0603_HandSoldering" V 5930 3850 50  0001 C CNN
-F 3 "https://www.digikey.com/product-detail/en/yageo/RC0603JR-07100KL/311-100KGRCT-ND/729645" V 6080 3850 50  0001 C CNN
-F 4 "RC0603JR-07###L" V 6180 3950 60  0001 C CNN "Part Number"
-	1    6000 3850
 	1    0    0    -1  
 $EndComp
 $EndSCHEMATC
