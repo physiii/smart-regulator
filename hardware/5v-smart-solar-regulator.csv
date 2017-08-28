@@ -1,12 +1,10 @@
 Reference, Quantity, Value, Footprint, Datasheet, Part Number
 C1,1,100uF,footprints:smd-cap-13.5,https://www.digikey.com/product-detail/en/panasonic-electronic-components/EEV-FK1K101Q/PCE3493CT-ND/396352,EEV-FK1K101Q
 C2,1,1000uF,footprints:smd-cap-13.5,http://www.digikey.com/scripts/DkSearch/dksus.dll?Detail&itemSeq=233251459&uq=636356285176582557,UUG1E102MNQ1MS
-C3,1,4.7uF,Capacitors_SMD:C_0603,https://www.digikey.com/product-detail/en/samsung-electro-mechanics-america-inc/CL10B475KQ8NQNC/1276-2087-1-ND/3890173,CL10B475KQ8NQNC
-C5,1,4.7uF,Capacitors_SMD:C_0603_HandSoldering,http://media.digikey.com/pdf/Data%20Sheets/Samsung%20PDFs/CL_Series_MLCC_ds.pdf,CL10B475KQ8NQNC
+C3 C5,2,4.7uF,Capacitors_SMD:C_0603,https://www.digikey.com/product-detail/en/samsung-electro-mechanics-america-inc/CL10B475KQ8NQNC/1276-2087-1-ND/3890173,CL10B475KQ8NQNC
 D1,1,D_Schottky,Diodes_SMD:D_SMA,http://www.digikey.com/scripts/DkSearch/dksus.dll?Detail&itemSeq=233263850&uq=636356340886764109,B330A-13-F
-D2,1,LED,LEDs:LED_0603,http://www.osram-os.com/Graphics/XPic9/00128792_0.pdf,475-2512-2-ND
+D2 D4,2,LED,LEDs:LED_0603,http://www.osram-os.com/Graphics/XPic9/00128792_0.pdf,475-2512-2-ND
 D3,1,LED,LEDs:LED_D3.0mm,http://www.ttelectronics.com/sites/default/files/download-files/OP993-999_0.pdf,365-1086-ND
-D4,1,LED,Diodes_SMD:D_0603,https://www.digikey.com/product-detail/en/rohm-semiconductor/SML-D12M8WT86/511-1578-1-ND/1641810,SML-D12M8WT86
 J1,1,CONN_02X16,Pin_Headers:Pin_Header_Straight_2x16_Pitch2.54mm,
 J2,1,CONN_01X02,footprints:battery_input,https://www.digikey.com/product-detail/en/phoenix-contact/1934861/277-1607-ND/568644
 L1,1,47uH,footprints:Inductor-SRR1210,http://www.digikey.com/scripts/DkSearch/dksus.dll?Detail&itemSeq=233263448&uq=636356458892291311,SRR1210-470M
@@ -21,7 +19,7 @@ R2 R14 R15 R16,4,1K,Resistors_SMD:R_0603_HandSoldering,http://www.digikey.com/en
 R17,1,22K,Resistors_SMD:R_0603_HandSoldering,http://www.yageo.com/documents/recent/PYu-RC_Group_51_RoHS_L_7.pdf,RC0603JR-0722KL
 R18,1,1M,Resistors_SMD:R_0603_HandSoldering,http://www.yageo.com/documents/recent/PYu-RC_Group_51_RoHS_L_7.pdf,RC0603FR-071ML
 R19,1,180K,Resistors_SMD:R_0603_HandSoldering,http://www.yageo.com/documents/recent/PYu-RC_Group_51_RoHS_L_7.pdf,RC0603JR-07180KL
-R3 R10,2,100K,Resistors_SMD:R_0603_HandSoldering,https://www.digikey.com/product-detail/en/yageo/RC0603JR-07100KL/311-100KGRCT-ND/729645,RC0603JR-07100KL
+R3 R10 R12,3,100K,Resistors_SMD:R_0603_HandSoldering,https://www.digikey.com/product-detail/en/yageo/RC0603JR-07100KL/311-100KGRCT-ND/729645,RC0603JR-07100KL
 R4,1,25K,Resistors_SMD:R_0603_HandSoldering,http://www.digikey.com/scripts/DkSearch/dksus.dll?Detail&itemSeq=233278333&uq=636356414024927194,RC0603FR-0724K9L
 R5,1,50m,Resistors_SMD:R_0805_HandSoldering,https://www.digikey.com/product-detail/en/susumu/RL1220T-R050-J/RL12T.05JCT-ND/567358,RL1220T-R050-J
 R6,1,5K,Resistors_SMD:R_0603_HandSoldering,https://www.digikey.com/product-detail/en/yageo/RC0402FR-074K99L/311-4.99KLRCT-ND/2827886,RC0402FR-074K99L
