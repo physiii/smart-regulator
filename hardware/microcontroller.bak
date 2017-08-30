@@ -175,8 +175,6 @@ Text GLabel 8350 3100 0    60   Input ~ 0
 SENSOR_VP
 Text GLabel 8350 4100 0    60   Input ~ 0
 IO12
-Text GLabel 8350 3900 0    60   Input ~ 0
-IO27
 Text GLabel 8350 3800 0    60   Input ~ 0
 IO26
 Text GLabel 8350 3700 0    60   Input ~ 0
@@ -304,8 +302,6 @@ Wire Wire Line
 	8350 3800 8450 3800
 Wire Wire Line
 	8350 3700 8450 3700
-Wire Wire Line
-	8350 3900 8450 3900
 Wire Wire Line
 	8450 3100 8350 3100
 Wire Wire Line
