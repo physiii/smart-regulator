@@ -1,0 +1,591 @@
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: /home/physiii/esp/xtensa-esp32-elf/bin/../bin/xtensa-esp32-elf-gcc 
+Build flags: -nostdlib;-Wall;-Werror;	-I/home/physiii/circuits/5v-smart-solar-regulator/code/build/include;	-I/home/physiii/esp/esp-idf/components/mdns/include;	-I/home/physiii/esp/esp-idf/components/driver/include;	-I/home/physiii/esp/esp-idf/components/spi_flash/include;	-I/home/physiii/esp/esp-idf/components/nvs_flash/include;	-I/home/physiii/esp/esp-idf/components/tcpip_adapter/include;	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip/posix;	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip;	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip/port;	-I/home/physiii/esp/esp-idf/components/esp32/include/;	-I/home/physiii/esp/esp-idf/components/bootloader_support/include/;	-I/home/physiii/esp/esp-idf/components/app_update/include/;	-I$(IDF_PATH)/components/soc/esp32/include/;	-std=gnu99;-Os;-ggdb;-ffunction-sections;-fdata-sections;-fstrict-volatile-bitfields;-mlongcalls;-nostdlib;-Wall;-Werror=all;-Wno-error=unused-function;-Wno-error=unused-but-set-variable;-Wno-error=unused-variable;-Wno-error=deprecated-declarations;-Wextra;-Wno-unused-parameter;-Wno-sign-compare;-Wno-old-style-declaration;-DWITH_POSIX;-DMBEDTLS_CONFIG_FILE='mbedtls/esp_config.h';-DHAVE_CONFIG_H;-I/home/physiii/circuits/5v-smart-solar-regulator/code/main/../components/libwebsockets/plugins;;-DLWS_IS_FACTORY_APPLICATION=0;-DNDEBUG=1;-Os;	-I/home/physiii/esp/esp-idf/components/nvs_flash/test_nvs_host;	-I/home/physiii/esp/esp-idf/components/freertos/include
+Id flags: 
+
+The output was:
+1
+xtensa-esp32-elf-gcc: error: 	-I/home/physiii/circuits/5v-smart-solar-regulator/code/build/include: No such file or directory
+xtensa-esp32-elf-gcc: error: 	-I/home/physiii/esp/esp-idf/components/mdns/include: No such file or directory
+xtensa-esp32-elf-gcc: error: 	-I/home/physiii/esp/esp-idf/components/driver/include: No such file or directory
+xtensa-esp32-elf-gcc: error: 	-I/home/physiii/esp/esp-idf/components/spi_flash/include: No such file or directory
+xtensa-esp32-elf-gcc: error: 	-I/home/physiii/esp/esp-idf/components/nvs_flash/include: No such file or directory
+xtensa-esp32-elf-gcc: error: 	-I/home/physiii/esp/esp-idf/components/tcpip_adapter/include: No such file or directory
+xtensa-esp32-elf-gcc: error: 	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip/posix: No such file or directory
+xtensa-esp32-elf-gcc: error: 	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip: No such file or directory
+xtensa-esp32-elf-gcc: error: 	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip/port: No such file or directory
+xtensa-esp32-elf-gcc: error: 	-I/home/physiii/esp/esp-idf/components/esp32/include/: No such file or directory
+xtensa-esp32-elf-gcc: error: 	-I/home/physiii/esp/esp-idf/components/bootloader_support/include/: No such file or directory
+xtensa-esp32-elf-gcc: error: 	-I/home/physiii/esp/esp-idf/components/app_update/include/: No such file or directory
+xtensa-esp32-elf-gcc: error: 	-I$(IDF_PATH)/components/soc/esp32/include/: No such file or directory
+xtensa-esp32-elf-gcc: error: 	-std=gnu99: No such file or directory
+xtensa-esp32-elf-gcc: error: 	-I/home/physiii/esp/esp-idf/components/nvs_flash/test_nvs_host: No such file or directory
+xtensa-esp32-elf-gcc: error: 	-I/home/physiii/esp/esp-idf/components/freertos/include: No such file or directory
+
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: /home/physiii/esp/xtensa-esp32-elf/bin/../bin/xtensa-esp32-elf-gcc 
+Build flags: -nostdlib;-Wall;-Werror;	-I/home/physiii/circuits/5v-smart-solar-regulator/code/build/include;	-I/home/physiii/esp/esp-idf/components/mdns/include;	-I/home/physiii/esp/esp-idf/components/driver/include;	-I/home/physiii/esp/esp-idf/components/spi_flash/include;	-I/home/physiii/esp/esp-idf/components/nvs_flash/include;	-I/home/physiii/esp/esp-idf/components/tcpip_adapter/include;	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip/posix;	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip;	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip/port;	-I/home/physiii/esp/esp-idf/components/esp32/include/;	-I/home/physiii/esp/esp-idf/components/bootloader_support/include/;	-I/home/physiii/esp/esp-idf/components/app_update/include/;	-I$(IDF_PATH)/components/soc/esp32/include/;	-std=gnu99;-Os;-ggdb;-ffunction-sections;-fdata-sections;-fstrict-volatile-bitfields;-mlongcalls;-nostdlib;-Wall;-Werror=all;-Wno-error=unused-function;-Wno-error=unused-but-set-variable;-Wno-error=unused-variable;-Wno-error=deprecated-declarations;-Wextra;-Wno-unused-parameter;-Wno-sign-compare;-Wno-old-style-declaration;-DWITH_POSIX;-DMBEDTLS_CONFIG_FILE='mbedtls/esp_config.h';-DHAVE_CONFIG_H;-I/home/physiii/circuits/5v-smart-solar-regulator/code/main/../components/libwebsockets/plugins;;-DLWS_IS_FACTORY_APPLICATION=0;-DNDEBUG=1;-Os;	-I/home/physiii/esp/esp-idf/components/nvs_flash/test_nvs_host;	-I/home/physiii/esp/esp-idf/components/freertos/include
+Id flags: -c
+
+The output was:
+1
+xtensa-esp32-elf-gcc: error: 	-I/home/physiii/circuits/5v-smart-solar-regulator/code/build/include: No such file or directory
+xtensa-esp32-elf-gcc: error: 	-I/home/physiii/esp/esp-idf/components/mdns/include: No such file or directory
+xtensa-esp32-elf-gcc: error: 	-I/home/physiii/esp/esp-idf/components/driver/include: No such file or directory
+xtensa-esp32-elf-gcc: error: 	-I/home/physiii/esp/esp-idf/components/spi_flash/include: No such file or directory
+xtensa-esp32-elf-gcc: error: 	-I/home/physiii/esp/esp-idf/components/nvs_flash/include: No such file or directory
+xtensa-esp32-elf-gcc: error: 	-I/home/physiii/esp/esp-idf/components/tcpip_adapter/include: No such file or directory
+xtensa-esp32-elf-gcc: error: 	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip/posix: No such file or directory
+xtensa-esp32-elf-gcc: error: 	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip: No such file or directory
+xtensa-esp32-elf-gcc: error: 	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip/port: No such file or directory
+xtensa-esp32-elf-gcc: error: 	-I/home/physiii/esp/esp-idf/components/esp32/include/: No such file or directory
+xtensa-esp32-elf-gcc: error: 	-I/home/physiii/esp/esp-idf/components/bootloader_support/include/: No such file or directory
+xtensa-esp32-elf-gcc: error: 	-I/home/physiii/esp/esp-idf/components/app_update/include/: No such file or directory
+xtensa-esp32-elf-gcc: error: 	-I$(IDF_PATH)/components/soc/esp32/include/: No such file or directory
+xtensa-esp32-elf-gcc: error: 	-std=gnu99: No such file or directory
+xtensa-esp32-elf-gcc: error: 	-I/home/physiii/esp/esp-idf/components/nvs_flash/test_nvs_host: No such file or directory
+xtensa-esp32-elf-gcc: error: 	-I/home/physiii/esp/esp-idf/components/freertos/include: No such file or directory
+
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: /home/physiii/esp/xtensa-esp32-elf/bin/../bin/xtensa-esp32-elf-gcc 
+Build flags: -nostdlib;-Wall;-Werror;	-I/home/physiii/circuits/5v-smart-solar-regulator/code/build/include;	-I/home/physiii/esp/esp-idf/components/mdns/include;	-I/home/physiii/esp/esp-idf/components/driver/include;	-I/home/physiii/esp/esp-idf/components/spi_flash/include;	-I/home/physiii/esp/esp-idf/components/nvs_flash/include;	-I/home/physiii/esp/esp-idf/components/tcpip_adapter/include;	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip/posix;	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip;	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip/port;	-I/home/physiii/esp/esp-idf/components/esp32/include/;	-I/home/physiii/esp/esp-idf/components/bootloader_support/include/;	-I/home/physiii/esp/esp-idf/components/app_update/include/;	-I$(IDF_PATH)/components/soc/esp32/include/;	-std=gnu99;-Os;-ggdb;-ffunction-sections;-fdata-sections;-fstrict-volatile-bitfields;-mlongcalls;-nostdlib;-Wall;-Werror=all;-Wno-error=unused-function;-Wno-error=unused-but-set-variable;-Wno-error=unused-variable;-Wno-error=deprecated-declarations;-Wextra;-Wno-unused-parameter;-Wno-sign-compare;-Wno-old-style-declaration;-DWITH_POSIX;-DMBEDTLS_CONFIG_FILE='mbedtls/esp_config.h';-DHAVE_CONFIG_H;-I/home/physiii/circuits/5v-smart-solar-regulator/code/main/../components/libwebsockets/plugins;;-DLWS_IS_FACTORY_APPLICATION=0;-DNDEBUG=1;-Os;	-I/home/physiii/esp/esp-idf/components/nvs_flash/test_nvs_host;	-I/home/physiii/esp/esp-idf/components/freertos/include
+Id flags: -Aa
+
+The output was:
+1
+xtensa-esp32-elf-gcc: error: 	-I/home/physiii/circuits/5v-smart-solar-regulator/code/build/include: No such file or directory
+xtensa-esp32-elf-gcc: error: 	-I/home/physiii/esp/esp-idf/components/mdns/include: No such file or directory
+xtensa-esp32-elf-gcc: error: 	-I/home/physiii/esp/esp-idf/components/driver/include: No such file or directory
+xtensa-esp32-elf-gcc: error: 	-I/home/physiii/esp/esp-idf/components/spi_flash/include: No such file or directory
+xtensa-esp32-elf-gcc: error: 	-I/home/physiii/esp/esp-idf/components/nvs_flash/include: No such file or directory
+xtensa-esp32-elf-gcc: error: 	-I/home/physiii/esp/esp-idf/components/tcpip_adapter/include: No such file or directory
+xtensa-esp32-elf-gcc: error: 	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip/posix: No such file or directory
+xtensa-esp32-elf-gcc: error: 	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip: No such file or directory
+xtensa-esp32-elf-gcc: error: 	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip/port: No such file or directory
+xtensa-esp32-elf-gcc: error: 	-I/home/physiii/esp/esp-idf/components/esp32/include/: No such file or directory
+xtensa-esp32-elf-gcc: error: 	-I/home/physiii/esp/esp-idf/components/bootloader_support/include/: No such file or directory
+xtensa-esp32-elf-gcc: error: 	-I/home/physiii/esp/esp-idf/components/app_update/include/: No such file or directory
+xtensa-esp32-elf-gcc: error: 	-I$(IDF_PATH)/components/soc/esp32/include/: No such file or directory
+xtensa-esp32-elf-gcc: error: 	-std=gnu99: No such file or directory
+xtensa-esp32-elf-gcc: error: 	-I/home/physiii/esp/esp-idf/components/nvs_flash/test_nvs_host: No such file or directory
+xtensa-esp32-elf-gcc: error: 	-I/home/physiii/esp/esp-idf/components/freertos/include: No such file or directory
+
+
+Compiling the C compiler identification source file "CMakeCCompilerId.c" failed.
+Compiler: /home/physiii/esp/xtensa-esp32-elf/bin/../bin/xtensa-esp32-elf-gcc 
+Build flags: -nostdlib;-Wall;-Werror;	-I/home/physiii/circuits/5v-smart-solar-regulator/code/build/include;	-I/home/physiii/esp/esp-idf/components/mdns/include;	-I/home/physiii/esp/esp-idf/components/driver/include;	-I/home/physiii/esp/esp-idf/components/spi_flash/include;	-I/home/physiii/esp/esp-idf/components/nvs_flash/include;	-I/home/physiii/esp/esp-idf/components/tcpip_adapter/include;	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip/posix;	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip;	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip/port;	-I/home/physiii/esp/esp-idf/components/esp32/include/;	-I/home/physiii/esp/esp-idf/components/bootloader_support/include/;	-I/home/physiii/esp/esp-idf/components/app_update/include/;	-I$(IDF_PATH)/components/soc/esp32/include/;	-std=gnu99;-Os;-ggdb;-ffunction-sections;-fdata-sections;-fstrict-volatile-bitfields;-mlongcalls;-nostdlib;-Wall;-Werror=all;-Wno-error=unused-function;-Wno-error=unused-but-set-variable;-Wno-error=unused-variable;-Wno-error=deprecated-declarations;-Wextra;-Wno-unused-parameter;-Wno-sign-compare;-Wno-old-style-declaration;-DWITH_POSIX;-DMBEDTLS_CONFIG_FILE='mbedtls/esp_config.h';-DHAVE_CONFIG_H;-I/home/physiii/circuits/5v-smart-solar-regulator/code/main/../components/libwebsockets/plugins;;-DLWS_IS_FACTORY_APPLICATION=0;-DNDEBUG=1;-Os;	-I/home/physiii/esp/esp-idf/components/nvs_flash/test_nvs_host;	-I/home/physiii/esp/esp-idf/components/freertos/include
+Id flags: -D__CLASSIC_C__
+
+The output was:
+1
+xtensa-esp32-elf-gcc: error: 	-I/home/physiii/circuits/5v-smart-solar-regulator/code/build/include: No such file or directory
+xtensa-esp32-elf-gcc: error: 	-I/home/physiii/esp/esp-idf/components/mdns/include: No such file or directory
+xtensa-esp32-elf-gcc: error: 	-I/home/physiii/esp/esp-idf/components/driver/include: No such file or directory
+xtensa-esp32-elf-gcc: error: 	-I/home/physiii/esp/esp-idf/components/spi_flash/include: No such file or directory
+xtensa-esp32-elf-gcc: error: 	-I/home/physiii/esp/esp-idf/components/nvs_flash/include: No such file or directory
+xtensa-esp32-elf-gcc: error: 	-I/home/physiii/esp/esp-idf/components/tcpip_adapter/include: No such file or directory
+xtensa-esp32-elf-gcc: error: 	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip/posix: No such file or directory
+xtensa-esp32-elf-gcc: error: 	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip: No such file or directory
+xtensa-esp32-elf-gcc: error: 	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip/port: No such file or directory
+xtensa-esp32-elf-gcc: error: 	-I/home/physiii/esp/esp-idf/components/esp32/include/: No such file or directory
+xtensa-esp32-elf-gcc: error: 	-I/home/physiii/esp/esp-idf/components/bootloader_support/include/: No such file or directory
+xtensa-esp32-elf-gcc: error: 	-I/home/physiii/esp/esp-idf/components/app_update/include/: No such file or directory
+xtensa-esp32-elf-gcc: error: 	-I$(IDF_PATH)/components/soc/esp32/include/: No such file or directory
+xtensa-esp32-elf-gcc: error: 	-std=gnu99: No such file or directory
+xtensa-esp32-elf-gcc: error: 	-I/home/physiii/esp/esp-idf/components/nvs_flash/test_nvs_host: No such file or directory
+xtensa-esp32-elf-gcc: error: 	-I/home/physiii/esp/esp-idf/components/freertos/include: No such file or directory
+
+
+Checking whether the C compiler is IAR using "" did not match "IAR .+ Compiler":
+xtensa-esp32-elf-gcc: error: 	-I/home/physiii/circuits/5v-smart-solar-regulator/code/build/include: No such file or directory
+xtensa-esp32-elf-gcc: error: 	-I/home/physiii/esp/esp-idf/components/mdns/include: No such file or directory
+xtensa-esp32-elf-gcc: error: 	-I/home/physiii/esp/esp-idf/components/driver/include: No such file or directory
+xtensa-esp32-elf-gcc: error: 	-I/home/physiii/esp/esp-idf/components/spi_flash/include: No such file or directory
+xtensa-esp32-elf-gcc: error: 	-I/home/physiii/esp/esp-idf/components/nvs_flash/include: No such file or directory
+xtensa-esp32-elf-gcc: error: 	-I/home/physiii/esp/esp-idf/components/tcpip_adapter/include: No such file or directory
+xtensa-esp32-elf-gcc: error: 	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip/posix: No such file or directory
+xtensa-esp32-elf-gcc: error: 	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip: No such file or directory
+xtensa-esp32-elf-gcc: error: 	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip/port: No such file or directory
+xtensa-esp32-elf-gcc: error: 	-I/home/physiii/esp/esp-idf/components/esp32/include/: No such file or directory
+xtensa-esp32-elf-gcc: error: 	-I/home/physiii/esp/esp-idf/components/bootloader_support/include/: No such file or directory
+xtensa-esp32-elf-gcc: error: 	-I/home/physiii/esp/esp-idf/components/app_update/include/: No such file or directory
+xtensa-esp32-elf-gcc: error: 	-I$(IDF_PATH)/components/soc/esp32/include/: No such file or directory
+xtensa-esp32-elf-gcc: error: 	-std=gnu99: No such file or directory
+xtensa-esp32-elf-gcc: error: 	-I/home/physiii/esp/esp-idf/components/nvs_flash/test_nvs_host: No such file or directory
+xtensa-esp32-elf-gcc: error: 	-I/home/physiii/esp/esp-idf/components/freertos/include: No such file or directory
+xtensa-esp32-elf-gcc: fatal error: no input files
+compilation terminated.
+Determining if the function bzero exists failed with the following output:
+Change Dir: /home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_a2d68/fast"
+make[2]: Entering directory '/home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_a2d68.dir/build.make CMakeFiles/cmTC_a2d68.dir/build
+make[3]: Entering directory '/home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_a2d68.dir/CheckFunctionExists.c.o
+/home/physiii/esp/xtensa-esp32-elf/bin/../bin/xtensa-esp32-elf-gcc  -DKEYWORD=__inline  -nostdlib -Wall -Werror 	-I/home/physiii/circuits/5v-smart-solar-regulator/code/build/include 	-I/home/physiii/esp/esp-idf/components/mdns/include 	-I/home/physiii/esp/esp-idf/components/driver/include 	-I/home/physiii/esp/esp-idf/components/spi_flash/include 	-I/home/physiii/esp/esp-idf/components/nvs_flash/include 	-I/home/physiii/esp/esp-idf/components/tcpip_adapter/include 	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip/posix 	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip 	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip/port 	-I/home/physiii/esp/esp-idf/components/esp32/include/ 	-I/home/physiii/esp/esp-idf/components/bootloader_support/include/ 	-I/home/physiii/esp/esp-idf/components/app_update/include/ 	-I/home/physiii/esp/esp-idf/components/soc/esp32/include/ 	-std=gnu99 -Os -ggdb -ffunction-sections -fdata-sections -fstrict-volatile-bitfields -mlongcalls -nostdlib -Wall -Werror=all -Wno-error=unused-function -Wno-error=unused-but-set-variable -Wno-error=unused-variable -Wno-error=deprecated-declarations -Wextra -Wno-unused-parameter -Wno-sign-compare -Wno-old-style-declaration -DWITH_POSIX -DMBEDTLS_CONFIG_FILE='mbedtls/esp_config.h' -DHAVE_CONFIG_H -I/home/physiii/circuits/5v-smart-solar-regulator/code/main/../components/libwebsockets/plugins  -DLWS_IS_FACTORY_APPLICATION=0 -DNDEBUG=1 -Os 	-I/home/physiii/esp/esp-idf/components/nvs_flash/test_nvs_host 	-I/home/physiii/esp/esp-idf/components/freertos/include -DCHECK_FUNCTION_EXISTS=bzero   -o CMakeFiles/cmTC_a2d68.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.7/Modules/CheckFunctionExists.c
+<command-line>:0:23: error: conflicting types for built-in function 'bzero' [-Werror]
+/usr/share/cmake-3.7/Modules/CheckFunctionExists.c:7:3: note: in expansion of macro 'CHECK_FUNCTION_EXISTS'
+   CHECK_FUNCTION_EXISTS();
+   ^
+cc1: all warnings being treated as errors
+CMakeFiles/cmTC_a2d68.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_a2d68.dir/CheckFunctionExists.c.o' failed
+make[3]: *** [CMakeFiles/cmTC_a2d68.dir/CheckFunctionExists.c.o] Error 1
+make[3]: Leaving directory '/home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_a2d68/fast' failed
+make[2]: *** [cmTC_a2d68/fast] Error 2
+make[2]: Leaving directory '/home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp'
+
+
+Determining if the function fork exists failed with the following output:
+Change Dir: /home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_a1c08/fast"
+make[2]: Entering directory '/home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_a1c08.dir/build.make CMakeFiles/cmTC_a1c08.dir/build
+make[3]: Entering directory '/home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_a1c08.dir/CheckFunctionExists.c.o
+/home/physiii/esp/xtensa-esp32-elf/bin/../bin/xtensa-esp32-elf-gcc  -DKEYWORD=__inline  -nostdlib -Wall -Werror 	-I/home/physiii/circuits/5v-smart-solar-regulator/code/build/include 	-I/home/physiii/esp/esp-idf/components/mdns/include 	-I/home/physiii/esp/esp-idf/components/driver/include 	-I/home/physiii/esp/esp-idf/components/spi_flash/include 	-I/home/physiii/esp/esp-idf/components/nvs_flash/include 	-I/home/physiii/esp/esp-idf/components/tcpip_adapter/include 	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip/posix 	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip 	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip/port 	-I/home/physiii/esp/esp-idf/components/esp32/include/ 	-I/home/physiii/esp/esp-idf/components/bootloader_support/include/ 	-I/home/physiii/esp/esp-idf/components/app_update/include/ 	-I/home/physiii/esp/esp-idf/components/soc/esp32/include/ 	-std=gnu99 -Os -ggdb -ffunction-sections -fdata-sections -fstrict-volatile-bitfields -mlongcalls -nostdlib -Wall -Werror=all -Wno-error=unused-function -Wno-error=unused-but-set-variable -Wno-error=unused-variable -Wno-error=deprecated-declarations -Wextra -Wno-unused-parameter -Wno-sign-compare -Wno-old-style-declaration -DWITH_POSIX -DMBEDTLS_CONFIG_FILE='mbedtls/esp_config.h' -DHAVE_CONFIG_H -I/home/physiii/circuits/5v-smart-solar-regulator/code/main/../components/libwebsockets/plugins  -DLWS_IS_FACTORY_APPLICATION=0 -DNDEBUG=1 -Os 	-I/home/physiii/esp/esp-idf/components/nvs_flash/test_nvs_host 	-I/home/physiii/esp/esp-idf/components/freertos/include -DCHECK_FUNCTION_EXISTS=fork   -o CMakeFiles/cmTC_a1c08.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.7/Modules/CheckFunctionExists.c
+<command-line>:0:23: error: conflicting types for built-in function 'fork' [-Werror]
+/usr/share/cmake-3.7/Modules/CheckFunctionExists.c:7:3: note: in expansion of macro 'CHECK_FUNCTION_EXISTS'
+   CHECK_FUNCTION_EXISTS();
+   ^
+cc1: all warnings being treated as errors
+CMakeFiles/cmTC_a1c08.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_a1c08.dir/CheckFunctionExists.c.o' failed
+make[3]: *** [CMakeFiles/cmTC_a1c08.dir/CheckFunctionExists.c.o] Error 1
+make[3]: Leaving directory '/home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_a1c08/fast' failed
+make[2]: *** [cmTC_a1c08/fast] Error 2
+make[2]: Leaving directory '/home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp'
+
+
+Determining if the function getenv exists failed with the following output:
+Change Dir: /home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_f290b/fast"
+make[2]: Entering directory '/home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_f290b.dir/build.make CMakeFiles/cmTC_f290b.dir/build
+make[3]: Entering directory '/home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_f290b.dir/CheckFunctionExists.c.o
+/home/physiii/esp/xtensa-esp32-elf/bin/../bin/xtensa-esp32-elf-gcc  -DKEYWORD=__inline  -nostdlib -Wall -Werror 	-I/home/physiii/circuits/5v-smart-solar-regulator/code/build/include 	-I/home/physiii/esp/esp-idf/components/mdns/include 	-I/home/physiii/esp/esp-idf/components/driver/include 	-I/home/physiii/esp/esp-idf/components/spi_flash/include 	-I/home/physiii/esp/esp-idf/components/nvs_flash/include 	-I/home/physiii/esp/esp-idf/components/tcpip_adapter/include 	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip/posix 	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip 	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip/port 	-I/home/physiii/esp/esp-idf/components/esp32/include/ 	-I/home/physiii/esp/esp-idf/components/bootloader_support/include/ 	-I/home/physiii/esp/esp-idf/components/app_update/include/ 	-I/home/physiii/esp/esp-idf/components/soc/esp32/include/ 	-std=gnu99 -Os -ggdb -ffunction-sections -fdata-sections -fstrict-volatile-bitfields -mlongcalls -nostdlib -Wall -Werror=all -Wno-error=unused-function -Wno-error=unused-but-set-variable -Wno-error=unused-variable -Wno-error=deprecated-declarations -Wextra -Wno-unused-parameter -Wno-sign-compare -Wno-old-style-declaration -DWITH_POSIX -DMBEDTLS_CONFIG_FILE='mbedtls/esp_config.h' -DHAVE_CONFIG_H -I/home/physiii/circuits/5v-smart-solar-regulator/code/main/../components/libwebsockets/plugins  -DLWS_IS_FACTORY_APPLICATION=0 -DNDEBUG=1 -Os 	-I/home/physiii/esp/esp-idf/components/nvs_flash/test_nvs_host 	-I/home/physiii/esp/esp-idf/components/freertos/include -DCHECK_FUNCTION_EXISTS=getenv   -o CMakeFiles/cmTC_f290b.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.7/Modules/CheckFunctionExists.c
+Linking C executable cmTC_f290b
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f290b.dir/link.txt --verbose=1
+/home/physiii/esp/xtensa-esp32-elf/bin/../bin/xtensa-esp32-elf-gcc  -nostdlib -Wall -Werror 	-I/home/physiii/circuits/5v-smart-solar-regulator/code/build/include 	-I/home/physiii/esp/esp-idf/components/mdns/include 	-I/home/physiii/esp/esp-idf/components/driver/include 	-I/home/physiii/esp/esp-idf/components/spi_flash/include 	-I/home/physiii/esp/esp-idf/components/nvs_flash/include 	-I/home/physiii/esp/esp-idf/components/tcpip_adapter/include 	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip/posix 	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip 	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip/port 	-I/home/physiii/esp/esp-idf/components/esp32/include/ 	-I/home/physiii/esp/esp-idf/components/bootloader_support/include/ 	-I/home/physiii/esp/esp-idf/components/app_update/include/ 	-I$(IDF_PATH)/components/soc/esp32/include/ 	-std=gnu99 -Os -ggdb -ffunction-sections -fdata-sections -fstrict-volatile-bitfields -mlongcalls -nostdlib -Wall -Werror=all -Wno-error=unused-function -Wno-error=unused-but-set-variable -Wno-error=unused-variable -Wno-error=deprecated-declarations -Wextra -Wno-unused-parameter -Wno-sign-compare -Wno-old-style-declaration -DWITH_POSIX -DMBEDTLS_CONFIG_FILE='mbedtls/esp_config.h' -DHAVE_CONFIG_H -I/home/physiii/circuits/5v-smart-solar-regulator/code/main/../components/libwebsockets/plugins  -DLWS_IS_FACTORY_APPLICATION=0 -DNDEBUG=1 -Os 	-I/home/physiii/esp/esp-idf/components/nvs_flash/test_nvs_host 	-I/home/physiii/esp/esp-idf/components/freertos/include -DCHECK_FUNCTION_EXISTS=getenv    CMakeFiles/cmTC_f290b.dir/CheckFunctionExists.c.o  -o cmTC_f290b  
+/home/physiii/esp/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/5.2.0/../../../../xtensa-esp32-elf/bin/ld: warning: cannot find entry symbol _start; defaulting to 0000000000400054
+CMakeFiles/cmTC_f290b.dir/CheckFunctionExists.c.o:(.literal.startup.main+0x0): undefined reference to `getenv'
+CMakeFiles/cmTC_f290b.dir/CheckFunctionExists.c.o: In function `main':
+/usr/share/cmake-3.7/Modules/CheckFunctionExists.c:17: undefined reference to `getenv'
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_f290b.dir/build.make:97: recipe for target 'cmTC_f290b' failed
+make[3]: *** [cmTC_f290b] Error 1
+make[3]: Leaving directory '/home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_f290b/fast' failed
+make[2]: *** [cmTC_f290b/fast] Error 2
+make[2]: Leaving directory '/home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp'
+
+
+Determining if the function memset exists failed with the following output:
+Change Dir: /home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_e4c66/fast"
+make[2]: Entering directory '/home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_e4c66.dir/build.make CMakeFiles/cmTC_e4c66.dir/build
+make[3]: Entering directory '/home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_e4c66.dir/CheckFunctionExists.c.o
+/home/physiii/esp/xtensa-esp32-elf/bin/../bin/xtensa-esp32-elf-gcc  -DKEYWORD=__inline  -nostdlib -Wall -Werror 	-I/home/physiii/circuits/5v-smart-solar-regulator/code/build/include 	-I/home/physiii/esp/esp-idf/components/mdns/include 	-I/home/physiii/esp/esp-idf/components/driver/include 	-I/home/physiii/esp/esp-idf/components/spi_flash/include 	-I/home/physiii/esp/esp-idf/components/nvs_flash/include 	-I/home/physiii/esp/esp-idf/components/tcpip_adapter/include 	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip/posix 	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip 	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip/port 	-I/home/physiii/esp/esp-idf/components/esp32/include/ 	-I/home/physiii/esp/esp-idf/components/bootloader_support/include/ 	-I/home/physiii/esp/esp-idf/components/app_update/include/ 	-I/home/physiii/esp/esp-idf/components/soc/esp32/include/ 	-std=gnu99 -Os -ggdb -ffunction-sections -fdata-sections -fstrict-volatile-bitfields -mlongcalls -nostdlib -Wall -Werror=all -Wno-error=unused-function -Wno-error=unused-but-set-variable -Wno-error=unused-variable -Wno-error=deprecated-declarations -Wextra -Wno-unused-parameter -Wno-sign-compare -Wno-old-style-declaration -DWITH_POSIX -DMBEDTLS_CONFIG_FILE='mbedtls/esp_config.h' -DHAVE_CONFIG_H -I/home/physiii/circuits/5v-smart-solar-regulator/code/main/../components/libwebsockets/plugins  -DLWS_IS_FACTORY_APPLICATION=0 -DNDEBUG=1 -Os 	-I/home/physiii/esp/esp-idf/components/nvs_flash/test_nvs_host 	-I/home/physiii/esp/esp-idf/components/freertos/include -DCHECK_FUNCTION_EXISTS=memset   -o CMakeFiles/cmTC_e4c66.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.7/Modules/CheckFunctionExists.c
+<command-line>:0:23: error: conflicting types for built-in function 'memset' [-Werror]
+/usr/share/cmake-3.7/Modules/CheckFunctionExists.c:7:3: note: in expansion of macro 'CHECK_FUNCTION_EXISTS'
+   CHECK_FUNCTION_EXISTS();
+   ^
+cc1: all warnings being treated as errors
+CMakeFiles/cmTC_e4c66.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_e4c66.dir/CheckFunctionExists.c.o' failed
+make[3]: *** [CMakeFiles/cmTC_e4c66.dir/CheckFunctionExists.c.o] Error 1
+make[3]: Leaving directory '/home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_e4c66/fast' failed
+make[2]: *** [cmTC_e4c66/fast] Error 2
+make[2]: Leaving directory '/home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp'
+
+
+Determining if the function socket exists failed with the following output:
+Change Dir: /home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_fe6a1/fast"
+make[2]: Entering directory '/home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_fe6a1.dir/build.make CMakeFiles/cmTC_fe6a1.dir/build
+make[3]: Entering directory '/home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_fe6a1.dir/CheckFunctionExists.c.o
+/home/physiii/esp/xtensa-esp32-elf/bin/../bin/xtensa-esp32-elf-gcc  -DKEYWORD=__inline  -nostdlib -Wall -Werror 	-I/home/physiii/circuits/5v-smart-solar-regulator/code/build/include 	-I/home/physiii/esp/esp-idf/components/mdns/include 	-I/home/physiii/esp/esp-idf/components/driver/include 	-I/home/physiii/esp/esp-idf/components/spi_flash/include 	-I/home/physiii/esp/esp-idf/components/nvs_flash/include 	-I/home/physiii/esp/esp-idf/components/tcpip_adapter/include 	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip/posix 	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip 	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip/port 	-I/home/physiii/esp/esp-idf/components/esp32/include/ 	-I/home/physiii/esp/esp-idf/components/bootloader_support/include/ 	-I/home/physiii/esp/esp-idf/components/app_update/include/ 	-I/home/physiii/esp/esp-idf/components/soc/esp32/include/ 	-std=gnu99 -Os -ggdb -ffunction-sections -fdata-sections -fstrict-volatile-bitfields -mlongcalls -nostdlib -Wall -Werror=all -Wno-error=unused-function -Wno-error=unused-but-set-variable -Wno-error=unused-variable -Wno-error=deprecated-declarations -Wextra -Wno-unused-parameter -Wno-sign-compare -Wno-old-style-declaration -DWITH_POSIX -DMBEDTLS_CONFIG_FILE='mbedtls/esp_config.h' -DHAVE_CONFIG_H -I/home/physiii/circuits/5v-smart-solar-regulator/code/main/../components/libwebsockets/plugins  -DLWS_IS_FACTORY_APPLICATION=0 -DNDEBUG=1 -Os 	-I/home/physiii/esp/esp-idf/components/nvs_flash/test_nvs_host 	-I/home/physiii/esp/esp-idf/components/freertos/include -DCHECK_FUNCTION_EXISTS=socket   -o CMakeFiles/cmTC_fe6a1.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.7/Modules/CheckFunctionExists.c
+Linking C executable cmTC_fe6a1
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_fe6a1.dir/link.txt --verbose=1
+/home/physiii/esp/xtensa-esp32-elf/bin/../bin/xtensa-esp32-elf-gcc  -nostdlib -Wall -Werror 	-I/home/physiii/circuits/5v-smart-solar-regulator/code/build/include 	-I/home/physiii/esp/esp-idf/components/mdns/include 	-I/home/physiii/esp/esp-idf/components/driver/include 	-I/home/physiii/esp/esp-idf/components/spi_flash/include 	-I/home/physiii/esp/esp-idf/components/nvs_flash/include 	-I/home/physiii/esp/esp-idf/components/tcpip_adapter/include 	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip/posix 	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip 	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip/port 	-I/home/physiii/esp/esp-idf/components/esp32/include/ 	-I/home/physiii/esp/esp-idf/components/bootloader_support/include/ 	-I/home/physiii/esp/esp-idf/components/app_update/include/ 	-I$(IDF_PATH)/components/soc/esp32/include/ 	-std=gnu99 -Os -ggdb -ffunction-sections -fdata-sections -fstrict-volatile-bitfields -mlongcalls -nostdlib -Wall -Werror=all -Wno-error=unused-function -Wno-error=unused-but-set-variable -Wno-error=unused-variable -Wno-error=deprecated-declarations -Wextra -Wno-unused-parameter -Wno-sign-compare -Wno-old-style-declaration -DWITH_POSIX -DMBEDTLS_CONFIG_FILE='mbedtls/esp_config.h' -DHAVE_CONFIG_H -I/home/physiii/circuits/5v-smart-solar-regulator/code/main/../components/libwebsockets/plugins  -DLWS_IS_FACTORY_APPLICATION=0 -DNDEBUG=1 -Os 	-I/home/physiii/esp/esp-idf/components/nvs_flash/test_nvs_host 	-I/home/physiii/esp/esp-idf/components/freertos/include -DCHECK_FUNCTION_EXISTS=socket    CMakeFiles/cmTC_fe6a1.dir/CheckFunctionExists.c.o  -o cmTC_fe6a1  
+/home/physiii/esp/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/5.2.0/../../../../xtensa-esp32-elf/bin/ld: warning: cannot find entry symbol _start; defaulting to 0000000000400054
+CMakeFiles/cmTC_fe6a1.dir/CheckFunctionExists.c.o:(.literal.startup.main+0x0): undefined reference to `socket'
+CMakeFiles/cmTC_fe6a1.dir/CheckFunctionExists.c.o: In function `main':
+/usr/share/cmake-3.7/Modules/CheckFunctionExists.c:17: undefined reference to `socket'
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_fe6a1.dir/build.make:97: recipe for target 'cmTC_fe6a1' failed
+make[3]: *** [cmTC_fe6a1] Error 1
+make[3]: Leaving directory '/home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_fe6a1/fast' failed
+make[2]: *** [cmTC_fe6a1/fast] Error 2
+make[2]: Leaving directory '/home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp'
+
+
+Determining if the function strerror exists failed with the following output:
+Change Dir: /home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_3ff95/fast"
+make[2]: Entering directory '/home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_3ff95.dir/build.make CMakeFiles/cmTC_3ff95.dir/build
+make[3]: Entering directory '/home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_3ff95.dir/CheckFunctionExists.c.o
+/home/physiii/esp/xtensa-esp32-elf/bin/../bin/xtensa-esp32-elf-gcc  -DKEYWORD=__inline  -nostdlib -Wall -Werror 	-I/home/physiii/circuits/5v-smart-solar-regulator/code/build/include 	-I/home/physiii/esp/esp-idf/components/mdns/include 	-I/home/physiii/esp/esp-idf/components/driver/include 	-I/home/physiii/esp/esp-idf/components/spi_flash/include 	-I/home/physiii/esp/esp-idf/components/nvs_flash/include 	-I/home/physiii/esp/esp-idf/components/tcpip_adapter/include 	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip/posix 	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip 	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip/port 	-I/home/physiii/esp/esp-idf/components/esp32/include/ 	-I/home/physiii/esp/esp-idf/components/bootloader_support/include/ 	-I/home/physiii/esp/esp-idf/components/app_update/include/ 	-I/home/physiii/esp/esp-idf/components/soc/esp32/include/ 	-std=gnu99 -Os -ggdb -ffunction-sections -fdata-sections -fstrict-volatile-bitfields -mlongcalls -nostdlib -Wall -Werror=all -Wno-error=unused-function -Wno-error=unused-but-set-variable -Wno-error=unused-variable -Wno-error=deprecated-declarations -Wextra -Wno-unused-parameter -Wno-sign-compare -Wno-old-style-declaration -DWITH_POSIX -DMBEDTLS_CONFIG_FILE='mbedtls/esp_config.h' -DHAVE_CONFIG_H -I/home/physiii/circuits/5v-smart-solar-regulator/code/main/../components/libwebsockets/plugins  -DLWS_IS_FACTORY_APPLICATION=0 -DNDEBUG=1 -Os 	-I/home/physiii/esp/esp-idf/components/nvs_flash/test_nvs_host 	-I/home/physiii/esp/esp-idf/components/freertos/include -DCHECK_FUNCTION_EXISTS=strerror   -o CMakeFiles/cmTC_3ff95.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.7/Modules/CheckFunctionExists.c
+Linking C executable cmTC_3ff95
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3ff95.dir/link.txt --verbose=1
+/home/physiii/esp/xtensa-esp32-elf/bin/../bin/xtensa-esp32-elf-gcc  -nostdlib -Wall -Werror 	-I/home/physiii/circuits/5v-smart-solar-regulator/code/build/include 	-I/home/physiii/esp/esp-idf/components/mdns/include 	-I/home/physiii/esp/esp-idf/components/driver/include 	-I/home/physiii/esp/esp-idf/components/spi_flash/include 	-I/home/physiii/esp/esp-idf/components/nvs_flash/include 	-I/home/physiii/esp/esp-idf/components/tcpip_adapter/include 	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip/posix 	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip 	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip/port 	-I/home/physiii/esp/esp-idf/components/esp32/include/ 	-I/home/physiii/esp/esp-idf/components/bootloader_support/include/ 	-I/home/physiii/esp/esp-idf/components/app_update/include/ 	-I$(IDF_PATH)/components/soc/esp32/include/ 	-std=gnu99 -Os -ggdb -ffunction-sections -fdata-sections -fstrict-volatile-bitfields -mlongcalls -nostdlib -Wall -Werror=all -Wno-error=unused-function -Wno-error=unused-but-set-variable -Wno-error=unused-variable -Wno-error=deprecated-declarations -Wextra -Wno-unused-parameter -Wno-sign-compare -Wno-old-style-declaration -DWITH_POSIX -DMBEDTLS_CONFIG_FILE='mbedtls/esp_config.h' -DHAVE_CONFIG_H -I/home/physiii/circuits/5v-smart-solar-regulator/code/main/../components/libwebsockets/plugins  -DLWS_IS_FACTORY_APPLICATION=0 -DNDEBUG=1 -Os 	-I/home/physiii/esp/esp-idf/components/nvs_flash/test_nvs_host 	-I/home/physiii/esp/esp-idf/components/freertos/include -DCHECK_FUNCTION_EXISTS=strerror    CMakeFiles/cmTC_3ff95.dir/CheckFunctionExists.c.o  -o cmTC_3ff95  
+/home/physiii/esp/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/5.2.0/../../../../xtensa-esp32-elf/bin/ld: warning: cannot find entry symbol _start; defaulting to 0000000000400054
+CMakeFiles/cmTC_3ff95.dir/CheckFunctionExists.c.o:(.literal.startup.main+0x0): undefined reference to `strerror'
+CMakeFiles/cmTC_3ff95.dir/CheckFunctionExists.c.o: In function `main':
+/usr/share/cmake-3.7/Modules/CheckFunctionExists.c:17: undefined reference to `strerror'
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_3ff95.dir/build.make:97: recipe for target 'cmTC_3ff95' failed
+make[3]: *** [cmTC_3ff95] Error 1
+make[3]: Leaving directory '/home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_3ff95/fast' failed
+make[2]: *** [cmTC_3ff95/fast] Error 2
+make[2]: Leaving directory '/home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp'
+
+
+Determining if the function vfork exists failed with the following output:
+Change Dir: /home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_ac33e/fast"
+make[2]: Entering directory '/home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_ac33e.dir/build.make CMakeFiles/cmTC_ac33e.dir/build
+make[3]: Entering directory '/home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_ac33e.dir/CheckFunctionExists.c.o
+/home/physiii/esp/xtensa-esp32-elf/bin/../bin/xtensa-esp32-elf-gcc  -DKEYWORD=__inline  -nostdlib -Wall -Werror 	-I/home/physiii/circuits/5v-smart-solar-regulator/code/build/include 	-I/home/physiii/esp/esp-idf/components/mdns/include 	-I/home/physiii/esp/esp-idf/components/driver/include 	-I/home/physiii/esp/esp-idf/components/spi_flash/include 	-I/home/physiii/esp/esp-idf/components/nvs_flash/include 	-I/home/physiii/esp/esp-idf/components/tcpip_adapter/include 	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip/posix 	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip 	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip/port 	-I/home/physiii/esp/esp-idf/components/esp32/include/ 	-I/home/physiii/esp/esp-idf/components/bootloader_support/include/ 	-I/home/physiii/esp/esp-idf/components/app_update/include/ 	-I/home/physiii/esp/esp-idf/components/soc/esp32/include/ 	-std=gnu99 -Os -ggdb -ffunction-sections -fdata-sections -fstrict-volatile-bitfields -mlongcalls -nostdlib -Wall -Werror=all -Wno-error=unused-function -Wno-error=unused-but-set-variable -Wno-error=unused-variable -Wno-error=deprecated-declarations -Wextra -Wno-unused-parameter -Wno-sign-compare -Wno-old-style-declaration -DWITH_POSIX -DMBEDTLS_CONFIG_FILE='mbedtls/esp_config.h' -DHAVE_CONFIG_H -I/home/physiii/circuits/5v-smart-solar-regulator/code/main/../components/libwebsockets/plugins  -DLWS_IS_FACTORY_APPLICATION=0 -DNDEBUG=1 -Os 	-I/home/physiii/esp/esp-idf/components/nvs_flash/test_nvs_host 	-I/home/physiii/esp/esp-idf/components/freertos/include -DCHECK_FUNCTION_EXISTS=vfork   -o CMakeFiles/cmTC_ac33e.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.7/Modules/CheckFunctionExists.c
+Linking C executable cmTC_ac33e
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ac33e.dir/link.txt --verbose=1
+/home/physiii/esp/xtensa-esp32-elf/bin/../bin/xtensa-esp32-elf-gcc  -nostdlib -Wall -Werror 	-I/home/physiii/circuits/5v-smart-solar-regulator/code/build/include 	-I/home/physiii/esp/esp-idf/components/mdns/include 	-I/home/physiii/esp/esp-idf/components/driver/include 	-I/home/physiii/esp/esp-idf/components/spi_flash/include 	-I/home/physiii/esp/esp-idf/components/nvs_flash/include 	-I/home/physiii/esp/esp-idf/components/tcpip_adapter/include 	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip/posix 	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip 	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip/port 	-I/home/physiii/esp/esp-idf/components/esp32/include/ 	-I/home/physiii/esp/esp-idf/components/bootloader_support/include/ 	-I/home/physiii/esp/esp-idf/components/app_update/include/ 	-I$(IDF_PATH)/components/soc/esp32/include/ 	-std=gnu99 -Os -ggdb -ffunction-sections -fdata-sections -fstrict-volatile-bitfields -mlongcalls -nostdlib -Wall -Werror=all -Wno-error=unused-function -Wno-error=unused-but-set-variable -Wno-error=unused-variable -Wno-error=deprecated-declarations -Wextra -Wno-unused-parameter -Wno-sign-compare -Wno-old-style-declaration -DWITH_POSIX -DMBEDTLS_CONFIG_FILE='mbedtls/esp_config.h' -DHAVE_CONFIG_H -I/home/physiii/circuits/5v-smart-solar-regulator/code/main/../components/libwebsockets/plugins  -DLWS_IS_FACTORY_APPLICATION=0 -DNDEBUG=1 -Os 	-I/home/physiii/esp/esp-idf/components/nvs_flash/test_nvs_host 	-I/home/physiii/esp/esp-idf/components/freertos/include -DCHECK_FUNCTION_EXISTS=vfork    CMakeFiles/cmTC_ac33e.dir/CheckFunctionExists.c.o  -o cmTC_ac33e  
+/home/physiii/esp/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/5.2.0/../../../../xtensa-esp32-elf/bin/ld: warning: cannot find entry symbol _start; defaulting to 0000000000400054
+CMakeFiles/cmTC_ac33e.dir/CheckFunctionExists.c.o:(.literal.startup.main+0x0): undefined reference to `vfork'
+CMakeFiles/cmTC_ac33e.dir/CheckFunctionExists.c.o: In function `main':
+/usr/share/cmake-3.7/Modules/CheckFunctionExists.c:17: undefined reference to `vfork'
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_ac33e.dir/build.make:97: recipe for target 'cmTC_ac33e' failed
+make[3]: *** [cmTC_ac33e] Error 1
+make[3]: Leaving directory '/home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_ac33e/fast' failed
+make[2]: *** [cmTC_ac33e/fast] Error 2
+make[2]: Leaving directory '/home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp'
+
+
+Determining if the function execvpe exists failed with the following output:
+Change Dir: /home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_496ad/fast"
+make[2]: Entering directory '/home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_496ad.dir/build.make CMakeFiles/cmTC_496ad.dir/build
+make[3]: Entering directory '/home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_496ad.dir/CheckFunctionExists.c.o
+/home/physiii/esp/xtensa-esp32-elf/bin/../bin/xtensa-esp32-elf-gcc  -DKEYWORD=__inline  -nostdlib -Wall -Werror 	-I/home/physiii/circuits/5v-smart-solar-regulator/code/build/include 	-I/home/physiii/esp/esp-idf/components/mdns/include 	-I/home/physiii/esp/esp-idf/components/driver/include 	-I/home/physiii/esp/esp-idf/components/spi_flash/include 	-I/home/physiii/esp/esp-idf/components/nvs_flash/include 	-I/home/physiii/esp/esp-idf/components/tcpip_adapter/include 	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip/posix 	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip 	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip/port 	-I/home/physiii/esp/esp-idf/components/esp32/include/ 	-I/home/physiii/esp/esp-idf/components/bootloader_support/include/ 	-I/home/physiii/esp/esp-idf/components/app_update/include/ 	-I/home/physiii/esp/esp-idf/components/soc/esp32/include/ 	-std=gnu99 -Os -ggdb -ffunction-sections -fdata-sections -fstrict-volatile-bitfields -mlongcalls -nostdlib -Wall -Werror=all -Wno-error=unused-function -Wno-error=unused-but-set-variable -Wno-error=unused-variable -Wno-error=deprecated-declarations -Wextra -Wno-unused-parameter -Wno-sign-compare -Wno-old-style-declaration -DWITH_POSIX -DMBEDTLS_CONFIG_FILE='mbedtls/esp_config.h' -DHAVE_CONFIG_H -I/home/physiii/circuits/5v-smart-solar-regulator/code/main/../components/libwebsockets/plugins  -DLWS_IS_FACTORY_APPLICATION=0 -DNDEBUG=1 -Os 	-I/home/physiii/esp/esp-idf/components/nvs_flash/test_nvs_host 	-I/home/physiii/esp/esp-idf/components/freertos/include -DCHECK_FUNCTION_EXISTS=execvpe   -o CMakeFiles/cmTC_496ad.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.7/Modules/CheckFunctionExists.c
+Linking C executable cmTC_496ad
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_496ad.dir/link.txt --verbose=1
+/home/physiii/esp/xtensa-esp32-elf/bin/../bin/xtensa-esp32-elf-gcc  -nostdlib -Wall -Werror 	-I/home/physiii/circuits/5v-smart-solar-regulator/code/build/include 	-I/home/physiii/esp/esp-idf/components/mdns/include 	-I/home/physiii/esp/esp-idf/components/driver/include 	-I/home/physiii/esp/esp-idf/components/spi_flash/include 	-I/home/physiii/esp/esp-idf/components/nvs_flash/include 	-I/home/physiii/esp/esp-idf/components/tcpip_adapter/include 	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip/posix 	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip 	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip/port 	-I/home/physiii/esp/esp-idf/components/esp32/include/ 	-I/home/physiii/esp/esp-idf/components/bootloader_support/include/ 	-I/home/physiii/esp/esp-idf/components/app_update/include/ 	-I$(IDF_PATH)/components/soc/esp32/include/ 	-std=gnu99 -Os -ggdb -ffunction-sections -fdata-sections -fstrict-volatile-bitfields -mlongcalls -nostdlib -Wall -Werror=all -Wno-error=unused-function -Wno-error=unused-but-set-variable -Wno-error=unused-variable -Wno-error=deprecated-declarations -Wextra -Wno-unused-parameter -Wno-sign-compare -Wno-old-style-declaration -DWITH_POSIX -DMBEDTLS_CONFIG_FILE='mbedtls/esp_config.h' -DHAVE_CONFIG_H -I/home/physiii/circuits/5v-smart-solar-regulator/code/main/../components/libwebsockets/plugins  -DLWS_IS_FACTORY_APPLICATION=0 -DNDEBUG=1 -Os 	-I/home/physiii/esp/esp-idf/components/nvs_flash/test_nvs_host 	-I/home/physiii/esp/esp-idf/components/freertos/include -DCHECK_FUNCTION_EXISTS=execvpe    CMakeFiles/cmTC_496ad.dir/CheckFunctionExists.c.o  -o cmTC_496ad  
+/home/physiii/esp/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/5.2.0/../../../../xtensa-esp32-elf/bin/ld: warning: cannot find entry symbol _start; defaulting to 0000000000400054
+CMakeFiles/cmTC_496ad.dir/CheckFunctionExists.c.o:(.literal.startup.main+0x0): undefined reference to `execvpe'
+CMakeFiles/cmTC_496ad.dir/CheckFunctionExists.c.o: In function `main':
+/usr/share/cmake-3.7/Modules/CheckFunctionExists.c:17: undefined reference to `execvpe'
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_496ad.dir/build.make:97: recipe for target 'cmTC_496ad' failed
+make[3]: *** [cmTC_496ad] Error 1
+make[3]: Leaving directory '/home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_496ad/fast' failed
+make[2]: *** [cmTC_496ad/fast] Error 2
+make[2]: Leaving directory '/home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp'
+
+
+Determining if the function snprintf exists failed with the following output:
+Change Dir: /home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_41ea3/fast"
+make[2]: Entering directory '/home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_41ea3.dir/build.make CMakeFiles/cmTC_41ea3.dir/build
+make[3]: Entering directory '/home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_41ea3.dir/CheckFunctionExists.c.o
+/home/physiii/esp/xtensa-esp32-elf/bin/../bin/xtensa-esp32-elf-gcc  -DKEYWORD=__inline  -nostdlib -Wall -Werror 	-I/home/physiii/circuits/5v-smart-solar-regulator/code/build/include 	-I/home/physiii/esp/esp-idf/components/mdns/include 	-I/home/physiii/esp/esp-idf/components/driver/include 	-I/home/physiii/esp/esp-idf/components/spi_flash/include 	-I/home/physiii/esp/esp-idf/components/nvs_flash/include 	-I/home/physiii/esp/esp-idf/components/tcpip_adapter/include 	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip/posix 	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip 	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip/port 	-I/home/physiii/esp/esp-idf/components/esp32/include/ 	-I/home/physiii/esp/esp-idf/components/bootloader_support/include/ 	-I/home/physiii/esp/esp-idf/components/app_update/include/ 	-I/home/physiii/esp/esp-idf/components/soc/esp32/include/ 	-std=gnu99 -Os -ggdb -ffunction-sections -fdata-sections -fstrict-volatile-bitfields -mlongcalls -nostdlib -Wall -Werror=all -Wno-error=unused-function -Wno-error=unused-but-set-variable -Wno-error=unused-variable -Wno-error=deprecated-declarations -Wextra -Wno-unused-parameter -Wno-sign-compare -Wno-old-style-declaration -DWITH_POSIX -DMBEDTLS_CONFIG_FILE='mbedtls/esp_config.h' -DHAVE_CONFIG_H -I/home/physiii/circuits/5v-smart-solar-regulator/code/main/../components/libwebsockets/plugins  -DLWS_IS_FACTORY_APPLICATION=0 -DNDEBUG=1 -Os 	-I/home/physiii/esp/esp-idf/components/nvs_flash/test_nvs_host 	-I/home/physiii/esp/esp-idf/components/freertos/include -DCHECK_FUNCTION_EXISTS=snprintf   -o CMakeFiles/cmTC_41ea3.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.7/Modules/CheckFunctionExists.c
+<command-line>:0:23: error: conflicting types for built-in function 'snprintf' [-Werror]
+/usr/share/cmake-3.7/Modules/CheckFunctionExists.c:7:3: note: in expansion of macro 'CHECK_FUNCTION_EXISTS'
+   CHECK_FUNCTION_EXISTS();
+   ^
+cc1: all warnings being treated as errors
+CMakeFiles/cmTC_41ea3.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_41ea3.dir/CheckFunctionExists.c.o' failed
+make[3]: *** [CMakeFiles/cmTC_41ea3.dir/CheckFunctionExists.c.o] Error 1
+make[3]: Leaving directory '/home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_41ea3/fast' failed
+make[2]: *** [cmTC_41ea3/fast] Error 2
+make[2]: Leaving directory '/home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp'
+
+
+Determining if the function _snprintf exists failed with the following output:
+Change Dir: /home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_d942e/fast"
+make[2]: Entering directory '/home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_d942e.dir/build.make CMakeFiles/cmTC_d942e.dir/build
+make[3]: Entering directory '/home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_d942e.dir/CheckFunctionExists.c.o
+/home/physiii/esp/xtensa-esp32-elf/bin/../bin/xtensa-esp32-elf-gcc  -DKEYWORD=__inline  -nostdlib -Wall -Werror 	-I/home/physiii/circuits/5v-smart-solar-regulator/code/build/include 	-I/home/physiii/esp/esp-idf/components/mdns/include 	-I/home/physiii/esp/esp-idf/components/driver/include 	-I/home/physiii/esp/esp-idf/components/spi_flash/include 	-I/home/physiii/esp/esp-idf/components/nvs_flash/include 	-I/home/physiii/esp/esp-idf/components/tcpip_adapter/include 	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip/posix 	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip 	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip/port 	-I/home/physiii/esp/esp-idf/components/esp32/include/ 	-I/home/physiii/esp/esp-idf/components/bootloader_support/include/ 	-I/home/physiii/esp/esp-idf/components/app_update/include/ 	-I/home/physiii/esp/esp-idf/components/soc/esp32/include/ 	-std=gnu99 -Os -ggdb -ffunction-sections -fdata-sections -fstrict-volatile-bitfields -mlongcalls -nostdlib -Wall -Werror=all -Wno-error=unused-function -Wno-error=unused-but-set-variable -Wno-error=unused-variable -Wno-error=deprecated-declarations -Wextra -Wno-unused-parameter -Wno-sign-compare -Wno-old-style-declaration -DWITH_POSIX -DMBEDTLS_CONFIG_FILE='mbedtls/esp_config.h' -DHAVE_CONFIG_H -I/home/physiii/circuits/5v-smart-solar-regulator/code/main/../components/libwebsockets/plugins  -DLWS_IS_FACTORY_APPLICATION=0 -DNDEBUG=1 -Os 	-I/home/physiii/esp/esp-idf/components/nvs_flash/test_nvs_host 	-I/home/physiii/esp/esp-idf/components/freertos/include -DCHECK_FUNCTION_EXISTS=_snprintf   -o CMakeFiles/cmTC_d942e.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.7/Modules/CheckFunctionExists.c
+Linking C executable cmTC_d942e
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d942e.dir/link.txt --verbose=1
+/home/physiii/esp/xtensa-esp32-elf/bin/../bin/xtensa-esp32-elf-gcc  -nostdlib -Wall -Werror 	-I/home/physiii/circuits/5v-smart-solar-regulator/code/build/include 	-I/home/physiii/esp/esp-idf/components/mdns/include 	-I/home/physiii/esp/esp-idf/components/driver/include 	-I/home/physiii/esp/esp-idf/components/spi_flash/include 	-I/home/physiii/esp/esp-idf/components/nvs_flash/include 	-I/home/physiii/esp/esp-idf/components/tcpip_adapter/include 	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip/posix 	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip 	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip/port 	-I/home/physiii/esp/esp-idf/components/esp32/include/ 	-I/home/physiii/esp/esp-idf/components/bootloader_support/include/ 	-I/home/physiii/esp/esp-idf/components/app_update/include/ 	-I$(IDF_PATH)/components/soc/esp32/include/ 	-std=gnu99 -Os -ggdb -ffunction-sections -fdata-sections -fstrict-volatile-bitfields -mlongcalls -nostdlib -Wall -Werror=all -Wno-error=unused-function -Wno-error=unused-but-set-variable -Wno-error=unused-variable -Wno-error=deprecated-declarations -Wextra -Wno-unused-parameter -Wno-sign-compare -Wno-old-style-declaration -DWITH_POSIX -DMBEDTLS_CONFIG_FILE='mbedtls/esp_config.h' -DHAVE_CONFIG_H -I/home/physiii/circuits/5v-smart-solar-regulator/code/main/../components/libwebsockets/plugins  -DLWS_IS_FACTORY_APPLICATION=0 -DNDEBUG=1 -Os 	-I/home/physiii/esp/esp-idf/components/nvs_flash/test_nvs_host 	-I/home/physiii/esp/esp-idf/components/freertos/include -DCHECK_FUNCTION_EXISTS=_snprintf    CMakeFiles/cmTC_d942e.dir/CheckFunctionExists.c.o  -o cmTC_d942e  
+/home/physiii/esp/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/5.2.0/../../../../xtensa-esp32-elf/bin/ld: warning: cannot find entry symbol _start; defaulting to 0000000000400054
+CMakeFiles/cmTC_d942e.dir/CheckFunctionExists.c.o:(.literal.startup.main+0x0): undefined reference to `_snprintf'
+CMakeFiles/cmTC_d942e.dir/CheckFunctionExists.c.o: In function `main':
+/usr/share/cmake-3.7/Modules/CheckFunctionExists.c:17: undefined reference to `_snprintf'
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_d942e.dir/build.make:97: recipe for target 'cmTC_d942e' failed
+make[3]: *** [cmTC_d942e] Error 1
+make[3]: Leaving directory '/home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_d942e/fast' failed
+make[2]: *** [cmTC_d942e/fast] Error 2
+make[2]: Leaving directory '/home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp'
+
+
+Determining if the function _vsnprintf exists failed with the following output:
+Change Dir: /home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_3b479/fast"
+make[2]: Entering directory '/home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_3b479.dir/build.make CMakeFiles/cmTC_3b479.dir/build
+make[3]: Entering directory '/home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_3b479.dir/CheckFunctionExists.c.o
+/home/physiii/esp/xtensa-esp32-elf/bin/../bin/xtensa-esp32-elf-gcc  -DKEYWORD=__inline  -nostdlib -Wall -Werror 	-I/home/physiii/circuits/5v-smart-solar-regulator/code/build/include 	-I/home/physiii/esp/esp-idf/components/mdns/include 	-I/home/physiii/esp/esp-idf/components/driver/include 	-I/home/physiii/esp/esp-idf/components/spi_flash/include 	-I/home/physiii/esp/esp-idf/components/nvs_flash/include 	-I/home/physiii/esp/esp-idf/components/tcpip_adapter/include 	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip/posix 	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip 	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip/port 	-I/home/physiii/esp/esp-idf/components/esp32/include/ 	-I/home/physiii/esp/esp-idf/components/bootloader_support/include/ 	-I/home/physiii/esp/esp-idf/components/app_update/include/ 	-I/home/physiii/esp/esp-idf/components/soc/esp32/include/ 	-std=gnu99 -Os -ggdb -ffunction-sections -fdata-sections -fstrict-volatile-bitfields -mlongcalls -nostdlib -Wall -Werror=all -Wno-error=unused-function -Wno-error=unused-but-set-variable -Wno-error=unused-variable -Wno-error=deprecated-declarations -Wextra -Wno-unused-parameter -Wno-sign-compare -Wno-old-style-declaration -DWITH_POSIX -DMBEDTLS_CONFIG_FILE='mbedtls/esp_config.h' -DHAVE_CONFIG_H -I/home/physiii/circuits/5v-smart-solar-regulator/code/main/../components/libwebsockets/plugins  -DLWS_IS_FACTORY_APPLICATION=0 -DNDEBUG=1 -Os 	-I/home/physiii/esp/esp-idf/components/nvs_flash/test_nvs_host 	-I/home/physiii/esp/esp-idf/components/freertos/include -DCHECK_FUNCTION_EXISTS=_vsnprintf   -o CMakeFiles/cmTC_3b479.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.7/Modules/CheckFunctionExists.c
+Linking C executable cmTC_3b479
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3b479.dir/link.txt --verbose=1
+/home/physiii/esp/xtensa-esp32-elf/bin/../bin/xtensa-esp32-elf-gcc  -nostdlib -Wall -Werror 	-I/home/physiii/circuits/5v-smart-solar-regulator/code/build/include 	-I/home/physiii/esp/esp-idf/components/mdns/include 	-I/home/physiii/esp/esp-idf/components/driver/include 	-I/home/physiii/esp/esp-idf/components/spi_flash/include 	-I/home/physiii/esp/esp-idf/components/nvs_flash/include 	-I/home/physiii/esp/esp-idf/components/tcpip_adapter/include 	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip/posix 	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip 	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip/port 	-I/home/physiii/esp/esp-idf/components/esp32/include/ 	-I/home/physiii/esp/esp-idf/components/bootloader_support/include/ 	-I/home/physiii/esp/esp-idf/components/app_update/include/ 	-I$(IDF_PATH)/components/soc/esp32/include/ 	-std=gnu99 -Os -ggdb -ffunction-sections -fdata-sections -fstrict-volatile-bitfields -mlongcalls -nostdlib -Wall -Werror=all -Wno-error=unused-function -Wno-error=unused-but-set-variable -Wno-error=unused-variable -Wno-error=deprecated-declarations -Wextra -Wno-unused-parameter -Wno-sign-compare -Wno-old-style-declaration -DWITH_POSIX -DMBEDTLS_CONFIG_FILE='mbedtls/esp_config.h' -DHAVE_CONFIG_H -I/home/physiii/circuits/5v-smart-solar-regulator/code/main/../components/libwebsockets/plugins  -DLWS_IS_FACTORY_APPLICATION=0 -DNDEBUG=1 -Os 	-I/home/physiii/esp/esp-idf/components/nvs_flash/test_nvs_host 	-I/home/physiii/esp/esp-idf/components/freertos/include -DCHECK_FUNCTION_EXISTS=_vsnprintf    CMakeFiles/cmTC_3b479.dir/CheckFunctionExists.c.o  -o cmTC_3b479  
+/home/physiii/esp/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/5.2.0/../../../../xtensa-esp32-elf/bin/ld: warning: cannot find entry symbol _start; defaulting to 0000000000400054
+CMakeFiles/cmTC_3b479.dir/CheckFunctionExists.c.o:(.literal.startup.main+0x0): undefined reference to `_vsnprintf'
+CMakeFiles/cmTC_3b479.dir/CheckFunctionExists.c.o: In function `main':
+/usr/share/cmake-3.7/Modules/CheckFunctionExists.c:17: undefined reference to `_vsnprintf'
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_3b479.dir/build.make:97: recipe for target 'cmTC_3b479' failed
+make[3]: *** [cmTC_3b479] Error 1
+make[3]: Leaving directory '/home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_3b479/fast' failed
+make[2]: *** [cmTC_3b479/fast] Error 2
+make[2]: Leaving directory '/home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp'
+
+
+Determining if the function getloadavg exists failed with the following output:
+Change Dir: /home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_f246a/fast"
+make[2]: Entering directory '/home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_f246a.dir/build.make CMakeFiles/cmTC_f246a.dir/build
+make[3]: Entering directory '/home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_f246a.dir/CheckFunctionExists.c.o
+/home/physiii/esp/xtensa-esp32-elf/bin/../bin/xtensa-esp32-elf-gcc  -DKEYWORD=__inline  -nostdlib -Wall -Werror 	-I/home/physiii/circuits/5v-smart-solar-regulator/code/build/include 	-I/home/physiii/esp/esp-idf/components/mdns/include 	-I/home/physiii/esp/esp-idf/components/driver/include 	-I/home/physiii/esp/esp-idf/components/spi_flash/include 	-I/home/physiii/esp/esp-idf/components/nvs_flash/include 	-I/home/physiii/esp/esp-idf/components/tcpip_adapter/include 	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip/posix 	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip 	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip/port 	-I/home/physiii/esp/esp-idf/components/esp32/include/ 	-I/home/physiii/esp/esp-idf/components/bootloader_support/include/ 	-I/home/physiii/esp/esp-idf/components/app_update/include/ 	-I/home/physiii/esp/esp-idf/components/soc/esp32/include/ 	-std=gnu99 -Os -ggdb -ffunction-sections -fdata-sections -fstrict-volatile-bitfields -mlongcalls -nostdlib -Wall -Werror=all -Wno-error=unused-function -Wno-error=unused-but-set-variable -Wno-error=unused-variable -Wno-error=deprecated-declarations -Wextra -Wno-unused-parameter -Wno-sign-compare -Wno-old-style-declaration -DWITH_POSIX -DMBEDTLS_CONFIG_FILE='mbedtls/esp_config.h' -DHAVE_CONFIG_H -I/home/physiii/circuits/5v-smart-solar-regulator/code/main/../components/libwebsockets/plugins  -DLWS_IS_FACTORY_APPLICATION=0 -DNDEBUG=1 -Os 	-I/home/physiii/esp/esp-idf/components/nvs_flash/test_nvs_host 	-I/home/physiii/esp/esp-idf/components/freertos/include -DCHECK_FUNCTION_EXISTS=getloadavg   -o CMakeFiles/cmTC_f246a.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.7/Modules/CheckFunctionExists.c
+Linking C executable cmTC_f246a
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f246a.dir/link.txt --verbose=1
+/home/physiii/esp/xtensa-esp32-elf/bin/../bin/xtensa-esp32-elf-gcc  -nostdlib -Wall -Werror 	-I/home/physiii/circuits/5v-smart-solar-regulator/code/build/include 	-I/home/physiii/esp/esp-idf/components/mdns/include 	-I/home/physiii/esp/esp-idf/components/driver/include 	-I/home/physiii/esp/esp-idf/components/spi_flash/include 	-I/home/physiii/esp/esp-idf/components/nvs_flash/include 	-I/home/physiii/esp/esp-idf/components/tcpip_adapter/include 	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip/posix 	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip 	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip/port 	-I/home/physiii/esp/esp-idf/components/esp32/include/ 	-I/home/physiii/esp/esp-idf/components/bootloader_support/include/ 	-I/home/physiii/esp/esp-idf/components/app_update/include/ 	-I$(IDF_PATH)/components/soc/esp32/include/ 	-std=gnu99 -Os -ggdb -ffunction-sections -fdata-sections -fstrict-volatile-bitfields -mlongcalls -nostdlib -Wall -Werror=all -Wno-error=unused-function -Wno-error=unused-but-set-variable -Wno-error=unused-variable -Wno-error=deprecated-declarations -Wextra -Wno-unused-parameter -Wno-sign-compare -Wno-old-style-declaration -DWITH_POSIX -DMBEDTLS_CONFIG_FILE='mbedtls/esp_config.h' -DHAVE_CONFIG_H -I/home/physiii/circuits/5v-smart-solar-regulator/code/main/../components/libwebsockets/plugins  -DLWS_IS_FACTORY_APPLICATION=0 -DNDEBUG=1 -Os 	-I/home/physiii/esp/esp-idf/components/nvs_flash/test_nvs_host 	-I/home/physiii/esp/esp-idf/components/freertos/include -DCHECK_FUNCTION_EXISTS=getloadavg    CMakeFiles/cmTC_f246a.dir/CheckFunctionExists.c.o  -o cmTC_f246a  
+/home/physiii/esp/xtensa-esp32-elf/bin/../lib/gcc/xtensa-esp32-elf/5.2.0/../../../../xtensa-esp32-elf/bin/ld: warning: cannot find entry symbol _start; defaulting to 0000000000400054
+CMakeFiles/cmTC_f246a.dir/CheckFunctionExists.c.o:(.literal.startup.main+0x0): undefined reference to `getloadavg'
+CMakeFiles/cmTC_f246a.dir/CheckFunctionExists.c.o: In function `main':
+/usr/share/cmake-3.7/Modules/CheckFunctionExists.c:17: undefined reference to `getloadavg'
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_f246a.dir/build.make:97: recipe for target 'cmTC_f246a' failed
+make[3]: *** [cmTC_f246a] Error 1
+make[3]: Leaving directory '/home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_f246a/fast' failed
+make[2]: *** [cmTC_f246a/fast] Error 2
+make[2]: Leaving directory '/home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp'
+
+
+Determining if the include file dlfcn.h exists failed with the following output:
+Change Dir: /home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_690ef/fast"
+make[2]: Entering directory '/home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_690ef.dir/build.make CMakeFiles/cmTC_690ef.dir/build
+make[3]: Entering directory '/home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_690ef.dir/CheckIncludeFile.c.o
+/home/physiii/esp/xtensa-esp32-elf/bin/../bin/xtensa-esp32-elf-gcc  -DKEYWORD=__inline  -nostdlib -Wall -Werror 	-I/home/physiii/circuits/5v-smart-solar-regulator/code/build/include 	-I/home/physiii/esp/esp-idf/components/mdns/include 	-I/home/physiii/esp/esp-idf/components/driver/include 	-I/home/physiii/esp/esp-idf/components/spi_flash/include 	-I/home/physiii/esp/esp-idf/components/nvs_flash/include 	-I/home/physiii/esp/esp-idf/components/tcpip_adapter/include 	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip/posix 	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip 	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip/port 	-I/home/physiii/esp/esp-idf/components/esp32/include/ 	-I/home/physiii/esp/esp-idf/components/bootloader_support/include/ 	-I/home/physiii/esp/esp-idf/components/app_update/include/ 	-I/home/physiii/esp/esp-idf/components/soc/esp32/include/ 	-std=gnu99 -Os -ggdb -ffunction-sections -fdata-sections -fstrict-volatile-bitfields -mlongcalls -nostdlib -Wall -Werror=all -Wno-error=unused-function -Wno-error=unused-but-set-variable -Wno-error=unused-variable -Wno-error=deprecated-declarations -Wextra -Wno-unused-parameter -Wno-sign-compare -Wno-old-style-declaration -DWITH_POSIX -DMBEDTLS_CONFIG_FILE='mbedtls/esp_config.h' -DHAVE_CONFIG_H -I/home/physiii/circuits/5v-smart-solar-regulator/code/main/../components/libwebsockets/plugins  -DLWS_IS_FACTORY_APPLICATION=0 -DNDEBUG=1 -Os 	-I/home/physiii/esp/esp-idf/components/nvs_flash/test_nvs_host 	-I/home/physiii/esp/esp-idf/components/freertos/include    -o CMakeFiles/cmTC_690ef.dir/CheckIncludeFile.c.o   -c /home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+/home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:19: fatal error: dlfcn.h: No such file or directory
+compilation terminated.
+CMakeFiles/cmTC_690ef.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_690ef.dir/CheckIncludeFile.c.o' failed
+make[3]: *** [CMakeFiles/cmTC_690ef.dir/CheckIncludeFile.c.o] Error 1
+make[3]: Leaving directory '/home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_690ef/fast' failed
+make[2]: *** [cmTC_690ef/fast] Error 2
+make[2]: Leaving directory '/home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp'
+
+
+Determining if the include file in6addr.h exists failed with the following output:
+Change Dir: /home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_7ca12/fast"
+make[2]: Entering directory '/home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_7ca12.dir/build.make CMakeFiles/cmTC_7ca12.dir/build
+make[3]: Entering directory '/home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_7ca12.dir/CheckIncludeFile.c.o
+/home/physiii/esp/xtensa-esp32-elf/bin/../bin/xtensa-esp32-elf-gcc  -DKEYWORD=__inline  -nostdlib -Wall -Werror 	-I/home/physiii/circuits/5v-smart-solar-regulator/code/build/include 	-I/home/physiii/esp/esp-idf/components/mdns/include 	-I/home/physiii/esp/esp-idf/components/driver/include 	-I/home/physiii/esp/esp-idf/components/spi_flash/include 	-I/home/physiii/esp/esp-idf/components/nvs_flash/include 	-I/home/physiii/esp/esp-idf/components/tcpip_adapter/include 	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip/posix 	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip 	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip/port 	-I/home/physiii/esp/esp-idf/components/esp32/include/ 	-I/home/physiii/esp/esp-idf/components/bootloader_support/include/ 	-I/home/physiii/esp/esp-idf/components/app_update/include/ 	-I/home/physiii/esp/esp-idf/components/soc/esp32/include/ 	-std=gnu99 -Os -ggdb -ffunction-sections -fdata-sections -fstrict-volatile-bitfields -mlongcalls -nostdlib -Wall -Werror=all -Wno-error=unused-function -Wno-error=unused-but-set-variable -Wno-error=unused-variable -Wno-error=deprecated-declarations -Wextra -Wno-unused-parameter -Wno-sign-compare -Wno-old-style-declaration -DWITH_POSIX -DMBEDTLS_CONFIG_FILE='mbedtls/esp_config.h' -DHAVE_CONFIG_H -I/home/physiii/circuits/5v-smart-solar-regulator/code/main/../components/libwebsockets/plugins  -DLWS_IS_FACTORY_APPLICATION=0 -DNDEBUG=1 -Os 	-I/home/physiii/esp/esp-idf/components/nvs_flash/test_nvs_host 	-I/home/physiii/esp/esp-idf/components/freertos/include    -o CMakeFiles/cmTC_7ca12.dir/CheckIncludeFile.c.o   -c /home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+/home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:21: fatal error: in6addr.h: No such file or directory
+compilation terminated.
+CMakeFiles/cmTC_7ca12.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_7ca12.dir/CheckIncludeFile.c.o' failed
+make[3]: *** [CMakeFiles/cmTC_7ca12.dir/CheckIncludeFile.c.o] Error 1
+make[3]: Leaving directory '/home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_7ca12/fast' failed
+make[2]: *** [cmTC_7ca12/fast] Error 2
+make[2]: Leaving directory '/home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp'
+
+
+Determining if the include file memory.h exists failed with the following output:
+Change Dir: /home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_e2769/fast"
+make[2]: Entering directory '/home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_e2769.dir/build.make CMakeFiles/cmTC_e2769.dir/build
+make[3]: Entering directory '/home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_e2769.dir/CheckIncludeFile.c.o
+/home/physiii/esp/xtensa-esp32-elf/bin/../bin/xtensa-esp32-elf-gcc  -DKEYWORD=__inline  -nostdlib -Wall -Werror 	-I/home/physiii/circuits/5v-smart-solar-regulator/code/build/include 	-I/home/physiii/esp/esp-idf/components/mdns/include 	-I/home/physiii/esp/esp-idf/components/driver/include 	-I/home/physiii/esp/esp-idf/components/spi_flash/include 	-I/home/physiii/esp/esp-idf/components/nvs_flash/include 	-I/home/physiii/esp/esp-idf/components/tcpip_adapter/include 	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip/posix 	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip 	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip/port 	-I/home/physiii/esp/esp-idf/components/esp32/include/ 	-I/home/physiii/esp/esp-idf/components/bootloader_support/include/ 	-I/home/physiii/esp/esp-idf/components/app_update/include/ 	-I/home/physiii/esp/esp-idf/components/soc/esp32/include/ 	-std=gnu99 -Os -ggdb -ffunction-sections -fdata-sections -fstrict-volatile-bitfields -mlongcalls -nostdlib -Wall -Werror=all -Wno-error=unused-function -Wno-error=unused-but-set-variable -Wno-error=unused-variable -Wno-error=deprecated-declarations -Wextra -Wno-unused-parameter -Wno-sign-compare -Wno-old-style-declaration -DWITH_POSIX -DMBEDTLS_CONFIG_FILE='mbedtls/esp_config.h' -DHAVE_CONFIG_H -I/home/physiii/circuits/5v-smart-solar-regulator/code/main/../components/libwebsockets/plugins  -DLWS_IS_FACTORY_APPLICATION=0 -DNDEBUG=1 -Os 	-I/home/physiii/esp/esp-idf/components/nvs_flash/test_nvs_host 	-I/home/physiii/esp/esp-idf/components/freertos/include    -o CMakeFiles/cmTC_e2769.dir/CheckIncludeFile.c.o   -c /home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+/home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:20: fatal error: memory.h: No such file or directory
+compilation terminated.
+CMakeFiles/cmTC_e2769.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_e2769.dir/CheckIncludeFile.c.o' failed
+make[3]: *** [CMakeFiles/cmTC_e2769.dir/CheckIncludeFile.c.o] Error 1
+make[3]: Leaving directory '/home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_e2769/fast' failed
+make[2]: *** [cmTC_e2769/fast] Error 2
+make[2]: Leaving directory '/home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp'
+
+
+Determining if the include file sys/prctl.h exists failed with the following output:
+Change Dir: /home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_21647/fast"
+make[2]: Entering directory '/home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_21647.dir/build.make CMakeFiles/cmTC_21647.dir/build
+make[3]: Entering directory '/home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_21647.dir/CheckIncludeFile.c.o
+/home/physiii/esp/xtensa-esp32-elf/bin/../bin/xtensa-esp32-elf-gcc  -DKEYWORD=__inline  -nostdlib -Wall -Werror 	-I/home/physiii/circuits/5v-smart-solar-regulator/code/build/include 	-I/home/physiii/esp/esp-idf/components/mdns/include 	-I/home/physiii/esp/esp-idf/components/driver/include 	-I/home/physiii/esp/esp-idf/components/spi_flash/include 	-I/home/physiii/esp/esp-idf/components/nvs_flash/include 	-I/home/physiii/esp/esp-idf/components/tcpip_adapter/include 	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip/posix 	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip 	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip/port 	-I/home/physiii/esp/esp-idf/components/esp32/include/ 	-I/home/physiii/esp/esp-idf/components/bootloader_support/include/ 	-I/home/physiii/esp/esp-idf/components/app_update/include/ 	-I/home/physiii/esp/esp-idf/components/soc/esp32/include/ 	-std=gnu99 -Os -ggdb -ffunction-sections -fdata-sections -fstrict-volatile-bitfields -mlongcalls -nostdlib -Wall -Werror=all -Wno-error=unused-function -Wno-error=unused-but-set-variable -Wno-error=unused-variable -Wno-error=deprecated-declarations -Wextra -Wno-unused-parameter -Wno-sign-compare -Wno-old-style-declaration -DWITH_POSIX -DMBEDTLS_CONFIG_FILE='mbedtls/esp_config.h' -DHAVE_CONFIG_H -I/home/physiii/circuits/5v-smart-solar-regulator/code/main/../components/libwebsockets/plugins  -DLWS_IS_FACTORY_APPLICATION=0 -DNDEBUG=1 -Os 	-I/home/physiii/esp/esp-idf/components/nvs_flash/test_nvs_host 	-I/home/physiii/esp/esp-idf/components/freertos/include    -o CMakeFiles/cmTC_21647.dir/CheckIncludeFile.c.o   -c /home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+/home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:23: fatal error: sys/prctl.h: No such file or directory
+compilation terminated.
+CMakeFiles/cmTC_21647.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_21647.dir/CheckIncludeFile.c.o' failed
+make[3]: *** [CMakeFiles/cmTC_21647.dir/CheckIncludeFile.c.o] Error 1
+make[3]: Leaving directory '/home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_21647/fast' failed
+make[2]: *** [cmTC_21647/fast] Error 2
+make[2]: Leaving directory '/home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp'
+
+
+Determining if the include file sys/sockio.h exists failed with the following output:
+Change Dir: /home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_d65cf/fast"
+make[2]: Entering directory '/home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_d65cf.dir/build.make CMakeFiles/cmTC_d65cf.dir/build
+make[3]: Entering directory '/home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_d65cf.dir/CheckIncludeFile.c.o
+/home/physiii/esp/xtensa-esp32-elf/bin/../bin/xtensa-esp32-elf-gcc  -DKEYWORD=__inline  -nostdlib -Wall -Werror 	-I/home/physiii/circuits/5v-smart-solar-regulator/code/build/include 	-I/home/physiii/esp/esp-idf/components/mdns/include 	-I/home/physiii/esp/esp-idf/components/driver/include 	-I/home/physiii/esp/esp-idf/components/spi_flash/include 	-I/home/physiii/esp/esp-idf/components/nvs_flash/include 	-I/home/physiii/esp/esp-idf/components/tcpip_adapter/include 	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip/posix 	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip 	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip/port 	-I/home/physiii/esp/esp-idf/components/esp32/include/ 	-I/home/physiii/esp/esp-idf/components/bootloader_support/include/ 	-I/home/physiii/esp/esp-idf/components/app_update/include/ 	-I/home/physiii/esp/esp-idf/components/soc/esp32/include/ 	-std=gnu99 -Os -ggdb -ffunction-sections -fdata-sections -fstrict-volatile-bitfields -mlongcalls -nostdlib -Wall -Werror=all -Wno-error=unused-function -Wno-error=unused-but-set-variable -Wno-error=unused-variable -Wno-error=deprecated-declarations -Wextra -Wno-unused-parameter -Wno-sign-compare -Wno-old-style-declaration -DWITH_POSIX -DMBEDTLS_CONFIG_FILE='mbedtls/esp_config.h' -DHAVE_CONFIG_H -I/home/physiii/circuits/5v-smart-solar-regulator/code/main/../components/libwebsockets/plugins  -DLWS_IS_FACTORY_APPLICATION=0 -DNDEBUG=1 -Os 	-I/home/physiii/esp/esp-idf/components/nvs_flash/test_nvs_host 	-I/home/physiii/esp/esp-idf/components/freertos/include    -o CMakeFiles/cmTC_d65cf.dir/CheckIncludeFile.c.o   -c /home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+/home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:24: fatal error: sys/sockio.h: No such file or directory
+compilation terminated.
+CMakeFiles/cmTC_d65cf.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_d65cf.dir/CheckIncludeFile.c.o' failed
+make[3]: *** [CMakeFiles/cmTC_d65cf.dir/CheckIncludeFile.c.o] Error 1
+make[3]: Leaving directory '/home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_d65cf/fast' failed
+make[2]: *** [cmTC_d65cf/fast] Error 2
+make[2]: Leaving directory '/home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp'
+
+
+Determining if the include file vfork.h exists failed with the following output:
+Change Dir: /home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_823bd/fast"
+make[2]: Entering directory '/home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_823bd.dir/build.make CMakeFiles/cmTC_823bd.dir/build
+make[3]: Entering directory '/home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_823bd.dir/CheckIncludeFile.c.o
+/home/physiii/esp/xtensa-esp32-elf/bin/../bin/xtensa-esp32-elf-gcc  -DKEYWORD=__inline  -nostdlib -Wall -Werror 	-I/home/physiii/circuits/5v-smart-solar-regulator/code/build/include 	-I/home/physiii/esp/esp-idf/components/mdns/include 	-I/home/physiii/esp/esp-idf/components/driver/include 	-I/home/physiii/esp/esp-idf/components/spi_flash/include 	-I/home/physiii/esp/esp-idf/components/nvs_flash/include 	-I/home/physiii/esp/esp-idf/components/tcpip_adapter/include 	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip/posix 	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip 	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip/port 	-I/home/physiii/esp/esp-idf/components/esp32/include/ 	-I/home/physiii/esp/esp-idf/components/bootloader_support/include/ 	-I/home/physiii/esp/esp-idf/components/app_update/include/ 	-I/home/physiii/esp/esp-idf/components/soc/esp32/include/ 	-std=gnu99 -Os -ggdb -ffunction-sections -fdata-sections -fstrict-volatile-bitfields -mlongcalls -nostdlib -Wall -Werror=all -Wno-error=unused-function -Wno-error=unused-but-set-variable -Wno-error=unused-variable -Wno-error=deprecated-declarations -Wextra -Wno-unused-parameter -Wno-sign-compare -Wno-old-style-declaration -DWITH_POSIX -DMBEDTLS_CONFIG_FILE='mbedtls/esp_config.h' -DHAVE_CONFIG_H -I/home/physiii/circuits/5v-smart-solar-regulator/code/main/../components/libwebsockets/plugins  -DLWS_IS_FACTORY_APPLICATION=0 -DNDEBUG=1 -Os 	-I/home/physiii/esp/esp-idf/components/nvs_flash/test_nvs_host 	-I/home/physiii/esp/esp-idf/components/freertos/include    -o CMakeFiles/cmTC_823bd.dir/CheckIncludeFile.c.o   -c /home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+/home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:19: fatal error: vfork.h: No such file or directory
+compilation terminated.
+CMakeFiles/cmTC_823bd.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_823bd.dir/CheckIncludeFile.c.o' failed
+make[3]: *** [CMakeFiles/cmTC_823bd.dir/CheckIncludeFile.c.o] Error 1
+make[3]: Leaving directory '/home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_823bd/fast' failed
+make[2]: *** [cmTC_823bd/fast] Error 2
+make[2]: Leaving directory '/home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp'
+
+
+Determining if the include file zlib.h exists failed with the following output:
+Change Dir: /home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_7d5b4/fast"
+make[2]: Entering directory '/home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_7d5b4.dir/build.make CMakeFiles/cmTC_7d5b4.dir/build
+make[3]: Entering directory '/home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_7d5b4.dir/CheckIncludeFile.c.o
+/home/physiii/esp/xtensa-esp32-elf/bin/../bin/xtensa-esp32-elf-gcc  -DKEYWORD=__inline  -nostdlib -Wall -Werror 	-I/home/physiii/circuits/5v-smart-solar-regulator/code/build/include 	-I/home/physiii/esp/esp-idf/components/mdns/include 	-I/home/physiii/esp/esp-idf/components/driver/include 	-I/home/physiii/esp/esp-idf/components/spi_flash/include 	-I/home/physiii/esp/esp-idf/components/nvs_flash/include 	-I/home/physiii/esp/esp-idf/components/tcpip_adapter/include 	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip/posix 	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip 	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip/port 	-I/home/physiii/esp/esp-idf/components/esp32/include/ 	-I/home/physiii/esp/esp-idf/components/bootloader_support/include/ 	-I/home/physiii/esp/esp-idf/components/app_update/include/ 	-I/home/physiii/esp/esp-idf/components/soc/esp32/include/ 	-std=gnu99 -Os -ggdb -ffunction-sections -fdata-sections -fstrict-volatile-bitfields -mlongcalls -nostdlib -Wall -Werror=all -Wno-error=unused-function -Wno-error=unused-but-set-variable -Wno-error=unused-variable -Wno-error=deprecated-declarations -Wextra -Wno-unused-parameter -Wno-sign-compare -Wno-old-style-declaration -DWITH_POSIX -DMBEDTLS_CONFIG_FILE='mbedtls/esp_config.h' -DHAVE_CONFIG_H -I/home/physiii/circuits/5v-smart-solar-regulator/code/main/../components/libwebsockets/plugins  -DLWS_IS_FACTORY_APPLICATION=0 -DNDEBUG=1 -Os 	-I/home/physiii/esp/esp-idf/components/nvs_flash/test_nvs_host 	-I/home/physiii/esp/esp-idf/components/freertos/include    -o CMakeFiles/cmTC_7d5b4.dir/CheckIncludeFile.c.o   -c /home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+/home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:18: fatal error: zlib.h: No such file or directory
+compilation terminated.
+CMakeFiles/cmTC_7d5b4.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_7d5b4.dir/CheckIncludeFile.c.o' failed
+make[3]: *** [CMakeFiles/cmTC_7d5b4.dir/CheckIncludeFile.c.o] Error 1
+make[3]: Leaving directory '/home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_7d5b4/fast' failed
+make[2]: *** [cmTC_7d5b4/fast] Error 2
+make[2]: Leaving directory '/home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp'
+
+
+Determining if the include file openssl/ecdh.h exists failed with the following output:
+Change Dir: /home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_b2f80/fast"
+make[2]: Entering directory '/home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_b2f80.dir/build.make CMakeFiles/cmTC_b2f80.dir/build
+make[3]: Entering directory '/home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_b2f80.dir/CheckIncludeFile.c.o
+/home/physiii/esp/xtensa-esp32-elf/bin/../bin/xtensa-esp32-elf-gcc  -DKEYWORD=__inline -I/home/physiii/esp/esp-idf/components/openssl/include  -nostdlib -Wall -Werror 	-I/home/physiii/circuits/5v-smart-solar-regulator/code/build/include 	-I/home/physiii/esp/esp-idf/components/mdns/include 	-I/home/physiii/esp/esp-idf/components/driver/include 	-I/home/physiii/esp/esp-idf/components/spi_flash/include 	-I/home/physiii/esp/esp-idf/components/nvs_flash/include 	-I/home/physiii/esp/esp-idf/components/tcpip_adapter/include 	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip/posix 	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip 	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip/port 	-I/home/physiii/esp/esp-idf/components/esp32/include/ 	-I/home/physiii/esp/esp-idf/components/bootloader_support/include/ 	-I/home/physiii/esp/esp-idf/components/app_update/include/ 	-I/home/physiii/esp/esp-idf/components/soc/esp32/include/ 	-std=gnu99 -Os -ggdb -ffunction-sections -fdata-sections -fstrict-volatile-bitfields -mlongcalls -nostdlib -Wall -Werror=all -Wno-error=unused-function -Wno-error=unused-but-set-variable -Wno-error=unused-variable -Wno-error=deprecated-declarations -Wextra -Wno-unused-parameter -Wno-sign-compare -Wno-old-style-declaration -DWITH_POSIX -DMBEDTLS_CONFIG_FILE='mbedtls/esp_config.h' -DHAVE_CONFIG_H -I/home/physiii/circuits/5v-smart-solar-regulator/code/main/../components/libwebsockets/plugins  -DLWS_IS_FACTORY_APPLICATION=0 -DNDEBUG=1 -Os 	-I/home/physiii/esp/esp-idf/components/nvs_flash/test_nvs_host 	-I/home/physiii/esp/esp-idf/components/freertos/include    -o CMakeFiles/cmTC_b2f80.dir/CheckIncludeFile.c.o   -c /home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+/home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:26: fatal error: openssl/ecdh.h: No such file or directory
+compilation terminated.
+CMakeFiles/cmTC_b2f80.dir/build.make:65: recipe for target 'CMakeFiles/cmTC_b2f80.dir/CheckIncludeFile.c.o' failed
+make[3]: *** [CMakeFiles/cmTC_b2f80.dir/CheckIncludeFile.c.o] Error 1
+make[3]: Leaving directory '/home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_b2f80/fast' failed
+make[2]: *** [cmTC_b2f80/fast] Error 2
+make[2]: Leaving directory '/home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp'
+
+
+Determining if the function SSL_CTX_set1_param exists failed with the following output:
+Change Dir: /home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_d35aa/fast"
+make[2]: Entering directory '/home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_d35aa.dir/build.make CMakeFiles/cmTC_d35aa.dir/build
+make[3]: Entering directory '/home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_d35aa.dir/CheckFunctionExists.c.o
+/home/physiii/esp/xtensa-esp32-elf/bin/../bin/xtensa-esp32-elf-gcc  -DKEYWORD=__inline -I/home/physiii/esp/esp-idf/components/openssl/include  -nostdlib -Wall -Werror 	-I/home/physiii/circuits/5v-smart-solar-regulator/code/build/include 	-I/home/physiii/esp/esp-idf/components/mdns/include 	-I/home/physiii/esp/esp-idf/components/driver/include 	-I/home/physiii/esp/esp-idf/components/spi_flash/include 	-I/home/physiii/esp/esp-idf/components/nvs_flash/include 	-I/home/physiii/esp/esp-idf/components/tcpip_adapter/include 	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip/posix 	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip 	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip/port 	-I/home/physiii/esp/esp-idf/components/esp32/include/ 	-I/home/physiii/esp/esp-idf/components/bootloader_support/include/ 	-I/home/physiii/esp/esp-idf/components/app_update/include/ 	-I/home/physiii/esp/esp-idf/components/soc/esp32/include/ 	-std=gnu99 -Os -ggdb -ffunction-sections -fdata-sections -fstrict-volatile-bitfields -mlongcalls -nostdlib -Wall -Werror=all -Wno-error=unused-function -Wno-error=unused-but-set-variable -Wno-error=unused-variable -Wno-error=deprecated-declarations -Wextra -Wno-unused-parameter -Wno-sign-compare -Wno-old-style-declaration -DWITH_POSIX -DMBEDTLS_CONFIG_FILE='mbedtls/esp_config.h' -DHAVE_CONFIG_H -I/home/physiii/circuits/5v-smart-solar-regulator/code/main/../components/libwebsockets/plugins  -DLWS_IS_FACTORY_APPLICATION=0 -DNDEBUG=1 -Os 	-I/home/physiii/esp/esp-idf/components/nvs_flash/test_nvs_host 	-I/home/physiii/esp/esp-idf/components/freertos/include -DCHECK_FUNCTION_EXISTS=SSL_CTX_set1_param   -o CMakeFiles/cmTC_d35aa.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.7/Modules/CheckFunctionExists.c
+make[3]: *** No rule to make target '/home/physiii/circuits/5v-smart-solar-regulator/code/build/zlib/libzlib.a', needed by 'cmTC_d35aa'.  Stop.
+make[3]: Leaving directory '/home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_d35aa/fast' failed
+make[2]: *** [cmTC_d35aa/fast] Error 2
+make[2]: Leaving directory '/home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp'
+
+
+Determining if the function X509_VERIFY_PARAM_set1_host exists failed with the following output:
+Change Dir: /home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_11de3/fast"
+make[2]: Entering directory '/home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp'
+/usr/bin/make -f CMakeFiles/cmTC_11de3.dir/build.make CMakeFiles/cmTC_11de3.dir/build
+make[3]: Entering directory '/home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_11de3.dir/CheckFunctionExists.c.o
+/home/physiii/esp/xtensa-esp32-elf/bin/../bin/xtensa-esp32-elf-gcc  -DKEYWORD=__inline -I/home/physiii/esp/esp-idf/components/openssl/include  -nostdlib -Wall -Werror 	-I/home/physiii/circuits/5v-smart-solar-regulator/code/build/include 	-I/home/physiii/esp/esp-idf/components/mdns/include 	-I/home/physiii/esp/esp-idf/components/driver/include 	-I/home/physiii/esp/esp-idf/components/spi_flash/include 	-I/home/physiii/esp/esp-idf/components/nvs_flash/include 	-I/home/physiii/esp/esp-idf/components/tcpip_adapter/include 	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip/posix 	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip 	-I/home/physiii/esp/esp-idf/components/lwip/include/lwip/port 	-I/home/physiii/esp/esp-idf/components/esp32/include/ 	-I/home/physiii/esp/esp-idf/components/bootloader_support/include/ 	-I/home/physiii/esp/esp-idf/components/app_update/include/ 	-I/home/physiii/esp/esp-idf/components/soc/esp32/include/ 	-std=gnu99 -Os -ggdb -ffunction-sections -fdata-sections -fstrict-volatile-bitfields -mlongcalls -nostdlib -Wall -Werror=all -Wno-error=unused-function -Wno-error=unused-but-set-variable -Wno-error=unused-variable -Wno-error=deprecated-declarations -Wextra -Wno-unused-parameter -Wno-sign-compare -Wno-old-style-declaration -DWITH_POSIX -DMBEDTLS_CONFIG_FILE='mbedtls/esp_config.h' -DHAVE_CONFIG_H -I/home/physiii/circuits/5v-smart-solar-regulator/code/main/../components/libwebsockets/plugins  -DLWS_IS_FACTORY_APPLICATION=0 -DNDEBUG=1 -Os 	-I/home/physiii/esp/esp-idf/components/nvs_flash/test_nvs_host 	-I/home/physiii/esp/esp-idf/components/freertos/include -DCHECK_FUNCTION_EXISTS=X509_VERIFY_PARAM_set1_host   -o CMakeFiles/cmTC_11de3.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.7/Modules/CheckFunctionExists.c
+make[3]: *** No rule to make target '/home/physiii/circuits/5v-smart-solar-regulator/code/build/zlib/libzlib.a', needed by 'cmTC_11de3'.  Stop.
+make[3]: Leaving directory '/home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_11de3/fast' failed
+make[2]: *** [cmTC_11de3/fast] Error 2
+make[2]: Leaving directory '/home/physiii/circuits/5v-smart-solar-regulator/code/build/libwebsockets/CMakeFiles/CMakeTmp'
+
+
