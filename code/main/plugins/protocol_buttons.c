@@ -35,7 +35,7 @@
 #define SAMPLE_SIZE (128)
 #define SAMPLE_RATE (44100)
 
-#define POWER_EN     33
+#define POWER_EN     17
 #define POWER_EN2    15
 
 #define GPIO_OUTPUT_PIN_SEL  ((1<<POWER_EN) | (1<<POWER_EN2))
@@ -137,6 +137,7 @@ static void power_en_task(void* arg) {
 			power_en_hold = false;
 		}
             }
+            s_pad_activated_power_en[i] = false;
         }
        	vTaskDelay(1000 / portTICK_PERIOD_MS);
     }
@@ -297,7 +298,7 @@ callback_buttons(struct lws *wsi, enum lws_callback_reasons reason,
 		if (!buttons_linked) {
         	        strcpy(buttons_req_str, "{\"mac\":\"");
 			strcat(buttons_req_str,mac_str);
-        	        strcat(buttons_req_str, "\",\"device_type\":[\"room_sensor\"]");
+        	        strcat(buttons_req_str, "\",\"device_type\":[\"regulator\"]");
         	        strcat(buttons_req_str, ",\"cmd\":\"link\"");
         	        strcat(buttons_req_str, ",\"token\":\"");
         	        strcat(buttons_req_str, token);
@@ -327,12 +328,12 @@ callback_buttons(struct lws *wsi, enum lws_callback_reasons reason,
 		front_button_str[strlen(front_button_str)-1]=0;
 		strcat(front_button_str,"]");
 		if (!touch_activated) break;
-
+		break;
                 strcpy(buttons_req_str, "{\"mac\":\"");
 		strcat(buttons_req_str,mac_str);
                 strcat(buttons_req_str, "\",\"value\":");
                 strcat(buttons_req_str, front_button_str);
-                strcat(buttons_req_str, ",\"device_type\":[\"room_sensor\"]");
+                strcat(buttons_req_str, ",\"device_type\":[\"regulator\"]");
                 strcat(buttons_req_str, ",\"cmd\":\"buttons\"");
                 strcat(buttons_req_str, ",\"token\":\"");
                 strcat(buttons_req_str, token);
@@ -354,7 +355,7 @@ callback_buttons(struct lws *wsi, enum lws_callback_reasons reason,
 			break;
 		//strcpy(buttons_rx_data, (const char *)in);
 		sprintf(button_command,"%s",(const char *)in);
-		printf("%s %s\n", tag, button_command);
+		//printf("%s %s\n", tag, button_command);
 		if (strcmp(button_command,"link")) {
 			//printf("%s LINKED!!\n", tag);
 			buttons_linked = true;
@@ -364,16 +365,16 @@ callback_buttons(struct lws *wsi, enum lws_callback_reasons reason,
 			printf("%s turining power_en on!\n", tag);
                         //printf("%s setting power_en pin to %d to %d\n", tag, POWER_EN, power_en_value);
 			power_en_value = 100;
-                        //gpio_set_level(POWER_EN, power_en_value);
-			power_en(POWER_EN2,power_en_value);
+                        gpio_set_level(POWER_EN, power_en_value);
+			//power_en(POWER_EN,power_en_value);
 		}
 
 		if (!strcmp(button_command,"light_off")) {
 			printf("%s turining power_en off!\n", tag);
 			power_en_value = 0;
                         //printf("%s setting power_en pin to %d to %d\n", tag, POWER_EN, power_en_value);
-                        //gpio_set_level(POWER_EN, power_en_value);
-			power_en(POWER_EN2,power_en_value);
+                        gpio_set_level(POWER_EN, power_en_value);
+			//power_en(POWER_EN,power_en_value);
 		}
 		//button_req_sent = false;
 		break;

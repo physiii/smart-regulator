@@ -216,7 +216,7 @@ callback_token(struct lws *wsi, enum lws_callback_reasons reason,
                 strcpy(token_req_str, "{\"mac\":\"");
 		strcat(token_req_str,mac_str);
                 strcat(token_req_str, "\",\"cmd\":\"token_request\"");
-                strcat(token_req_str, ",\"device_type\":[\"room_sensor\"]");
+                strcat(token_req_str, ",\"device_type\":[\"regulator\"]");
 		strcat(token_req_str,"}");
 		n = lws_snprintf((char *)p, sizeof(token_req_str) - LWS_PRE, "%s", token_req_str);
 		m = lws_write(wsi, p, n, LWS_WRITE_TEXT);

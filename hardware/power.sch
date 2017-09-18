@@ -1,5 +1,4 @@
 EESchema Schematic File Version 2
-LIBS:5v-smart-solar-regulator-rescue
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -29,7 +28,6 @@ LIBS:opto
 LIBS:atmel
 LIBS:contrib
 LIBS:valves
-LIBS:open-automation
 LIBS:5v-smart-solar-regulator-cache
 EELAYER 25 0
 EELAYER END
@@ -263,17 +261,6 @@ $EndComp
 Text GLabel 5600 5000 1    60   Input ~ 0
 3v3
 $Comp
-L GND #PWR018
-U 1 1 598E5716
-P 8100 4400
-F 0 "#PWR018" H 8100 4150 50  0001 C CNN
-F 1 "GND" H 8100 4250 50  0000 C CNN
-F 2 "" H 8100 4400 50  0000 C CNN
-F 3 "" H 8100 4400 50  0000 C CNN
-	1    8100 4400
-	1    0    0    -1  
-$EndComp
-$Comp
 L GND #PWR019
 U 1 1 598E598C
 P 7450 6000
@@ -284,57 +271,8 @@ F 3 "" H 7450 6000 50  0000 C CNN
 	1    7450 6000
 	1    0    0    -1  
 $EndComp
-Text GLabel 7400 5850 0    60   Input ~ 0
+Text GLabel 6950 5850 0    60   Input ~ 0
 power_EN
-Text GLabel 9850 4400 2    60   Input ~ 0
-power_EN
-$Comp
-L R R9
-U 1 1 598E6E2D
-P 8350 3550
-F 0 "R9" V 8450 3500 50  0000 C CNN
-F 1 "3M" V 8350 3550 50  0000 C CNN
-F 2 "Resistors_SMD:R_0603_HandSoldering" V 8280 3550 50  0001 C CNN
-F 3 "https://www.digikey.com/product-detail/en/yageo/RC0603JR-073ML/311-3.0MGRCT-ND/729702" H 8350 3550 50  0001 C CNN
-F 4 "RC0603JR-073ML" V 8350 3550 60  0001 C CNN "Part Number"
-	1    8350 3550
-	0    -1   -1   0   
-$EndComp
-$Comp
-L R R7
-U 1 1 598E71E3
-P 7150 3600
-F 0 "R7" H 7200 3450 50  0000 C CNN
-F 1 "82K" V 7150 3600 50  0000 C CNN
-F 2 "Resistors_SMD:R_0603_HandSoldering" V 7080 3600 50  0001 C CNN
-F 3 "https://www.digikey.com/product-detail/en/yageo/RC0603JR-0782KL/311-82KGRCT-ND/729782" H 7150 3600 50  0001 C CNN
-F 4 "RC0603JR-0782KL" V 7150 3600 60  0001 C CNN "Part Number"
-	1    7150 3600
-	1    0    0    -1  
-$EndComp
-$Comp
-L R R8
-U 1 1 598F59C1
-P 6650 4850
-F 0 "R8" H 6700 4700 50  0000 C CNN
-F 1 "30K" V 6650 4850 50  0000 C CNN
-F 2 "Resistors_SMD:R_0603_HandSoldering" V 6580 4850 50  0001 C CNN
-F 3 "https://www.digikey.com/product-detail/en/yageo/RC0603JR-0730KL/311-30KGRCT-ND/729715" H 6650 4850 50  0001 C CNN
-F 4 "RC0603JR-0730KL" V 6650 4850 60  0001 C CNN "Part Number"
-	1    6650 4850
-	1    0    0    -1  
-$EndComp
-$Comp
-L GND #PWR020
-U 1 1 598F5A72
-P 7150 4300
-F 0 "#PWR020" H 7150 4050 50  0001 C CNN
-F 1 "GND" H 7150 4150 50  0000 C CNN
-F 2 "" H 7150 4300 50  0000 C CNN
-F 3 "" H 7150 4300 50  0000 C CNN
-	1    7150 4300
-	1    0    0    -1  
-$EndComp
 $Comp
 L SPX1117M3-L-3-3/TR U11
 U 1 1 598F6A23
@@ -359,7 +297,7 @@ F 3 "" H 4400 5250 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 Text GLabel 4350 5000 0    60   Input ~ 0
-5V
+Vin
 $Comp
 L C C3
 U 1 1 598F70D3
@@ -418,150 +356,31 @@ F 4 "RC0603JR-071KL" V 5700 5700 60  0001 C CNN "Part Number"
 	1    5700 5700
 	1    0    0    -1  
 $EndComp
-Text GLabel 6650 4150 1    60   Input ~ 0
-Vin
-$Comp
-L OPA344NA/3K U6
-U 1 1 598F7C16
-P 8200 4050
-F 0 "U6" H 8200 4300 50  0000 L CNN
-F 1 "OPA344NA/3K" H 8300 4200 50  0000 L CNN
-F 2 "TO_SOT_Packages_SMD:SOT-23-5" H 8200 3900 50  0001 L CNN
-F 3 "" H 8350 4200 50  0001 C CNN
-	1    8200 4050
-	1    0    0    -1  
-$EndComp
-$Comp
-L R R10
-U 1 1 5990CEB7
-P 6650 4400
-F 0 "R10" H 6700 4250 50  0000 C CNN
-F 1 "100K" V 6650 4400 50  0000 C CNN
-F 2 "Resistors_SMD:R_0603_HandSoldering" V 6580 4400 50  0001 C CNN
-F 3 "https://www.digikey.com/product-detail/en/yageo/RC0603JR-07100KL/311-100KGRCT-ND/729645" H 6650 4400 50  0001 C CNN
-F 4 "RC0603JR-07100KL" V 6650 4400 60  0001 C CNN "Part Number"
-	1    6650 4400
-	1    0    0    -1  
-$EndComp
-$Comp
-L GND #PWR024
-U 1 1 5990CEC4
-P 6650 5100
-F 0 "#PWR024" H 6650 4850 50  0001 C CNN
-F 1 "GND" H 6650 4950 50  0000 C CNN
-F 2 "" H 6650 5100 50  0000 C CNN
-F 3 "" H 6650 5100 50  0000 C CNN
-	1    6650 5100
-	1    0    0    -1  
-$EndComp
-$Comp
-L R R11
-U 1 1 59911D3F
-P 7150 4050
-F 0 "R11" H 7200 3900 50  0000 C CNN
-F 1 "82K" V 7150 4050 50  0000 C CNN
-F 2 "Resistors_SMD:R_0603_HandSoldering" V 7080 4050 50  0001 C CNN
-F 3 "https://www.digikey.com/product-detail/en/yageo/RC0603JR-0782KL/311-82KGRCT-ND/729782" H 7150 4050 50  0001 C CNN
-F 4 "RC0603JR-0782KL" V 7150 4050 60  0001 C CNN "Part Number"
-	1    7150 4050
-	1    0    0    -1  
-$EndComp
-$Comp
-L R R12
-U 1 1 59A20B38
-P 9000 4050
-F 0 "R12" V 8900 4100 50  0000 C CNN
-F 1 "1K" V 9000 4050 50  0000 C CNN
-F 2 "Resistors_SMD:R_0603_HandSoldering" V 8930 4050 50  0001 C CNN
-F 3 "https://www.digikey.com/product-detail/en/yageo/RC0603JR-071KL/311-1.0KGRTR-ND/726677" H 9000 4050 50  0001 C CNN
-F 4 "RC0603JR-071KL" V 9000 4050 60  0001 C CNN "Part Number"
-	1    9000 4050
-	0    1    1    0   
-$EndComp
-$Comp
-L R R13
-U 1 1 59A20C4C
-P 9000 4250
-F 0 "R13" V 9100 4300 50  0000 C CNN
-F 1 "1K" V 9000 4250 50  0000 C CNN
-F 2 "Resistors_SMD:R_0603_HandSoldering" V 8930 4250 50  0001 C CNN
-F 3 "https://www.digikey.com/product-detail/en/yageo/RC0603JR-071KL/311-1.0KGRTR-ND/726677" H 9000 4250 50  0001 C CNN
-F 4 "RC0603JR-071KL" V 9000 4250 60  0001 C CNN "Part Number"
-	1    9000 4250
-	0    1    1    0   
-$EndComp
 $Comp
 L GND #PWR025
 U 1 1 59A20D2D
-P 9650 4800
-F 0 "#PWR025" H 9650 4550 50  0001 C CNN
-F 1 "GND" H 9650 4650 50  0000 C CNN
-F 2 "" H 9650 4800 50  0000 C CNN
-F 3 "" H 9650 4800 50  0000 C CNN
-	1    9650 4800
+P 7200 6250
+F 0 "#PWR025" H 7200 6000 50  0001 C CNN
+F 1 "GND" H 7200 6100 50  0000 C CNN
+F 2 "" H 7200 6250 50  0000 C CNN
+F 3 "" H 7200 6250 50  0000 C CNN
+	1    7200 6250
 	1    0    0    -1  
 $EndComp
 $Comp
 L R R20
 U 1 1 59A20F5E
-P 9650 4600
-F 0 "R20" H 9700 4450 50  0000 C CNN
-F 1 "1K" V 9650 4600 50  0000 C CNN
-F 2 "Resistors_SMD:R_0603_HandSoldering" V 9580 4600 50  0001 C CNN
-F 3 "https://www.digikey.com/product-detail/en/yageo/RC0603JR-071KL/311-1.0KGRTR-ND/726677" H 9650 4600 50  0001 C CNN
-F 4 "RC0603JR-071KL" V 9650 4600 60  0001 C CNN "Part Number"
-	1    9650 4600
+P 7200 6050
+F 0 "R20" H 7100 6200 50  0000 C CNN
+F 1 "1K" V 7200 6050 50  0000 C CNN
+F 2 "Resistors_SMD:R_0603_HandSoldering" V 7130 6050 50  0001 C CNN
+F 3 "https://www.digikey.com/product-detail/en/yageo/RC0603JR-071KL/311-1.0KGRTR-ND/726677" H 7200 6050 50  0001 C CNN
+F 4 "RC0603JR-071KL" V 7200 6050 60  0001 C CNN "Part Number"
+	1    7200 6050
 	-1   0    0    1   
 $EndComp
-Text GLabel 8800 4250 0    60   Input ~ 0
-IO33
-Text GLabel 7150 3350 1    60   Input ~ 0
-3v3
-Text GLabel 8100 3300 1    60   Input ~ 0
-3v3
-Text GLabel 9650 3800 1    60   Input ~ 0
-3v3
-$Comp
-L Q_PMOS_GSD_BSS84 Q1
-U 1 1 59A3758F
-P 9550 4150
-F 0 "Q1" H 9750 4200 50  0000 L CNN
-F 1 "Q_PMOS_GSD_BSS84" H 9750 4100 50  0000 L CNN
-F 2 "TO_SOT_Packages_SMD:SOT-23" H 9750 4250 50  0001 C CNN
-F 3 "https://www.digikey.com/product-detail/en/fairchild-on-semiconductor/BSS84/BSS84CT-ND/244297" H 9750 4200 50  0001 C CNN
-F 4 "BSS84" H 9850 4300 60  0001 C CNN "Part Number"
-	1    9550 4150
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
-	9650 3800 9650 3950
-Wire Wire Line
-	8800 4250 8850 4250
-Connection ~ 9650 4400
-Wire Wire Line
-	9850 4400 9650 4400
-Wire Wire Line
-	9650 4350 9650 4450
-Connection ~ 9200 4150
-Wire Wire Line
-	9150 4050 9200 4050
-Wire Wire Line
-	9200 4050 9200 4250
-Wire Wire Line
-	9200 4250 9150 4250
-Wire Wire Line
-	9650 4750 9650 4800
-Wire Wire Line
-	7800 4650 7800 4150
-Connection ~ 6650 4650
-Wire Wire Line
-	6650 4650 7800 4650
-Wire Wire Line
-	6650 5100 6650 5000
-Wire Wire Line
-	6650 4550 6650 4700
-Wire Wire Line
-	6650 4150 6650 4250
+	7200 6200 7200 6250
 Connection ~ 5600 5100
 Wire Wire Line
 	5600 5000 5600 5100
@@ -584,31 +403,6 @@ Wire Wire Line
 	4400 5250 4400 5200
 Wire Wire Line
 	5200 5100 5700 5100
-Connection ~ 7150 3850
-Wire Wire Line
-	7400 3850 7150 3850
-Wire Wire Line
-	7400 3950 7400 3850
-Wire Wire Line
-	7150 4300 7150 4200
-Wire Wire Line
-	7150 3750 7150 3900
-Wire Wire Line
-	7150 3350 7150 3450
-Wire Wire Line
-	7800 4150 7900 4150
-Connection ~ 7800 3950
-Wire Wire Line
-	7400 3950 7900 3950
-Wire Wire Line
-	7800 3550 7800 3950
-Wire Wire Line
-	8200 3550 7800 3550
-Connection ~ 8550 4050
-Wire Wire Line
-	8550 3550 8550 4050
-Wire Wire Line
-	8500 3550 8550 3550
 Wire Wire Line
 	3100 4200 2900 4200
 Wire Wire Line
@@ -668,7 +462,7 @@ Wire Wire Line
 Wire Wire Line
 	7450 5950 7500 5950
 Wire Wire Line
-	7400 5850 7500 5850
+	6950 5850 7500 5850
 Wire Wire Line
 	4850 3200 4850 3150
 Wire Wire Line
@@ -676,11 +470,6 @@ Wire Wire Line
 Wire Wire Line
 	4800 3050 4900 3050
 Wire Wire Line
-	8500 4050 8850 4050
-Wire Wire Line
-	8100 4400 8100 4350
-Wire Wire Line
-	9350 4150 9200 4150
-Wire Wire Line
-	8100 3300 8100 3750
+	7200 5900 7200 5850
+Connection ~ 7200 5850
 $EndSCHEMATC

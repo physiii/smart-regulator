@@ -1,5 +1,4 @@
 EESchema Schematic File Version 2
-LIBS:5v-smart-solar-regulator-rescue
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -29,7 +28,6 @@ LIBS:opto
 LIBS:atmel
 LIBS:contrib
 LIBS:valves
-LIBS:open-automation
 LIBS:5v-smart-solar-regulator-cache
 EELAYER 25 0
 EELAYER END
@@ -56,8 +54,6 @@ F 3 "" H 4500 2600 50  0000 C CNN
 	1    4500 2600
 	-1   0    0    1   
 $EndComp
-Text GLabel 3350 3250 1    60   Input ~ 0
-IO15
 Text GLabel 5050 4600 3    60   Input ~ 0
 IO13
 Text GLabel 4450 4050 0    60   Input ~ 0
@@ -83,28 +79,26 @@ Text GLabel 4450 2750 0    60   Input ~ 0
 $Comp
 L R R1
 U 1 1 590979AC
-P 3350 3550
-F 0 "R1" V 3430 3550 50  0000 C CNN
-F 1 "10K" V 3350 3550 50  0000 C CNN
-F 2 "Resistors_SMD:R_0603_HandSoldering" V 3280 3550 50  0001 C CNN
-F 3 "http://www.digikey.com/en/resources/datasheets/yageo/rc-series-l-suffix-datasheet" H 3350 3550 50  0001 C CNN
-F 4 "RC0603JR-0710KL" V 3350 3550 60  0001 C CNN "Part Number"
-	1    3350 3550
-	1    0    0    -1  
+P 6050 4900
+F 0 "R1" V 6130 4900 50  0000 C CNN
+F 1 "10K" V 6050 4900 50  0000 C CNN
+F 2 "Resistors_SMD:R_0603_HandSoldering" V 5980 4900 50  0001 C CNN
+F 3 "http://www.digikey.com/en/resources/datasheets/yageo/rc-series-l-suffix-datasheet" H 6050 4900 50  0001 C CNN
+F 4 "RC0603JR-0710KL" V 6050 4900 60  0001 C CNN "Part Number"
+	1    6050 4900
+	0    1    1    0   
 $EndComp
 $Comp
 L GND #PWR02
 U 1 1 590979AD
-P 3350 3800
-F 0 "#PWR02" H 3350 3550 50  0001 C CNN
-F 1 "GND" H 3350 3650 50  0000 C CNN
-F 2 "" H 3350 3800 50  0000 C CNN
-F 3 "" H 3350 3800 50  0000 C CNN
-	1    3350 3800
-	1    0    0    -1  
+P 6250 4900
+F 0 "#PWR02" H 6250 4650 50  0001 C CNN
+F 1 "GND" H 6250 4750 50  0000 C CNN
+F 2 "" H 6250 4900 50  0000 C CNN
+F 3 "" H 6250 4900 50  0000 C CNN
+	1    6250 4900
+	0    -1   -1   0   
 $EndComp
-Text GLabel 5750 4600 3    60   Input ~ 0
-IO15
 $Comp
 L ESP-WROOM-32 U1
 U 1 1 590979AF
@@ -122,8 +116,8 @@ Text GLabel 4450 3750 0    60   Input ~ 0
 IO26
 Text GLabel 4450 3650 0    60   Input ~ 0
 IO25
-Text GLabel 4450 3550 0    60   Input ~ 0
-IO33
+Text GLabel 5750 4950 3    60   Input ~ 0
+POWER_EN
 Text GLabel 4450 3450 0    60   Input ~ 0
 IO32
 Text GLabel 4450 3350 0    60   Input ~ 0
@@ -327,7 +321,7 @@ Wire Wire Line
 Wire Wire Line
 	5250 4600 5250 4500
 Wire Wire Line
-	5750 4500 5750 4600
+	5750 4500 5750 4950
 Wire Wire Line
 	5150 4600 5150 4500
 Wire Wire Line
@@ -373,10 +367,6 @@ Wire Wire Line
 Wire Wire Line
 	4500 2600 4500 2650
 Wire Wire Line
-	3350 3700 3350 3800
-Wire Wire Line
-	3350 3250 3350 3400
-Wire Wire Line
 	4450 4050 4550 4050
 Wire Wire Line
 	4450 3950 4550 3950
@@ -391,4 +381,11 @@ F 3 "" H 8700 2550 50  0001 C CNN
 	1    8700 3650
 	1    0    0    -1  
 $EndComp
+Text GLabel 4450 3550 0    60   Input ~ 0
+IO33
+Wire Wire Line
+	6200 4900 6250 4900
+Wire Wire Line
+	5900 4900 5750 4900
+Connection ~ 5750 4900
 $EndSCHEMATC

@@ -1,5 +1,4 @@
 EESchema Schematic File Version 2
-LIBS:5v-smart-solar-regulator-rescue
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -29,7 +28,6 @@ LIBS:opto
 LIBS:atmel
 LIBS:contrib
 LIBS:valves
-LIBS:open-automation
 LIBS:5v-smart-solar-regulator-cache
 EELAYER 25 0
 EELAYER END
