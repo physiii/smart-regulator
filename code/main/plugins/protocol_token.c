@@ -208,8 +208,18 @@ callback_token(struct lws *wsi, enum lws_callback_reasons reason,
 		pss->number = 0;
 		break;
 
+	case LWS_CALLBACK_CLOSED:
+		is_connected = false;
+		token_received = false;
+		request_sent = false;
+		break;
+
+	case LWS_CALLBACK_HTTP_DROP_PROTOCOL:
+		break;
+
 	case LWS_CALLBACK_CLIENT_WRITEABLE:
 		//printf("[LWS_CALLBACK_CLIENT_WRITEABLE] sum: %d\n",sum);
+		is_connected = true;
 		if (token_received) break;
 		if (request_sent) break;
 

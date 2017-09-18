@@ -286,6 +286,11 @@ callback_buttons(struct lws *wsi, enum lws_callback_reasons reason,
 		uv_close((uv_handle_t *)&vhd->timeout_watcher, NULL);
 		break;
 
+	case LWS_CALLBACK_CLOSED:
+		buttons_linked = false;
+		break;
+
+
 	case LWS_CALLBACK_ESTABLISHED:
 		pss->number = 0;
 		break;

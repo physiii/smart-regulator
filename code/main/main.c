@@ -19,6 +19,8 @@
 #include <libwebsockets.h>
 #include <nvs_flash.h>
 
+bool is_connected = false;
+
 #include "plugins/protocol_token.c"
 //#include "plugins/protocol_LED.c"
 #include "plugins/protocol_buttons.c"
@@ -133,73 +135,57 @@ static void flash_timer_cb(TimerHandle_t t)
 
 uint8_t mac[6];
 char mac_str[20];
-void app_main(void)
+
+
+static struct lws_context_creation_info info;
+static struct lws_client_connect_info i;
+struct lws_context *context;
+struct lws *wsi_tokens, *wsi_buttons, *wsi_power;
+
+void initiate_protocols(void)
 {
-        esp_wifi_get_mac(WIFI_IF_STA,mac);
-	sprintf(mac_str,"%02x:%02x:%02x:%02x:%02x:%02x",
-           mac[0] & 0xff, mac[1] & 0xff, mac[2] & 0xff,
-           mac[3] & 0xff, mac[4] & 0xff, mac[5] & 0xff);
-
-	nvs_flash_init();
-	lws_esp32_wlan_config();
-	ESP_ERROR_CHECK( esp_event_loop_init(event_handler, NULL));
-	lws_esp32_wlan_start_station();
-
-	static struct lws_context_creation_info info;
-	static struct lws_client_connect_info i;
-	static struct lws_client_connect_info j;
-	struct lws_context *context;
-        struct lws *wsi;
-        struct lws *wsi2;
-
-	memset(&info, 0, sizeof(info));
-	info.port = CONTEXT_PORT_NO_LISTEN;
-	info.protocols = protocols_station;
-	info.gid = -1;
-	info.uid = -1;
-	info.ws_ping_pong_interval = 10;
-	context = lws_esp32_init(&info);
-
-	memset(&i, 0, sizeof i);
-	i.address = "192.168.0.10";
-        i.port = 4000;
-	i.ssl_connection = 0;
-	i.host = i.address;
-	i.origin = i.host;
-        i.ietf_version_or_minus_one = -1;
-	i.pwsi = &wsi;
-	i.context = context;
-
 	// ------------------ //
 	// initiate protocols //
 	// ------------------ //
+	while (1) 
+	{
+	if (!is_connected)
+	{
+	wsi_tokens = NULL;
+	wsi_buttons = NULL;
+	wsi_power = NULL;
+	printf("\CONNECTING!\n");
+	i.pwsi = &wsi_tokens;
 	i.protocol = "token-protocol";
 	i.path = "/tokens";
-        wsi = lws_client_connect_via_info(&i);
-        while (!wsi) {
-	        wsi = lws_client_connect_via_info(&i);
+        wsi_tokens = lws_client_connect_via_info(&i);
+        while (!wsi_tokens) {
+	        wsi_tokens = lws_client_connect_via_info(&i);
 		taskYIELD();
 		vTaskDelay(1000/portTICK_PERIOD_MS);
+		printf("TOKEN-PROTOCOL!\n");	
         }
 
+	i.pwsi = &wsi_buttons;
 	i.protocol = "buttons-protocol";
 	i.path = "/buttons";
-        wsi = lws_client_connect_via_info(&i);
-        while (!wsi) {
-	        wsi = lws_client_connect_via_info(&i);
+        wsi_buttons = lws_client_connect_via_info(&i);
+        while (!wsi_buttons) {
+	        wsi_buttons = lws_client_connect_via_info(&i);
 		taskYIELD();
 		vTaskDelay(1000/portTICK_PERIOD_MS);
         }
 
+	i.pwsi = &wsi_power;
 	i.protocol = "power-protocol";
 	i.path = "/power";
-        wsi = lws_client_connect_via_info(&i);
-        while (!wsi) {
-	        wsi = lws_client_connect_via_info(&i);
+        wsi_power = lws_client_connect_via_info(&i);
+        while (!wsi_power) {
+	        wsi_power = lws_client_connect_via_info(&i);
 		taskYIELD();
 		vTaskDelay(1000/portTICK_PERIOD_MS);
         }
-
+	vTaskDelay(1000/portTICK_PERIOD_MS);
 	/*i.protocol = "LED-protocol";
 	i.path = "/LED";
         wsi = lws_client_connect_via_info(&i);
@@ -252,12 +238,50 @@ void app_main(void)
 		taskYIELD();
 		vTaskDelay(1000/portTICK_PERIOD_MS);
         }*/
-
+	/*while (!lws_service(context, 500)) {
+		taskYIELD();
+	}*/
+	}
 	// ----------------- //
 	// service protocols //
 	// ----------------- //
-	while (!lws_service(context, 500)) {
-		taskYIELD();
+	lws_service(context, 500);
+	taskYIELD();
 	}
+}
+
+
+
+void app_main(void)
+{
+        esp_wifi_get_mac(WIFI_IF_STA,mac);
+	sprintf(mac_str,"%02x:%02x:%02x:%02x:%02x:%02x",
+           mac[0] & 0xff, mac[1] & 0xff, mac[2] & 0xff,
+           mac[3] & 0xff, mac[4] & 0xff, mac[5] & 0xff);
+
+	nvs_flash_init();
+	lws_esp32_wlan_config();
+	ESP_ERROR_CHECK( esp_event_loop_init(event_handler, NULL));
+	lws_esp32_wlan_start_station();
+
+	memset(&info, 0, sizeof(info));
+	info.port = CONTEXT_PORT_NO_LISTEN;
+	info.protocols = protocols_station;
+	info.gid = -1;
+	info.uid = -1;
+	info.ws_ping_pong_interval = 10;
+	context = lws_esp32_init(&info);
+
+	memset(&i, 0, sizeof i);
+	i.address = "192.168.0.10";
+        i.port = 4000;
+	i.ssl_connection = 0;
+	i.host = i.address;
+	i.origin = i.host;
+        i.ietf_version_or_minus_one = -1;
+	i.context = context;
+
+	initiate_protocols();
+	printf("EXITED?!\n");
         return 0;
 }
