@@ -24,7 +24,7 @@ bool is_connected = false;
 #include "plugins/protocol_token.c"
 //#include "plugins/protocol_LED.c"
 #include "plugins/protocol_buttons.c"
-//#include "plugins/protocol_power.c"
+#include "plugins/protocol_power.c"
 //#include "plugins/protocol_speaker.c"
 //#include "plugins/protocol_motion.c"
 //#include "plugins/protocol_audio.c"
@@ -43,7 +43,7 @@ static const struct lws_protocols protocols_station[] = {
 	},
 	LWS_PLUGIN_PROTOCOL_TOKEN,
 	LWS_PLUGIN_PROTOCOL_BUTTONS,
-	//LWS_PLUGIN_PROTOCOL_POWER,
+	LWS_PLUGIN_PROTOCOL_POWER,
 	//LWS_PLUGIN_PROTOCOL_LED,
 	//LWS_PLUGIN_PROTOCOL_CLIMATE,
 	//LWS_PLUGIN_PROTOCOL_SPEAKER,
@@ -176,7 +176,7 @@ void initiate_protocols(void)
 		vTaskDelay(1000/portTICK_PERIOD_MS);
         }
 
-	/*i.pwsi = &wsi_power;
+	i.pwsi = &wsi_power;
 	i.protocol = "power-protocol";
 	i.path = "/power";
         wsi_power = lws_client_connect_via_info(&i);
@@ -185,7 +185,7 @@ void initiate_protocols(void)
 		taskYIELD();
 		vTaskDelay(1000/portTICK_PERIOD_MS);
         }
-	vTaskDelay(1000/portTICK_PERIOD_MS);
+	/*vTaskDelay(1000/portTICK_PERIOD_MS);
 	i.protocol = "LED-protocol";
 	i.path = "/LED";
         wsi = lws_client_connect_via_info(&i);
