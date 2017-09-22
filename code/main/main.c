@@ -32,7 +32,8 @@ bool is_connected = false;
 //#include "plugins/protocol_climate.c"
 //#include "plugins/protocol_update.c"
 #include "plugins/protocol_esp32_lws_ota.c"
-#include "plugins/protocol_esp32_lws_reboot_to_factory.c"
+#include "../components/libwebsockets/plugins/protocol_lws_meta.c"
+#include <protocol_esp32_lws_reboot_to_factory.c>
 
 static const struct lws_protocols protocols_station[] = {
 	{
@@ -136,7 +137,7 @@ static void flash_timer_cb(TimerHandle_t t)
 uint8_t mac[6];
 char mac_str[20];
 
-
+struct lws_vhost *vh;
 static struct lws_context_creation_info info;
 static struct lws_client_connect_info i;
 struct lws_context *context;
@@ -154,7 +155,7 @@ void initiate_protocols(void)
 	wsi_tokens = NULL;
 	wsi_buttons = NULL;
 	wsi_power = NULL;
-	printf("\CONNECTING!\n");
+	//printf("\CONNECTING!\n");
 	i.pwsi = &wsi_tokens;
 	i.protocol = "token-protocol";
 	i.path = "/tokens";
@@ -242,6 +243,7 @@ void initiate_protocols(void)
 		taskYIELD();
 	}*/
 	}
+	vTaskDelay(3000/portTICK_PERIOD_MS);
 	// ----------------- //
 	// service protocols //
 	// ----------------- //
@@ -270,7 +272,7 @@ void app_main(void)
 	info.gid = -1;
 	info.uid = -1;
 	info.ws_ping_pong_interval = 10;
-	context = lws_esp32_init(&info);
+	context = lws_esp32_init(&info, &vh);
 
 	memset(&i, 0, sizeof i);
 	i.address = "pyfi.org";

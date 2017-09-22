@@ -18,6 +18,7 @@
 #include "driver/adc.h"
 #include "esp_system.h"
 #include "esp_partition.h"
+#include "esp_adc_cal.h"
 #include "nvs_flash.h"
 #include "nvs.h"
 
@@ -40,6 +41,13 @@
 
 #define ESP_INTR_FLAG_DEFAULT 0
 
+
+/*Note: Different ESP32 modules may have different reference voltages varying from
+ * 1000mV to 1200mV. Use #define GET_VREF to route v_ref to a GPIO
+ */
+#define V_REF   1100
+#define ADC1_TEST_CHANNEL (ADC1_CHANNEL_0)      //GPIO 34
+//#define V_REF_TO_GPIO  //Remove comment on define to route v_ref to GPIO_ID
 
 char temp_str[50];
 bool power_received = false;
@@ -102,17 +110,46 @@ uv_timeout_cb_power(uv_timer_t *w
 // ------------- //
 bool power_hold = false;
 
+void init_gpio(void)
+{
+#ifndef V_REF_TO_GPIO
+    //Init ADC and Characteristics
+    esp_adc_cal_characteristics_t characteristics;
+    adc1_config_width(ADC_WIDTH_12Bit);
+    adc1_config_channel_atten(ADC1_TEST_CHANNEL, ADC_ATTEN_6db);
+    esp_adc_cal_get_characteristics(V_REF, ADC_ATTEN_0db, ADC_WIDTH_12Bit, &characteristics);
+    uint32_t voltage;
+    while(1){
+        voltage = adc1_to_voltage(ADC1_TEST_CHANNEL, &characteristics);
+        printf("%d mV\n",voltage);
+        vTaskDelay(pdMS_TO_TICKS(1000));
+    }
+#else
+    //Get v_ref
+    esp_err_t status;
+    status = adc2_vref_to_gpio(GPIO_NUM_25);
+    if (status == ESP_OK){
+        printf("v_ref routed to GPIO\n");
+    }else{
+        printf("failed to route v_ref\n");
+    }
+    fflush(stdout);
+#endif
+}
+
 static void power_task(void* arg) {
     char tag[50] = "[power-protocol]";
+	printf("%s starting power_task\n",tag);
     while(1) {
-		main_voltage = 0;
-		//main_current = adc1_get_voltage(CURRENT_CHANNEL);
-		for (int i = 0; i < 100; i++) {
-			main_voltage+=adc1_get_voltage(VOLTAGE_CHANNEL);
-			vTaskDelay(10/portTICK_PERIOD_MS);
-		}
-		main_voltage = main_voltage / 100;
-		printf("%s main voltage: %d\n",tag, main_voltage);
+	main_voltage = 0;
+	//main_current = adc1_get_voltage(CURRENT_CHANNEL);
+	for (int i = 0; i < 100; i++) {
+		main_voltage+=adc1_get_voltage(VOLTAGE_CHANNEL);
+		vTaskDelay(10/portTICK_PERIOD_MS);
+	}
+	vTaskDelay(100/portTICK_PERIOD_MS);
+	main_voltage = main_voltage / 100;
+	printf("%s main voltage: %d\n",tag, main_voltage);
     }
 }
 
@@ -121,7 +158,6 @@ callback_power(struct lws *wsi, enum lws_callback_reasons reason,
 			void *user, void *in, size_t len)
 {
 	char tag[50] = "[power-protocol]";
-	xTaskCreate(power_task, "power_task", 2048, NULL, 10, NULL);
 	struct per_session_data__power *pss =
 			(struct per_session_data__power *)user;
 	struct per_vhost_data__power *vhd =
@@ -138,8 +174,9 @@ callback_power(struct lws *wsi, enum lws_callback_reasons reason,
 		break;
 
 	case LWS_CALLBACK_PROTOCOL_INIT:
-		printf("%s initialized\n",tag);
-
+		printf("%s initializing...\n",tag);
+		//xTaskCreate(power_task, "power_task", 2048, NULL, 10, NULL);
+		init_gpio();
 		vhd = lws_protocol_vh_priv_zalloc(lws_get_vhost(wsi),
 				lws_get_protocol(wsi),
 				sizeof(struct per_vhost_data__power));
