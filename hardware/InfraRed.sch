@@ -28,12 +28,13 @@ LIBS:opto
 LIBS:atmel
 LIBS:contrib
 LIBS:valves
-LIBS:5v-smart-solar-regulator-cache
+LIBS:open-automation
+LIBS:smart-regulator-cache
 EELAYER 25 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 3 6
+Sheet 3 7
 Title ""
 Date ""
 Rev ""
@@ -46,29 +47,29 @@ $EndDescr
 $Comp
 L CONN_01X03 P3
 U 1 1 59098B14
-P 7350 3900
+P 7400 3900
 AR Path="/590982C4/59098B14" Ref="P3"  Part="1" 
 AR Path="/59096487/59098B14" Ref="P3"  Part="1" 
 AR Path="/5936D7EA/59098B14" Ref="P3"  Part="1" 
-F 0 "P3" H 7300 4100 50  0000 L CNN
-F 1 "CONN_01X03" H 7300 3700 50  0001 L CNN
-F 2 "footprints:PIR-SR501" H 7427 3804 50  0001 L CNN
-F 3 "http://sullinscorp.com/catalogs/101_PAGE114-115_.100_FEMALE_HDR.pdf" H 7350 3900 50  0001 C CNN
-	1    7350 3900
+F 0 "P3" H 7350 4100 50  0000 L CNN
+F 1 "CONN_01X03" H 7350 3700 50  0001 L CNN
+F 2 "footprints:PIR-SR501" H 7477 3804 50  0001 L CNN
+F 3 "http://sullinscorp.com/catalogs/101_PAGE114-115_.100_FEMALE_HDR.pdf" H 7400 3900 50  0001 C CNN
+	1    7400 3900
 	1    0    0    -1  
 $EndComp
 $Comp
 L GND #PWR05
 U 1 1 59098B15
-P 7100 3750
-F 0 "#PWR05" H 7100 3500 50  0001 C CNN
-F 1 "GND" H 7100 3600 50  0000 C CNN
-F 2 "" H 7100 3750 50  0000 C CNN
-F 3 "" H 7100 3750 50  0000 C CNN
-	1    7100 3750
+P 7150 3750
+F 0 "#PWR05" H 7150 3500 50  0001 C CNN
+F 1 "GND" H 7150 3600 50  0000 C CNN
+F 2 "" H 7150 3750 50  0000 C CNN
+F 3 "" H 7150 3750 50  0000 C CNN
+	1    7150 3750
 	-1   0    0    1   
 $EndComp
-Text GLabel 7050 3900 0    60   Input ~ 0
+Text GLabel 7100 3900 0    60   Input ~ 0
 IO16
 $Comp
 L LED D3
@@ -122,7 +123,7 @@ Text GLabel 5300 3850 2    60   Input ~ 0
 IO34
 Text Label 4500 2800 0    60   ~ 0
 Light-Level
-Text Label 7000 3450 0    60   ~ 0
+Text Label 7050 3450 0    60   ~ 0
 PIR
 $Comp
 L GND #PWR06
@@ -147,15 +148,15 @@ F 3 "" H 4000 3950 50  0000 C CNN
 	0    1    1    0   
 $EndComp
 Wire Wire Line
-	7100 3750 7100 3800
+	7150 3750 7150 3800
 Wire Wire Line
-	7100 3800 7150 3800
+	7150 3800 7200 3800
 Wire Wire Line
-	7150 4000 7100 4000
+	7200 4000 7150 4000
 Wire Wire Line
-	7100 4000 7100 4050
+	7150 4000 7150 4050
 Wire Wire Line
-	7050 3900 7150 3900
+	7100 3900 7200 3900
 Wire Wire Line
 	5100 3850 5300 3850
 Wire Wire Line
@@ -193,7 +194,7 @@ Wire Wire Line
 Connection ~ 4700 3250
 Text GLabel 4700 3150 1    60   Input ~ 0
 5V
-Text GLabel 7100 4050 3    60   Input ~ 0
+Text GLabel 7150 4050 3    60   Input ~ 0
 5V
 $Comp
 L OPA344NA/3K U5

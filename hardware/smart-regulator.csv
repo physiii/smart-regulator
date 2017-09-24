@@ -1,0 +1,30 @@
+Reference, Quantity, Value, Footprint, Datasheet, Part Number
+BATTERY1 PANEL1,2,CONN_01X02,open-automation:XT60,https://www.digikey.com/product-detail/en/phoenix-contact/1934861/277-1607-ND/568644
+C1,1,100uF,open-automation:CAP-RAD-5mm-UVR1H102MHD,https://www.digikey.com/product-detail/en/wurth-electronics-inc/860240675007/732-9294-3-ND/5727524,860240675007
+C2,1,1000uF,open-automation:CAP-RAD-5mm-UVR1H102MHD,https://www.digikey.com/product-detail/en/nichicon/UVR1H102MHD/493-1111-ND/588852,UVR1H102MHD
+C4,1,C_100uF,Capacitors_SMD:C_1206_HandSoldering,https://www.digikey.com/product-detail/en/tdk-corporation/C3216X5R1A107M160AC/445-6007-1-ND/2444048,C3216X5R1A107M160AC
+C3 C5,2,4.7uF,Capacitors_SMD:C_0603_HandSoldering,http://media.digikey.com/pdf/Data%20Sheets/Samsung%20PDFs/CL_Series_MLCC_ds.pdf,CL10B475KQ8NQNC
+C6,1,C_1uF,Capacitors_SMD:C_0603_HandSoldering,https://www.digikey.com/product-detail/en/yageo/CC0603ZRY5V7BB105/311-1372-1-ND/2103156,CC0603ZRY5V7BB105
+C7 C8 C9 C10,4,C_0.1uF,Capacitors_SMD:C_0603_HandSoldering,https://www.digikey.com/product-detail/en/kemet/C0603C104K5RACTU/399-5089-1-ND/1465623,C0603C104K5RACTU
+D1,1,D_Schottky,Diodes_SMD:D_SMA,http://www.digikey.com/scripts/DkSearch/dksus.dll?Detail&itemSeq=233263850&uq=636356340886764109,B330A-13-F
+D2,1,LED,LEDs:LED_0603,http://www.osram-os.com/Graphics/XPic9/00128792_0.pdf,475-2512-2-ND
+D4,1,LED,Diodes_SMD:D_0603,https://www.digikey.com/product-detail/en/rohm-semiconductor/SML-D12M8WT86/511-1578-1-ND/1641810,SML-D12M8WT86
+J1,1,Conn_02x05_Odd_Even,Pin_Headers:Pin_Header_Straight_2x05_Pitch2.54mm,
+L1,1,47uH,open-automation:L-RAD-7.4mm,https://www.digikey.com/product-detail/en/abracon-llc/AIUR-06-470K/535-13031-ND/2343602,AIUR-06-470K
+P5,1,USB_A_2,open-automation:USB_A_2,https://www.digikey.com/product-detail/en/cnc-tech/1002-004-01010/1175-1018-ND/3064749,1002-004-01010
+PROG1 FACTORY1,2,SW_PUSH,Buttons_Switches_SMD:SW_SPST_KMR2,http://www.mouser.com/ds/2/60/KMR2_9aug12-25127.pdf,KMR211NG LFS
+Q1,1,Q_NMOS_GSD_PSMN038-100YLX,open-automation:SOT-669_PSMN038-100YLX,https://www.digikey.com/product-detail/en/nexperia-usa-inc/PSMN038-100YLX/1727-1815-1-ND/4813999,PSMN038-100YLX
+Q2,1,Q_NMOS_GSD,TO_SOT_Packages_SMD:SOT-23,http://www.mouser.com/ds/2/308/2N7002L-D-105484.pdf,2N7002L
+Q3,1,Q_PMOS_GSD,TO_SOT_Packages_SMD:SOT-23,https://www.fairchildsemi.com/datasheets/BS/BSS84.pdf,BSS84
+R1,1,R_10,Resistors_SMD:R_0603_HandSoldering,https://www.digikey.com/product-detail/en/te-connectivity-passive-product/CPF0603B10RE/A119908CT-ND/4966506,CPF0603B10RE
+R2 R3 R14 R15,4,1K,Resistors_SMD:R_0603_HandSoldering,http://www.digikey.com/en/resources/datasheets/yageo/rc-series-l-suffix-datasheet,RC0603JR-071KL
+R4 R5,2,50m,Resistors_SMD:R_0805_HandSoldering,https://www.digikey.com/product-detail/en/susumu/RL1220T-R050-J/RL12T.05JCT-ND/567358,RL1220T-R050-J
+R6 R7 R8 R9 R10,5,R_10k,Resistors_SMD:R_0603_HandSoldering,https://www.digikey.com/product-detail/en/yageo/RC0603JR-0710KL/311-10KGRCT-ND/729647,RC0603JR-0710KL
+U1,1,ESP-WROOM-32,open-automation:ESP-WROOM-32,https://www.espressif.com/sites/default/files/documentation/esp_wroom_32_datasheet_en.pdf
+U10,1,touchpad,open-automation:touch-pad,
+U11,1,SPX1117M3-L-3-3/TR,open-automation:SPX1117M3,https://www.digikey.com/product-detail/en/exar-corporation/SPX1117M3-L-3-3-TR/1016-1848-1-ND/3586565,1016-1848-1-ND
+U3,1,LM2576,open-automation:Regulator-LM2576,https://www.digikey.com/product-detail/en/texas-instruments/LM2576SX-5.0-NOPB/LM2576SX-5.0-NOPBCT-ND/3440106,LM2576SX-5.0/NOPB
+U4,1,housing-mounts,open-automation:enclosure-25x38,https://www.mcmaster.com/#catalog/123/904/=18nyvt2
+U2 U5,2,Power-Monitor-INA219,TO_SOT_Packages_SMD:SOT-23-8_Handsoldering,https://www.digikey.com/product-detail/en/texas-instruments/INA219AIDCNR/296-23770-1-ND/1952550,INA219AIDCNR
+U6,1,SI7020-A20,open-automation:SI7020-A20,https://www.digikey.com/product-detail/en/silicon-labs/SI7020-A20-GM1R/336-3596-1-ND/5823452,SI7020-A20-GM1R
+U7,1,OPT3001,Housings_DFN_QFN:DFN-6-1EP_2x2mm_Pitch0.65mm,https://www.digikey.com/product-detail/en/texas-instruments/OPT3001DNPR/296-40474-1-ND/5178351,296-40474-1-ND
