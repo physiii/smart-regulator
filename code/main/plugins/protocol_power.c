@@ -105,9 +105,303 @@ uv_timeout_cb_power(uv_timer_t *w
 		lws_callback_on_writable_all_protocol_vhost(vhd->vhost, vhd->protocol);
 }
 
+// ----------- //
+// i2c actions //
+// ----------- //
+
+#include <stdio.h>
+#include "driver/i2c.h"
+
+
+#define DATA_LENGTH          512  /*!<Data buffer length for test buffer*/
+#define RW_TEST_LENGTH       127  /*!<Data length for r/w test, any value from 0-DATA_LENGTH*/
+#define DELAY_TIME_BETWEEN_ITEMS_MS   1234 /*!< delay time between different test items */
+
+#define I2C_EXAMPLE_MASTER_SCL_IO    19    /*!< gpio number for I2C master clock */
+#define I2C_EXAMPLE_MASTER_SDA_IO    18    /*!< gpio number for I2C master data  */
+#define I2C_EXAMPLE_MASTER_NUM I2C_NUM_1   /*!< I2C port number for master dev */
+#define I2C_EXAMPLE_MASTER_TX_BUF_DISABLE   0   /*!< I2C master do not need buffer */
+#define I2C_EXAMPLE_MASTER_RX_BUF_DISABLE   0   /*!< I2C master do not need buffer */
+#define I2C_EXAMPLE_MASTER_FREQ_HZ   100000     /*!< I2C master clock frequency */
+
+#define SI7020_SENSOR_ADDR          0x40    /*!< slave address for SI7020 sensor */
+#define SI7020_CMD_MEASURE_TEMP     0xF3    /*!< Command to set measure mode */
+
+#define INA219_SENSOR_ADDR          0x41    /*!< slave address for SI7020 sensor */
+#define INA219_CMD_MEASURE_VOLTAGE  0x02    /*!< Command to set measure mode */
+#define INA219_CMD_MEASURE_CURRENT  0x01    /*!< Command to set measure mode */
+
+#define OPT3001_SENSOR_ADDR         0x44    /*!< slave address for SI7020 sensor */
+#define OPT3001_CMD_MEASURE_LIGHT   0x00    /*!< Command to set measure mode */
+
+#define WRITE_BIT  I2C_MASTER_WRITE /*!< I2C master write */
+#define READ_BIT   I2C_MASTER_READ  /*!< I2C master read */
+#define ACK_CHECK_EN   0x1     /*!< I2C master will check ack from slave*/
+#define ACK_CHECK_DIS  0x0     /*!< I2C master will not check ack from slave */
+#define ACK_VAL    0x0         /*!< I2C ack value */
+#define NACK_VAL   0x1         /*!< I2C nack value */
+
+xSemaphoreHandle print_mux;
+
+/**
+ * @brief test code to write esp-i2c-slave
+ *
+ * 1. set mode
+ * _________________________________________________________________
+ * | start | slave_addr + wr_bit + ack | write 1 byte + ack  | stop |
+ * --------|---------------------------|---------------------|------|
+ * 2. wait more than 24 ms
+ * 3. read data
+ * ______________________________________________________________________________________
+ * | start | slave_addr + rd_bit + ack | read 1 byte + ack  | read 1 byte + nack | stop |
+ * --------|---------------------------|--------------------|--------------------|------|
+ */
+static esp_err_t SI7020_measure_temp(i2c_port_t i2c_num, uint8_t* data_h, uint8_t* data_l)
+{
+    i2c_cmd_handle_t cmd = i2c_cmd_link_create();
+    i2c_master_start(cmd);
+    i2c_master_write_byte(cmd, SI7020_SENSOR_ADDR << 1 | WRITE_BIT, ACK_CHECK_EN);
+    i2c_master_write_byte(cmd, SI7020_CMD_MEASURE_TEMP, ACK_CHECK_EN);
+    i2c_master_stop(cmd);
+
+    int ret = i2c_master_cmd_begin(i2c_num, cmd, 1000 / portTICK_RATE_MS);
+    i2c_cmd_link_delete(cmd);
+    if (ret == ESP_FAIL) {
+        return ret;
+    }
+
+    vTaskDelay(30 / portTICK_RATE_MS);
+
+    cmd = i2c_cmd_link_create();
+    i2c_master_start(cmd);
+    i2c_master_write_byte(cmd, SI7020_SENSOR_ADDR << 1 | READ_BIT, ACK_CHECK_EN);
+    i2c_master_read_byte(cmd, data_h, ACK_VAL);
+    i2c_master_read_byte(cmd, data_l, NACK_VAL);
+    i2c_master_stop(cmd);
+
+    ret = i2c_master_cmd_begin(i2c_num, cmd, 1000 / portTICK_RATE_MS);
+    i2c_cmd_link_delete(cmd);
+    if (ret == ESP_FAIL) {
+        return ESP_FAIL;
+    }
+    return ESP_OK;
+}
+
+static esp_err_t INA219_measure_current(i2c_port_t i2c_num, uint8_t* data_h, uint8_t* data_l)
+{
+    i2c_cmd_handle_t cmd = i2c_cmd_link_create();
+    i2c_master_start(cmd);
+    i2c_master_write_byte(cmd, INA219_SENSOR_ADDR << 1 | WRITE_BIT, ACK_CHECK_EN);
+    i2c_master_write_byte(cmd, INA219_CMD_MEASURE_CURRENT, ACK_CHECK_EN);
+    i2c_master_stop(cmd);
+
+    int ret = i2c_master_cmd_begin(i2c_num, cmd, 1000 / portTICK_RATE_MS);
+    i2c_cmd_link_delete(cmd);
+    if (ret == ESP_FAIL) {
+        return ret;
+    }
+
+    vTaskDelay(30 / portTICK_RATE_MS);
+
+    cmd = i2c_cmd_link_create();
+    i2c_master_start(cmd);
+    i2c_master_write_byte(cmd, INA219_SENSOR_ADDR << 1 | READ_BIT, ACK_CHECK_EN);
+    i2c_master_read_byte(cmd, data_h, ACK_VAL);
+    i2c_master_read_byte(cmd, data_l, NACK_VAL);
+    i2c_master_stop(cmd);
+
+    ret = i2c_master_cmd_begin(i2c_num, cmd, 1000 / portTICK_RATE_MS);
+    i2c_cmd_link_delete(cmd);
+    if (ret == ESP_FAIL) {
+        return ESP_FAIL;
+    }
+    return ESP_OK;
+}
+
+static esp_err_t INA219_measure_voltage(i2c_port_t i2c_num, uint8_t* data_h, uint8_t* data_l)
+{
+    i2c_cmd_handle_t cmd = i2c_cmd_link_create();
+    i2c_master_start(cmd);
+    i2c_master_write_byte(cmd, INA219_SENSOR_ADDR << 1 | WRITE_BIT, ACK_CHECK_EN);
+    i2c_master_write_byte(cmd, INA219_CMD_MEASURE_VOLTAGE, ACK_CHECK_EN);
+    i2c_master_stop(cmd);
+
+    int ret = i2c_master_cmd_begin(i2c_num, cmd, 1000 / portTICK_RATE_MS);
+    i2c_cmd_link_delete(cmd);
+    if (ret == ESP_FAIL) {
+        return ret;
+    }
+
+    vTaskDelay(30 / portTICK_RATE_MS);
+
+    cmd = i2c_cmd_link_create();
+    i2c_master_start(cmd);
+    i2c_master_write_byte(cmd, INA219_SENSOR_ADDR << 1 | READ_BIT, ACK_CHECK_EN);
+    i2c_master_read_byte(cmd, data_h, ACK_VAL);
+    i2c_master_read_byte(cmd, data_l, NACK_VAL);
+    i2c_master_stop(cmd);
+
+    ret = i2c_master_cmd_begin(i2c_num, cmd, 1000 / portTICK_RATE_MS);
+    i2c_cmd_link_delete(cmd);
+    if (ret == ESP_FAIL) {
+        return ESP_FAIL;
+    }
+    return ESP_OK;
+}
+
+
+static esp_err_t OPT3001_measure_light(i2c_port_t i2c_num, uint8_t* data_h, uint8_t* data_l)
+{
+    i2c_cmd_handle_t cmd = i2c_cmd_link_create();
+    i2c_master_start(cmd);
+    i2c_master_write_byte(cmd, OPT3001_SENSOR_ADDR << 1 | WRITE_BIT, ACK_CHECK_EN);
+    i2c_master_write_byte(cmd, OPT3001_CMD_MEASURE_LIGHT, ACK_CHECK_EN);
+    i2c_master_stop(cmd);
+
+    int ret = i2c_master_cmd_begin(i2c_num, cmd, 1000 / portTICK_RATE_MS);
+    i2c_cmd_link_delete(cmd);
+    if (ret == ESP_FAIL) {
+        return ret;
+    }
+
+    vTaskDelay(5000 / portTICK_RATE_MS);
+
+    cmd = i2c_cmd_link_create();
+    i2c_master_start(cmd);
+    i2c_master_write_byte(cmd, OPT3001_SENSOR_ADDR << 1 | READ_BIT, ACK_CHECK_EN);
+    i2c_master_read_byte(cmd, data_h, ACK_VAL);
+    i2c_master_read_byte(cmd, data_l, NACK_VAL);
+    i2c_master_stop(cmd);
+
+    ret = i2c_master_cmd_begin(i2c_num, cmd, 1000 / portTICK_RATE_MS);
+    i2c_cmd_link_delete(cmd);
+    if (ret == ESP_FAIL) {
+        return ESP_FAIL;
+    }
+    return ESP_OK;
+}
+
+/**
+ * @brief i2c master initialization
+ */
+static void i2c_example_master_init()
+{
+    int i2c_master_port = I2C_EXAMPLE_MASTER_NUM;
+    i2c_config_t conf;
+    conf.mode = I2C_MODE_MASTER;
+    conf.sda_io_num = I2C_EXAMPLE_MASTER_SDA_IO;
+    conf.scl_io_num = I2C_EXAMPLE_MASTER_SCL_IO;
+    conf.sda_pullup_en = GPIO_PULLUP_ENABLE;
+    conf.scl_pullup_en = GPIO_PULLUP_ENABLE;
+    //conf.sda_pullup_en = GPIO_PULLUP_DISABLE;
+    //conf.scl_pullup_en = GPIO_PULLUP_DISABLE;
+    conf.master.clk_speed = I2C_EXAMPLE_MASTER_FREQ_HZ;
+    i2c_param_config(i2c_master_port, &conf);
+    i2c_driver_install(i2c_master_port, conf.mode,
+                       I2C_EXAMPLE_MASTER_RX_BUF_DISABLE,
+                       I2C_EXAMPLE_MASTER_TX_BUF_DISABLE, 0);
+}
+
+static void i2c_test_task(void* arg)
+{
+    int i = 0;
+    int ret;
+    uint32_t task_idx = (uint32_t) arg;
+    uint8_t* data = (uint8_t*) malloc(DATA_LENGTH);
+    uint8_t sensor_data_h, sensor_data_l;
+
+    while (1) {
+
+        ret = SI7020_measure_temp( I2C_EXAMPLE_MASTER_NUM, &sensor_data_h, &sensor_data_l);
+        xSemaphoreTake(print_mux, portMAX_DELAY);
+        //printf("*******************\n");
+
+        if (ret == ESP_OK) {
+            //printf("data_h: %02x\n", sensor_data_h);
+            //printf("data_l: %02x\n", sensor_data_l);
+            //printf("sensor val: %f\n", ( sensor_data_h << 8 | sensor_data_l ) / 1.2);
+            printf("MEASURE TEMP SI7020 (%d)\n", ( sensor_data_h << 8 | sensor_data_l ));
+        } else {
+            printf("SI7020 No ack, sensor not connected...skip...\n");
+        }
+
+        xSemaphoreGive(print_mux);
+        vTaskDelay(( DELAY_TIME_BETWEEN_ITEMS_MS * ( task_idx + 1 ) ) / portTICK_RATE_MS);
+
+        //---------------------------------------------------
+
+        ret = INA219_measure_current( I2C_EXAMPLE_MASTER_NUM, &sensor_data_h, &sensor_data_l);
+        xSemaphoreTake(print_mux, portMAX_DELAY);
+        //printf("*******************\n");
+        //printf("TASK[%d] MEASURE CURRENT INA219 (0x04)\n", task_idx);
+        if (ret == ESP_OK) {
+            //printf("data_h: %02x\n", sensor_data_h);
+            //printf("data_l: %02x\n", sensor_data_l);
+            //printf("sensor val: %f\n", ( sensor_data_h << 8 | sensor_data_l ) / 1.2);
+            printf("MEASURE CURRENT INA219 (%d)\n", ( sensor_data_h << 8 | sensor_data_l ));
+        } else {
+            printf("INA219 No ack, sensor not connected...skip...\n");
+        }
+
+        xSemaphoreGive(print_mux);
+        vTaskDelay(( DELAY_TIME_BETWEEN_ITEMS_MS * ( task_idx + 1 ) ) / portTICK_RATE_MS);
+
+        //---------------------------------------------------
+
+        ret = INA219_measure_voltage( I2C_EXAMPLE_MASTER_NUM, &sensor_data_h, &sensor_data_l);
+        xSemaphoreTake(print_mux, portMAX_DELAY);
+        //printf("*******************\n");
+        //printf("TASK[%d] MEASURE VOLTAGE INA219 (0x02)\n", task_idx);
+        if (ret == ESP_OK) {
+            //printf("data_h: %02x\n", sensor_data_h);
+            //printf("data_l: %02x\n", sensor_data_l);
+            //printf("sensor val: %f\n", ( sensor_data_h << 8 | sensor_data_l ) / 1.2);
+           printf("MEASURE VOLTAGE INA219 (%d)\n", ( sensor_data_h << 8 | sensor_data_l ));
+        } else {
+            printf("INA219 No ack, sensor not connected...skip...\n");
+        }
+
+        xSemaphoreGive(print_mux);
+        vTaskDelay(( DELAY_TIME_BETWEEN_ITEMS_MS * ( task_idx + 1 ) ) / portTICK_RATE_MS);
+
+        //---------------------------------------------------
+
+        ret = OPT3001_measure_light( I2C_EXAMPLE_MASTER_NUM, &sensor_data_h, &sensor_data_l);
+        xSemaphoreTake(print_mux, portMAX_DELAY);
+        //printf("*******************\n");
+        //printf("TASK[%d] MEASURE LIGHT LEVEL OPT3001 (0x00)\n", task_idx);
+        if (ret == ESP_OK) {
+            //printf("data_h: %02x\n", sensor_data_h);
+            //printf("data_l: %02x\n", sensor_data_l);
+            //printf("sensor val: %f\n", ( sensor_data_h << 8 | sensor_data_l ) / 1.2);
+            printf("MEASURE LIGHT OPT3001 (%d)\n", ( sensor_data_h << 8 | sensor_data_l ));
+        } else {
+            printf("OPT3001 No ack, sensor not connected...skip...\n");
+        }
+
+        xSemaphoreGive(print_mux);
+        vTaskDelay(( DELAY_TIME_BETWEEN_ITEMS_MS * ( task_idx + 1 ) ) / portTICK_RATE_MS);
+
+        //---------------------------------------------------
+
+    }
+}
+
+void ()
+{
+    print_mux = xSemaphoreCreateMutex();
+    //i2c_example_slave_init();
+    i2c_example_master_init();
+
+    xTaskCreate(i2c_test_task, "i2c_test_task_0", 1024 * 2, (void* ) 0, 10, NULL);
+    //xTaskCreate(i2c_test_task, "i2c_test_task_1", 1024 * 2, (void* ) 1, 10, NULL);
+}
+
+
 // ------------- //
 // power actions //
 // ------------- //
+
 bool power_hold = false;
 
 void init_gpio(void)
@@ -140,6 +434,7 @@ void init_gpio(void)
 static void power_task(void* arg) {
     char tag[50] = "[power-protocol]";
 	printf("%s starting power_task\n",tag);
+	start_i2c();
     while(1) {
 	main_voltage = 0;
 	//main_current = adc1_get_voltage(CURRENT_CHANNEL);
