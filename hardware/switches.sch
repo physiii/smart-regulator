@@ -200,7 +200,7 @@ F 3 "" H 3350 4300 60  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Text GLabel 5525 2625 1    60   Input ~ 0
-V_USB
+3V3
 $Comp
 L USB_A_2 P5
 U 1 1 59693837

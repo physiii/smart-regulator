@@ -1,6 +1,22 @@
-// ---------------------------  OPEN-AUTOMATION -------------------------------- //
-// --------------  https://github.com/physiii/open-automation  ----------------- //
-// --------------------------- protocol_climate.c ------------------------------ //
+/*
+ * ws protocol handler plugin for "dumb increment"
+ *
+ * Copyright (C) 2010-2016 Andy Green <andy@warmcat.com>
+ *
+ * This file is made available under the Creative Commons CC0 1.0
+ * Universal Public Domain Dedication.
+ *
+ * The person who associated a work with this deed has dedicated
+ * the work to the public domain by waiving all of his or her rights
+ * to the work worldwide under copyright law, including all related
+ * and neighboring rights, to the extent allowed by law. You can copy,
+ * modify, distribute and perform the work, even for commercial purposes,
+ * all without asking permission.
+ *
+ * These test plugins are intended to be adapted for use in your code, which
+ * may be proprietary.  So unlike the library itself, they are licensed
+ * Public Domain.
+ */
 
 #if !defined (LWS_PLUGIN_STATIC)
 #define LWS_DLL
@@ -16,39 +32,13 @@
 #include "freertos/queue.h"
 #include "driver/gpio.h"
 #include "driver/adc.h"
-#include "esp_system.h"
-#include "esp_partition.h"
-#include "nvs_flash.h"
-#include "nvs.h"
-
 #include "driver/i2c.h"
-#include "soc/rtc_cntl_reg.h"
-#include "soc/sens_reg.h"
-#include "esp_log.h"
-
-char temp_str[50];
-bool climate_received = false;
-uint8_t mac[6];
-char climate[256];
-char previous_climate[256];
-char climate_rx_data[256];
-char climate_command[100];
-
-char temperature_str[100] = "0";
-char humidity_str[100] = "0";
-char light_level_str[100] = "0";
-bool climate_data_ready = false;
 
 char climate_command[100];
-char front_climate_str[100];
-char i_str[10];
+char tempature_str[100] = "";
+char humidity_str[100] = "";
+int climate_sum = 0;
 bool climate_linked = false;
-bool climate_req_sent = false;
-char climate_str[250] = "";
-static bool s_pad_activated[TOUCH_PAD_MAX];
-static bool s_pad_activated_notify[TOUCH_PAD_MAX];
-static bool s_pad_activated_climate_en[TOUCH_PAD_MAX];
-char climate_req_str[1024];
 
 struct per_vhost_data__climate {
 	uv_timer_t timeout_watcher;
@@ -92,30 +82,21 @@ uv_timeout_cb_climate(uv_timer_t *w
 // ----------- //
 // i2c actions //
 // ----------- //
-#if defined(LWS_WITH_ESP8266)
-#define DUMB_PERIOD 50
-#else
-#define DUMB_PERIOD 50
-#endif
 
-#define DATA_LENGTH          512  /*!<Data buffer length for test buffer*/
-#define RW_TEST_LENGTH       127  /*!<Data length for r/w test, any value from 0-DATA_LENGTH*/
-#define CLIMATE_DELAY_TIME    1234 /*!< delay time between different test items */
-
-#define I2C_EXAMPLE_MASTER_SCL_IO    19    /*!< gpio number for I2C master clock */
-#define I2C_EXAMPLE_MASTER_SDA_IO    18    /*!< gpio number for I2C master data  */
+#define CLIMATE_DELAY_TIME   5000 /*!< delay time between different test items */
 #define I2C_EXAMPLE_MASTER_NUM I2C_NUM_1   /*!< I2C port number for master dev */
-#define I2C_EXAMPLE_MASTER_TX_BUF_DISABLE   0   /*!< I2C master do not need buffer */
-#define I2C_EXAMPLE_MASTER_RX_BUF_DISABLE   0   /*!< I2C master do not need buffer */
-#define I2C_EXAMPLE_MASTER_FREQ_HZ   100000     /*!< I2C master clock frequency */
+
+
+
+
+
 
 #define SI7020_SENSOR_ADDR          0x40    /*!< slave address for SI7020 sensor */
 #define SI7020_CMD_MEASURE_TEMP     0xF3    /*!< Command to set measure mode */
-#define SI7020_CMD_MEASURE_HUM      0xF5    /*!< Command to set measure mode */
+#define SI7020_CMD_MEASURE_HUM     0xF5    /*!< Command to set measure mode */
 
 #define OPT3001_SENSOR_ADDR         0x44    /*!< slave address for SI7020 sensor */
 #define OPT3001_CMD_MEASURE_LIGHT   0x00    /*!< Command to set measure mode */
-
 
 #define WRITE_BIT  I2C_MASTER_WRITE /*!< I2C master write */
 #define READ_BIT   I2C_MASTER_READ  /*!< I2C master read */
@@ -138,7 +119,7 @@ static esp_err_t SI7020_measure_temp(i2c_port_t i2c_num, uint8_t* data_h, uint8_
         return ret;
     }
 
-    vTaskDelay(500 / portTICK_RATE_MS);
+    vTaskDelay(30 / portTICK_RATE_MS);
 
     cmd = i2c_cmd_link_create();
     i2c_master_start(cmd);
@@ -169,7 +150,7 @@ static esp_err_t SI7020_measure_hum(i2c_port_t i2c_num, uint8_t* data_h, uint8_t
         return ret;
     }
 
-    vTaskDelay(500 / portTICK_RATE_MS);
+    vTaskDelay(30 / portTICK_RATE_MS);
 
     cmd = i2c_cmd_link_create();
     i2c_master_start(cmd);
@@ -200,7 +181,7 @@ static esp_err_t OPT3001_measure_light(i2c_port_t i2c_num, uint8_t* data_h, uint
         return ret;
     }
 
-    vTaskDelay(500 / portTICK_RATE_MS);
+    vTaskDelay(1000 / portTICK_RATE_MS);
 
     cmd = i2c_cmd_link_create();
     i2c_master_start(cmd);
@@ -216,7 +197,7 @@ static esp_err_t OPT3001_measure_light(i2c_port_t i2c_num, uint8_t* data_h, uint
     }
     return ESP_OK;
 }
-
+xSemaphoreHandle print_mux;
 static void climate_task(void* arg)
 {
     int i = 0;
@@ -225,46 +206,58 @@ static void climate_task(void* arg)
     uint8_t sensor_data_h, sensor_data_l;
 
     while (1) {
-        //--------------------------------------------------//
+        /*--------------------------------------------------*/
         ret = SI7020_measure_temp( I2C_EXAMPLE_MASTER_NUM, &sensor_data_h, &sensor_data_l);
-        if (ret == ESP_OK) {
-            sprintf(temperature_str,"%d", ( sensor_data_h << 8 | sensor_data_l ));
-        } else {
-            printf("SI7020_measure_temp No ack, sensor not connected\n");
-        }
-        vTaskDelay(( CLIMATE_DELAY_TIME * ( task_idx + 1 ) ) / portTICK_RATE_MS);
+        xSemaphoreTake(print_mux, portMAX_DELAY);
+        //printf("*******************\n");
 
-        //--------------------------------------------------//
-        ret = SI7020_measure_hum( I2C_EXAMPLE_MASTER_NUM, &sensor_data_h, &sensor_data_l);
         if (ret == ESP_OK) {
             //printf("data_h: %02x\n", sensor_data_h);
             //printf("data_l: %02x\n", sensor_data_l);
-            //printf("humidity: %d\n", ( sensor_data_h << 8 | sensor_data_l ));
-            sprintf(humidity_str,"%d", ( sensor_data_h << 8 | sensor_data_l ));
+            //printf("sensor val: %f\n", ( sensor_data_h << 8 | sensor_data_l ) / 1.2);
+            sprintf(tempature_str,"%d", ( sensor_data_h << 8 | sensor_data_l ));
+	    data_ready = true;
         } else {
-            //printf("SI7020_measure_hum No ack, sensor not connected\n");
+            printf("SI7020 No ack, sensor not connected...skip...\n");
         }
+
+        xSemaphoreGive(print_mux);
         vTaskDelay(( CLIMATE_DELAY_TIME * ( task_idx + 1 ) ) / portTICK_RATE_MS);
 
-        //---------------------------------------------------//
-        /*ret = OPT3001_measure_light( I2C_EXAMPLE_MASTER_NUM, &sensor_data_h, &sensor_data_l);
-        //xSemaphoreTake(print_mux, portMAX_DELAY);
+        /*--------------------------------------------------*/
+        ret = SI7020_measure_hum( I2C_EXAMPLE_MASTER_NUM, &sensor_data_h, &sensor_data_l);
+        xSemaphoreTake(print_mux, portMAX_DELAY);
+        //printf("*******************\n");
+
+        if (ret == ESP_OK) {
+            //printf("data_h: %02x\n", sensor_data_h);
+            //printf("data_l: %02x\n", sensor_data_l);
+            //printf("sensor val: %f\n", ( sensor_data_h << 8 | sensor_data_l ) / 1.2);
+            sprintf(humidity_str,"%d", ( sensor_data_h << 8 | sensor_data_l ));
+	    data_ready = true;
+        } else {
+            printf("SI7020 No ack, sensor not connected...skip...\n");
+        }
+
+        xSemaphoreGive(print_mux);
+        vTaskDelay(( CLIMATE_DELAY_TIME * ( task_idx + 1 ) ) / portTICK_RATE_MS);
+
+        /*---------------------------------------------------*/
+        ret = OPT3001_measure_light( I2C_EXAMPLE_MASTER_NUM, &sensor_data_h, &sensor_data_l);
+        xSemaphoreTake(print_mux, portMAX_DELAY);
+        //printf("*******************\n");
         //printf("TASK[%d] MEASURE LIGHT LEVEL OPT3001 (0x00)\n", task_idx);
         if (ret == ESP_OK) {
             //printf("data_h: %02x\n", sensor_data_h);
             //printf("data_l: %02x\n", sensor_data_l);
             //printf("sensor val: %f\n", ( sensor_data_h << 8 | sensor_data_l ) / 1.2);
-            //printf("MEASURE LIGHT OPT3001 (%d)\n", ( sensor_data_h << 8 | sensor_data_l ));
-            sprintf(light_level_str,"%d", ( sensor_data_h << 8 | sensor_data_l ));
+            printf("MEASURE LIGHT OPT3001 (%d)\n", ( sensor_data_h << 8 | sensor_data_l ));
         } else {
             printf("OPT3001 No ack, sensor not connected...skip...\n");
         }
+
+        //xSemaphoreGive(print_mux);
         vTaskDelay(( CLIMATE_DELAY_TIME * ( task_idx + 1 ) ) / portTICK_RATE_MS);
-	*/
-
-        //---------------------------------------------------//
-
-        climate_data_ready = true;
     }
 }
 
@@ -283,6 +276,7 @@ callback_climate(struct lws *wsi, enum lws_callback_reasons reason,
 
 	unsigned char buf[LWS_PRE + 1024];
 	unsigned char *p = &buf[LWS_PRE];
+	char climate_value_str[1024];
 	int n, m;
 	switch (reason) {
 	case 1: //conn err
@@ -290,9 +284,9 @@ callback_climate(struct lws *wsi, enum lws_callback_reasons reason,
 		break;
 
 	case LWS_CALLBACK_PROTOCOL_INIT:
-		printf("%s initialized\n",tag);
-		xTaskCreate(climate_task, "climate_task", 2048, NULL, 10, NULL);
-		//break;
+		printf("%s initialize\n",tag);
+		//xTaskCreate(climate_task, "climate_task", 1024*3, &vhd, 10, NULL);
+                //xTaskCreate(climate_task, "i2c_test_task_0", 1024 * 2, (void* ) 0, 10, NULL);
 		vhd = lws_protocol_vh_priv_zalloc(lws_get_vhost(wsi),
 				lws_get_protocol(wsi),
 				sizeof(struct per_vhost_data__climate));
@@ -300,6 +294,7 @@ callback_climate(struct lws *wsi, enum lws_callback_reasons reason,
 		vhd->protocol = lws_vhost_name_to_protocol(lws_get_vhost(wsi),
 					lws_get_protocol(wsi)->name);
 		vhd->vhost = lws_get_vhost(wsi);
+
 		uv_timer_init(lws_uv_getloop(vhd->context, 0),
 			      &vhd->timeout_watcher);
 		uv_timer_start(&vhd->timeout_watcher,
@@ -314,61 +309,53 @@ callback_climate(struct lws *wsi, enum lws_callback_reasons reason,
 		uv_close((uv_handle_t *)&vhd->timeout_watcher, NULL);
 		break;
 
-	case LWS_CALLBACK_CLOSED:
-		climate_linked = false;
-		break;
-
-
 	case LWS_CALLBACK_ESTABLISHED:
 		pss->number = 0;
 		break;
 
 	case LWS_CALLBACK_CLIENT_WRITEABLE:
-		//printf("[LWS_CALLBACK_CLIENT_WRITEABLE] temperature_str: %s\n",temperature_str);
+		//printf("[LWS_CALLBACK_CLIENT_WRITEABLE] climate_sum: %d\n",climate_sum);
 		if (!token_received) break;
 		if (!climate_linked) {
-        	        strcpy(climate_req_str, "{\"mac\":\"");
-			strcat(climate_req_str,mac_str);
-        	        strcat(climate_req_str, "\",\"device_type\":[\"regulator\"]");
-        	        strcat(climate_req_str, ",\"cmd\":\"link\"");
-        	        strcat(climate_req_str, ",\"token\":\"");
-        	        strcat(climate_req_str, token);
-        	        strcat(climate_req_str, "\"");
-			strcat(climate_req_str,"}");
-			n = lws_snprintf((char *)p, sizeof(climate_req_str) - LWS_PRE, "%s", climate_req_str);
+        	        strcpy(climate_value_str, "{\"mac\":\"");
+			strcat(climate_value_str,mac_str);
+        	        strcat(climate_value_str, "\",\"device_type\":[\"regulator\"]");
+        	        strcat(climate_value_str, ",\"cmd\":\"link\"");
+        	        strcat(climate_value_str, ",\"token\":\"");
+        	        strcat(climate_value_str, token);
+        	        strcat(climate_value_str, "\"");
+			strcat(climate_value_str,"}");
+			n = lws_snprintf((char *)p, sizeof(climate_value_str) - LWS_PRE, "%s", climate_value_str);
 			m = lws_write(wsi, p, n, LWS_WRITE_TEXT);
-			if (m < n)
+			if (m < n) 
 				lwsl_err("ERROR %d writing to di socket\n", n);
 			else  {
-				printf("%s %s\n",tag,climate_req_str);
+				printf("%s %s\n",tag,climate_value_str);
 			}
 			break;
 		}
-		if (!climate_data_ready) break;
-		climate_data_ready = false;
-                strcpy(climate_req_str, "{\"mac\":\"");
-		strcat(climate_req_str,mac_str);
-                strcat(climate_req_str, "\",\"temperature\":");
-                strcat(climate_req_str, temperature_str);
-                strcat(climate_req_str, ",\"humidity\":");
-                strcat(climate_req_str, humidity_str);
-                strcat(climate_req_str, ",\"light\":");
-                strcat(climate_req_str, light_level_str);
-                strcat(climate_req_str, ",\"device_type\":[\"regulator\"]");
-                strcat(climate_req_str, ",\"cmd\":\"climate\"");
-                strcat(climate_req_str, ",\"token\":\"");
-                strcat(climate_req_str, token);
-                strcat(climate_req_str, "\"");
-		strcat(climate_req_str,"}");
-		n = lws_snprintf((char *)p, sizeof(climate_req_str) - LWS_PRE, "%s", climate_req_str);
-		//printf("%s %s\n",tag,p);
-		m = lws_write(wsi, p, n, LWS_WRITE_TEXT);
+
 		break;
-		if (m < n) 
+
+		snprintf(temp_str, 10, "%d",climate_sum);
+                strcpy(climate_value_str, "{\"mac\":\"");
+		strcat(climate_value_str,mac_str);
+                strcat(climate_value_str, "\",\"value\":");
+                strcat(climate_value_str, temp_str);
+                strcat(climate_value_str, ",\"device_type\":[\"room_sensor\"]");
+                strcat(climate_value_str, ",\"cmd\":\"climate\"");
+                strcat(climate_value_str, ",\"token\":\"");
+                strcat(climate_value_str, token);
+                strcat(climate_value_str, "\"");
+		strcat(climate_value_str,"}");
+
+		n = lws_snprintf((char *)p, sizeof(climate_value_str) - LWS_PRE, "%s", climate_value_str);
+		m = lws_write(wsi, p, n, LWS_WRITE_TEXT);
+		if (m < n) {
 			lwsl_err("ERROR %d writing to di socket\n", n);
-		else  {
-			//printf("%s %s\n",tag,climate_req_str);
-		}
+			printf("%s %s\n",tag,climate_value_str);
+		} else
+			printf("%s %s\n",tag,climate_value_str);
 		break;
 
 	case LWS_CALLBACK_CLIENT_RECEIVE:
@@ -376,12 +363,7 @@ callback_climate(struct lws *wsi, enum lws_callback_reasons reason,
 			break;
 
 		sprintf(climate_command,"%s",(const char *)in);
-		//printf("%s %s\n", tag, climate_command);
-		if (strcmp(climate_command,"link")) {
-			//printf("%s LINKED!!\n", tag);
-			climate_linked = true;
-		}
-
+		printf("%s %s\n", tag, climate_command);
 		break;
 
 	default:

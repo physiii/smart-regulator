@@ -157,7 +157,7 @@ static void tp_example_set_thresholds(void)
     uint16_t touch_value;
     for (int i=0; i<TOUCH_PAD_MAX; i++) {
         ESP_ERROR_CHECK(touch_pad_read(i, &touch_value));
-        printf("T%d intial value: %d\n", i, touch_value);
+        //printf("T%d intial value: %d\n", i, touch_value);
         ESP_ERROR_CHECK(touch_pad_config(i, touch_value/2));
     }
 }

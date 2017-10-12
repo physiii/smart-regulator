@@ -29,7 +29,7 @@ bool is_connected = false;
 //#include "plugins/protocol_motion.c"
 //#include "plugins/protocol_audio.c"
 //#include "plugins/protocol_ota.c"
-//#include "plugins/protocol_climate.c"
+#include "plugins/protocol_climate.c"
 //#include "plugins/protocol_update.c"
 #include "plugins/protocol_esp32_lws_ota.c"
 #include "../components/libwebsockets/plugins/protocol_lws_meta.c"
@@ -46,7 +46,7 @@ static const struct lws_protocols protocols_station[] = {
 	LWS_PLUGIN_PROTOCOL_BUTTONS,
 	LWS_PLUGIN_PROTOCOL_POWER,
 	//LWS_PLUGIN_PROTOCOL_LED,
-	//LWS_PLUGIN_PROTOCOL_CLIMATE,
+	LWS_PLUGIN_PROTOCOL_CLIMATE,
 	//LWS_PLUGIN_PROTOCOL_SPEAKER,
 	//LWS_PLUGIN_PROTOCOL_MOTION,
 	//LWS_PLUGIN_PROTOCOL_AUDIO,
@@ -141,52 +141,66 @@ struct lws_vhost *vh;
 static struct lws_context_creation_info info;
 static struct lws_client_connect_info i;
 struct lws_context *context;
-struct lws *wsi_tokens, *wsi_buttons, *wsi_power;
+struct lws *wsi_tokens, *wsi_buttons, *wsi_power, *wsi_climate;
 
 void initiate_protocols(void)
 {
+	//esp_err_t ESP_OK = esp_wifi_sta_get_ap_info()
 	// ------------------ //
 	// initiate protocols //
 	// ------------------ //
+	vTaskDelay(10000/portTICK_PERIOD_MS);
 	while (1) 
 	{
-	if (!is_connected)
-	{
-	wsi_tokens = NULL;
-	wsi_buttons = NULL;
-	wsi_power = NULL;
-	//printf("\CONNECTING!\n");
-	i.pwsi = &wsi_tokens;
-	i.protocol = "token-protocol";
-	i.path = "/tokens";
-        wsi_tokens = lws_client_connect_via_info(&i);
-        while (!wsi_tokens) {
-	        wsi_tokens = lws_client_connect_via_info(&i);
-		taskYIELD();
-		vTaskDelay(1000/portTICK_PERIOD_MS);
-		printf("TOKEN-PROTOCOL!\n");	
-        }
+		if (!is_connected)
+		{
+			wsi_tokens = NULL;
+			wsi_buttons = NULL;
+			wsi_power = NULL;
+			//printf("\CONNECTING!\n");
+			i.pwsi = &wsi_tokens;
+			i.protocol = "token-protocol";
+			i.path = "/tokens";
+		        wsi_tokens = lws_client_connect_via_info(&i);
+		        while (!wsi_tokens) {
+			        wsi_tokens = lws_client_connect_via_info(&i);
+				taskYIELD();
+				vTaskDelay(1000/portTICK_PERIOD_MS);
+				printf("TOKEN-PROTOCOL!\n");	
+	       		}
+	
+			i.pwsi = &wsi_buttons;
+			i.protocol = "buttons-protocol";
+			i.path = "/buttons";
+        		wsi_buttons = lws_client_connect_via_info(&i);
+        		while (!wsi_buttons) {
+			        wsi_buttons = lws_client_connect_via_info(&i);
+				taskYIELD();
+				vTaskDelay(1000/portTICK_PERIOD_MS);
+        		}
 
-	i.pwsi = &wsi_buttons;
-	i.protocol = "buttons-protocol";
-	i.path = "/buttons";
-        wsi_buttons = lws_client_connect_via_info(&i);
-        while (!wsi_buttons) {
-	        wsi_buttons = lws_client_connect_via_info(&i);
-		taskYIELD();
-		vTaskDelay(1000/portTICK_PERIOD_MS);
-        }
+			i.pwsi = &wsi_climate;
+			i.protocol = "climate-protocol";
+			i.path = "/climate";
+        		wsi_climate = lws_client_connect_via_info(&i);
+		        while (!wsi_climate) {
+			        wsi_climate = lws_client_connect_via_info(&i);
+				taskYIELD();
+				vTaskDelay(1000/portTICK_PERIOD_MS);
+		        }
 
-	i.pwsi = &wsi_power;
-	i.protocol = "power-protocol";
-	i.path = "/power";
-        wsi_power = lws_client_connect_via_info(&i);
-        while (!wsi_power) {
-	        wsi_power = lws_client_connect_via_info(&i);
-		taskYIELD();
-		vTaskDelay(1000/portTICK_PERIOD_MS);
-        }
-	/*vTaskDelay(1000/portTICK_PERIOD_MS);
+			i.pwsi = &wsi_power;
+			i.protocol = "power-protocol";
+			i.path = "/power";
+        		wsi_power = lws_client_connect_via_info(&i);
+        		while (!wsi_power) {
+			        wsi_power = lws_client_connect_via_info(&i);
+				taskYIELD();
+				vTaskDelay(1000/portTICK_PERIOD_MS);
+        		}
+
+/*
+	vTaskDelay(1000/portTICK_PERIOD_MS);
 	i.protocol = "LED-protocol";
 	i.path = "/LED";
         wsi = lws_client_connect_via_info(&i);
@@ -203,19 +217,10 @@ void initiate_protocols(void)
 	        wsi = lws_client_connect_via_info(&i);
 		taskYIELD();
 		vTaskDelay(1000/portTICK_PERIOD_MS);
-        }*/
-
-	/*i.protocol = "audio-protocol";
-	i.path = "/audio";
-        wsi = lws_client_connect_via_info(&i);
-        while (!wsi) {
-	        wsi = lws_client_connect_via_info(&i);
-		taskYIELD();
-		vTaskDelay(1000/portTICK_PERIOD_MS);
         }
 
-	i.protocol = "climate-protocol";
-	i.path = "/climate";
+	i.protocol = "audio-protocol";
+	i.path = "/audio";
         wsi = lws_client_connect_via_info(&i);
         while (!wsi) {
 	        wsi = lws_client_connect_via_info(&i);
@@ -238,17 +243,19 @@ void initiate_protocols(void)
 	        wsi = lws_client_connect_via_info(&i);
 		taskYIELD();
 		vTaskDelay(1000/portTICK_PERIOD_MS);
-        }*/
-	/*while (!lws_service(context, 500)) {
+        }
+	
+	while (!lws_service(context, 500)) {
 		taskYIELD();
 	}*/
-	}
-	vTaskDelay(3000/portTICK_PERIOD_MS);
-	// ----------------- //
-	// service protocols //
-	// ----------------- //
-	lws_service(context, 500);
-	taskYIELD();
+
+		}
+		vTaskDelay(1000/portTICK_PERIOD_MS);
+		// ----------------- //
+		// service protocols //
+		// ----------------- //
+		lws_service(context, 5000);
+		taskYIELD();
 	}
 }
 
@@ -275,7 +282,7 @@ void app_main(void)
 	context = lws_esp32_init(&info, &vh);
 
 	memset(&i, 0, sizeof i);
-	i.address = "pyfi.org";
+	i.address = "192.168.0.10";
         i.port = 4000;
 	i.ssl_connection = 0;
 	i.host = i.address;

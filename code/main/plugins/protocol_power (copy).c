@@ -18,35 +18,57 @@
 #include "driver/adc.h"
 #include "esp_system.h"
 #include "esp_partition.h"
+#include "esp_adc_cal.h"
 #include "nvs_flash.h"
 #include "nvs.h"
 
 #include "driver/i2c.h"
+#include "driver/touch_pad.h"
 #include "soc/rtc_cntl_reg.h"
 #include "soc/sens_reg.h"
 #include "esp_log.h"
 
+#if defined(LWS_WITH_ESP8266)
+#define DUMB_PERIOD 50
+#else
+#define DUMB_PERIOD 50
+#endif
+
+#define SAMPLE_SIZE (128)
+#define SAMPLE_RATE (44100)
+
+#define VOLTAGE_CHANNEL (4)
+#define CURRENT_CHANNEL (35)
+
+#define ESP_INTR_FLAG_DEFAULT 0
+
+
+/*Note: Different ESP32 modules may have different reference voltages varying from
+ * 1000mV to 1200mV. Use #define GET_VREF to route v_ref to a GPIO
+ */
+#define V_REF   1100
+#define ADC1_TEST_CHANNEL (ADC1_CHANNEL_0)      //GPIO 34
+//#define V_REF_TO_GPIO  //Remove comment on define to route v_ref to GPIO_ID
+
 char temp_str[50];
 bool power_received = false;
 uint8_t mac[6];
+char mac_str[20];
 char power[256];
 char previous_power[256];
 char power_rx_data[256];
 char power_command[100];
-char voltage_str[100] = "0";
-char current_str[100] = "0";
-bool power_data_ready = false;
-bool INA219_CONFIGURED = false;
-char power_command[100];
-char front_power_str[100];
+char power_str[100];
 char i_str[10];
 bool power_linked = false;
 bool power_req_sent = false;
-char power_str[250] = "";
-static bool s_pad_activated[TOUCH_PAD_MAX];
-static bool s_pad_activated_notify[TOUCH_PAD_MAX];
-static bool s_pad_activated_power_en[TOUCH_PAD_MAX];
 char power_req_str[1024];
+int power_value = 0;
+int main_voltage = 0;
+int main_current = 0;
+bool data_ready = false;
+char current_str[10] = "";
+char voltage_str[10] = "";
 
 struct per_vhost_data__power {
 	uv_timer_t timeout_watcher;
@@ -93,7 +115,7 @@ uv_timeout_cb_power(uv_timer_t *w
 
 #define DATA_LENGTH          512  /*!<Data buffer length for test buffer*/
 #define RW_TEST_LENGTH       127  /*!<Data length for r/w test, any value from 0-DATA_LENGTH*/
-#define POWER_DELAY_TIME    1234 /*!< delay time between different test items */
+#define POWER_DELAY_TIME    2000 /*!< delay time between different test items */
 
 #define I2C_EXAMPLE_MASTER_SCL_IO    19    /*!< gpio number for I2C master clock */
 #define I2C_EXAMPLE_MASTER_SDA_IO    18    /*!< gpio number for I2C master data  */
@@ -102,12 +124,9 @@ uv_timeout_cb_power(uv_timer_t *w
 #define I2C_EXAMPLE_MASTER_RX_BUF_DISABLE   0   /*!< I2C master do not need buffer */
 #define I2C_EXAMPLE_MASTER_FREQ_HZ   100000     /*!< I2C master clock frequency */
 
-#define INA219_SENSOR_ADDR            0x41    /*!< slave address for SI7020 sensor */
-#define INA219_CMD_CONFIGURE          0x00    /*!< Command to set measure mode */
-#define INA219_CONFIGURATION_MSB      0x11    /*!< Command to set measure mode */
-#define INA219_CONFIGURATION_LSB      0x9F    /*!< Command to set measure mode */
-#define INA219_CMD_MEASURE_VOLTAGE    0x02    /*!< Command to set measure mode */
-#define INA219_CMD_MEASURE_CURRENT    0x01    /*!< Command to set measure mode */
+#define INA219_SENSOR_ADDR          0x41    /*!< slave address for SI7020 sensor */
+#define INA219_CMD_MEASURE_VOLTAGE  0x02    /*!< Command to set measure mode */
+#define INA219_CMD_MEASURE_CURRENT  0x01    /*!< Command to set measure mode */
 
 #define WRITE_BIT  I2C_MASTER_WRITE /*!< I2C master write */
 #define READ_BIT   I2C_MASTER_READ  /*!< I2C master read */
@@ -117,24 +136,6 @@ uv_timeout_cb_power(uv_timer_t *w
 #define NACK_VAL   0x1         /*!< I2C nack value */
 
 xSemaphoreHandle print_mux;
-
-static esp_err_t INA219_configure(i2c_port_t i2c_num, uint8_t* data_msb, uint8_t* data_lsb, size_t size)
-{
-    i2c_cmd_handle_t cmd = i2c_cmd_link_create();
-    i2c_master_start(cmd);
-
-    i2c_master_write_byte(cmd, ( INA219_SENSOR_ADDR << 1 ) | WRITE_BIT, ACK_CHECK_EN);
-    i2c_master_write_byte(cmd, INA219_CMD_CONFIGURE, ACK_CHECK_EN);
-    i2c_master_write_byte(cmd, INA219_CONFIGURATION_MSB, ACK_CHECK_EN);
-    i2c_master_write_byte(cmd, INA219_CONFIGURATION_LSB, ACK_CHECK_EN);
-    /*i2c_master_write(cmd, data_msb, size, ACK_CHECK_EN);
-    i2c_master_write(cmd, data_lsb, size, ACK_CHECK_EN);*/
-
-    i2c_master_stop(cmd);
-    esp_err_t ret = i2c_master_cmd_begin(i2c_num, cmd, 1000 / portTICK_RATE_MS);
-    i2c_cmd_link_delete(cmd);
-    return ESP_OK;
-}
 
 static esp_err_t INA219_measure_current(i2c_port_t i2c_num, uint8_t* data_h, uint8_t* data_l)
 {
@@ -220,47 +221,41 @@ static void power_task(void* arg)
     int ret;
     uint32_t task_idx = (uint32_t) arg;
     uint8_t* data = (uint8_t*) malloc(DATA_LENGTH);
-    uint8_t* data_msb = (uint8_t*) INA219_CONFIGURATION_MSB;
-    uint8_t* data_lsb = (uint8_t*) INA219_CONFIGURATION_LSB;
     uint8_t sensor_data_h, sensor_data_l;
+
     while (1) {
-
-        //--------------------------------------------------//
-	/*if (!INA219_CONFIGURED) {
-		ret = INA219_configure( I2C_EXAMPLE_MASTER_NUM, data_msb, data_lsb, RW_TEST_LENGTH);
-        	if (ret == ESP_OK) {
-        	    printf("INA219 configured\n");
-		    INA219_CONFIGURED = true;
-	        } else {
-        	    printf("INA219_CONFIGURED No ack, sensor not connected\n");
-	        }
-	        vTaskDelay(( POWER_DELAY_TIME * ( task_idx + 1 ) ) / portTICK_RATE_MS);
-	}*/
-
-        //--------------------------------------------------//
-	ret = INA219_measure_current( I2C_EXAMPLE_MASTER_NUM, &sensor_data_h, &sensor_data_l);
+        /*--------------------------------------------------*/
+        ret = INA219_measure_current( I2C_EXAMPLE_MASTER_NUM, &sensor_data_h, &sensor_data_l);
+        xSemaphoreTake(print_mux, portMAX_DELAY);
         if (ret == ESP_OK) {
             //printf("data_h: %02x\n", sensor_data_h);
             //printf("data_l: %02x\n", sensor_data_l);
             //printf("sensor val: %f\n", ( sensor_data_h << 8 | sensor_data_l ) / 1.2);
-            //printf("MEASURE CURRENT INA219 (%d)\n", ( sensor_data_h << 8 | sensor_data_l ));
+            printf("MEASURE CURRENT INA219 (%d)\n", ( sensor_data_h << 8 | sensor_data_l ));
             sprintf(current_str,"%d", ( sensor_data_h << 8 | sensor_data_l ));
-	    power_data_ready = true;
+	    data_ready = true;
         } else {
-            printf("INA219_measure_current No ack, sensor not connected\n");
+            printf("INA219 No ack, sensor not connected...skip...\n");
         }
 
+        xSemaphoreGive(print_mux);
         vTaskDelay(( POWER_DELAY_TIME * ( task_idx + 1 ) ) / portTICK_RATE_MS);
 
         /*--------------------------------------------------*/
         ret = INA219_measure_voltage( I2C_EXAMPLE_MASTER_NUM, &sensor_data_h, &sensor_data_l);
+        xSemaphoreTake(print_mux, portMAX_DELAY);
         if (ret == ESP_OK) {
+           //printf("data_h: %02x\n", sensor_data_h);
+           //printf("data_l: %02x\n", sensor_data_l);
+           //printf("sensor val: %f\n", ( sensor_data_h << 8 | sensor_data_l ) / 1.2);
            sprintf(voltage_str,"%d", ( sensor_data_h << 8 | sensor_data_l ));
-           power_data_ready = true;
+           printf("MEASURE VOLTAGE INA219 (%d)\n", ( sensor_data_h << 8 | sensor_data_l ));
+           data_ready = true;
         } else {
-            printf("INA219_measure_voltage No ack, sensor not connected\n");
+            printf("INA219 No ack, sensor not connected...skip...\n");
         }
 
+        xSemaphoreGive(print_mux);
         vTaskDelay(( POWER_DELAY_TIME * ( task_idx + 1 ) ) / portTICK_RATE_MS);
     }
 }
@@ -269,14 +264,21 @@ void start_i2c()
 {
     print_mux = xSemaphoreCreateMutex();
     i2c_example_master_init();
+    //xTaskCreate(i2c_test_task, "i2c_test_task_1", 1024 * 2, (void* ) 1, 10, NULL);
 }
+
+
+// ------------- //
+// power actions //
+// ------------- //
+
+bool power_hold = false;
 
 static int
 callback_power(struct lws *wsi, enum lws_callback_reasons reason,
 			void *user, void *in, size_t len)
 {
 	char tag[50] = "[power-protocol]";
-
 	struct per_session_data__power *pss =
 			(struct per_session_data__power *)user;
 	struct per_vhost_data__power *vhd =
@@ -293,22 +295,11 @@ callback_power(struct lws *wsi, enum lws_callback_reasons reason,
 		break;
 
 	case LWS_CALLBACK_PROTOCOL_INIT:
-		printf("%s initialized\n",tag);
-
-	
-		// ----------- //
-		// power_en init //
-		// ----------- //
-		gpio_config_t io_conf;
-		io_conf.intr_type = GPIO_PIN_INTR_DISABLE;
-		io_conf.mode = GPIO_MODE_OUTPUT;
-		io_conf.pin_bit_mask = GPIO_OUTPUT_PIN_SEL;
-		io_conf.pull_down_en = 0;
-		io_conf.pull_up_en = 0;
-		gpio_config(&io_conf);
-	        start_i2c();
-		xTaskCreate(power_task, "power_task", 2048, NULL, 10, NULL);
-
+		printf("%s initializing...\n",tag);
+		//xTaskCreate(power_task, "power_task", 2048, NULL, 10, NULL);
+		//init_gpio();
+		//start_i2c();
+		//xTaskCreate(power_task, "power_task", 1024 * 2, (void* ) 0, 10, NULL);
 		vhd = lws_protocol_vh_priv_zalloc(lws_get_vhost(wsi),
 				lws_get_protocol(wsi),
 				sizeof(struct per_vhost_data__power));
@@ -341,8 +332,12 @@ callback_power(struct lws *wsi, enum lws_callback_reasons reason,
 		break;
 
 	case LWS_CALLBACK_CLIENT_WRITEABLE:
-		//printf("[LWS_CALLBACK_CLIENT_WRITEABLE] sum: %d\n",sum);
+		printf("[LWS_CALLBACK_CLIENT_WRITEABLE] voltage_str: %d\n",voltage_str);
+		break;
 		if (!token_received) break;
+		if (!data_ready) break;
+		data_ready = false;
+		//power_req_sent = true;
 		if (!power_linked) {
         	        strcpy(power_req_str, "{\"mac\":\"");
 			strcat(power_req_str,mac_str);
@@ -361,8 +356,10 @@ callback_power(struct lws *wsi, enum lws_callback_reasons reason,
 			}
 			break;
 		}
-		if (!power_data_ready) break;
-		power_data_ready = false;
+		/*strcpy(power_str,"[");
+		power_str[strlen(power_str)-1]=0;
+		strcat(power_str,"]");
+		break;*/
                 strcpy(power_req_str, "{\"mac\":\"");
 		strcat(power_req_str,mac_str);
                 strcat(power_req_str, "\",\"voltage\":");
@@ -375,8 +372,8 @@ callback_power(struct lws *wsi, enum lws_callback_reasons reason,
                 strcat(power_req_str, token);
                 strcat(power_req_str, "\"");
 		strcat(power_req_str,"}");
-		//printf("%s %s\n",tag,power_req_str);
-
+		printf("%s %s\n",tag,power_req_str);
+		break;
 		n = lws_snprintf((char *)p, sizeof(power_req_str) - LWS_PRE, "%s", power_req_str);
 		m = lws_write(wsi, p, n, LWS_WRITE_TEXT);
 		if (m < n) 
@@ -397,20 +394,20 @@ callback_power(struct lws *wsi, enum lws_callback_reasons reason,
 			power_linked = true;
 		}
 
-		if (!strcmp(power_command,"power_off")) {
-			printf("%s turining power_en off!\n", tag);
-                        //printf("%s setting power_en pin to %d to %d\n", tag, POWER_EN, power_en_value);
-			power_en_value = 100;
-                        gpio_set_level(POWER_EN, power_en_value);
-			//power_en(POWER_EN,power_en_value);
+		if (!strcmp(power_command,"light_on")) {
+			printf("%s turining power on!\n", tag);
+                        //printf("%s setting power pin to %d to %d\n", tag, POWER_EN, power_value);
+			power_value = 100;
+                        gpio_set_level(POWER_EN, power_value);
+			//power(POWER_EN,power_value);
 		}
 
-		if (!strcmp(power_command,"power_on")) {
-			printf("%s turining power_en on!\n", tag);
-			power_en_value = 0;
-                        //printf("%s setting power_en pin to %d to %d\n", tag, POWER_EN, power_en_value);
-                        gpio_set_level(POWER_EN, power_en_value);
-			//power_en(POWER_EN,power_en_value);
+		if (!strcmp(power_command,"light_off")) {
+			printf("%s turining power off!\n", tag);
+			power_value = 0;
+                        //printf("%s setting power pin to %d to %d\n", tag, POWER_EN, power_value);
+                        gpio_set_level(POWER_EN, power_value);
+			//power(POWER_EN,power_value);
 		}
 		//power_req_sent = false;
 		break;
