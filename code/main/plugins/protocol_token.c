@@ -47,7 +47,7 @@
 #define SAMPLE_SIZE (128)
 #define SAMPLE_RATE (44100)
 char temp_str[50];
-bool token_received = false;
+
 bool request_sent = false;
 uint8_t mac[6];
 char mac_str[20];

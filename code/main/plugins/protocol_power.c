@@ -29,12 +29,15 @@
 char temp_str[50];
 bool power_received = false;
 uint8_t mac[6];
+int battery_turn_off = 10 * 1000;
+int battery_turn_on = 11 * 1000;
 char power[256];
 char previous_power[256];
 char power_rx_data[256];
 char power_command[100];
 char voltage_str[100] = "0";
 char current_str[100] = "0";
+bool low_battery = false;
 bool power_data_ready = false;
 bool INA219_CONFIGURED = false;
 char power_command[100];
@@ -93,7 +96,7 @@ uv_timeout_cb_power(uv_timer_t *w
 
 #define DATA_LENGTH          512  /*!<Data buffer length for test buffer*/
 #define RW_TEST_LENGTH       127  /*!<Data length for r/w test, any value from 0-DATA_LENGTH*/
-#define POWER_DELAY_TIME    1234 /*!< delay time between different test items */
+#define POWER_DELAY_TIME    5000 /*!< delay time between different test items */
 
 #define I2C_EXAMPLE_MASTER_SCL_IO    19    /*!< gpio number for I2C master clock */
 #define I2C_EXAMPLE_MASTER_SDA_IO    18    /*!< gpio number for I2C master data  */
@@ -216,7 +219,10 @@ static void i2c_example_master_init()
 
 static void power_task(void* arg)
 {
+    char tag[50] = "[power-protocol]";
     int i = 0;
+    int battery_voltage = 0;
+    int battery_current = 0;
     int ret;
     uint32_t task_idx = (uint32_t) arg;
     uint8_t* data = (uint8_t*) malloc(DATA_LENGTH);
@@ -244,24 +250,37 @@ static void power_task(void* arg)
             //printf("data_l: %02x\n", sensor_data_l);
             //printf("sensor val: %f\n", ( sensor_data_h << 8 | sensor_data_l ) / 1.2);
             //printf("MEASURE CURRENT INA219 (%d)\n", ( sensor_data_h << 8 | sensor_data_l ));
-            sprintf(current_str,"%d", ( sensor_data_h << 8 | sensor_data_l ));
-	    power_data_ready = true;
+	    battery_current = ( sensor_data_h << 8 | sensor_data_l ) * 0.17;
+            sprintf(current_str,"%d", battery_current);
+	    //power_data_ready = true;
         } else {
             printf("INA219_measure_current No ack, sensor not connected\n");
         }
-
         vTaskDelay(( POWER_DELAY_TIME * ( task_idx + 1 ) ) / portTICK_RATE_MS);
 
-        /*--------------------------------------------------*/
+        //--------------------------------------------------//
         ret = INA219_measure_voltage( I2C_EXAMPLE_MASTER_NUM, &sensor_data_h, &sensor_data_l);
         if (ret == ESP_OK) {
-           sprintf(voltage_str,"%d", ( sensor_data_h << 8 | sensor_data_l ));
+	   battery_voltage = ( sensor_data_h << 8 | sensor_data_l ) / 2 + 700;
+           sprintf(voltage_str,"%d", battery_voltage);
            power_data_ready = true;
         } else {
             printf("INA219_measure_voltage No ack, sensor not connected\n");
         }
-
         vTaskDelay(( POWER_DELAY_TIME * ( task_idx + 1 ) ) / portTICK_RATE_MS);
+        //--------------------------------------------------//
+	if (battery_voltage < battery_turn_off && !low_battery) {
+		low_battery = true;
+		printf("%s low battery (%d), turning off power\n", tag, battery_voltage);
+		power_en_value = 100;
+                gpio_set_level(POWER_EN, power_en_value);
+	}
+	if (battery_voltage > battery_turn_on && low_battery) {
+		low_battery = false;
+		printf("%s battery charged (%d), turning on power\n", tag, battery_voltage);
+		power_en_value = 0;
+                gpio_set_level(POWER_EN, power_en_value);
+	}
     }
 }
 
@@ -276,7 +295,6 @@ callback_power(struct lws *wsi, enum lws_callback_reasons reason,
 			void *user, void *in, size_t len)
 {
 	char tag[50] = "[power-protocol]";
-
 	struct per_session_data__power *pss =
 			(struct per_session_data__power *)user;
 	struct per_vhost_data__power *vhd =
@@ -294,11 +312,9 @@ callback_power(struct lws *wsi, enum lws_callback_reasons reason,
 
 	case LWS_CALLBACK_PROTOCOL_INIT:
 		printf("%s initialized\n",tag);
-
-	
-		// ----------- //
-		// power_en init //
-		// ----------- //
+		// ---------- //
+		// power init //
+		// ---------- //
 		gpio_config_t io_conf;
 		io_conf.intr_type = GPIO_PIN_INTR_DISABLE;
 		io_conf.mode = GPIO_MODE_OUTPUT;
@@ -306,8 +322,11 @@ callback_power(struct lws *wsi, enum lws_callback_reasons reason,
 		io_conf.pull_down_en = 0;
 		io_conf.pull_up_en = 0;
 		gpio_config(&io_conf);
+
 	        start_i2c();
 		xTaskCreate(power_task, "power_task", 2048, NULL, 10, NULL);
+		//break;
+
 
 		vhd = lws_protocol_vh_priv_zalloc(lws_get_vhost(wsi),
 				lws_get_protocol(wsi),
@@ -333,6 +352,7 @@ callback_power(struct lws *wsi, enum lws_callback_reasons reason,
 
 	case LWS_CALLBACK_CLOSED:
 		power_linked = false;
+		devices_connected = false;
 		break;
 
 
@@ -341,7 +361,9 @@ callback_power(struct lws *wsi, enum lws_callback_reasons reason,
 		break;
 
 	case LWS_CALLBACK_CLIENT_WRITEABLE:
-		//printf("[LWS_CALLBACK_CLIENT_WRITEABLE] sum: %d\n",sum);
+		//printf("[LWS_CALLBACK_CLIENT_WRITEABLE]\n");
+		//break;
+		devices_connected = true;
 		if (!token_received) break;
 		if (!power_linked) {
         	        strcpy(power_req_str, "{\"mac\":\"");
@@ -391,14 +413,14 @@ callback_power(struct lws *wsi, enum lws_callback_reasons reason,
 			break;
 		//strcpy(power_rx_data, (const char *)in);
 		sprintf(power_command,"%s",(const char *)in);
-		//printf("%s %s\n", tag, power_command);
+		//printf("%s received: %s\n", tag, power_command);
 		if (strcmp(power_command,"link")) {
 			//printf("%s LINKED!!\n", tag);
 			power_linked = true;
 		}
 
 		if (!strcmp(power_command,"power_off")) {
-			printf("%s turining power_en off!\n", tag);
+			printf("%s turning power off!\n", tag);
                         //printf("%s setting power_en pin to %d to %d\n", tag, POWER_EN, power_en_value);
 			power_en_value = 100;
                         gpio_set_level(POWER_EN, power_en_value);
@@ -406,7 +428,7 @@ callback_power(struct lws *wsi, enum lws_callback_reasons reason,
 		}
 
 		if (!strcmp(power_command,"power_on")) {
-			printf("%s turining power_en on!\n", tag);
+			printf("%s turning power on!\n", tag);
 			power_en_value = 0;
                         //printf("%s setting power_en pin to %d to %d\n", tag, POWER_EN, power_en_value);
                         gpio_set_level(POWER_EN, power_en_value);

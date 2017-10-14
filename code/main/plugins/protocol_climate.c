@@ -100,7 +100,7 @@ uv_timeout_cb_climate(uv_timer_t *w
 
 #define DATA_LENGTH          512  /*!<Data buffer length for test buffer*/
 #define RW_TEST_LENGTH       127  /*!<Data length for r/w test, any value from 0-DATA_LENGTH*/
-#define CLIMATE_DELAY_TIME    1234 /*!< delay time between different test items */
+#define CLIMATE_DELAY_TIME    5000 /*!< delay time between different test items */
 
 #define I2C_EXAMPLE_MASTER_SCL_IO    19    /*!< gpio number for I2C master clock */
 #define I2C_EXAMPLE_MASTER_SDA_IO    18    /*!< gpio number for I2C master data  */
@@ -138,7 +138,7 @@ static esp_err_t SI7020_measure_temp(i2c_port_t i2c_num, uint8_t* data_h, uint8_
         return ret;
     }
 
-    vTaskDelay(500 / portTICK_RATE_MS);
+    vTaskDelay(30 / portTICK_RATE_MS);
 
     cmd = i2c_cmd_link_create();
     i2c_master_start(cmd);
@@ -169,7 +169,7 @@ static esp_err_t SI7020_measure_hum(i2c_port_t i2c_num, uint8_t* data_h, uint8_t
         return ret;
     }
 
-    vTaskDelay(500 / portTICK_RATE_MS);
+    vTaskDelay(30 / portTICK_RATE_MS);
 
     cmd = i2c_cmd_link_create();
     i2c_master_start(cmd);
@@ -228,6 +228,7 @@ static void climate_task(void* arg)
         //--------------------------------------------------//
         ret = SI7020_measure_temp( I2C_EXAMPLE_MASTER_NUM, &sensor_data_h, &sensor_data_l);
         if (ret == ESP_OK) {
+            //printf("temperature: %d\n", ( sensor_data_h << 8 | sensor_data_l ));
             sprintf(temperature_str,"%d", ( sensor_data_h << 8 | sensor_data_l ));
         } else {
             printf("SI7020_measure_temp No ack, sensor not connected\n");
@@ -326,6 +327,7 @@ callback_climate(struct lws *wsi, enum lws_callback_reasons reason,
 	case LWS_CALLBACK_CLIENT_WRITEABLE:
 		//printf("[LWS_CALLBACK_CLIENT_WRITEABLE] temperature_str: %s\n",temperature_str);
 		if (!token_received) break;
+
 		if (!climate_linked) {
         	        strcpy(climate_req_str, "{\"mac\":\"");
 			strcat(climate_req_str,mac_str);
