@@ -27,6 +27,7 @@
 #include "esp_log.h"
 
 char temp_str[50];
+char usb_state[10];
 bool power_received = false;
 uint8_t mac[6];
 int battery_turn_off = 10 * 1000;
@@ -90,9 +91,13 @@ uv_timeout_cb_power(uv_timer_t *w
 		lws_callback_on_writable_all_protocol_vhost(vhd->vhost, vhd->protocol);
 }
 
-// ----------- //
-// i2c actions //
-// ----------- //
+#define INA219_SENSOR_ADDR            0x41    /*!< slave address for SI7020 sensor */
+#define INA219_CMD_CONFIGURE          0x00    /*!< Command to set measure mode */
+#define INA219_CONFIGURATION_MSB      0x11    /*!< Command to set measure mode */
+#define INA219_CONFIGURATION_LSB      0x9F    /*!< Command to set measure mode */
+#define INA219_CMD_MEASURE_VOLTAGE    0x02    /*!< Command to set measure mode */
+#define INA219_CMD_MEASURE_CURRENT    0x01    /*!< Command to set measure mode */
+
 
 #define DATA_LENGTH          512  /*!<Data buffer length for test buffer*/
 #define RW_TEST_LENGTH       127  /*!<Data length for r/w test, any value from 0-DATA_LENGTH*/
@@ -105,21 +110,12 @@ uv_timeout_cb_power(uv_timer_t *w
 #define I2C_EXAMPLE_MASTER_RX_BUF_DISABLE   0   /*!< I2C master do not need buffer */
 #define I2C_EXAMPLE_MASTER_FREQ_HZ   100000     /*!< I2C master clock frequency */
 
-#define INA219_SENSOR_ADDR            0x41    /*!< slave address for SI7020 sensor */
-#define INA219_CMD_CONFIGURE          0x00    /*!< Command to set measure mode */
-#define INA219_CONFIGURATION_MSB      0x11    /*!< Command to set measure mode */
-#define INA219_CONFIGURATION_LSB      0x9F    /*!< Command to set measure mode */
-#define INA219_CMD_MEASURE_VOLTAGE    0x02    /*!< Command to set measure mode */
-#define INA219_CMD_MEASURE_CURRENT    0x01    /*!< Command to set measure mode */
-
 #define WRITE_BIT  I2C_MASTER_WRITE /*!< I2C master write */
 #define READ_BIT   I2C_MASTER_READ  /*!< I2C master read */
 #define ACK_CHECK_EN   0x1     /*!< I2C master will check ack from slave*/
 #define ACK_CHECK_DIS  0x0     /*!< I2C master will not check ack from slave */
 #define ACK_VAL    0x0         /*!< I2C ack value */
 #define NACK_VAL   0x1         /*!< I2C nack value */
-
-xSemaphoreHandle print_mux;
 
 static esp_err_t INA219_configure(i2c_port_t i2c_num, uint8_t* data_msb, uint8_t* data_lsb, size_t size)
 {
@@ -201,22 +197,6 @@ static esp_err_t INA219_measure_voltage(i2c_port_t i2c_num, uint8_t* data_h, uin
     return ESP_OK;
 }
 
-static void i2c_example_master_init()
-{
-    int i2c_master_port = I2C_EXAMPLE_MASTER_NUM;
-    i2c_config_t conf;
-    conf.mode = I2C_MODE_MASTER;
-    conf.sda_io_num = I2C_EXAMPLE_MASTER_SDA_IO;
-    conf.scl_io_num = I2C_EXAMPLE_MASTER_SCL_IO;
-    conf.sda_pullup_en = GPIO_PULLUP_ENABLE;
-    conf.scl_pullup_en = GPIO_PULLUP_ENABLE;
-    conf.master.clk_speed = I2C_EXAMPLE_MASTER_FREQ_HZ;
-    i2c_param_config(i2c_master_port, &conf);
-    i2c_driver_install(i2c_master_port, conf.mode,
-                       I2C_EXAMPLE_MASTER_RX_BUF_DISABLE,
-                       I2C_EXAMPLE_MASTER_TX_BUF_DISABLE, 0);
-}
-
 static void power_task(void* arg)
 {
     char tag[50] = "[power-protocol]";
@@ -284,12 +264,6 @@ static void power_task(void* arg)
     }
 }
 
-void start_i2c()
-{
-    print_mux = xSemaphoreCreateMutex();
-    i2c_example_master_init();
-}
-
 static int
 callback_power(struct lws *wsi, enum lws_callback_reasons reason,
 			void *user, void *in, size_t len)
@@ -312,21 +286,8 @@ callback_power(struct lws *wsi, enum lws_callback_reasons reason,
 
 	case LWS_CALLBACK_PROTOCOL_INIT:
 		printf("%s initialized\n",tag);
-		// ---------- //
-		// power init //
-		// ---------- //
-		gpio_config_t io_conf;
-		io_conf.intr_type = GPIO_PIN_INTR_DISABLE;
-		io_conf.mode = GPIO_MODE_OUTPUT;
-		io_conf.pin_bit_mask = GPIO_OUTPUT_PIN_SEL;
-		io_conf.pull_down_en = 0;
-		io_conf.pull_up_en = 0;
-		gpio_config(&io_conf);
-
-	        start_i2c();
 		xTaskCreate(power_task, "power_task", 2048, NULL, 10, NULL);
 		//break;
-
 
 		vhd = lws_protocol_vh_priv_zalloc(lws_get_vhost(wsi),
 				lws_get_protocol(wsi),
@@ -352,7 +313,6 @@ callback_power(struct lws *wsi, enum lws_callback_reasons reason,
 
 	case LWS_CALLBACK_CLOSED:
 		power_linked = false;
-		devices_connected = false;
 		break;
 
 
@@ -363,7 +323,6 @@ callback_power(struct lws *wsi, enum lws_callback_reasons reason,
 	case LWS_CALLBACK_CLIENT_WRITEABLE:
 		//printf("[LWS_CALLBACK_CLIENT_WRITEABLE]\n");
 		//break;
-		devices_connected = true;
 		if (!token_received) break;
 		if (!power_linked) {
         	        strcpy(power_req_str, "{\"mac\":\"");
@@ -385,13 +344,17 @@ callback_power(struct lws *wsi, enum lws_callback_reasons reason,
 		}
 		if (!power_data_ready) break;
 		power_data_ready = false;
+		if (power_en_value) strcpy(usb_state,"OFF");
+		else strcpy(usb_state,"ON");
                 strcpy(power_req_str, "{\"mac\":\"");
 		strcat(power_req_str,mac_str);
                 strcat(power_req_str, "\",\"voltage\":");
                 strcat(power_req_str, voltage_str);
                 strcat(power_req_str, ",\"current\":");
                 strcat(power_req_str, current_str);
-                strcat(power_req_str, ",\"device_type\":[\"regulator\"]");
+                strcat(power_req_str, ",\"usb_state\":\"");
+                strcat(power_req_str, usb_state);
+                strcat(power_req_str, "\",\"device_type\":[\"regulator\"]");
                 strcat(power_req_str, ",\"cmd\":\"power\"");
                 strcat(power_req_str, ",\"token\":\"");
                 strcat(power_req_str, token);
@@ -404,7 +367,7 @@ callback_power(struct lws *wsi, enum lws_callback_reasons reason,
 		if (m < n) 
 			lwsl_err("ERROR %d writing to di socket\n", n);
 		else  {
-			//printf("%s %s\n",tag,power_req_str);
+			printf("%s %s\n",tag,power_req_str);
 		}
 		break;
 

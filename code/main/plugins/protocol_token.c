@@ -211,6 +211,7 @@ callback_token(struct lws *wsi, enum lws_callback_reasons reason,
 	case LWS_CALLBACK_CLOSED:
 		is_connected = false;
 		token_received = false;
+		initiate_protocols = false;
 		request_sent = false;
 		break;
 
@@ -219,6 +220,8 @@ callback_token(struct lws *wsi, enum lws_callback_reasons reason,
 
 	case LWS_CALLBACK_CLIENT_WRITEABLE:
 		//printf("[LWS_CALLBACK_CLIENT_WRITEABLE] sum: %d\n",sum);
+		if (!is_connected) initiate_protocols = true;
+		else initiate_protocols = false;
 		is_connected = true;
 		if (token_received) break;
 		if (request_sent) break;
