@@ -155,18 +155,6 @@ POWER_EN
 Text Label 4200 1025 0    197  ~ 0
 Microcontroller
 $Comp
-L R_10 R1
-U 1 1 59C55B02
-P 2125 3575
-F 0 "R1" V 2205 3575 50  0000 C CNN
-F 1 "R_10" V 2125 3575 50  0000 C CNN
-F 2 "Resistors_SMD:R_0603_HandSoldering" V 2055 3575 50  0001 C CNN
-F 3 "https://www.digikey.com/product-detail/en/te-connectivity-passive-product/CPF0603B10RE/A119908CT-ND/4966506" V 2205 3575 50  0001 C CNN
-F 4 "CPF0603B10RE" V 2305 3675 60  0001 C CNN "Part Number"
-	1    2125 3575
-	0    1    1    0   
-$EndComp
-$Comp
 L C_1uF C6
 U 1 1 59C55B03
 P 2825 3775
@@ -283,7 +271,7 @@ Wire Wire Line
 Wire Wire Line
 	9275 3450 9375 3450
 Text GLabel 6725 3900 2    60   Input ~ 0
-BAT_SW
+PANEL_SW
 Wire Wire Line
 	6725 3900 6625 3900
 $Comp
@@ -334,7 +322,19 @@ Wire Wire Line
 Wire Wire Line
 	8725 4300 8600 4300
 Text GLabel 8725 4200 2    60   Input ~ 0
-3V3
+VCC_I2C
 Text GLabel 8725 4300 2    60   Input ~ 0
-3V3
+VCC_I2C
+$Comp
+L R_1 R1
+U 1 1 59E3C91A
+P 2125 3575
+F 0 "R1" V 2125 3575 50  0000 C CNN
+F 1 "R_1" V 2050 3575 50  0000 C CNN
+F 2 "Resistors_SMD:R_0603_HandSoldering" V 2055 3575 50  0001 C CNN
+F 3 "https://www.digikey.com/product-detail/en/stackpole-electronics-inc/RNCP0603FTD1R00/RNCP0603FTD1R00CT-ND/2240411" V 2205 3575 50  0001 C CNN
+F 4 "RNCP0603FTD1R00" V 2305 3675 60  0001 C CNN "Part Number"
+	1    2125 3575
+	0    1    1    0   
+$EndComp
 $EndSCHEMATC
