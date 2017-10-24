@@ -107,14 +107,14 @@ uv_timeout_cb_climate(uv_timer_t *w
 #define I2C_EXAMPLE_MASTER_NUM I2C_NUM_1   /*!< I2C port number for master dev */
 #define I2C_EXAMPLE_MASTER_TX_BUF_DISABLE   0   /*!< I2C master do not need buffer */
 #define I2C_EXAMPLE_MASTER_RX_BUF_DISABLE   0   /*!< I2C master do not need buffer */
-#define I2C_EXAMPLE_MASTER_FREQ_HZ   100000     /*!< I2C master clock frequency */
+#define I2C_EXAMPLE_MASTER_FREQ_HZ   400000     /*!< I2C master clock frequency */
 
 #define SI7020_SENSOR_ADDR          0x40    /*!< slave address for SI7020 sensor */
 #define SI7020_CMD_MEASURE_TEMP     0xF3    /*!< Command to set measure mode */
 #define SI7020_CMD_MEASURE_HUM      0xF5    /*!< Command to set measure mode */
 
-#define OPT3001_SENSOR_ADDR         0x44    /*!< slave address for SI7020 sensor */
-#define OPT3001_CMD_MEASURE_LIGHT   0x00    /*!< Command to set measure mode */
+#define TSL4531_SENSOR_ADDR         0x29    /*!< slave address for SI7020 sensor */
+#define TSL4531_CMD_MEASURE_LIGHT   0x04    /*!< Command to set measure mode */
 
 
 #define WRITE_BIT  I2C_MASTER_WRITE /*!< I2C master write */
@@ -186,12 +186,12 @@ static esp_err_t SI7020_measure_hum(i2c_port_t i2c_num, uint8_t* data_h, uint8_t
     return ESP_OK;
 }
 
-static esp_err_t OPT3001_measure_light(i2c_port_t i2c_num, uint8_t* data_h, uint8_t* data_l)
+static esp_err_t TSL4531_measure_light(i2c_port_t i2c_num, uint8_t* data_h, uint8_t* data_l)
 {
     i2c_cmd_handle_t cmd = i2c_cmd_link_create();
     i2c_master_start(cmd);
-    i2c_master_write_byte(cmd, OPT3001_SENSOR_ADDR << 1 | WRITE_BIT, ACK_CHECK_EN);
-    i2c_master_write_byte(cmd, OPT3001_CMD_MEASURE_LIGHT, ACK_CHECK_EN);
+    i2c_master_write_byte(cmd, TSL4531_SENSOR_ADDR << 1 | WRITE_BIT, ACK_CHECK_EN);
+    i2c_master_write_byte(cmd, TSL4531_CMD_MEASURE_LIGHT, ACK_CHECK_EN);
     i2c_master_stop(cmd);
 
     int ret = i2c_master_cmd_begin(i2c_num, cmd, 1000 / portTICK_RATE_MS);
@@ -200,11 +200,11 @@ static esp_err_t OPT3001_measure_light(i2c_port_t i2c_num, uint8_t* data_h, uint
         return ret;
     }
 
-    vTaskDelay(500 / portTICK_RATE_MS);
+    vTaskDelay(30 / portTICK_RATE_MS);
 
     cmd = i2c_cmd_link_create();
     i2c_master_start(cmd);
-    i2c_master_write_byte(cmd, OPT3001_SENSOR_ADDR << 1 | READ_BIT, ACK_CHECK_EN);
+    i2c_master_write_byte(cmd, TSL4531_SENSOR_ADDR << 1 | READ_BIT, ACK_CHECK_EN);
     i2c_master_read_byte(cmd, data_h, ACK_VAL);
     i2c_master_read_byte(cmd, data_l, NACK_VAL);
     i2c_master_stop(cmd);
@@ -248,20 +248,20 @@ static void climate_task(void* arg)
         vTaskDelay(( CLIMATE_DELAY_TIME * ( task_idx + 1 ) ) / portTICK_RATE_MS);
 
         //---------------------------------------------------//
-        /*ret = OPT3001_measure_light( I2C_EXAMPLE_MASTER_NUM, &sensor_data_h, &sensor_data_l);
-        //xSemaphoreTake(print_mux, portMAX_DELAY);
-        //printf("TASK[%d] MEASURE LIGHT LEVEL OPT3001 (0x00)\n", task_idx);
+        ret = TSL4531_measure_light( I2C_EXAMPLE_MASTER_NUM, &sensor_data_h, &sensor_data_l);
+        //(print_mux, portMAX_DELAY);
+        //printf("TASK[%d] MEASURE LIGHT LEVEL TSL4531 (0x00)\n", task_idx);
         if (ret == ESP_OK) {
             //printf("data_h: %02x\n", sensor_data_h);
             //printf("data_l: %02x\n", sensor_data_l);
             //printf("sensor val: %f\n", ( sensor_data_h << 8 | sensor_data_l ) / 1.2);
-            //printf("MEASURE LIGHT OPT3001 (%d)\n", ( sensor_data_h << 8 | sensor_data_l ));
+            printf("MEASURE LIGHT TSL4531 (%d)\n", ( sensor_data_h << 8 | sensor_data_l ));
             sprintf(light_level_str,"%d", ( sensor_data_h << 8 | sensor_data_l ));
         } else {
-            printf("OPT3001 No ack, sensor not connected...skip...\n");
+            printf("TSL4531 No ack, sensor not connected...skip...\n");
         }
         vTaskDelay(( CLIMATE_DELAY_TIME * ( task_idx + 1 ) ) / portTICK_RATE_MS);
-	*/
+	
 
         //---------------------------------------------------//
 

@@ -117,6 +117,22 @@ uv_timeout_cb_power(uv_timer_t *w
 #define ACK_VAL    0x0         /*!< I2C ack value */
 #define NACK_VAL   0x1         /*!< I2C nack value */
 
+static void i2c_example_master_init()
+{
+    int i2c_master_port = I2C_EXAMPLE_MASTER_NUM;
+    i2c_config_t conf;
+    conf.mode = I2C_MODE_MASTER;
+    conf.sda_io_num = I2C_EXAMPLE_MASTER_SDA_IO;
+    conf.scl_io_num = I2C_EXAMPLE_MASTER_SCL_IO;
+    conf.sda_pullup_en = GPIO_PULLUP_ENABLE;
+    conf.scl_pullup_en = GPIO_PULLUP_ENABLE;
+    conf.master.clk_speed = I2C_EXAMPLE_MASTER_FREQ_HZ;
+    i2c_param_config(i2c_master_port, &conf);
+    i2c_driver_install(i2c_master_port, conf.mode,
+                       I2C_EXAMPLE_MASTER_RX_BUF_DISABLE,
+                       I2C_EXAMPLE_MASTER_TX_BUF_DISABLE, 0);
+}
+
 static esp_err_t INA219_configure(i2c_port_t i2c_num, uint8_t* data_msb, uint8_t* data_lsb, size_t size)
 {
     i2c_cmd_handle_t cmd = i2c_cmd_link_create();
@@ -209,6 +225,7 @@ static void power_task(void* arg)
     uint8_t* data_msb = (uint8_t*) INA219_CONFIGURATION_MSB;
     uint8_t* data_lsb = (uint8_t*) INA219_CONFIGURATION_LSB;
     uint8_t sensor_data_h, sensor_data_l;
+    i2c_example_master_init();
     while (1) {
 
         //--------------------------------------------------//

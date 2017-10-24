@@ -160,10 +160,6 @@ callback_token(struct lws *wsi, enum lws_callback_reasons reason,
 			void *user, void *in, size_t len)
 {
 	char tag[50] = "[token-protocol]";
-        esp_wifi_get_mac(WIFI_IF_STA,mac);
-	sprintf(mac_str,"%02x:%02x:%02x:%02x:%02x:%02x",
-           mac[0] & 0xff, mac[1] & 0xff, mac[2] & 0xff,
-           mac[3] & 0xff, mac[4] & 0xff, mac[5] & 0xff);
 	struct per_session_data__token *pss =
 			(struct per_session_data__token *)user;
 	struct per_vhost_data__token *vhd =
@@ -182,6 +178,11 @@ callback_token(struct lws *wsi, enum lws_callback_reasons reason,
 
 	case LWS_CALLBACK_PROTOCOL_INIT:
 		printf("%s initialize\n",tag);
+	        esp_wifi_get_mac(WIFI_IF_STA,mac);
+		sprintf(mac_str,"%02x:%02x:%02x:%02x:%02x:%02x",
+	           mac[0] & 0xff, mac[1] & 0xff, mac[2] & 0xff,
+	           mac[3] & 0xff, mac[4] & 0xff, mac[5] & 0xff);
+
 		vhd = lws_protocol_vh_priv_zalloc(lws_get_vhost(wsi),
 				lws_get_protocol(wsi),
 				sizeof(struct per_vhost_data__token));
@@ -221,7 +222,7 @@ callback_token(struct lws *wsi, enum lws_callback_reasons reason,
 	case LWS_CALLBACK_CLIENT_WRITEABLE:
 		//printf("[LWS_CALLBACK_CLIENT_WRITEABLE] sum: %d\n",sum);
 		if (!is_connected) initiate_protocols = true;
-		else initiate_protocols = false;
+		//else initiate_protocols = false;
 		is_connected = true;
 		if (token_received) break;
 		if (request_sent) break;

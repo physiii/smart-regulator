@@ -36,16 +36,9 @@
 #define SAMPLE_RATE (44100)
 
 #define POWER_EN     17
-#define POWER_EN2    15
-
+#define POWER_EN2    2
 #define GPIO_OUTPUT_PIN_SEL  ((1<<POWER_EN) | (1<<POWER_EN2))
-
-//#define GPIO_OUTPUT_PIN_SEL  POWER_EN
-#define GPIO_INPUT_IO_0     4
-#define GPIO_INPUT_IO_1     5
-#define GPIO_INPUT_PIN_SEL  ((1<<GPIO_INPUT_IO_0) | (1<<GPIO_INPUT_IO_1))
 #define ESP_INTR_FLAG_DEFAULT 0
-
 
 char temp_str[50];
 bool buttons_received = false;
@@ -211,6 +204,16 @@ static void tp_example_rtc_intr(void * arg)
 // ---- //
 // gpio //
 // ---- //
+void gpio_init()
+{
+	gpio_config_t io_conf;
+	io_conf.intr_type = GPIO_PIN_INTR_DISABLE;
+	io_conf.mode = GPIO_MODE_OUTPUT;
+	io_conf.pin_bit_mask = GPIO_OUTPUT_PIN_SEL;
+	io_conf.pull_down_en = 0;
+	io_conf.pull_up_en = 0;
+	gpio_config(&io_conf);
+}
 
 static xQueueHandle gpio_evt_queue = NULL;
 
@@ -247,10 +250,10 @@ callback_buttons(struct lws *wsi, enum lws_callback_reasons reason,
 		// -----------//
 		// touch init //
 		// -----------//
-		touch_pad_init();
+		/*touch_pad_init();
 		tp_example_set_thresholds();
 		touch_pad_isr_handler_register(tp_example_rtc_intr, NULL, 0, NULL);
-		xTaskCreate(&tp_example_read_task, "touch_pad_read_task", 2048, NULL, 5, NULL);
+		xTaskCreate(&tp_example_read_task, "touch_pad_read_task", 2048, NULL, 5, NULL);*/
 	
 		// -----------//
 		// power_en init //
@@ -359,6 +362,7 @@ callback_buttons(struct lws *wsi, enum lws_callback_reasons reason,
 		if (len < 2)
 			break;
 		//strcpy(buttons_rx_data, (const char *)in);
+		initiate_protocols = false;
 		sprintf(button_command,"%s",(const char *)in);
 		//printf("%s %s\n", tag, button_command);
 		if (strcmp(button_command,"link")) {

@@ -23,36 +23,38 @@ bool is_connected = false;
 bool token_received = false;
 
 #include "plugins/protocol_token.c"
-//#include "plugins/protocol_LED.c"
 #include "plugins/protocol_buttons.c"
 #include "plugins/protocol_power.c"
+#include "plugins/protocol_climate.c"
+
+//#include "plugins/protocol_update.c"
+//#include "plugins/protocol_LED.c"
 //#include "plugins/protocol_speaker.c"
 //#include "plugins/protocol_motion.c"
 //#include "plugins/protocol_audio.c"
 //#include "plugins/protocol_ota.c"
-#include "plugins/protocol_climate.c"
-//#include "plugins/protocol_update.c"
+
 #include "plugins/protocol_esp32_lws_ota.c"
 #include "../components/libwebsockets/plugins/protocol_lws_meta.c"
 #include <protocol_esp32_lws_reboot_to_factory.c>
 
-#define DATA_LENGTH          512  /*!<Data buffer length for test buffer*/
-#define RW_TEST_LENGTH       127  /*!<Data length for r/w test, any value from 0-DATA_LENGTH*/
-#define POWER_DELAY_TIME    5000 /*!< delay time between different test items */
+/*#define DATA_LENGTH          512
+#define RW_TEST_LENGTH       127  
+#define POWER_DELAY_TIME    5000 
 
-#define I2C_EXAMPLE_MASTER_SCL_IO    19    /*!< gpio number for I2C master clock */
-#define I2C_EXAMPLE_MASTER_SDA_IO    18    /*!< gpio number for I2C master data  */
-#define I2C_EXAMPLE_MASTER_NUM I2C_NUM_1   /*!< I2C port number for master dev */
-#define I2C_EXAMPLE_MASTER_TX_BUF_DISABLE   0   /*!< I2C master do not need buffer */
-#define I2C_EXAMPLE_MASTER_RX_BUF_DISABLE   0   /*!< I2C master do not need buffer */
-#define I2C_EXAMPLE_MASTER_FREQ_HZ   100000     /*!< I2C master clock frequency */
+#define I2C_EXAMPLE_MASTER_SCL_IO    19
+#define I2C_EXAMPLE_MASTER_SDA_IO    18
+#define I2C_EXAMPLE_MASTER_NUM I2C_NUM_1
+#define I2C_EXAMPLE_MASTER_TX_BUF_DISABLE   0
+#define I2C_EXAMPLE_MASTER_RX_BUF_DISABLE   0
+#define I2C_EXAMPLE_MASTER_FREQ_HZ   100000
 
-#define WRITE_BIT  I2C_MASTER_WRITE /*!< I2C master write */
-#define READ_BIT   I2C_MASTER_READ  /*!< I2C master read */
-#define ACK_CHECK_EN   0x1     /*!< I2C master will check ack from slave*/
-#define ACK_CHECK_DIS  0x0     /*!< I2C master will not check ack from slave */
-#define ACK_VAL    0x0         /*!< I2C ack value */
-#define NACK_VAL   0x1         /*!< I2C nack value */
+#define WRITE_BIT  I2C_MASTER_WRITE
+#define READ_BIT   I2C_MASTER_READ
+#define ACK_CHECK_EN   0x1
+#define ACK_CHECK_DIS  0x0
+#define ACK_VAL    0x0
+#define NACK_VAL   0x1*/
 
 static const struct lws_protocols protocols_station[] = {
 	{
@@ -64,14 +66,14 @@ static const struct lws_protocols protocols_station[] = {
 	LWS_PLUGIN_PROTOCOL_TOKEN,
 	LWS_PLUGIN_PROTOCOL_BUTTONS,
 	LWS_PLUGIN_PROTOCOL_POWER,
-	//LWS_PLUGIN_PROTOCOL_LED,
 	LWS_PLUGIN_PROTOCOL_CLIMATE,
+	//LWS_PLUGIN_PROTOCOL_LED,
 	//LWS_PLUGIN_PROTOCOL_SPEAKER,
 	//LWS_PLUGIN_PROTOCOL_MOTION,
 	//LWS_PLUGIN_PROTOCOL_AUDIO,
 	//LWS_PLUGIN_PROTOCOL_OTA,
 	//LWS_PLUGIN_PROTOCOL_ESPLWS_SCAN,
-	LWS_PLUGIN_PROTOCOL_ESPLWS_RTF,	/* helper protocol to allow reset to factory */
+	LWS_PLUGIN_PROTOCOL_ESPLWS_RTF,	// helper protocol to allow reset to factory
 	{ NULL, NULL, 0, 0, 0, NULL, 0 } /* terminator */
 };
 
@@ -154,7 +156,7 @@ static void flash_timer_cb(TimerHandle_t t)
 }
 
 uint8_t mac[6];
-char mac_str[20];
+char mac_str[20] = "init";
 
 struct lws_vhost *vh;
 static struct lws_context_creation_info info;
@@ -162,32 +164,7 @@ static struct lws_client_connect_info i;
 struct lws_context *context;
 struct lws *wsi_tokens, *wsi_buttons, *wsi_power, *wsi_climate;
 
-static void i2c_example_master_init()
-{
-    int i2c_master_port = I2C_EXAMPLE_MASTER_NUM;
-    i2c_config_t conf;
-    conf.mode = I2C_MODE_MASTER;
-    conf.sda_io_num = I2C_EXAMPLE_MASTER_SDA_IO;
-    conf.scl_io_num = I2C_EXAMPLE_MASTER_SCL_IO;
-    conf.sda_pullup_en = GPIO_PULLUP_ENABLE;
-    conf.scl_pullup_en = GPIO_PULLUP_ENABLE;
-    conf.master.clk_speed = I2C_EXAMPLE_MASTER_FREQ_HZ;
-    i2c_param_config(i2c_master_port, &conf);
-    i2c_driver_install(i2c_master_port, conf.mode,
-                       I2C_EXAMPLE_MASTER_RX_BUF_DISABLE,
-                       I2C_EXAMPLE_MASTER_TX_BUF_DISABLE, 0);
-}
 
-void gpio_init()
-{
-	gpio_config_t io_conf;
-	io_conf.intr_type = GPIO_PIN_INTR_DISABLE;
-	io_conf.mode = GPIO_MODE_OUTPUT;
-	io_conf.pin_bit_mask = GPIO_OUTPUT_PIN_SEL;
-	io_conf.pull_down_en = 0;
-	io_conf.pull_up_en = 0;
-	gpio_config(&io_conf);
-}
 
 void init_protocols(void)
 {
@@ -247,6 +224,11 @@ void init_protocols(void)
 				vTaskDelay(2000/portTICK_PERIOD_MS);
 		        }
 	
+
+
+
+
+
 			/*vTaskDelay(1000/portTICK_PERIOD_MS);
 			i.protocol = "LED-protocol";
 			i.path = "/LED";
@@ -290,11 +272,14 @@ void init_protocols(void)
 		        wsi = lws_client_connect_via_info(&i);
 			taskYIELD();
 				vTaskDelay(1000/portTICK_PERIOD_MS);
-		        }
+		        }*/
 			
-			while (!lws_service(context, 500)) {
+
+
+
+			while (!lws_service(context, 3000)) {
 				taskYIELD();
-			}*/
+			}
 		}
 		// ----------------- //
 		// service protocols //
@@ -309,14 +294,9 @@ void init_protocols(void)
 
 void app_main(void)
 {
-        esp_wifi_get_mac(WIFI_IF_STA,mac);
-	sprintf(mac_str,"%02x:%02x:%02x:%02x:%02x:%02x",
-           mac[0] & 0xff, mac[1] & 0xff, mac[2] & 0xff,
-           mac[3] & 0xff, mac[4] & 0xff, mac[5] & 0xff);
-
 	nvs_flash_init();
-	i2c_example_master_init();
-	gpio_init();
+	//i2c_example_master_init();
+	//gpio_init();
 	lws_esp32_wlan_config();
 	ESP_ERROR_CHECK( esp_event_loop_init(event_handler, NULL));
 	lws_esp32_wlan_start_station();
@@ -330,7 +310,7 @@ void app_main(void)
 	context = lws_esp32_init(&info, &vh);
 
 	memset(&i, 0, sizeof i);
-	i.address = "pyfi.org";
+	i.address = "192.168.0.10";
         i.port = 4000;
 	i.ssl_connection = 0;
 	i.host = i.address;
