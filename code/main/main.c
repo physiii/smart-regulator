@@ -284,7 +284,7 @@ void init_protocols(void)
 		// ----------------- //
 		// service protocols //
 		// ----------------- //
-		lws_service(context, 5000);
+		lws_service(context, 10 * 1000);
 		taskYIELD();
 		vTaskDelay(1000/portTICK_PERIOD_MS);
 	}
@@ -310,7 +310,9 @@ void app_main(void)
 	context = lws_esp32_init(&info, &vh);
 
 	memset(&i, 0, sizeof i);
-	i.address = "192.168.0.10";
+	//i.address = "192.168.0.10";
+        //i.port = 4000;
+	i.address = "pyfi.org";
         i.port = 4000;
 	i.ssl_connection = 0;
 	i.host = i.address;

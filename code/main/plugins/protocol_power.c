@@ -26,18 +26,48 @@
 #include "soc/sens_reg.h"
 #include "esp_log.h"
 
+
+#define INA219_SENSOR_ADDR            0x41    /*!< slave address for SI7020 sensor */
+#define INA219_CMD_CONFIGURE          0x00    /*!< Command to set measure mode */
+#define INA219_CONFIGURATION_MSB      0x11    /*!< Command to set measure mode */
+#define INA219_CONFIGURATION_LSB      0x9F    /*!< Command to set measure mode */
+#define INA219_CMD_MEASURE_CURRENT    0x01    /*!< Command to set measure mode */
+#define INA219_CMD_MEASURE_VOLTAGE    0x02    /*!< Command to set measure mode */
+#define INA219_CMD_MEASURE_POWER      0x03    /*!< Command to set measure mode */
+
+
+#define DATA_LENGTH          512  /*!<Data buffer length for test buffer*/
+#define RW_TEST_LENGTH       127  /*!<Data length for r/w test, any value from 0-DATA_LENGTH*/
+#define POWER_DELAY_TIME     1000 /*!< delay time between different test items */
+
+#define I2C_EXAMPLE_MASTER_SCL_IO    19    /*!< gpio number for I2C master clock */
+#define I2C_EXAMPLE_MASTER_SDA_IO    18    /*!< gpio number for I2C master data  */
+#define I2C_EXAMPLE_MASTER_NUM I2C_NUM_1   /*!< I2C port number for master dev */
+#define I2C_EXAMPLE_MASTER_TX_BUF_DISABLE   0   /*!< I2C master do not need buffer */
+#define I2C_EXAMPLE_MASTER_RX_BUF_DISABLE   0   /*!< I2C master do not need buffer */
+#define I2C_EXAMPLE_MASTER_FREQ_HZ   100000     /*!< I2C master clock frequency */
+
+#define WRITE_BIT  I2C_MASTER_WRITE /*!< I2C master write */
+#define READ_BIT   I2C_MASTER_READ  /*!< I2C master read */
+#define ACK_CHECK_EN   0x1     /*!< I2C master will check ack from slave*/
+#define ACK_CHECK_DIS  0x0     /*!< I2C master will not check ack from slave */
+#define ACK_VAL    0x0         /*!< I2C ack value */
+#define NACK_VAL   0x1         /*!< I2C nack value */
+
+
 char temp_str[50];
 char usb_state[10];
 bool power_received = false;
 uint8_t mac[6];
-int battery_turn_off = 10 * 1000;
-int battery_turn_on = 11 * 1000;
+int battery_turn_off = 10.5 * 1000;
+int battery_turn_on = 11.5 * 1000;
 char power[256];
 char previous_power[256];
 char power_rx_data[256];
 char power_command[100];
 char voltage_str[100] = "0";
 char current_str[100] = "0";
+char battery_power_str[100] = "0";
 bool low_battery = false;
 bool power_data_ready = false;
 bool INA219_CONFIGURED = false;
@@ -51,6 +81,9 @@ static bool s_pad_activated[TOUCH_PAD_MAX];
 static bool s_pad_activated_notify[TOUCH_PAD_MAX];
 static bool s_pad_activated_power_en[TOUCH_PAD_MAX];
 char power_req_str[1024];
+int battery_voltage = 0;
+int battery_current = 0;
+uint32_t battery_power = 0;
 
 struct per_vhost_data__power {
 	uv_timer_t timeout_watcher;
@@ -91,31 +124,6 @@ uv_timeout_cb_power(uv_timer_t *w
 		lws_callback_on_writable_all_protocol_vhost(vhd->vhost, vhd->protocol);
 }
 
-#define INA219_SENSOR_ADDR            0x41    /*!< slave address for SI7020 sensor */
-#define INA219_CMD_CONFIGURE          0x00    /*!< Command to set measure mode */
-#define INA219_CONFIGURATION_MSB      0x11    /*!< Command to set measure mode */
-#define INA219_CONFIGURATION_LSB      0x9F    /*!< Command to set measure mode */
-#define INA219_CMD_MEASURE_VOLTAGE    0x02    /*!< Command to set measure mode */
-#define INA219_CMD_MEASURE_CURRENT    0x01    /*!< Command to set measure mode */
-
-
-#define DATA_LENGTH          512  /*!<Data buffer length for test buffer*/
-#define RW_TEST_LENGTH       127  /*!<Data length for r/w test, any value from 0-DATA_LENGTH*/
-#define POWER_DELAY_TIME    5000 /*!< delay time between different test items */
-
-#define I2C_EXAMPLE_MASTER_SCL_IO    19    /*!< gpio number for I2C master clock */
-#define I2C_EXAMPLE_MASTER_SDA_IO    18    /*!< gpio number for I2C master data  */
-#define I2C_EXAMPLE_MASTER_NUM I2C_NUM_1   /*!< I2C port number for master dev */
-#define I2C_EXAMPLE_MASTER_TX_BUF_DISABLE   0   /*!< I2C master do not need buffer */
-#define I2C_EXAMPLE_MASTER_RX_BUF_DISABLE   0   /*!< I2C master do not need buffer */
-#define I2C_EXAMPLE_MASTER_FREQ_HZ   100000     /*!< I2C master clock frequency */
-
-#define WRITE_BIT  I2C_MASTER_WRITE /*!< I2C master write */
-#define READ_BIT   I2C_MASTER_READ  /*!< I2C master read */
-#define ACK_CHECK_EN   0x1     /*!< I2C master will check ack from slave*/
-#define ACK_CHECK_DIS  0x0     /*!< I2C master will not check ack from slave */
-#define ACK_VAL    0x0         /*!< I2C ack value */
-#define NACK_VAL   0x1         /*!< I2C nack value */
 
 static void i2c_example_master_init()
 {
@@ -213,12 +221,41 @@ static esp_err_t INA219_measure_voltage(i2c_port_t i2c_num, uint8_t* data_h, uin
     return ESP_OK;
 }
 
+static esp_err_t INA219_measure_power(i2c_port_t i2c_num, uint8_t* data_h, uint8_t* data_l)
+{
+    i2c_cmd_handle_t cmd = i2c_cmd_link_create();
+    i2c_master_start(cmd);
+    i2c_master_write_byte(cmd, INA219_SENSOR_ADDR << 1 | WRITE_BIT, ACK_CHECK_EN);
+    i2c_master_write_byte(cmd, INA219_CMD_MEASURE_POWER, ACK_CHECK_EN);
+    i2c_master_stop(cmd);
+
+    int ret = i2c_master_cmd_begin(i2c_num, cmd, 1000 / portTICK_RATE_MS);
+    i2c_cmd_link_delete(cmd);
+    if (ret == ESP_FAIL) {
+        return ret;
+    }
+
+    vTaskDelay(100 / portTICK_RATE_MS);
+
+    cmd = i2c_cmd_link_create();
+    i2c_master_start(cmd);
+    i2c_master_write_byte(cmd, INA219_SENSOR_ADDR << 1 | READ_BIT, ACK_CHECK_EN);
+    i2c_master_read_byte(cmd, data_h, ACK_VAL);
+    i2c_master_read_byte(cmd, data_l, NACK_VAL);
+    i2c_master_stop(cmd);
+
+    ret = i2c_master_cmd_begin(i2c_num, cmd, 1000 / portTICK_RATE_MS);
+    i2c_cmd_link_delete(cmd);
+    if (ret == ESP_FAIL) {
+        return ESP_FAIL;
+    }
+    return ESP_OK;
+}
+
 static void power_task(void* arg)
 {
     char tag[50] = "[power-protocol]";
     int i = 0;
-    int battery_voltage = 0;
-    int battery_current = 0;
     int ret;
     uint32_t task_idx = (uint32_t) arg;
     uint8_t* data = (uint8_t*) malloc(DATA_LENGTH);
@@ -229,7 +266,7 @@ static void power_task(void* arg)
     while (1) {
 
         //--------------------------------------------------//
-	/*if (!INA219_CONFIGURED) {
+	if (!INA219_CONFIGURED) {
 		ret = INA219_configure( I2C_EXAMPLE_MASTER_NUM, data_msb, data_lsb, RW_TEST_LENGTH);
         	if (ret == ESP_OK) {
         	    printf("INA219 configured\n");
@@ -238,7 +275,7 @@ static void power_task(void* arg)
         	    printf("INA219_CONFIGURED No ack, sensor not connected\n");
 	        }
 	        vTaskDelay(( POWER_DELAY_TIME * ( task_idx + 1 ) ) / portTICK_RATE_MS);
-	}*/
+	}
 
         //--------------------------------------------------//
 	ret = INA219_measure_current( I2C_EXAMPLE_MASTER_NUM, &sensor_data_h, &sensor_data_l);
@@ -266,6 +303,17 @@ static void power_task(void* arg)
         }
         vTaskDelay(( POWER_DELAY_TIME * ( task_idx + 1 ) ) / portTICK_RATE_MS);
         //--------------------------------------------------//
+        /*ret = INA219_measure_power( I2C_EXAMPLE_MASTER_NUM, &sensor_data_h, &sensor_data_l);
+        if (ret == ESP_OK) {
+	   battery_power = ( sensor_data_h << 8 | sensor_data_l );
+           sprintf(battery_power_str,"%d", battery_power);
+           power_data_ready = true;
+        } else {
+            printf("INA219_measure_power No ack, sensor not connected\n");
+        }
+        vTaskDelay(( POWER_DELAY_TIME * ( task_idx + 1 ) ) / portTICK_RATE_MS);*/
+        //--------------------------------------------------//
+
 	if (battery_voltage < battery_turn_off && !low_battery) {
 		low_battery = true;
 		printf("%s low battery (%d), turning off power\n", tag, battery_voltage);
@@ -363,12 +411,18 @@ callback_power(struct lws *wsi, enum lws_callback_reasons reason,
 		power_data_ready = false;
 		if (power_en_value) strcpy(usb_state,"OFF");
 		else strcpy(usb_state,"ON");
+
+		battery_power = battery_voltage * battery_voltage;
+                sprintf(battery_power_str,"%d", battery_power);
+
                 strcpy(power_req_str, "{\"mac\":\"");
 		strcat(power_req_str,mac_str);
                 strcat(power_req_str, "\",\"voltage\":");
                 strcat(power_req_str, voltage_str);
                 strcat(power_req_str, ",\"current\":");
                 strcat(power_req_str, current_str);
+                strcat(power_req_str, ",\"power\":");
+                strcat(power_req_str, battery_power_str);
                 strcat(power_req_str, ",\"usb_state\":\"");
                 strcat(power_req_str, usb_state);
                 strcat(power_req_str, "\",\"device_type\":[\"regulator\"]");
