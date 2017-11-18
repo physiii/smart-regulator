@@ -1,7 +1,7 @@
 Reference, Quantity, Value, Footprint, Datasheet, Part Number
 BATTERY1 PANEL1,2,CONN_01X02,open-automation:XT60,https://www.digikey.com/product-detail/en/phoenix-contact/1934861/277-1607-ND/568644
-C1,1,100uF,open-automation:CAP-RAD-5mm-UVR1H102MHD,https://www.digikey.com/product-detail/en/wurth-electronics-inc/860240675007/732-9294-3-ND/5727524,860240675007
-C2,1,1000uF,Capacitors_THT:CP_Radial_D10.0mm_P3.50mm,https://www.digikey.com/product-detail/en/nichicon/UVR1H102MHD/493-1111-ND/588852,UVR1H102MHD
+C1,1,100uF,Capacitors_THT:CP_Radial_D10.0mm_P3.50mm,https://www.digikey.com/product-detail/en/nichicon/UVR1H101MPD/493-1107-ND/588848,UVR1H101MPD
+C2,1,1000uF,Capacitors_THT:CP_Radial_D10.0mm_P3.50mm,https://www.digikey.com/product-detail/en/nichicon/UVR0J102MPD1TD/493-12738-1-ND/4328447,UVR0J102MPD1TD
 C3,1,4.7uF,Capacitors_SMD:C_0603_HandSoldering,https://www.digikey.com/product-detail/en/samsung-electro-mechanics-america-inc/CL10B475KQ8NQNC/1276-2087-1-ND/3890173,CL10B475KQ8NQNC
 C4,1,C_100uF,Capacitors_SMD:C_1206_HandSoldering,https://www.digikey.com/product-detail/en/tdk-corporation/C3216X5R1A107M160AC/445-6007-1-ND/2444048,C3216X5R1A107M160AC
 C6,1,C_1uF,Capacitors_SMD:C_0603_HandSoldering,https://www.digikey.com/product-detail/en/yageo/CC0603ZRY5V7BB105/311-1372-1-ND/2103156,CC0603ZRY5V7BB105

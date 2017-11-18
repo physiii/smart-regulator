@@ -2,7 +2,7 @@
 <export version="D">
   <design>
     <source>/home/physiii/circuits/smart-regulator/hardware/smart-regulator.sch</source>
-    <date>Mon 16 Oct 2017 03:55:32 PM CDT</date>
+    <date>Thu 26 Oct 2017 09:30:54 AM CDT</date>
     <tool>Eeschema 4.0.7-e2-6376~58~ubuntu17.04.1</tool>
     <sheet number="1" name="/" tstamps="/">
       <title_block>
@@ -290,10 +290,10 @@
     </comp>
     <comp ref="C1">
       <value>100uF</value>
-      <footprint>open-automation:CAP-RAD-5mm-UVR1H102MHD</footprint>
-      <datasheet>https://www.digikey.com/product-detail/en/wurth-electronics-inc/860240675007/732-9294-3-ND/5727524</datasheet>
+      <footprint>Capacitors_THT:CP_Radial_D10.0mm_P3.50mm</footprint>
+      <datasheet>https://www.digikey.com/product-detail/en/nichicon/UVR1H101MPD/493-1107-ND/588848</datasheet>
       <fields>
-        <field name="Part Number">860240675007</field>
+        <field name="Part Number">UVR1H101MPD</field>
       </fields>
       <libsource lib="device" part="CP"/>
       <sheetpath names="/Power/" tstamps="/5936D89B/"/>
@@ -302,9 +302,9 @@
     <comp ref="C2">
       <value>1000uF</value>
       <footprint>Capacitors_THT:CP_Radial_D10.0mm_P3.50mm</footprint>
-      <datasheet>https://www.digikey.com/product-detail/en/nichicon/UVR1H102MHD/493-1111-ND/588852</datasheet>
+      <datasheet>https://www.digikey.com/product-detail/en/nichicon/UVR0J102MPD1TD/493-12738-1-ND/4328447</datasheet>
       <fields>
-        <field name="Part Number">UVR1H102MHD</field>
+        <field name="Part Number">UVR0J102MPD1TD</field>
       </fields>
       <libsource lib="device" part="CP"/>
       <sheetpath names="/Power/" tstamps="/5936D89B/"/>

@@ -66,9 +66,9 @@ U 1 1 593709F5
 P 7900 3475
 F 0 "C1" V 7950 3525 50  0000 L CNN
 F 1 "100uF" V 7750 3375 50  0000 L CNN
-F 2 "open-automation:CAP-RAD-5mm-UVR1H102MHD" H 7938 3325 50  0001 C CNN
-F 3 "https://www.digikey.com/product-detail/en/wurth-electronics-inc/860240675007/732-9294-3-ND/5727524" H 7900 3475 50  0001 C CNN
-F 4 "860240675007" H 7900 3475 60  0001 C CNN "Part Number"
+F 2 "Capacitors_THT:CP_Radial_D10.0mm_P3.50mm" H 7938 3325 50  0001 C CNN
+F 3 "https://www.digikey.com/product-detail/en/nichicon/UVR1H101MPD/493-1107-ND/588848" H 7900 3475 50  0001 C CNN
+F 4 "UVR1H101MPD" H 7900 3475 60  0001 C CNN "Part Number"
 	1    7900 3475
 	0    1    1    0   
 $EndComp
@@ -79,8 +79,8 @@ P 9900 3825
 F 0 "C2" H 9925 3925 50  0000 L CNN
 F 1 "1000uF" H 9925 3725 50  0000 L CNN
 F 2 "Capacitors_THT:CP_Radial_D10.0mm_P3.50mm" H 9938 3675 50  0001 C CNN
-F 3 "https://www.digikey.com/product-detail/en/nichicon/UVR1H102MHD/493-1111-ND/588852" H 9900 3825 50  0001 C CNN
-F 4 "UVR1H102MHD" H 9900 3825 60  0001 C CNN "Part Number"
+F 3 "https://www.digikey.com/product-detail/en/nichicon/UVR0J102MPD1TD/493-12738-1-ND/4328447" H 9900 3825 50  0001 C CNN
+F 4 "UVR0J102MPD1TD" H 9900 3825 60  0001 C CNN "Part Number"
 	1    9900 3825
 	1    0    0    -1  
 $EndComp
