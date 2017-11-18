@@ -2,7 +2,7 @@
 <export version="D">
   <design>
     <source>/home/physiii/circuits/smart-regulator/hardware/smart-regulator.sch</source>
-    <date>Thu 26 Oct 2017 09:30:54 AM CDT</date>
+    <date>Sat 18 Nov 2017 03:16:17 PM CST</date>
     <tool>Eeschema 4.0.7-e2-6376~58~ubuntu17.04.1</tool>
     <sheet number="1" name="/" tstamps="/">
       <title_block>
@@ -90,17 +90,6 @@
       <sheetpath names="/microcontroller/" tstamps="/5936D792/"/>
       <tstamp>59C55B03</tstamp>
     </comp>
-    <comp ref="C4">
-      <value>C_100uF</value>
-      <footprint>Capacitors_SMD:C_1206_HandSoldering</footprint>
-      <datasheet>https://www.digikey.com/product-detail/en/tdk-corporation/C3216X5R1A107M160AC/445-6007-1-ND/2444048</datasheet>
-      <fields>
-        <field name="Part Number">C3216X5R1A107M160AC</field>
-      </fields>
-      <libsource lib="open-automation" part="C_100uF"/>
-      <sheetpath names="/microcontroller/" tstamps="/5936D792/"/>
-      <tstamp>59C55B04</tstamp>
-    </comp>
     <comp ref="R6">
       <value>R_10k</value>
       <footprint>Resistors_SMD:R_0603_HandSoldering</footprint>
@@ -141,20 +130,20 @@
       <sheetpath names="/microcontroller/" tstamps="/5936D792/"/>
       <tstamp>59C83F7C</tstamp>
     </comp>
-    <comp ref="R1">
-      <value>R_1</value>
-      <footprint>Resistors_SMD:R_0603_HandSoldering</footprint>
-      <datasheet>https://www.digikey.com/product-detail/en/stackpole-electronics-inc/RNCP0603FTD1R00/RNCP0603FTD1R00CT-ND/2240411</datasheet>
+    <comp ref="C4">
+      <value>C_10uF</value>
+      <footprint>Capacitors_SMD:C_0603_HandSoldering</footprint>
+      <datasheet>https://www.digikey.com/product-detail/en/murata-electronics-north-america/GRM188R61A106ME69D/490-10475-1-ND/5026393</datasheet>
       <fields>
-        <field name="Part Number">RNCP0603FTD1R00</field>
+        <field name="Part Number">GRM188R61A106ME69D</field>
       </fields>
-      <libsource lib="open-automation" part="R_1"/>
+      <libsource lib="open-automation" part="C_10uF"/>
       <sheetpath names="/microcontroller/" tstamps="/5936D792/"/>
-      <tstamp>59E3C91A</tstamp>
+      <tstamp>5A10664F</tstamp>
     </comp>
     <comp ref="D2">
       <value>LED</value>
-      <footprint>LEDs:LED_0603</footprint>
+      <footprint>LEDs:LED_0603_HandSoldering</footprint>
       <datasheet>http://www.osram-os.com/Graphics/XPic9/00128792_0.pdf</datasheet>
       <fields>
         <field name="Part Number">475-2512-2-ND</field>
@@ -213,7 +202,7 @@
     </comp>
     <comp ref="D3">
       <value>LED</value>
-      <footprint>LEDs:LED_0603</footprint>
+      <footprint>LEDs:LED_0603_HandSoldering</footprint>
       <datasheet>http://www.osram-os.com/Graphics/XPic9/00128792_0.pdf</datasheet>
       <fields>
         <field name="Part Number">475-2512-2-ND</field>
@@ -246,7 +235,7 @@
     </comp>
     <comp ref="D5">
       <value>LED</value>
-      <footprint>LEDs:LED_0603</footprint>
+      <footprint>LEDs:LED_0603_HandSoldering</footprint>
       <datasheet>http://www.osram-os.com/Graphics/XPic9/00128792_0.pdf</datasheet>
       <fields>
         <field name="Part Number">475-2512-2-ND</field>
@@ -332,17 +321,6 @@
       <sheetpath names="/Power/" tstamps="/5936D89B/"/>
       <tstamp>59690FC6</tstamp>
     </comp>
-    <comp ref="R5">
-      <value>50m</value>
-      <footprint>Resistors_SMD:R_0805_HandSoldering</footprint>
-      <datasheet>https://www.digikey.com/product-detail/en/susumu/RL1220T-R050-J/RL12T.05JCT-ND/567358</datasheet>
-      <fields>
-        <field name="Part Number">RL1220T-R050-J</field>
-      </fields>
-      <libsource lib="device" part="R"/>
-      <sheetpath names="/Power/" tstamps="/5936D89B/"/>
-      <tstamp>59691BB3</tstamp>
-    </comp>
     <comp ref="BATTERY1">
       <value>CONN_01X02</value>
       <footprint>open-automation:XT60</footprint>
@@ -350,17 +328,6 @@
       <libsource lib="smart-regulator-cache" part="CONN_01X02"/>
       <sheetpath names="/Power/" tstamps="/5936D89B/"/>
       <tstamp>597573B9</tstamp>
-    </comp>
-    <comp ref="U11">
-      <value>SPX1117M3-L-3-3/TR</value>
-      <footprint>open-automation:SPX1117M3</footprint>
-      <datasheet>https://www.digikey.com/product-detail/en/exar-corporation/SPX1117M3-L-3-3-TR/1016-1848-1-ND/3586565</datasheet>
-      <fields>
-        <field name="Part Number">1016-1848-1-ND</field>
-      </fields>
-      <libsource lib="open-automation" part="SPX1117M3-L-3-3/TR"/>
-      <sheetpath names="/Power/" tstamps="/5936D89B/"/>
-      <tstamp>598F6A23</tstamp>
     </comp>
     <comp ref="C3">
       <value>4.7uF</value>
@@ -375,7 +342,7 @@
     </comp>
     <comp ref="D4">
       <value>LED</value>
-      <footprint>Diodes_SMD:D_0603</footprint>
+      <footprint>LEDs:LED_0603_HandSoldering</footprint>
       <datasheet>https://www.digikey.com/product-detail/en/rohm-semiconductor/SML-D12M8WT86/511-1578-1-ND/1641810</datasheet>
       <fields>
         <field name="Part Number">SML-D12M8WT86</field>
@@ -425,17 +392,6 @@
       <sheetpath names="/Power/" tstamps="/5936D89B/"/>
       <tstamp>59C5FC56</tstamp>
     </comp>
-    <comp ref="Q1">
-      <value>Q_NMOS_GSD_PSMN038-100YLX</value>
-      <footprint>open-automation:SOT-669_PSMN038-100YLX</footprint>
-      <datasheet>https://www.digikey.com/product-detail/en/nexperia-usa-inc/PSMN038-100YLX/1727-1815-1-ND/4813999</datasheet>
-      <fields>
-        <field name="Part Number">PSMN038-100YLX</field>
-      </fields>
-      <libsource lib="open-automation" part="Q_NMOS_GSD_PSMN038-100YLX"/>
-      <sheetpath names="/Power/" tstamps="/5936D89B/"/>
-      <tstamp>59E3D0E0</tstamp>
-    </comp>
     <comp ref="R7">
       <value>1K</value>
       <footprint>Resistors_SMD:R_0603_HandSoldering</footprint>
@@ -457,6 +413,39 @@
       <libsource lib="open-automation" part="R_10k"/>
       <sheetpath names="/Power/" tstamps="/5936D89B/"/>
       <tstamp>59E4131F</tstamp>
+    </comp>
+    <comp ref="U11">
+      <value>NCP1117LPST33T3G</value>
+      <footprint>TO_SOT_Packages_SMD:SOT-223</footprint>
+      <datasheet>https://www.digikey.com/product-detail/en/on-semiconductor/NCP1117LPST33T3G/NCP1117LPST33T3GOSCT-ND/3462387</datasheet>
+      <fields>
+        <field name="Part Number">NCP1117LPST33T3G</field>
+      </fields>
+      <libsource lib="open-automation" part="NCP1117LPST33T3G"/>
+      <sheetpath names="/Power/" tstamps="/5936D89B/"/>
+      <tstamp>5A105FD6</tstamp>
+    </comp>
+    <comp ref="R1">
+      <value>R_10m</value>
+      <footprint>Resistors_SMD:R_2512_HandSoldering</footprint>
+      <datasheet>https://www.digikey.com/product-detail/en/bourns-inc/CRA2512-FZ-R010ELF/CRA2512-FZ-R010ELFCT-ND/1775054</datasheet>
+      <fields>
+        <field name="Part Number">CRA2512-FZ-R010ELF</field>
+      </fields>
+      <libsource lib="open-automation" part="R_10m"/>
+      <sheetpath names="/Power/" tstamps="/5936D89B/"/>
+      <tstamp>5A108421</tstamp>
+    </comp>
+    <comp ref="Q1">
+      <value>Q_NMOS_GSD_AOD4184A</value>
+      <footprint>TO_SOT_Packages_SMD:TO-252-2_Rectifier</footprint>
+      <datasheet>https://www.digikey.com/products/en?keywords=785-1221-1-ND</datasheet>
+      <fields>
+        <field name="Part Number">AOD4184A</field>
+      </fields>
+      <libsource lib="open-automation" part="Q_NMOS_GSD_AOD4184A"/>
+      <sheetpath names="/Power/" tstamps="/5936D89B/"/>
+      <tstamp>5A109055</tstamp>
     </comp>
     <comp ref="U6">
       <value>SI7020-A20</value>
@@ -569,9 +558,8 @@
         <pin num="2" name="~" type="passive"/>
       </pins>
     </libpart>
-    <libpart lib="open-automation" part="C_100uF">
-      <description>CAP CER 100UF 10V X5R 1206</description>
-      <docs>https://www.digikey.com/product-detail/en/tdk-corporation/C3216X5R1A107M160AC/445-6007-1-ND/2444048</docs>
+    <libpart lib="open-automation" part="C_10uF">
+      <description>10uF 10V 0603 Capacitor</description>
       <footprints>
         <fp>C?</fp>
         <fp>C_????_*</fp>
@@ -581,10 +569,10 @@
       </footprints>
       <fields>
         <field name="Reference">C</field>
-        <field name="Value">C_100uF</field>
-        <field name="Footprint">Capacitors_SMD:C_1206</field>
-        <field name="Datasheet">https://www.digikey.com/product-detail/en/kemet/C0603C104K5RACTU/399-5089-1-ND/1465623</field>
-        <field name="Part Number">C3216X5R1A107M160AC</field>
+        <field name="Value">C_10uF</field>
+        <field name="Footprint">Capacitors_SMD:C_0603</field>
+        <field name="Datasheet">https://www.digikey.com/product-detail/en/murata-electronics-north-america/GRM188R61A106ME69D/490-10475-1-ND/5026393</field>
+        <field name="Part Number">GRM188R61A106ME69D</field>
       </fields>
       <pins>
         <pin num="1" name="~" type="passive"/>
@@ -745,6 +733,26 @@
         <pin num="5" name="~EN" type="input"/>
       </pins>
     </libpart>
+    <libpart lib="open-automation" part="NCP1117LPST33T3G">
+      <description>IC REG LINEAR 3.3V 1A SOT223</description>
+      <docs>https://www.digikey.com/product-detail/en/on-semiconductor/NCP1117LPST33T3G/NCP1117LPST33T3GOSCT-ND/3462387</docs>
+      <footprints>
+        <fp>SOT-23*</fp>
+        <fp>SOT-23*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">U1</field>
+        <field name="Value">NCP1117LPST33T3G</field>
+        <field name="Footprint">TO_SOT_Packages_SMD:SOT-223</field>
+        <field name="Datasheet">https://www.digikey.com/product-detail/en/on-semiconductor/NCP1117LPST33T3G/NCP1117LPST33T3GOSCT-ND/3462387</field>
+        <field name="Part Number">NCP1117LPST33T3G</field>
+      </fields>
+      <pins>
+        <pin num="1" name="GND" type="openCol"/>
+        <pin num="2" name="Vout" type="input"/>
+        <pin num="3" name="Vin" type="power_in"/>
+      </pins>
+    </libpart>
     <libpart lib="open-automation" part="Power-Monitor-INA219">
       <fields>
         <field name="Reference">U</field>
@@ -764,14 +772,15 @@
         <pin num="8" name="A1" type="input"/>
       </pins>
     </libpart>
-    <libpart lib="open-automation" part="Q_NMOS_GSD_PSMN038-100YLX">
-      <description>N-Channel 100V 30A (Tc) 94.9W (Tc) Surface Mount LFPAK56, Power-SO8</description>
+    <libpart lib="open-automation" part="Q_NMOS_GSD_AOD4184A">
+      <description>MOSFET N-CH 40V 50A TO252</description>
+      <docs>https://www.digikey.com/products/en?keywords=785-1221-1-ND</docs>
       <fields>
         <field name="Reference">Q</field>
-        <field name="Value">Q_NMOS_GSD_PSMN038-100YLX</field>
-        <field name="Footprint">open-automation:SOT-669_PSMN038-100YLX</field>
-        <field name="Datasheet">https://www.digikey.com/product-detail/en/nexperia-usa-inc/PSMN038-100YLX/1727-1815-1-ND/4813999</field>
-        <field name="Part Number">PSMN038-100YLX</field>
+        <field name="Value">Q_NMOS_GSD_AOD4184A</field>
+        <field name="Footprint">TO_SOT_Packages_SMD:TO-252-2_Rectifier</field>
+        <field name="Datasheet">https://www.digikey.com/products/en?keywords=785-1221-1-ND</field>
+        <field name="Part Number">AOD4184A</field>
       </fields>
       <pins>
         <pin num="1" name="G" type="input"/>
@@ -788,24 +797,6 @@
       <fields>
         <field name="Reference">R</field>
         <field name="Value">R</field>
-      </fields>
-      <pins>
-        <pin num="1" name="~" type="passive"/>
-        <pin num="2" name="~" type="passive"/>
-      </pins>
-    </libpart>
-    <libpart lib="open-automation" part="R_1">
-      <description>RES SMD 10 OHM 0.1% 1/16W 0603</description>
-      <footprints>
-        <fp>R_*</fp>
-        <fp>R_*</fp>
-      </footprints>
-      <fields>
-        <field name="Reference">R</field>
-        <field name="Value">R_1</field>
-        <field name="Footprint">Resistors_SMD:R_0603</field>
-        <field name="Datasheet">https://www.digikey.com/product-detail/en/stackpole-electronics-inc/RNCP0603FTD1R00/RNCP0603FTD1R00CT-ND/2240411</field>
-        <field name="Part Number">RNCP0603FTD1R00</field>
       </fields>
       <pins>
         <pin num="1" name="~" type="passive"/>
@@ -830,6 +821,25 @@
         <pin num="2" name="~" type="passive"/>
       </pins>
     </libpart>
+    <libpart lib="open-automation" part="R_10m">
+      <description>RES 0.01 OHM 1% 3W 2512</description>
+      <docs>https://www.digikey.com/product-detail/en/bourns-inc/CRA2512-FZ-R010ELF/CRA2512-FZ-R010ELFCT-ND/1775054</docs>
+      <footprints>
+        <fp>R_*</fp>
+        <fp>R_*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">R</field>
+        <field name="Value">R_10m</field>
+        <field name="Footprint">Resistors_SMD:R_2512_HandSoldering</field>
+        <field name="Datasheet">https://www.digikey.com/product-detail/en/bourns-inc/CRA2512-FZ-R010ELF/CRA2512-FZ-R010ELFCT-ND/1775054</field>
+        <field name="Part Number">CRA2512-FZ-R010ELF</field>
+      </fields>
+      <pins>
+        <pin num="1" name="~" type="passive"/>
+        <pin num="2" name="~" type="passive"/>
+      </pins>
+    </libpart>
     <libpart lib="open-automation" part="SI7020-A20">
       <fields>
         <field name="Reference">U</field>
@@ -843,24 +853,6 @@
         <pin num="2" name="GND" type="input"/>
         <pin num="5" name="Vin" type="input"/>
         <pin num="6" name="SCL" type="input"/>
-      </pins>
-    </libpart>
-    <libpart lib="open-automation" part="SPX1117M3-L-3-3/TR">
-      <footprints>
-        <fp>SOT-23*</fp>
-        <fp>SOT-23*</fp>
-      </footprints>
-      <fields>
-        <field name="Reference">U1</field>
-        <field name="Value">SPX1117M3-L-3-3/TR</field>
-        <field name="Footprint">TO_SOT_Packages_SMD:SOT-223</field>
-        <field name="Datasheet">https://www.digikey.com/product-detail/en/exar-corporation/SPX1117M3-L-3-3-TR/1016-1848-1-ND/3586565</field>
-        <field name="Part Number">SPX1117M3-L-3-3/TR</field>
-      </fields>
-      <pins>
-        <pin num="1" name="GND" type="openCol"/>
-        <pin num="2" name="Vout" type="input"/>
-        <pin num="3" name="Vin" type="power_in"/>
       </pins>
     </libpart>
     <libpart lib="open-automation" part="SW_PUSH">
@@ -943,235 +935,231 @@
     </library>
   </libraries>
   <nets>
-    <net code="1" name="FACTORY">
-      <node ref="U10" pin="1"/>
-      <node ref="R2" pin="2"/>
-      <node ref="U1" pin="13"/>
-      <node ref="FACTORY1" pin="1"/>
-      <node ref="J1" pin="7"/>
-    </net>
-    <net code="2" name="PROG">
-      <node ref="PROG1" pin="1"/>
+    <net code="1" name="PROG">
       <node ref="R4" pin="2"/>
+      <node ref="PROG1" pin="1"/>
       <node ref="U1" pin="25"/>
       <node ref="J1" pin="5"/>
     </net>
+    <net code="2" name="FACTORY">
+      <node ref="U10" pin="1"/>
+      <node ref="U1" pin="13"/>
+      <node ref="R2" pin="2"/>
+      <node ref="J1" pin="7"/>
+      <node ref="FACTORY1" pin="1"/>
+    </net>
     <net code="3" name="GND">
-      <node ref="FACTORY1" pin="2"/>
-      <node ref="U3" pin="3"/>
-      <node ref="C3" pin="2"/>
-      <node ref="U5" pin="3"/>
-      <node ref="D1" pin="2"/>
-      <node ref="PANEL1" pin="2"/>
-      <node ref="U5" pin="8"/>
-      <node ref="R8" pin="2"/>
+      <node ref="C10" pin="2"/>
+      <node ref="U6" pin="2"/>
       <node ref="C8" pin="1"/>
-      <node ref="BATTERY1" pin="2"/>
-      <node ref="U11" pin="1"/>
+      <node ref="U5" pin="8"/>
       <node ref="C1" pin="2"/>
       <node ref="C2" pin="2"/>
+      <node ref="C3" pin="2"/>
+      <node ref="D1" pin="2"/>
+      <node ref="BATTERY1" pin="2"/>
+      <node ref="FACTORY1" pin="2"/>
+      <node ref="P5" pin="1"/>
+      <node ref="P5" pin="7"/>
+      <node ref="PROG1" pin="2"/>
+      <node ref="REBOOT1" pin="2"/>
+      <node ref="R8" pin="2"/>
+      <node ref="U5" pin="3"/>
+      <node ref="C9" pin="2"/>
+      <node ref="U11" pin="1"/>
       <node ref="R11" pin="2"/>
       <node ref="U2" pin="2"/>
-      <node ref="R6" pin="1"/>
-      <node ref="J1" pin="1"/>
-      <node ref="C10" pin="2"/>
-      <node ref="C4" pin="2"/>
+      <node ref="U3" pin="3"/>
+      <node ref="PANEL1" pin="2"/>
       <node ref="C6" pin="2"/>
-      <node ref="P5" pin="1"/>
-      <node ref="U6" pin="2"/>
-      <node ref="C9" pin="2"/>
       <node ref="U1" pin="1"/>
-      <node ref="REBOOT1" pin="2"/>
-      <node ref="PROG1" pin="2"/>
+      <node ref="J1" pin="1"/>
+      <node ref="R6" pin="1"/>
       <node ref="J1" pin="2"/>
-      <node ref="P5" pin="7"/>
+      <node ref="C4" pin="2"/>
     </net>
-    <net code="4" name="POWER_EN">
-      <node ref="U3" pin="5"/>
-      <node ref="R8" pin="1"/>
-      <node ref="U1" pin="28"/>
-    </net>
-    <net code="6" name="3V3">
-      <node ref="D2" pin="2"/>
-      <node ref="U1" pin="2"/>
-      <node ref="D5" pin="2"/>
-      <node ref="R1" pin="2"/>
-      <node ref="J1" pin="3"/>
-      <node ref="U11" pin="2"/>
-      <node ref="C3" pin="1"/>
-      <node ref="R7" pin="1"/>
-      <node ref="D3" pin="2"/>
-      <node ref="D4" pin="2"/>
-    </net>
-    <net code="7" name="VCC_I2C">
-      <node ref="C10" pin="1"/>
+    <net code="4" name="3V3">
       <node ref="U5" pin="7"/>
-      <node ref="U2" pin="1"/>
-      <node ref="U6" pin="5"/>
+      <node ref="U1" pin="2"/>
       <node ref="C9" pin="1"/>
-      <node ref="U5" pin="4"/>
-      <node ref="C8" pin="2"/>
-      <node ref="R1" pin="1"/>
-      <node ref="R9" pin="2"/>
+      <node ref="U6" pin="5"/>
+      <node ref="R7" pin="1"/>
       <node ref="R10" pin="2"/>
       <node ref="C4" pin="1"/>
+      <node ref="R9" pin="2"/>
+      <node ref="C8" pin="2"/>
+      <node ref="U5" pin="4"/>
+      <node ref="D3" pin="2"/>
+      <node ref="C3" pin="1"/>
+      <node ref="C10" pin="1"/>
+      <node ref="U2" pin="1"/>
+      <node ref="D5" pin="2"/>
+      <node ref="J1" pin="3"/>
+      <node ref="D2" pin="2"/>
       <node ref="C6" pin="1"/>
+      <node ref="U11" pin="2"/>
+      <node ref="D4" pin="2"/>
     </net>
-    <net code="8" name="SDA">
-      <node ref="U2" pin="3"/>
-      <node ref="R9" pin="1"/>
+    <net code="5" name="EN">
+      <node ref="U1" pin="3"/>
+      <node ref="R3" pin="2"/>
+      <node ref="REBOOT1" pin="1"/>
+    </net>
+    <net code="6" name="SCL">
+      <node ref="J1" pin="9"/>
+      <node ref="U2" pin="4"/>
+      <node ref="R10" pin="1"/>
+      <node ref="U1" pin="31"/>
+      <node ref="U6" pin="6"/>
+      <node ref="U5" pin="5"/>
+    </net>
+    <net code="7" name="SDA">
       <node ref="J1" pin="10"/>
+      <node ref="R9" pin="1"/>
+      <node ref="U1" pin="30"/>
+      <node ref="U2" pin="3"/>
       <node ref="U5" pin="6"/>
       <node ref="U6" pin="1"/>
-      <node ref="U1" pin="30"/>
     </net>
-    <net code="9" name="SCL">
-      <node ref="U5" pin="5"/>
-      <node ref="U6" pin="6"/>
-      <node ref="J1" pin="9"/>
-      <node ref="U1" pin="31"/>
-      <node ref="R10" pin="1"/>
-      <node ref="U2" pin="4"/>
+    <net code="8" name="POWER_EN">
+      <node ref="U3" pin="5"/>
+      <node ref="U1" pin="28"/>
+      <node ref="R8" pin="1"/>
     </net>
-    <net code="10" name="PANEL_SW">
+    <net code="10" name="V_USB">
+      <node ref="C2" pin="1"/>
+      <node ref="L1" pin="2"/>
+      <node ref="P5" pin="2"/>
+      <node ref="U3" pin="4"/>
+      <node ref="J1" pin="4"/>
+    </net>
+    <net code="11" name="PANEL_SW">
       <node ref="R7" pin="2"/>
       <node ref="Q1" pin="1"/>
       <node ref="U1" pin="27"/>
     </net>
-    <net code="11" name="V_USB">
-      <node ref="P5" pin="2"/>
-      <node ref="J1" pin="4"/>
-      <node ref="L1" pin="2"/>
-      <node ref="C2" pin="1"/>
-      <node ref="U3" pin="4"/>
-    </net>
-    <net code="12" name="Net-(U1-Pad33)">
-      <node ref="U1" pin="33"/>
-    </net>
-    <net code="13" name="Net-(U1-Pad11)">
-      <node ref="U1" pin="11"/>
-    </net>
-    <net code="14" name="Net-(U1-Pad21)">
-      <node ref="U1" pin="21"/>
-    </net>
-    <net code="15" name="Net-(U1-Pad12)">
-      <node ref="U1" pin="12"/>
-    </net>
-    <net code="16" name="Net-(U1-Pad22)">
-      <node ref="U1" pin="22"/>
-    </net>
-    <net code="17" name="Net-(U1-Pad23)">
+    <net code="12" name="Net-(U1-Pad23)">
       <node ref="U1" pin="23"/>
     </net>
-    <net code="18" name="Net-(U1-Pad20)">
+    <net code="13" name="Net-(U1-Pad20)">
       <node ref="U1" pin="20"/>
     </net>
-    <net code="19" name="Net-(U1-Pad14)">
+    <net code="14" name="Net-(U1-Pad11)">
+      <node ref="U1" pin="11"/>
+    </net>
+    <net code="15" name="Net-(U1-Pad21)">
+      <node ref="U1" pin="21"/>
+    </net>
+    <net code="16" name="Net-(U1-Pad12)">
+      <node ref="U1" pin="12"/>
+    </net>
+    <net code="17" name="Net-(U1-Pad22)">
+      <node ref="U1" pin="22"/>
+    </net>
+    <net code="18" name="Net-(U1-Pad10)">
+      <node ref="U1" pin="10"/>
+    </net>
+    <net code="19" name="Net-(U1-Pad33)">
+      <node ref="U1" pin="33"/>
+    </net>
+    <net code="20" name="Net-(U1-Pad14)">
       <node ref="U1" pin="14"/>
     </net>
-    <net code="20" name="Net-(U1-Pad16)">
+    <net code="21" name="Net-(U1-Pad16)">
       <node ref="U1" pin="16"/>
     </net>
-    <net code="21" name="Net-(U1-Pad26)">
-      <node ref="U1" pin="26"/>
+    <net code="22" name="Net-(U1-Pad9)">
+      <node ref="U1" pin="9"/>
     </net>
-    <net code="22" name="EN">
-      <node ref="REBOOT1" pin="1"/>
-      <node ref="R3" pin="2"/>
-      <node ref="U1" pin="3"/>
+    <net code="23" name="Net-(U1-Pad8)">
+      <node ref="U1" pin="8"/>
     </net>
-    <net code="23" name="RXD">
-      <node ref="U1" pin="34"/>
-      <node ref="P5" pin="6"/>
-      <node ref="P5" pin="4"/>
-      <node ref="J1" pin="8"/>
+    <net code="24" name="Net-(U1-Pad7)">
+      <node ref="U1" pin="7"/>
     </net>
-    <net code="24" name="TXD">
-      <node ref="J1" pin="6"/>
-      <node ref="U1" pin="35"/>
-      <node ref="P5" pin="3"/>
-      <node ref="P5" pin="5"/>
+    <net code="25" name="Net-(U1-Pad6)">
+      <node ref="U1" pin="6"/>
     </net>
-    <net code="25" name="IO2">
+    <net code="26" name="Net-(U1-Pad5)">
+      <node ref="U1" pin="5"/>
+    </net>
+    <net code="27" name="Net-(U1-Pad4)">
+      <node ref="U1" pin="4"/>
+    </net>
+    <net code="28" name="IO2">
       <node ref="U1" pin="24"/>
       <node ref="R6" pin="2"/>
     </net>
-    <net code="26" name="Net-(U1-Pad4)">
-      <node ref="U1" pin="4"/>
+    <net code="29" name="TXD">
+      <node ref="P5" pin="5"/>
+      <node ref="J1" pin="6"/>
+      <node ref="U1" pin="35"/>
+      <node ref="P5" pin="3"/>
     </net>
-    <net code="27" name="Net-(U1-Pad5)">
-      <node ref="U1" pin="5"/>
+    <net code="30" name="RXD">
+      <node ref="P5" pin="4"/>
+      <node ref="P5" pin="6"/>
+      <node ref="J1" pin="8"/>
+      <node ref="U1" pin="34"/>
     </net>
-    <net code="28" name="Net-(U1-Pad6)">
-      <node ref="U1" pin="6"/>
+    <net code="31" name="Net-(U1-Pad36)">
+      <node ref="U1" pin="36"/>
     </net>
-    <net code="29" name="Net-(U1-Pad7)">
-      <node ref="U1" pin="7"/>
-    </net>
-    <net code="30" name="Net-(U1-Pad8)">
-      <node ref="U1" pin="8"/>
-    </net>
-    <net code="31" name="Net-(U1-Pad9)">
-      <node ref="U1" pin="9"/>
-    </net>
-    <net code="32" name="Net-(U1-Pad10)">
-      <node ref="U1" pin="10"/>
+    <net code="32" name="Net-(U1-Pad26)">
+      <node ref="U1" pin="26"/>
     </net>
     <net code="33" name="Net-(U1-Pad17)">
       <node ref="U1" pin="17"/>
     </net>
-    <net code="34" name="Net-(U1-Pad36)">
-      <node ref="U1" pin="36"/>
-    </net>
-    <net code="35" name="Net-(U1-Pad37)">
+    <net code="34" name="Net-(U1-Pad37)">
       <node ref="U1" pin="37"/>
     </net>
-    <net code="36" name="Net-(U1-Pad18)">
+    <net code="35" name="Net-(U1-Pad18)">
       <node ref="U1" pin="18"/>
     </net>
-    <net code="37" name="Net-(U1-Pad19)">
+    <net code="36" name="Net-(U1-Pad19)">
       <node ref="U1" pin="19"/>
     </net>
-    <net code="38" name="Net-(U1-Pad29)">
+    <net code="37" name="Net-(U1-Pad29)">
       <node ref="U1" pin="29"/>
     </net>
-    <net code="39" name="Net-(D1-Pad1)">
-      <node ref="D1" pin="1"/>
-      <node ref="U3" pin="2"/>
-      <node ref="L1" pin="1"/>
+    <net code="38" name="BATTERY">
+      <node ref="U5" pin="1"/>
+      <node ref="R1" pin="1"/>
+      <node ref="BATTERY1" pin="1"/>
     </net>
-    <net code="40" name="Net-(D4-Pad1)">
-      <node ref="R11" pin="1"/>
+    <net code="39" name="Net-(D4-Pad1)">
       <node ref="D4" pin="1"/>
+      <node ref="R11" pin="1"/>
+    </net>
+    <net code="40" name="Net-(D1-Pad1)">
+      <node ref="D1" pin="1"/>
+      <node ref="L1" pin="1"/>
+      <node ref="U3" pin="2"/>
     </net>
     <net code="41" name="V_PANEL">
-      <node ref="Q1" pin="2"/>
       <node ref="PANEL1" pin="1"/>
+      <node ref="Q1" pin="2"/>
     </net>
-    <net code="42" name="BATTERY">
-      <node ref="U5" pin="1"/>
-      <node ref="BATTERY1" pin="1"/>
-      <node ref="R5" pin="1"/>
-    </net>
-    <net code="43" name="V_MAIN">
+    <net code="42" name="V_MAIN">
       <node ref="U5" pin="2"/>
-      <node ref="C1" pin="1"/>
       <node ref="Q1" pin="3"/>
+      <node ref="C1" pin="1"/>
+      <node ref="R1" pin="2"/>
       <node ref="U11" pin="3"/>
       <node ref="U3" pin="1"/>
-      <node ref="R5" pin="2"/>
     </net>
-    <net code="44" name="Net-(D2-Pad1)">
+    <net code="43" name="Net-(D2-Pad1)">
       <node ref="R2" pin="1"/>
       <node ref="D2" pin="1"/>
     </net>
-    <net code="45" name="Net-(D5-Pad1)">
-      <node ref="R4" pin="1"/>
+    <net code="44" name="Net-(D5-Pad1)">
       <node ref="D5" pin="1"/>
+      <node ref="R4" pin="1"/>
     </net>
-    <net code="46" name="Net-(D3-Pad1)">
-      <node ref="R3" pin="1"/>
+    <net code="45" name="Net-(D3-Pad1)">
       <node ref="D3" pin="1"/>
+      <node ref="R3" pin="1"/>
     </net>
   </nets>
 </export>

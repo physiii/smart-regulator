@@ -141,18 +141,6 @@ F 4 "B330A-13-F" H 9450 3875 60  0001 C CNN "Part Number"
 	1    9450 3875
 	0    1    1    0   
 $EndComp
-$Comp
-L R R5
-U 1 1 59691BB3
-P 4150 4725
-F 0 "R5" V 4230 4725 50  0000 C CNN
-F 1 "50m" V 4150 4725 50  0000 C CNN
-F 2 "Resistors_SMD:R_0805_HandSoldering" V 4080 4725 50  0001 C CNN
-F 3 "https://www.digikey.com/product-detail/en/susumu/RL1220T-R050-J/RL12T.05JCT-ND/567358" H 4150 4725 50  0001 C CNN
-F 4 "RL1220T-R050-J" V 4150 4725 60  0001 C CNN "Part Number"
-	1    4150 4725
-	1    0    0    -1  
-$EndComp
 Text GLabel 4075 4525 0    60   Input ~ 0
 BATTERY
 Text GLabel 4075 4950 0    60   Input ~ 0
@@ -197,18 +185,6 @@ $EndComp
 Text GLabel 7750 3675 0    60   Input ~ 0
 power_EN
 $Comp
-L SPX1117M3-L-3-3/TR U11
-U 1 1 598F6A23
-P 8675 4950
-F 0 "U11" H 8800 4750 50  0000 C CNN
-F 1 "SPX1117M3-L-3-3/TR" H 8675 5200 50  0000 C CNN
-F 2 "open-automation:SPX1117M3" H 8675 4550 50  0001 C CIN
-F 3 "https://www.digikey.com/product-detail/en/exar-corporation/SPX1117M3-L-3-3-TR/1016-1848-1-ND/3586565" H 8725 4450 50  0001 C CNN
-F 4 "1016-1848-1-ND" H 8675 4950 60  0001 C CNN "Part Number"
-	1    8675 4950
-	1    0    0    -1  
-$EndComp
-$Comp
 L GND #PWR015
 U 1 1 598F6B7D
 P 8225 5100
@@ -250,7 +226,7 @@ U 1 1 598F7872
 P 9525 5200
 F 0 "D4" H 9525 5300 50  0000 C CNN
 F 1 "LED" H 9525 5100 50  0000 C CNN
-F 2 "Diodes_SMD:D_0603" H 9525 5200 50  0001 C CNN
+F 2 "LEDs:LED_0603_HandSoldering" H 9525 5200 50  0001 C CNN
 F 3 "https://www.digikey.com/product-detail/en/rohm-semiconductor/SML-D12M8WT86/511-1578-1-ND/1641810" H 9525 5200 50  0001 C CNN
 F 4 "SML-D12M8WT86" H 9525 5200 60  0001 C CNN "Part Number"
 	1    9525 5200
@@ -279,7 +255,7 @@ F 3 "" H 8000 4075 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 Text GLabel 4500 4275 2    60   Input ~ 0
-VCC_I2C
+3V3
 $Comp
 L C_0.1uF C8
 U 1 1 59C52B59
@@ -489,18 +465,6 @@ F 3 "" H 5700 4550 50  0000 C CNN
 $EndComp
 Wire Wire Line
 	5700 4575 5700 4550
-$Comp
-L Q_NMOS_GSD_PSMN038-100YLX Q1
-U 1 1 59E3D0E0
-P 4875 3175
-F 0 "Q1" V 4775 3050 50  0000 L CNN
-F 1 "Q_NMOS_GSD_PSMN038-100YLX" V 5100 2475 50  0000 L CNN
-F 2 "open-automation:SOT-669_PSMN038-100YLX" H 5075 3275 50  0001 C CNN
-F 3 "https://www.digikey.com/product-detail/en/nexperia-usa-inc/PSMN038-100YLX/1727-1815-1-ND/4813999" H 5075 3225 50  0001 C CNN
-F 4 "PSMN038-100YLX" H 5175 3325 60  0001 C CNN "Part Number"
-	1    4875 3175
-	0    1    1    0   
-$EndComp
 Wire Wire Line
 	4525 3275 4675 3275
 $Comp
@@ -543,7 +507,43 @@ F 4 "RC0603JR-0710KL" V 9705 5650 60  0001 C CNN "Part Number"
 	1    0    0    -1  
 $EndComp
 Text GLabel 5675 4675 2    60   Input ~ 0
-VCC_I2C
+3V3
 Wire Wire Line
 	5675 4675 5550 4675
+$Comp
+L NCP1117LPST33T3G U11
+U 1 1 5A105FD6
+P 8675 4950
+F 0 "U11" H 8800 4750 50  0000 C CNN
+F 1 "NCP1117LPST33T3G" H 8675 5200 50  0000 C CNN
+F 2 "TO_SOT_Packages_SMD:SOT-223" H 8625 4675 50  0001 C CIN
+F 3 "https://www.digikey.com/product-detail/en/on-semiconductor/NCP1117LPST33T3G/NCP1117LPST33T3GOSCT-ND/3462387" H 8650 4600 50  0001 C CNN
+F 4 "NCP1117LPST33T3G" H 8700 5275 60  0001 C CNN "Part Number"
+	1    8675 4950
+	1    0    0    -1  
+$EndComp
+$Comp
+L R_10m R1
+U 1 1 5A108421
+P 4150 4750
+F 0 "R1" H 4125 4750 50  0000 C CNN
+F 1 "R_10m" H 4125 4650 50  0000 C CNN
+F 2 "Resistors_SMD:R_2512_HandSoldering" H 4125 4575 50  0001 C CNN
+F 3 "https://www.digikey.com/product-detail/en/bourns-inc/CRA2512-FZ-R010ELF/CRA2512-FZ-R010ELFCT-ND/1775054" H 4150 4500 50  0001 C CNN
+F 4 "CRA2512-FZ-R010ELF" H 4150 4825 60  0001 C CNN "Part Number"
+	1    4150 4750
+	0    1    1    0   
+$EndComp
+$Comp
+L Q_NMOS_GSD_AOD4184A Q1
+U 1 1 5A109055
+P 4800 3250
+F 0 "Q1" V 4650 3225 50  0000 L CNN
+F 1 "Q_NMOS_GSD_AOD4184A" V 4950 2825 50  0000 L CNN
+F 2 "TO_SOT_Packages_SMD:TO-252-2_Rectifier" H 4850 2950 50  0001 C CNN
+F 3 "https://www.digikey.com/products/en?keywords=785-1221-1-ND" H 4850 3025 50  0001 C CNN
+F 4 "AOD4184A" H 4850 2875 60  0001 C CNN "Part Number"
+	1    4800 3250
+	0    1    1    0   
+$EndComp
 $EndSCHEMATC

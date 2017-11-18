@@ -3,24 +3,22 @@ BATTERY1 PANEL1,2,CONN_01X02,open-automation:XT60,https://www.digikey.com/produc
 C1,1,100uF,Capacitors_THT:CP_Radial_D10.0mm_P3.50mm,https://www.digikey.com/product-detail/en/nichicon/UVR1H101MPD/493-1107-ND/588848,UVR1H101MPD
 C2,1,1000uF,Capacitors_THT:CP_Radial_D10.0mm_P3.50mm,https://www.digikey.com/product-detail/en/nichicon/UVR0J102MPD1TD/493-12738-1-ND/4328447,UVR0J102MPD1TD
 C3,1,4.7uF,Capacitors_SMD:C_0603_HandSoldering,https://www.digikey.com/product-detail/en/samsung-electro-mechanics-america-inc/CL10B475KQ8NQNC/1276-2087-1-ND/3890173,CL10B475KQ8NQNC
-C4,1,C_100uF,Capacitors_SMD:C_1206_HandSoldering,https://www.digikey.com/product-detail/en/tdk-corporation/C3216X5R1A107M160AC/445-6007-1-ND/2444048,C3216X5R1A107M160AC
+C4,1,C_10uF,Capacitors_SMD:C_0603_HandSoldering,https://www.digikey.com/product-detail/en/murata-electronics-north-america/GRM188R61A106ME69D/490-10475-1-ND/5026393,GRM188R61A106ME69D
 C6,1,C_1uF,Capacitors_SMD:C_0603_HandSoldering,https://www.digikey.com/product-detail/en/yageo/CC0603ZRY5V7BB105/311-1372-1-ND/2103156,CC0603ZRY5V7BB105
 C8 C9 C10,3,C_0.1uF,Capacitors_SMD:C_0603_HandSoldering,https://www.digikey.com/product-detail/en/kemet/C0603C104K5RACTU/399-5089-1-ND/1465623,C0603C104K5RACTU
 D1,1,D_Schottky,Diodes_SMD:D_SMA,http://www.digikey.com/scripts/DkSearch/dksus.dll?Detail&itemSeq=233263850&uq=636356340886764109,B330A-13-F
-D2 D3 D5,3,LED,LEDs:LED_0603,http://www.osram-os.com/Graphics/XPic9/00128792_0.pdf,475-2512-2-ND
-D4,1,LED,Diodes_SMD:D_0603,https://www.digikey.com/product-detail/en/rohm-semiconductor/SML-D12M8WT86/511-1578-1-ND/1641810,SML-D12M8WT86
+D2 D3 D4 D5,4,LED,LEDs:LED_0603_HandSoldering,http://www.osram-os.com/Graphics/XPic9/00128792_0.pdf,475-2512-2-ND
 FACTORY1 REBOOT1 PROG1,3,SW_PUSH,Buttons_Switches_SMD:SW_SPST_KMR2,http://www.mouser.com/ds/2/60/KMR2_9aug12-25127.pdf,KMR211NG LFS
 J1,1,Conn_02x05_Odd_Even,Pin_Headers:Pin_Header_Straight_2x05_Pitch2.54mm,
 L1,1,47uH,open-automation:L-RAD-7.4mm,https://www.digikey.com/product-detail/en/abracon-llc/AIUR-06-470K/535-13031-ND/2343602,AIUR-06-470K
 P5,1,USB_A_2,open-automation:USB_A_2,https://www.digikey.com/product-detail/en/cnc-tech/1002-004-01010/1175-1018-ND/3064749,1002-004-01010
-Q1,1,Q_NMOS_GSD_PSMN038-100YLX,open-automation:SOT-669_PSMN038-100YLX,https://www.digikey.com/product-detail/en/nexperia-usa-inc/PSMN038-100YLX/1727-1815-1-ND/4813999,PSMN038-100YLX
-R1,1,R_1,Resistors_SMD:R_0603_HandSoldering,https://www.digikey.com/product-detail/en/stackpole-electronics-inc/RNCP0603FTD1R00/RNCP0603FTD1R00CT-ND/2240411,RNCP0603FTD1R00
-R5,1,50m,Resistors_SMD:R_0805_HandSoldering,https://www.digikey.com/product-detail/en/susumu/RL1220T-R050-J/RL12T.05JCT-ND/567358,RL1220T-R050-J
+Q1,1,Q_NMOS_GSD_AOD4184A,TO_SOT_Packages_SMD:TO-252-2_Rectifier,https://www.digikey.com/products/en?keywords=785-1221-1-ND,AOD4184A
+R1,1,R_10m,Resistors_SMD:R_2512_HandSoldering,https://www.digikey.com/product-detail/en/bourns-inc/CRA2512-FZ-R010ELF/CRA2512-FZ-R010ELFCT-ND/1775054,CRA2512-FZ-R010ELF
 R2 R3 R4 R6 R8 R9 R10 R11,8,R_10k,Resistors_SMD:R_0603_HandSoldering,https://www.digikey.com/product-detail/en/yageo/RC0603JR-0710KL/311-10KGRCT-ND/729647,RC0603JR-0710KL
 R7,1,1K,Resistors_SMD:R_0603_HandSoldering,https://www.digikey.com/product-detail/en/yageo/RC0603JR-071KL/311-1.0KGRTR-ND/726677,RC0603JR-071KL
 U1,1,ESP-WROOM-32,open-automation:ESP-WROOM-32,https://www.espressif.com/sites/default/files/documentation/esp_wroom_32_datasheet_en.pdf
 U10,1,touchpad,open-automation:touch-pad,
-U11,1,SPX1117M3-L-3-3/TR,open-automation:SPX1117M3,https://www.digikey.com/product-detail/en/exar-corporation/SPX1117M3-L-3-3-TR/1016-1848-1-ND/3586565,1016-1848-1-ND
+U11,1,NCP1117LPST33T3G,TO_SOT_Packages_SMD:SOT-223,https://www.digikey.com/product-detail/en/on-semiconductor/NCP1117LPST33T3G/NCP1117LPST33T3GOSCT-ND/3462387,NCP1117LPST33T3G
 U2,1,TSL45315CL,open-automation:LIGHT-SENSOR-TSL45315CL,https://www.digikey.com/product-detail/en/ams/TSL45315CL/TSL45315-CLCT-ND/3095326,TSL45315CL
 U3,1,LM2576,open-automation:Regulator-LM2576,https://www.digikey.com/product-detail/en/texas-instruments/LM2576SX-5.0-NOPB/LM2576SX-5.0-NOPBCT-ND/3440106,LM2576SX-5.0/NOPB
 U4,1,housing-mounts,open-automation:enclosure-25x38,https://www.mcmaster.com/#catalog/123/904/=18nyvt2

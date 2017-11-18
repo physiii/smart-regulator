@@ -47,7 +47,7 @@ $EndDescr
 Text Label 5125 1950 0    197  ~ 0
 Environment
 Text GLabel 3400 3425 0    60   Input ~ 0
-VCC_I2C
+3V3
 $Comp
 L GND #PWR023
 U 1 1 59C50BD3
@@ -116,7 +116,7 @@ F 3 "" H 7425 3675 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 Text GLabel 7100 3525 0    60   Input ~ 0
-VCC_I2C
+3V3
 $Comp
 L C_0.1uF C10
 U 1 1 59C50BDA
