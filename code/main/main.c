@@ -111,6 +111,11 @@ esp_err_t event_handler(void *ctx, system_event_t *event)
     //do not actually connect in test case
             //;
             break;
+
+	case LWS_CALLBACK_CLIENT_CONNECTION_ERROR:
+		printf("LWS_CALLBACK_CLIENT_CONNECTION_ERROR !!!!!!!\n");
+		break;
+
         case SYSTEM_EVENT_STA_GOT_IP:
             printf("got ip: %s\n",
             ip4addr_ntoa(&event->event_info.got_ip.ip_info.ip));
