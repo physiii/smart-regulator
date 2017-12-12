@@ -47,7 +47,7 @@ bool climate_data_ready = false;
 char front_climate_str[100];
 char i_str[10];
 int climate_linked = 0;
-bool climate_connected = false;
+//bool climate_connected = false;
 
 char climate_str[250] = "";
 static bool s_pad_activated[TOUCH_PAD_MAX];
@@ -71,7 +71,7 @@ char previous_climate[256];
 
 bool climate_req_sent = false;
 bool climate_connect = true;
-bool climate_connecting = false;
+//bool climate_connecting = false;
 uint8_t mac[6];
 
 
@@ -350,7 +350,7 @@ static void climate_task(void* arg)
         ret = power_on_TSL4531( I2C_EXAMPLE_MASTER_NUM, &sensor_data_h, &sensor_data_l);
         xSemaphoreTake(print_mux, portMAX_DELAY);
         if (ret == ESP_OK) {
-            printf("TSL4531 POWERED ON\n");
+            //printf("TSL4531 POWERED ON\n");
         } else {
             printf("TSL4531 No ack, sensor not connected...skip...\n");
         }
@@ -469,7 +469,7 @@ static int
 callback_climate(struct lws *wsi, enum lws_callback_reasons reason,
 			void *user, void *in, size_t len)
 {
-	strcpy(tag,"[climate-protocol]");
+	char tag[20] = "[climate-protocol]";
 	struct per_session_data__climate *pss =
 			(struct per_session_data__climate *)user;
 	struct per_vhost_data__climate *vhd =
@@ -487,17 +487,26 @@ callback_climate(struct lws *wsi, enum lws_callback_reasons reason,
 
 	switch (reason) {
 
-	case LWS_CALLBACK_CLIENT_ESTABLISHED:
+	case LWS_CALLBACK_CLIENT_FILTER_PRE_ESTABLISH:
+		printf("%s LWS_CALLBACK_CLIENT_FILTER_PRE_ESTABLISH\n",tag);
 		climate_connect = false;
+		break;
+
+	case LWS_CALLBACK_CLIENT_ESTABLISHED:
+		//climate_connect = false;
 		pss->number = 0;
-		printf("%s connection established\n",tag);
+		printf("%s LWS_CALLBACK_CLIENT_ESTABLISHED\n",tag);
 		break;
 
 	case LWS_CALLBACK_CLOSED:
-		vTaskDelay(5000/portTICK_PERIOD_MS);
-		printf("re-connecting with climate protocol\n");
-		climate_connect = true;
+		printf("%s LWS_CALLBACK_CLOSED\n", tag);
 		climate_linked = false;
+		climate_req_sent = false;
+		climate_connect = true;
+		break;
+
+	case LWS_CALLBACK_HTTP_DROP_PROTOCOL:
+		printf("%s LWS_CALLBACK_HTTP_DROP_PROTOCOL\n", tag);
 		break;
 
 	case LWS_CALLBACK_PROTOCOL_INIT:
@@ -527,10 +536,10 @@ callback_climate(struct lws *wsi, enum lws_callback_reasons reason,
 		break;
 
 	case LWS_CALLBACK_CLIENT_WRITEABLE:
-		//printf("[LWS_CALLBACK_CLIENT_WRITEABLE] temperature_str: %s\n",temperature_str);
-		//if (!climate_connected) break;
-		if (!token_received) break;
+		printf("%s [LWS_CALLBACK_CLIENT_WRITEABLE] %d\n",tag,climate_req_sent);
+		if (!token_linked) break;
 		if (!climate_linked) {
+			if (climate_req_sent) break;
         	        strcpy(climate_req_str, "{\"mac\":\"");
 			strcat(climate_req_str,mac_str);
         	        strcat(climate_req_str, "\",\"device_type\":[\"regulator\"]");
@@ -544,6 +553,7 @@ callback_climate(struct lws *wsi, enum lws_callback_reasons reason,
 			if (m < n)
 				lwsl_err("ERROR %d writing to climate socket\n", n);
 			else  {
+				climate_req_sent = true;
 				//printf("%s %s\n",tag,climate_req_str);
 			}
 			break;
@@ -566,16 +576,14 @@ callback_climate(struct lws *wsi, enum lws_callback_reasons reason,
 		strcat(climate_req_str,"}");
 		n = lws_snprintf((char *)p, sizeof(climate_req_str) - LWS_PRE, "%s", climate_req_str);
 		//printf("%s %s\n",tag,p);
-		m = lws_write(wsi, p, n, LWS_WRITE_TEXT);
+		/*m = lws_write(wsi, p, n, LWS_WRITE_TEXT);
 		break;
 		if (m < n) {
-			climate_linked = 0;
-			climate_connected = false;
 			lwsl_err("error %d writing to climate socket\n", n);
 		}
 		else  {
 			//printf("%s %s\n",tag,climate_req_str);
-		}
+		}*/
 		break;
 
 	case LWS_CALLBACK_CLIENT_RECEIVE:

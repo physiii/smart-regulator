@@ -51,12 +51,12 @@ char power_command[100];
 char front_power_str[100];
 char i_str[10];
 int power_linked = 0;
-bool power_connected = false;
+//bool power_connected = false;
 
 char power_str[250] = "";
 static bool s_pad_activated[TOUCH_PAD_MAX];
 static bool s_pad_activated_notify[TOUCH_PAD_MAX];
-static bool s_pad_activated_power_en[TOUCH_PAD_MAX];
+static bool s_pad_activated_USB_POWER_PIN[TOUCH_PAD_MAX];
 char power_req_str[1024];
 
 uint32_t low_battery_off = 0 * 1000;
@@ -85,13 +85,13 @@ char usb_state[10];
 bool low_battery = false;
 bool power_req_sent = false;
 bool power_connect = true;
-bool power_connecting = false;
+//bool power_connecting = false;
 bool INA219_CONFIGURED = false;
 uint8_t mac[6];
 
 int battery_voltage = 0;
 int battery_current = 0;
-int power_en_value = 0;
+int usb_power_value = 0;
 int panel_en_value = 0;
 
 struct per_vhost_data__power {
@@ -128,9 +128,9 @@ uv_timeout_cb_power(uv_timer_t *w
 #define INA219_CMD_MEASURE_VOLTAGE    0x02    /*!< Command to set measure mode */
 #define INA219_CMD_MEASURE_POWER      0x03    /*!< Command to set measure mode */
 
-#define POWER_EN 17
+#define USB_POWER_PIN 17
 #define PANEL_EN 16
-#define GPIO_OUTPUT_PIN_SEL  ((1<<POWER_EN) | (1<<PANEL_EN))
+#define GPIO_OUTPUT_PIN_SEL  ((1<<USB_POWER_PIN) | (1<<PANEL_EN))
 #define ESP_INTR_FLAG_DEFAULT 0
 
 xSemaphoreHandle print_mux;
@@ -160,7 +160,7 @@ void gpio_init() {
     gpio_config(&io_conf);
 
     //change gpio intrrupt type for one pin
-    gpio_set_intr_type(POWER_EN, GPIO_INTR_ANYEDGE);
+    gpio_set_intr_type(USB_POWER_PIN, GPIO_INTR_ANYEDGE);
 
     //create a queue to handle gpio event from isr
     gpio_evt_queue = xQueueCreate(10, sizeof(uint32_t));
@@ -169,17 +169,17 @@ void gpio_init() {
     //install gpio isr service
     gpio_install_isr_service(ESP_INTR_FLAG_DEFAULT);
     //hook isr handler for specific gpio pin
-    gpio_isr_handler_add(POWER_EN, gpio_isr_handler, (void*) POWER_EN);
+    gpio_isr_handler_add(USB_POWER_PIN, gpio_isr_handler, (void*) USB_POWER_PIN);
     //hook isr handler for specific gpio pin
     gpio_isr_handler_add(PANEL_EN, gpio_isr_handler, (void*) PANEL_EN);
 
     //remove isr handler for gpio number.
-    gpio_isr_handler_remove(POWER_EN);
+    gpio_isr_handler_remove(USB_POWER_PIN);
     //hook isr handler for specific gpio pin again
-    gpio_isr_handler_add(POWER_EN, gpio_isr_handler, (void*) POWER_EN);
+    gpio_isr_handler_add(USB_POWER_PIN, gpio_isr_handler, (void*) USB_POWER_PIN);
 
-    printf("turn on PANEL_EN\n");
-    gpio_set_level(PANEL_EN, 1);
+    //printf("turn on PANEL_EN\n");
+    //gpio_set_level(PANEL_EN, 1);
 }
 
 static esp_err_t INA219_configure(i2c_port_t i2c_num, uint8_t* data_msb, uint8_t* data_lsb, size_t size)
@@ -295,6 +295,7 @@ static esp_err_t INA219_measure_power(i2c_port_t i2c_num, uint8_t* data_h, uint8
 
 static void power_task(void* arg)
 {
+    char tag[20] = "[climate-protocol]";
     int i = 0;
     int ret;
     uint32_t task_idx = (uint32_t) arg;
@@ -372,14 +373,14 @@ static void power_task(void* arg)
 	if (battery_voltage < low_battery_off && !low_battery) {
 		low_battery = true;
 		printf("%s low battery (%d), turning off power\n", tag, battery_voltage);
-		power_en_value = 100;
-                gpio_set_level(POWER_EN, power_en_value);
+		usb_power_value = 100;
+                gpio_set_level(USB_POWER_PIN, usb_power_value);
 	}
 	if (battery_voltage > low_battery_on && low_battery) {
 		low_battery = false;
 		printf("%s battery charged (%d), turning on power\n", tag, battery_voltage);
-		power_en_value = 0;
-                gpio_set_level(POWER_EN, power_en_value);
+		usb_power_value = 0;
+                gpio_set_level(USB_POWER_PIN, usb_power_value);
 	}
     }
 }
@@ -388,7 +389,7 @@ static int
 callback_power(struct lws *wsi, enum lws_callback_reasons reason,
 			void *user, void *in, size_t len)
 {
-	strcpy(tag,"[power-protocol]");
+	char tag[20] = "[power-protocol]";
 	struct per_session_data__power *pss =
 			(struct per_session_data__power *)user;
 	struct per_vhost_data__power *vhd =
@@ -406,17 +407,27 @@ callback_power(struct lws *wsi, enum lws_callback_reasons reason,
 
 	switch (reason) {
 
-	case LWS_CALLBACK_CLIENT_ESTABLISHED:
+	case LWS_CALLBACK_CLIENT_FILTER_PRE_ESTABLISH:
+		printf("%s LWS_CALLBACK_CLIENT_FILTER_PRE_ESTABLISH\n",tag);
 		power_connect = false;
-		power_linked = false;
+		break;
+
+	case LWS_CALLBACK_CLIENT_ESTABLISHED:
+		//power_connect = false;
+		//power_linked = false;
 		pss->number = 0;
-		printf("%s connection established\n",tag);
+		printf("%s LWS_CALLBACK_CLIENT_ESTABLISHED\n",tag);
 		break;
 
 	case LWS_CALLBACK_CLOSED:
-		vTaskDelay(5000/portTICK_PERIOD_MS);
-		printf("re-connecting with power protocol\n");
+		printf("%s LWS_CALLBACK_CLOSED\n", tag);
+		power_linked = false;
+		power_req_sent = false;
 		power_connect = true;
+		break;
+
+	case LWS_CALLBACK_HTTP_DROP_PROTOCOL:
+		printf("%s LWS_CALLBACK_HTTP_DROP_PROTOCOL\n", tag);
 		break;
 
 	case LWS_CALLBACK_PROTOCOL_INIT:
@@ -452,10 +463,10 @@ callback_power(struct lws *wsi, enum lws_callback_reasons reason,
 		break;
 
 	case LWS_CALLBACK_CLIENT_WRITEABLE:
-		//printf("[LWS_CALLBACK_CLIENT_WRITEABLE] temperature_str: %s\n",temperature_str);
-		//if (!power_connected) break;
-		if (!token_received) break;
+		printf("%s [LWS_CALLBACK_CLIENT_WRITEABLE] %d\n",tag,power_req_sent);
+		if (!token_linked) break;
 		if (!power_linked) {
+			if (power_req_sent) break;
         	        strcpy(power_req_str, "{\"mac\":\"");
 			strcat(power_req_str,mac_str);
         	        strcat(power_req_str, "\",\"device_type\":[\"regulator\"]");
@@ -469,13 +480,14 @@ callback_power(struct lws *wsi, enum lws_callback_reasons reason,
 			if (m < n)
 				lwsl_err("ERROR %d writing to power socket\n", n);
 			else  {
+				power_req_sent = true;
 				//printf("%s %s\n",tag,power_req_str);
 			}
 			break;
 		}
 		if (!power_data_ready) break;
 		power_data_ready = false;
-		if (power_en_value) strcpy(usb_state,"OFF");
+		if (usb_power_value) strcpy(usb_state,"OFF");
 		else strcpy(usb_state,"ON");
 
 		battery_power = battery_voltage * battery_voltage;
@@ -502,8 +514,6 @@ callback_power(struct lws *wsi, enum lws_callback_reasons reason,
 		m = lws_write(wsi, p, n, LWS_WRITE_TEXT);
 		break;
 		if (m < n) {
-			power_linked = 0;
-			power_connected = false;
 			lwsl_err("error %d writing to power socket\n", n);
 		}
 		else  {
@@ -566,23 +576,29 @@ callback_power(struct lws *wsi, enum lws_callback_reasons reason,
 			store_u32("current_cf",current_cf);
 			store_u32("current_cb",current_cb);
 		}
+
+		if (cJSON_GetObjectItem(new_settings,"set_usb_power")) {
+			usb_power_value = cJSON_GetObjectItem(new_settings,"set_usb_power")->valueint;
+			store_u32("usb_power",usb_power_value);
+			gpio_set_level(USB_POWER_PIN, usb_power_value);
+		}
 	
 		if (cJSON_GetObjectItem(new_settings,"command")) {
 			char * command = cJSON_GetObjectItem(new_settings,"command")->valuestring;
 			if (!strcmp(command,"power_off")) {
 				printf("%s turning power off!\n", tag);
-	               	        //printf("%s setting power_en pin to %d to %d\n", tag, POWER_EN, power_envalue);	
-				power_en_value = 100;
-	               	        gpio_set_level(POWER_EN, power_en_value);
-				//power_en(POWER_EN,power_en_value);
+	               	        //printf("%s setting USB_POWER_PIN pin to %d to %d\n", tag, USB_POWER_PIN, USB_POWER_PINvalue);	
+				usb_power_value = 100;
+	               	        gpio_set_level(USB_POWER_PIN, usb_power_value);
+				//USB_POWER_PIN(USB_POWER_PIN,usb_power_value);
 			}
 	
 			if (!strcmp(command,"power_on")) {
 				printf("%s turning power on!\n", tag);
-				power_en_value = 0;
-	               	        //printf("%s setting power_en pin to %d to %d\n", tag, POWER_EN, power_envalue);	
-	               	        gpio_set_level(POWER_EN, power_en_value);
-				//power_en(POWER_EN,power_en_value);
+				usb_power_value = 0;
+	               	        //printf("%s setting USB_POWER_PIN pin to %d to %d\n", tag, USB_POWER_PIN, USB_POWER_PINvalue);	
+	               	        gpio_set_level(USB_POWER_PIN, usb_power_value);
+				//USB_POWER_PIN(USB_POWER_PIN,usb_power_value);
 			}
 		}
 

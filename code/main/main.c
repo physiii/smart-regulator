@@ -118,12 +118,12 @@ esp_err_t event_handler(void *ctx, system_event_t *event)
             break;
         case SYSTEM_EVENT_STA_DISCONNECTED:
             printf("SYSTEM_EVENT_STA_DISCONNECTED\n");
-	    token_connect = true;
+	    /*token_connect = true;
 	    token_received = false;
 	    climate_connect = true;
 	    climate_linked = false;
 	    power_connect = true;
-	    power_linked = false;
+	    power_linked = false;*/
 	    got_ip = false;
             //TEST_ESP_OK(esp_wifi_connect());
             break;
@@ -155,11 +155,6 @@ lws_esp32_identify_physical_device(void)
 void lws_esp32_leds_timer_cb(TimerHandle_t th)
 {
 }
-
-struct lws *wsi_token, *wsi_climate, *wsi_power;
-int token_conn_count = 100;
-int climate_conn_count = 100;
-int power_conn_count = 100;
 
 void app_main(void)
 {
@@ -204,8 +199,6 @@ void app_main(void)
         xTaskCreate(climate_task, "climate_task_0", 1024 * 2, (void* ) 0, 10, NULL);
 	xTaskCreate(power_task, "power_task", 1024 * 2, (void* ) 0, 10, NULL);
 
-
-
 	static struct lws_client_connect_info i;
 	memset(&i, 0, sizeof i);
 	i.address = "192.168.0.10";
@@ -216,65 +209,47 @@ void app_main(void)
         i.ietf_version_or_minus_one = -1;
 	i.context = context;
 
+	while (!got_ip) {
+    		vTaskDelay(100 / portTICK_RATE_MS);
+	}
+
+	struct lws *wsi, *wsi_token, *wsi_climate, *wsi_power;
 	while (!lws_service(context, 3000)) {
-  		printf("[lws_service loop]\n");
-		vTaskDelay(1000/portTICK_PERIOD_MS);
-		if (!got_ip) {
-  			printf("waiting for ip\n");
-			continue;
-		}
-
-		if (token_connect && token_conn_count >= 10) {
+		taskYIELD();
+		if (!got_ip) continue;
+	
+		if (token_connect) {
+	    		//vTaskDelay(5000 / portTICK_RATE_MS);
 			printf("%s token protocol\n",tag);
-			vTaskDelay(3000/portTICK_PERIOD_MS);
-
-			token_connecting = true;
-			token_req_sent = false;
 			//token_connect = false;
-			wsi_token = NULL;
-			i.pwsi = &wsi_token;
+			//wsi = NULL;
+			i.pwsi = &wsi;
 			i.protocol = "token-protocol";
 			i.path = "/tokens";
-        		wsi_token = lws_client_connect_via_info(&i);
-			token_conn_count = 0;
+        		wsi = lws_client_connect_via_info(&i);
 		}
-		if (token_connecting) 
-			token_conn_count++;
 
-		if (climate_connect && climate_conn_count >= 10) {
+		if (climate_connect) {
 			printf("%s climate protocol\n",tag);
-			vTaskDelay(3000/portTICK_PERIOD_MS);
-		
-			climate_connecting = true;
-			climate_req_sent = false;
 			//climate_connect = false;
-			wsi_climate = NULL;
-			i.pwsi = &wsi_climate;
+			//wsi = NULL;
+			i.pwsi = &wsi;
 			i.protocol = "climate-protocol";
 			i.path = "/climate";
-        		wsi_climate = lws_client_connect_via_info(&i);
-			climate_conn_count = 0;
+   			wsi = lws_client_connect_via_info(&i);
 		}
-		if (climate_connecting) 
-			climate_conn_count++;
 
-		if (power_connect && power_conn_count >= 10) {
+		if (power_connect) {
 			printf("%s power protocol\n",tag);
-			vTaskDelay(3000/portTICK_PERIOD_MS);
-
-			power_connecting = true;
-			power_req_sent = false;
 			//power_connect = false;
-			wsi_power = NULL;
-			i.pwsi = &wsi_power;
+			//wsi = NULL;
+			i.pwsi = &wsi;
 			i.protocol = "power-protocol";
 			i.path = "/power";
-        		wsi_power = lws_client_connect_via_info(&i);
-			power_conn_count = 0;
+	        	wsi = lws_client_connect_via_info(&i);
 		}
-		if (power_connecting) 
-			power_conn_count++;
 
-		taskYIELD();
+ 		//vTaskDelay(1000 / portTICK_RATE_MS);
+  		//printf("[lws_service loop]\n");
 	}
 }

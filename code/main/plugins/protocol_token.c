@@ -44,7 +44,7 @@
 #define DUMB_PERIOD 50
 #endif
 
-char tag[20] = "[token-protocol]";
+
 char temp_str[50];
 char mac_str[20];
 char token[512];
@@ -52,9 +52,8 @@ char token_message[512];
 char previous_token[256];
 char token_req_str[512];
 bool token_req_sent = false;
+bool token_linked = false;
 bool token_connect = true;
-bool token_connecting = false;
-bool token_received = true;
 uint8_t mac[6];
 
 
@@ -139,7 +138,7 @@ void store_char(char * key, char * value)
         err = nvs_set_str(my_handle, key, value);
 
         if (err == ESP_OK) {
-	  printf("%s:%s\n",key,value);
+	  //printf("%s:%s\n",key,value);
 	}
 	else {
 	  printf("%s write to flash failed\n",tag);
@@ -147,7 +146,7 @@ void store_char(char * key, char * value)
 
         err = nvs_commit(my_handle);
         if (err == ESP_OK) {
-	  printf("%s stored %s:%s\n",tag,key,value);
+	  printf("%s %s:%s\n",tag,key,value);
 	}
 	else {
 	  printf("%s commiting to flash failed!\n", tag);
@@ -245,6 +244,7 @@ static int
 callback_token(struct lws *wsi, enum lws_callback_reasons reason,
 			void *user, void *in, size_t len)
 {
+	char tag[20] = "[token-protocol]";
 	struct per_session_data__token *pss =
 			(struct per_session_data__token *)user;
 	struct per_vhost_data__token *vhd =
@@ -262,16 +262,25 @@ callback_token(struct lws *wsi, enum lws_callback_reasons reason,
 
 	switch (reason) {
 
-	case LWS_CALLBACK_CLIENT_ESTABLISHED:
+	case LWS_CALLBACK_CLIENT_FILTER_PRE_ESTABLISH:
+		printf("%s LWS_CALLBACK_CLIENT_FILTER_PRE_ESTABLISH\n",tag);
 		token_connect = false;
-		printf("%s connection established\n",tag);
+		break;
+
+	case LWS_CALLBACK_CLIENT_ESTABLISHED:
+		printf("%s LWS_CALLBACK_CLIENT_ESTABLISHED\n",tag);
+		//token_connect = false;
 		break;
 
 	case LWS_CALLBACK_CLOSED:
-		//vTaskDelay(1000/portTICK_PERIOD_MS);
-		printf("re-connecting with token protocol\n");
+		printf("%s LWS_CALLBACK_CLOSED\n", tag);
 		token_connect = true;
-		token_received = false;
+		token_linked = false;
+		token_req_sent = false;
+		break;
+
+	case LWS_CALLBACK_HTTP_DROP_PROTOCOL:
+		printf("%s LWS_CALLBACK_HTTP_DROP_PROTOCOL\n", tag);
 		break;
 
 	case LWS_CALLBACK_PROTOCOL_INIT:
@@ -302,8 +311,9 @@ callback_token(struct lws *wsi, enum lws_callback_reasons reason,
 		break;
 
 	case LWS_CALLBACK_CLIENT_WRITEABLE:
-		//printf("LWS_CALLBACK_CLIENT_WRITEABLE %d\n",token_req_sent);
+		printf("%s LWS_CALLBACK_CLIENT_WRITEABLE %d\n",tag, token_req_sent);
 		if (token_req_sent) break;
+		if (token_connect) break;
                 strcpy(token_req_str, "{\"mac\":\"");
 		strcat(token_req_str,mac_str);
                 strcat(token_req_str, "\",\"cmd\":\"token_request\"");
@@ -329,7 +339,7 @@ callback_token(struct lws *wsi, enum lws_callback_reasons reason,
 			if (cJSON_GetObjectItem(root,"token")) {
 				sprintf(token,"%s",cJSON_GetObjectItem(root,"token")->valuestring);
 				//printf("%s received token: %s\n", tag, token);
-				token_received = true;
+				token_linked = true;
 				store_char("token",token);
 			}
 			strcpy(token_message,"");
