@@ -498,6 +498,10 @@ callback_climate(struct lws *wsi, enum lws_callback_reasons reason,
 		printf("%s LWS_CALLBACK_CLIENT_ESTABLISHED\n",tag);
 		break;
 
+	case LWS_CALLBACK_CLIENT_CONNECTION_ERROR:
+		printf("%s LWS_CALLBACK_CLIENT_CONNECTION_ERROR !!!!!!!\n",tag);
+		break;
+
 	case LWS_CALLBACK_CLOSED:
 		printf("%s LWS_CALLBACK_CLOSED\n", tag);
 		climate_linked = false;

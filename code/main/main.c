@@ -213,7 +213,7 @@ void app_main(void)
     		vTaskDelay(100 / portTICK_RATE_MS);
 	}
 
-	struct lws *wsi, *wsi_token, *wsi_climate, *wsi_power;
+	struct lws *wsi;
 	while (!lws_service(context, 3000)) {
 		taskYIELD();
 		if (!got_ip) continue;
