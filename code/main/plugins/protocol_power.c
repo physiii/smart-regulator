@@ -421,13 +421,16 @@ callback_power(struct lws *wsi, enum lws_callback_reasons reason,
 
 	case LWS_CALLBACK_CLIENT_CONNECTION_ERROR:
 		printf("%s LWS_CALLBACK_CLIENT_CONNECTION_ERROR\n",tag);
+		power_linked = false;
+		power_req_sent = false;
+		wsi_power = NULL;
 		break;
 
 	case LWS_CALLBACK_CLOSED:
 		printf("%s LWS_CALLBACK_CLOSED\n", tag);
 		power_linked = false;
 		power_req_sent = false;
-		power_connect = true;
+		wsi_power = NULL;
 		break;
 
 	case LWS_CALLBACK_HTTP_DROP_PROTOCOL:

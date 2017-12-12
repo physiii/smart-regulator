@@ -269,22 +269,20 @@ callback_token(struct lws *wsi, enum lws_callback_reasons reason,
 
 	case LWS_CALLBACK_CLIENT_ESTABLISHED:
 		printf("%s LWS_CALLBACK_CLIENT_ESTABLISHED\n",tag);
-		//token_connect = false;
-		break;
-
-	case LWS_CALLBACK_CLIENT_CONNECTION_ERROR:
-		printf("%s LWS_CALLBACK_CLIENT_CONNECTION_ERROR !!!!!!!\n",tag);
 		break;
 
 	case LWS_CALLBACK_CLOSED:
 		printf("%s LWS_CALLBACK_CLOSED\n", tag);
-		token_connect = true;
+		wsi_token = NULL;
 		token_linked = false;
 		token_req_sent = false;
 		break;
 
-	case LWS_CALLBACK_HTTP_DROP_PROTOCOL:
-		printf("%s LWS_CALLBACK_HTTP_DROP_PROTOCOL\n", tag);
+	case LWS_CALLBACK_CLIENT_CONNECTION_ERROR:
+		printf("%s LWS_CALLBACK_CLIENT_CONNECTION_ERROR\n",tag);
+		wsi_token = NULL;
+		token_linked = false;
+		token_req_sent = false;
 		break;
 
 	case LWS_CALLBACK_PROTOCOL_INIT:

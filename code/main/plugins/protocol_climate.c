@@ -500,13 +500,16 @@ callback_climate(struct lws *wsi, enum lws_callback_reasons reason,
 
 	case LWS_CALLBACK_CLIENT_CONNECTION_ERROR:
 		printf("%s LWS_CALLBACK_CLIENT_CONNECTION_ERROR\n",tag);
+		climate_linked = false;
+		climate_req_sent = false;
+		wsi_climate = NULL;
 		break;
 
 	case LWS_CALLBACK_CLOSED:
 		printf("%s LWS_CALLBACK_CLOSED\n", tag);
 		climate_linked = false;
 		climate_req_sent = false;
-		climate_connect = true;
+		wsi_climate = NULL;
 		break;
 
 	case LWS_CALLBACK_HTTP_DROP_PROTOCOL:
@@ -580,14 +583,14 @@ callback_climate(struct lws *wsi, enum lws_callback_reasons reason,
 		strcat(climate_req_str,"}");
 		n = lws_snprintf((char *)p, sizeof(climate_req_str) - LWS_PRE, "%s", climate_req_str);
 		//printf("%s %s\n",tag,p);
-		/*m = lws_write(wsi, p, n, LWS_WRITE_TEXT);
+		m = lws_write(wsi, p, n, LWS_WRITE_TEXT);
 		break;
 		if (m < n) {
 			lwsl_err("error %d writing to climate socket\n", n);
 		}
 		else  {
 			//printf("%s %s\n",tag,climate_req_str);
-		}*/
+		}
 		break;
 
 	case LWS_CALLBACK_CLIENT_RECEIVE:

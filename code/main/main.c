@@ -33,6 +33,10 @@
  * and put your own plugin include here
  */
 
+
+
+struct lws *wsi_token, *wsi_climate, *wsi_power;
+
 #include "../components/libwebsockets/plugins/protocol_lws_mirror.c"
 #include "../components/libwebsockets/plugins/protocol_post_demo.c"
 #include "../components/libwebsockets/plugins/protocol_lws_status.c"
@@ -111,11 +115,6 @@ esp_err_t event_handler(void *ctx, system_event_t *event)
     //do not actually connect in test case
             //;
             break;
-
-	case LWS_CALLBACK_CLIENT_CONNECTION_ERROR:
-		printf("LWS_CALLBACK_CLIENT_CONNECTION_ERROR\n");
-		break;
-
         case SYSTEM_EVENT_STA_GOT_IP:
             printf("got ip: %s\n",
             ip4addr_ntoa(&event->event_info.got_ip.ip_info.ip));
@@ -160,6 +159,21 @@ lws_esp32_identify_physical_device(void)
 void lws_esp32_leds_timer_cb(TimerHandle_t th)
 {
 }
+
+static int ratelimit_connects(unsigned int *last, unsigned int secs)
+{
+	struct timeval tv;
+
+	gettimeofday(&tv, NULL);
+
+	if (tv.tv_sec - (*last) < secs)
+		return 0;
+
+	*last = tv.tv_sec;
+
+	return 1;
+}
+
 
 void app_main(void)
 {
@@ -214,47 +228,65 @@ void app_main(void)
         i.ietf_version_or_minus_one = -1;
 	i.context = context;
 
-	while (!got_ip) {
-    		vTaskDelay(100 / portTICK_RATE_MS);
-	}
+	unsigned int rl_token = 0, rl_climate = 0, rl_power = 0, do_ws = 1, pp_secs = 0,
+		     do_multi = 0, rl_token_linked = 0, rl_power_linked = 0, rl_climate_linked = 0;
 
-	struct lws *wsi;
-	while (!lws_service(context, 3000)) {
-		taskYIELD();
-		if (!got_ip) continue;
-	
-		if (token_connect) {
-	    		//vTaskDelay(5000 / portTICK_RATE_MS);
-			printf("%s token protocol\n",tag);
-			//token_connect = false;
-			//wsi = NULL;
-			i.pwsi = &wsi;
+	while (1) {
+		
+		if (!got_ip) {
+	    		vTaskDelay(1000 / portTICK_RATE_MS);
+			continue;
+		}
+
+		/*if (!token_linked && ratelimit_connects(&rl_token_linked, 20u)) {
+  			printf("[lws_service loop] wsi_token timed out, reconnect\n");
+			wsi_token = NULL;
+		}
+		else
+  			printf("[lws_service loop] wsi_token\n");
+
+		if (!climate_linked && ratelimit_connects(&rl_climate_linked, 20u)) {
+  			printf("[lws_service loop] wsi_climate timed out, reconnect\n");
+			wsi_climate = NULL;
+		}
+
+		if (!power_linked && ratelimit_connects(&rl_power_linked, 20u)) {
+  			printf("[lws_service loop] wsi_power timed out, reconnect\n");
+			wsi_power = NULL;
+		}*/
+
+		if (!wsi_token && ratelimit_connects(&rl_token, 2u)) {
+	    		//vTaskDelay(1000 / portTICK_RATE_MS);
+			lwsl_notice("token: connecting\n");
 			i.protocol = "token-protocol";
+			i.pwsi = &wsi_token;
 			i.path = "/tokens";
-        		wsi = lws_client_connect_via_info(&i);
+			wsi_token = lws_client_connect_via_info(&i);
 		}
 
-		if (climate_connect) {
-			printf("%s climate protocol\n",tag);
-			//climate_connect = false;
-			//wsi = NULL;
-			i.pwsi = &wsi;
+		if (!wsi_climate && ratelimit_connects(&rl_climate, 2u)) {
+	    		//vTaskDelay(1000 / portTICK_RATE_MS);
+			lwsl_notice("climate: connecting\n");
 			i.protocol = "climate-protocol";
+			i.pwsi = &wsi_climate;
 			i.path = "/climate";
-   			wsi = lws_client_connect_via_info(&i);
+			wsi_climate = lws_client_connect_via_info(&i);
 		}
 
-		if (power_connect) {
-			printf("%s power protocol\n",tag);
-			//power_connect = false;
-			//wsi = NULL;
-			i.pwsi = &wsi;
+		if (!wsi_power && ratelimit_connects(&rl_power, 2u)) {
+	    		//vTaskDelay(1000 / portTICK_RATE_MS);
+			lwsl_notice("power: connecting\n");
 			i.protocol = "power-protocol";
+			i.pwsi = &wsi_power;
 			i.path = "/power";
-	        	wsi = lws_client_connect_via_info(&i);
+			wsi_power = lws_client_connect_via_info(&i);
 		}
 
+		lws_service(context, 3000);
+		taskYIELD();
  		//vTaskDelay(1000 / portTICK_RATE_MS);
-  		//printf("[lws_service loop]\n");
+
+
 	}
+  	printf("EXCITED?!\n");
 }
