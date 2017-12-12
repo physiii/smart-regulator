@@ -420,7 +420,7 @@ callback_power(struct lws *wsi, enum lws_callback_reasons reason,
 		break;
 
 	case LWS_CALLBACK_CLIENT_CONNECTION_ERROR:
-		printf("%s LWS_CALLBACK_CLIENT_CONNECTION_ERROR !!!!!!!\n",tag);
+		printf("%s LWS_CALLBACK_CLIENT_CONNECTION_ERROR\n",tag);
 		break;
 
 	case LWS_CALLBACK_CLOSED:
