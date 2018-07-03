@@ -616,4 +616,40 @@ Wire Wire Line
 	9475 2400 9400 2400
 Wire Wire Line
 	9475 1075 9400 1075
+$Comp
+L open-automation:D D?
+U 1 1 5B3D3C36
+P 9625 775
+F 0 "D?" H 9625 469 50  0000 C CNN
+F 1 "D" H 9625 560 50  0000 C CNN
+F 2 "Diode_SMD:D_SMC" H 9525 775 50  0001 C CNN
+F 3 "https://www.digikey.com/product-detail/en/diodes-incorporated/MURS320-13-F/MURS320-13FDICT-ND/3053318" H 9625 875 50  0001 C CNN
+F 4 "MURS320-13-F" H 9625 651 50  0000 C CNN "Part Number"
+	1    9625 775 
+	-1   0    0    1   
+$EndComp
+$Comp
+L open-automation:D D?
+U 1 1 5B3D9A39
+P 9650 1400
+F 0 "D?" H 9650 1094 50  0000 C CNN
+F 1 "D" H 9650 1185 50  0000 C CNN
+F 2 "Diode_SMD:D_SMC" H 9550 1400 50  0001 C CNN
+F 3 "https://www.digikey.com/product-detail/en/diodes-incorporated/MURS320-13-F/MURS320-13FDICT-ND/3053318" H 9650 1500 50  0001 C CNN
+F 4 "MURS320-13-F" H 9650 1276 50  0000 C CNN "Part Number"
+	1    9650 1400
+	-1   0    0    1   
+$EndComp
+$Comp
+L open-automation:D D?
+U 1 1 5B3D9B00
+P 9625 2050
+F 0 "D?" H 9625 1744 50  0000 C CNN
+F 1 "D" H 9625 1835 50  0000 C CNN
+F 2 "Diode_SMD:D_SMC" H 9525 2050 50  0001 C CNN
+F 3 "https://www.digikey.com/product-detail/en/diodes-incorporated/MURS320-13-F/MURS320-13FDICT-ND/3053318" H 9625 2150 50  0001 C CNN
+F 4 "MURS320-13-F" H 9625 1926 50  0000 C CNN "Part Number"
+	1    9625 2050
+	-1   0    0    1   
+$EndComp
 $EndSCHEMATC

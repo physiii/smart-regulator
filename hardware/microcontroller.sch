@@ -298,4 +298,51 @@ Text HLabel 8800 3650 2    50   Input ~ 0
 V_USB
 Text HLabel 8100 3750 0    50   Input ~ 0
 PROG
+Wire Wire Line
+	7550 1650 7100 1650
+Wire Wire Line
+	7550 1750 7100 1750
+Text HLabel 7100 1650 0    50   Input ~ 0
+SDA
+Text HLabel 7100 1750 0    50   Input ~ 0
+SCL
+Wire Wire Line
+	8350 2150 7925 2150
+Wire Wire Line
+	7225 1850 7225 1950
+$Comp
+L open-automation:GND #PWR?
+U 1 1 5B3E686F
+P 7225 1950
+F 0 "#PWR?" H 7225 1700 50  0001 C CNN
+F 1 "GND" H 7230 1777 50  0000 C CNN
+F 2 "" H 7225 1950 50  0000 C CNN
+F 3 "" H 7225 1950 50  0000 C CNN
+	1    7225 1950
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7550 1850 7225 1850
+Wire Wire Line
+	7925 1850 7550 1850
+Connection ~ 7550 1850
+$Comp
+L open-automation:DAC U?
+U 1 1 5B3E2E45
+P 8050 1850
+F 0 "U?" H 7950 2405 50  0000 C CNN
+F 1 "DAC" H 7950 2314 50  0000 C CNN
+F 2 "Package_DFN_QFN:DFN-14-1EP_3x3mm_P0.4mm_EP1.78x2.35mm" H 7900 1850 50  0001 C CNN
+F 3 "https://www.digikey.com/product-detail/en/maxim-integrated/DS4424N/DS4424N-ND/2045475" H 7900 1850 50  0001 C CNN
+F 4 "DS4424N+" H 7950 2223 50  0000 C CNN "Part Number"
+	1    8050 1850
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8350 1950 7925 1950
+Wire Wire Line
+	7925 1850 7925 1950
+Connection ~ 7925 1950
+Wire Wire Line
+	7925 1950 7925 2150
 $EndSCHEMATC
