@@ -345,4 +345,6 @@ Wire Wire Line
 Connection ~ 7925 1950
 Wire Wire Line
 	7925 1950 7925 2150
+Text Notes 7025 6950 0    197  ~ 0
+MICRO
 $EndSCHEMATC

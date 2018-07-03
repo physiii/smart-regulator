@@ -283,4 +283,6 @@ F 3 "" H 8500 3200 50  0000 C CNN
 	1    8500 3200
 	1    0    0    -1  
 $EndComp
+Text Notes 7000 6950 0    197  ~ 0
+SWITCHES
 $EndSCHEMATC

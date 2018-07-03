@@ -162,4 +162,6 @@ Text HLabel 8425 3500 2    50   Input ~ 0
 SCL
 Text HLabel 8425 3625 2    50   Input ~ 0
 SDA
+Text Notes 7050 6900 0    197  ~ 0
+ENVIRONMENT
 $EndSCHEMATC
