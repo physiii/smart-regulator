@@ -574,4 +574,46 @@ F 4 "IC29302WU-TR" H 8850 1308 50  0000 C CNN "Part Number"
 	1    8800 1075
 	1    0    0    -1  
 $EndComp
+$Comp
+L open-automation:R_10m R?
+U 1 1 5B3BA66D
+P 9650 2400
+F 0 "R?" H 9625 2607 50  0000 C CNN
+F 1 "R_10m" H 9625 2516 50  0000 C CNN
+F 2 "Resistors_SMD:R_2512_HandSoldering" H 9625 2225 50  0001 C CNN
+F 3 "https://www.digikey.com/product-detail/en/bourns-inc/CRA2512-FZ-R010ELF/CRA2512-FZ-R010ELFCT-ND/1775054" H 9650 2150 50  0001 C CNN
+F 4 "CRA2512-FZ-R010ELF" H 9650 2475 60  0001 C CNN "Part Number"
+	1    9650 2400
+	1    0    0    -1  
+$EndComp
+$Comp
+L open-automation:R_10m R?
+U 1 1 5B3BA8B0
+P 9650 1725
+F 0 "R?" H 9625 1932 50  0000 C CNN
+F 1 "R_10m" H 9625 1841 50  0000 C CNN
+F 2 "Resistors_SMD:R_2512_HandSoldering" H 9625 1550 50  0001 C CNN
+F 3 "https://www.digikey.com/product-detail/en/bourns-inc/CRA2512-FZ-R010ELF/CRA2512-FZ-R010ELFCT-ND/1775054" H 9650 1475 50  0001 C CNN
+F 4 "CRA2512-FZ-R010ELF" H 9650 1800 60  0001 C CNN "Part Number"
+	1    9650 1725
+	1    0    0    -1  
+$EndComp
+$Comp
+L open-automation:R_10m R?
+U 1 1 5B3BA943
+P 9650 1075
+F 0 "R?" H 9625 1282 50  0000 C CNN
+F 1 "R_10m" H 9625 1191 50  0000 C CNN
+F 2 "Resistors_SMD:R_2512_HandSoldering" H 9625 900 50  0001 C CNN
+F 3 "https://www.digikey.com/product-detail/en/bourns-inc/CRA2512-FZ-R010ELF/CRA2512-FZ-R010ELFCT-ND/1775054" H 9650 825 50  0001 C CNN
+F 4 "CRA2512-FZ-R010ELF" H 9650 1150 60  0001 C CNN "Part Number"
+	1    9650 1075
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9475 1725 9400 1725
+Wire Wire Line
+	9475 2400 9400 2400
+Wire Wire Line
+	9475 1075 9400 1075
 $EndSCHEMATC
