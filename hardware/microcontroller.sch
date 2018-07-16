@@ -25,24 +25,6 @@ F 3 "https://www.espressif.com/sites/default/files/documentation/esp_wroom_32_da
 	1    5775 3450
 	1    0    0    -1  
 $EndComp
-Text GLabel 8100 3650 0    60   Input ~ 0
-3V3
-Wire Wire Line
-	8750 3550 8750 3500
-Wire Wire Line
-	8700 3550 8750 3550
-Wire Wire Line
-	8150 3550 8200 3550
-Wire Wire Line
-	8150 3500 8150 3550
-Wire Wire Line
-	8700 3650 8800 3650
-Wire Wire Line
-	8800 3850 8700 3850
-Wire Wire Line
-	8700 3750 8800 3750
-Wire Wire Line
-	8100 3650 8200 3650
 Wire Wire Line
 	6625 3800 6725 3800
 Wire Wire Line
@@ -77,7 +59,7 @@ F 0 "C2" H 2825 3875 50  0000 L CNN
 F 1 "C_1uF" H 2575 3675 50  0000 L CNN
 F 2 "Capacitor_SMD:C_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 2925 4075 50  0001 C CNN
 F 3 "https://www.digikey.com/product-detail/en/yageo/CC0603ZRY5V7BB105/311-1372-1-ND/2103156" H 2825 3525 50  0001 C CNN
-F 4 "CL10B105KA8VPNC" H 2950 3975 60  0001 C CNN "Part Number"
+F 4 "CL10B105KP8NNNC" H 2950 3975 60  0001 C CNN "Part Number"
 	1    2825 3775
 	1    0    0    -1  
 $EndComp
@@ -94,10 +76,6 @@ Wire Wire Line
 Connection ~ 2625 3975
 Text Notes 2150 4400 0    60   ~ 0
 I2C ByPass CAPs
-Wire Wire Line
-	8100 3850 8200 3850
-Wire Wire Line
-	8100 3750 8200 3750
 $Comp
 L open-automation:R_10k R3
 U 1 1 59C609F8
@@ -117,23 +95,6 @@ Wire Wire Line
 	6600 4700 6550 4700
 Text GLabel 4775 2900 0    60   Input ~ 0
 3V3
-Wire Wire Line
-	8100 3950 8200 3950
-Wire Wire Line
-	8700 3950 8800 3950
-Wire Wire Line
-	6725 3900 6625 3900
-$Comp
-L Connector_Generic:Conn_02x05_Odd_Even J1
-U 1 1 59C6C1C0
-P 8400 3750
-F 0 "J1" H 8450 4050 50  0000 C CNN
-F 1 "Conn_02x05_Odd_Even" H 8450 3450 50  0000 C CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_2x05_P2.54mm_Vertical" H 8400 3750 50  0001 C CNN
-F 3 "" H 8400 3750 50  0001 C CNN
-	1    8400 3750
-	1    0    0    -1  
-$EndComp
 $Comp
 L open-automation:R_10k R2
 U 1 1 59C83F25
@@ -228,28 +189,6 @@ F 3 "" H 4825 2750 50  0000 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L open-automation:GND #PWR04
-U 1 1 5B3CAD4B
-P 8150 3500
-F 0 "#PWR04" H 8150 3250 50  0001 C CNN
-F 1 "GND" H 8155 3327 50  0000 C CNN
-F 2 "" H 8150 3500 50  0000 C CNN
-F 3 "" H 8150 3500 50  0000 C CNN
-	1    8150 3500
-	-1   0    0    1   
-$EndComp
-$Comp
-L open-automation:GND #PWR05
-U 1 1 5B3CB673
-P 8750 3500
-F 0 "#PWR05" H 8750 3250 50  0001 C CNN
-F 1 "GND" H 8755 3327 50  0000 C CNN
-F 2 "" H 8750 3500 50  0000 C CNN
-F 3 "" H 8750 3500 50  0000 C CNN
-	1    8750 3500
-	-1   0    0    1   
-$EndComp
-$Comp
 L open-automation:GND #PWR03
 U 1 1 5B3CC21F
 P 6600 4700
@@ -279,25 +218,234 @@ SDA
 Text HLabel 6725 4100 2    50   Input ~ 0
 PROG
 Text HLabel 6725 3800 2    50   Input ~ 0
-POWER_EN
-Text HLabel 6725 3900 2    50   Input ~ 0
-PANEL_SW
+USB_EN
 Text HLabel 6175 4750 3    50   Input ~ 0
 I02
-Text HLabel 8100 3950 0    50   Input ~ 0
-SCL
-Text HLabel 8800 3950 2    50   Input ~ 0
-SDA
-Text HLabel 8100 3850 0    50   Input ~ 0
-FACTORY
-Text HLabel 8800 3750 2    50   Input ~ 0
-TXD
-Text HLabel 8800 3850 2    50   Input ~ 0
-RXD
-Text HLabel 8800 3650 2    50   Input ~ 0
-V_USB
-Text HLabel 8100 3750 0    50   Input ~ 0
-PROG
 Text Notes 7025 6950 0    197  ~ 0
 MICRO
+$Comp
+L Connector_Generic:Conn_02x20_Top_Bottom J2
+U 1 1 5B5DD319
+P 8675 3800
+F 0 "J2" H 8725 4917 50  0000 C CNN
+F 1 "Conn_02x20_Top_Bottom" H 8725 4826 50  0000 C CNN
+F 2 "Connector_PinSocket_2.54mm:PinSocket_2x20_P2.54mm_Vertical" H 8675 3800 50  0001 C CNN
+F 3 "~" H 8675 3800 50  0001 C CNN
+F 4 "SFH11-PBPC-D20-ST-BK" H 8675 3800 50  0001 C CNN "Part Number"
+	1    8675 3800
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	10000 2950 10100 2950
+Wire Wire Line
+	10100 3150 10000 3150
+Wire Wire Line
+	10000 3050 10100 3050
+Wire Wire Line
+	10000 3250 10100 3250
+Wire Wire Line
+	10000 3350 10100 3350
+Wire Wire Line
+	10100 3550 10000 3550
+Wire Wire Line
+	10000 3450 10100 3450
+Wire Wire Line
+	10000 3650 10100 3650
+Wire Wire Line
+	10000 3750 10100 3750
+Wire Wire Line
+	10100 3950 10000 3950
+Wire Wire Line
+	10000 3850 10100 3850
+Wire Wire Line
+	10000 4050 10100 4050
+Wire Wire Line
+	10000 4150 10100 4150
+Wire Wire Line
+	10100 4350 10000 4350
+Wire Wire Line
+	10000 4250 10100 4250
+Wire Wire Line
+	10000 4450 10100 4450
+Wire Wire Line
+	10000 4550 10100 4550
+Wire Wire Line
+	10100 4750 10000 4750
+Wire Wire Line
+	10000 4650 10100 4650
+Wire Wire Line
+	10000 4850 10100 4850
+Wire Wire Line
+	10600 4550 10700 4550
+Wire Wire Line
+	10700 4750 10600 4750
+Wire Wire Line
+	10600 4650 10700 4650
+Wire Wire Line
+	10600 4850 10700 4850
+Wire Wire Line
+	10600 4150 10700 4150
+Wire Wire Line
+	10700 4350 10600 4350
+Wire Wire Line
+	10600 4250 10700 4250
+Wire Wire Line
+	10600 4450 10700 4450
+Wire Wire Line
+	10600 3750 10700 3750
+Wire Wire Line
+	10700 3950 10600 3950
+Wire Wire Line
+	10600 3850 10700 3850
+Wire Wire Line
+	10600 4050 10700 4050
+Wire Wire Line
+	10600 3350 10700 3350
+Wire Wire Line
+	10700 3550 10600 3550
+Wire Wire Line
+	10600 3450 10700 3450
+Wire Wire Line
+	10600 3650 10700 3650
+Wire Wire Line
+	10600 2950 10700 2950
+Wire Wire Line
+	10700 3150 10600 3150
+Wire Wire Line
+	10600 3050 10700 3050
+Wire Wire Line
+	10600 3250 10700 3250
+Text GLabel 10000 2950 0    60   Input ~ 0
+3V3
+Text HLabel 10000 3150 0    50   Input ~ 0
+SCL
+Text HLabel 10000 3050 0    50   Input ~ 0
+SDA
+Text HLabel 10700 3250 2    50   Input ~ 0
+TXD
+Text HLabel 10700 3350 2    50   Input ~ 0
+RXD
+Text GLabel 10000 3750 0    60   Input ~ 0
+3V3
+$Comp
+L open-automation:GND #PWR0101
+U 1 1 5B5F6DB7
+P 10000 3350
+F 0 "#PWR0101" H 10000 3100 50  0001 C CNN
+F 1 "GND" V 10005 3222 50  0000 R CNN
+F 2 "" H 10000 3350 50  0000 C CNN
+F 3 "" H 10000 3350 50  0000 C CNN
+	1    10000 3350
+	0    1    1    0   
+$EndComp
+$Comp
+L open-automation:GND #PWR0102
+U 1 1 5B5F8EA4
+P 10000 4150
+F 0 "#PWR0102" H 10000 3900 50  0001 C CNN
+F 1 "GND" V 10005 4022 50  0000 R CNN
+F 2 "" H 10000 4150 50  0000 C CNN
+F 3 "" H 10000 4150 50  0000 C CNN
+	1    10000 4150
+	0    1    1    0   
+$EndComp
+$Comp
+L open-automation:GND #PWR0103
+U 1 1 5B5FAF91
+P 10700 4550
+F 0 "#PWR0103" H 10700 4300 50  0001 C CNN
+F 1 "GND" V 10705 4422 50  0000 R CNN
+F 2 "" H 10700 4550 50  0000 C CNN
+F 3 "" H 10700 4550 50  0000 C CNN
+	1    10700 4550
+	0    -1   -1   0   
+$EndComp
+$Comp
+L open-automation:GND #PWR0104
+U 1 1 5B5FD07E
+P 10700 4350
+F 0 "#PWR0104" H 10700 4100 50  0001 C CNN
+F 1 "GND" V 10705 4222 50  0000 R CNN
+F 2 "" H 10700 4350 50  0000 C CNN
+F 3 "" H 10700 4350 50  0000 C CNN
+	1    10700 4350
+	0    -1   -1   0   
+$EndComp
+$Comp
+L open-automation:GND #PWR0105
+U 1 1 5B5FF16B
+P 10700 3850
+F 0 "#PWR0105" H 10700 3600 50  0001 C CNN
+F 1 "GND" V 10705 3722 50  0000 R CNN
+F 2 "" H 10700 3850 50  0000 C CNN
+F 3 "" H 10700 3850 50  0000 C CNN
+	1    10700 3850
+	0    -1   -1   0   
+$EndComp
+$Comp
+L open-automation:GND #PWR0106
+U 1 1 5B601258
+P 10700 3550
+F 0 "#PWR0106" H 10700 3300 50  0001 C CNN
+F 1 "GND" V 10705 3422 50  0000 R CNN
+F 2 "" H 10700 3550 50  0000 C CNN
+F 3 "" H 10700 3550 50  0000 C CNN
+	1    10700 3550
+	0    -1   -1   0   
+$EndComp
+$Comp
+L open-automation:GND #PWR0107
+U 1 1 5B60334D
+P 10700 3150
+F 0 "#PWR0107" H 10700 2900 50  0001 C CNN
+F 1 "GND" V 10705 3022 50  0000 R CNN
+F 2 "" H 10700 3150 50  0000 C CNN
+F 3 "" H 10700 3150 50  0000 C CNN
+	1    10700 3150
+	0    -1   -1   0   
+$EndComp
+$Comp
+L open-automation:GND #PWR0108
+U 1 1 5B60543A
+P 10000 4850
+F 0 "#PWR0108" H 10000 4600 50  0001 C CNN
+F 1 "GND" V 10005 4722 50  0000 R CNN
+F 2 "" H 10000 4850 50  0000 C CNN
+F 3 "" H 10000 4850 50  0000 C CNN
+	1    10000 4850
+	0    1    1    0   
+$EndComp
+Text HLabel 10700 2950 2    50   Input ~ 0
+V_USB
+Text HLabel 10700 3050 2    50   Input ~ 0
+V_USB
+Wire Wire Line
+	5775 4650 5775 4725
+Wire Wire Line
+	5375 4650 5375 4725
+Wire Wire Line
+	4875 4200 4775 4200
+Text Label 10000 3850 2    50   ~ 0
+MOSI
+Text Label 5375 4725 3    50   ~ 0
+MOSI
+$Comp
+L Connector_Generic:Conn_02x20_Odd_Even J?
+U 1 1 5B768BB7
+P 10300 3850
+F 0 "J?" H 10350 4967 50  0000 C CNN
+F 1 "Conn_02x20_Odd_Even" H 10350 4876 50  0000 C CNN
+F 2 "" H 10300 3850 50  0001 C CNN
+F 3 "~" H 10300 3850 50  0001 C CNN
+	1    10300 3850
+	1    0    0    -1  
+$EndComp
+Text Label 10000 3950 2    50   ~ 0
+MISO
+Text Label 4775 4200 2    50   ~ 0
+MISO
+Text Label 5775 4725 3    50   ~ 0
+SCLK
+Text Label 10000 4050 2    50   ~ 0
+SCLK
 $EndSCHEMATC

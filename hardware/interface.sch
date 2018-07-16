@@ -188,7 +188,7 @@ P 5450 3975
 F 0 "SW3" V 5404 4093 50  0000 L CNN
 F 1 "SW_PUSH" V 5495 4093 50  0000 L CNN
 F 2 "Button_Switch_SMD:SW_SPST_KMR2" H 5450 3975 50  0001 C CNN
-F 3 "http://www.mouser.com/ds/2/60/KMR2_9aug12-25127.pdf" H 5450 3975 50  0001 C CNN
+F 3 "https://www.digikey.com/product-detail/en/c-k/KMR211NG-LFS/CKN10243CT-ND/2176494" H 5450 3975 50  0001 C CNN
 F 4 "KMR211NG LFS" V 5450 3975 50  0001 C CNN "Part Number"
 	1    5450 3975
 	0    1    1    0   
@@ -248,17 +248,17 @@ F 3 "" H 8500 3200 50  0000 C CNN
 	1    0    0    -1  
 $EndComp
 Text Notes 7000 6950 0    197  ~ 0
-SWITCHES
+INTERFACE
 $Comp
 L Connector_Generic:Conn_01x02 BATTERY?
 U 1 1 5B7A43D7
 P 8400 5250
 AR Path="/5936D89B/5B7A43D7" Ref="BATTERY?"  Part="1" 
-AR Path="/5936D8F6/5B7A43D7" Ref="BATTERY1"  Part="1" 
-F 0 "BATTERY1" H 8478 5291 50  0000 L CNN
+AR Path="/5936D8F6/5B7A43D7" Ref="PACK3"  Part="1" 
+F 0 "PACK3" H 8478 5291 50  0000 L CNN
 F 1 "CONN_01X02" H 8478 5200 50  0000 L CNN
 F 2 "open-automation:XT60" H 8400 5250 50  0001 C CNN
-F 3 "https://www.digikey.com/product-detail/en/phoenix-contact/1934861/277-1607-ND/568644" H 8400 5250 50  0001 C CNN
+F 3 "https://www.getfpv.com/xt60-power-connectors-5-pair.html?utm_source=google&utm_medium=cpc&adpos=1o1&scid=scplp1100&sc_intid=1100&gclid=CjwKCAjwhLHaBRAGEiwAHCgG3hR45E9be1jjtIIsRWYVq2AuvuY-mTTYI5FATkUHzf-WsifSSrBdoxoCI8kQAvD_BwE" H 8400 5250 50  0001 C CNN
 	1    8400 5250
 	1    0    0    -1  
 $EndComp
@@ -277,7 +277,7 @@ AR Path="/5936D8F6/5B7A43E1" Ref="PANEL1"  Part="1"
 F 0 "PANEL1" H 8503 5791 50  0000 L CNN
 F 1 "CONN_01X02" H 8503 5700 50  0000 L CNN
 F 2 "open-automation:XT60" H 8425 5750 50  0001 C CNN
-F 3 "https://www.digikey.com/product-detail/en/phoenix-contact/1934861/277-1607-ND/568644" H 8425 5750 50  0001 C CNN
+F 3 "https://www.getfpv.com/xt60-power-connectors-5-pair.html?utm_source=google&utm_medium=cpc&adpos=1o1&scid=scplp1100&sc_intid=1100&gclid=CjwKCAjwhLHaBRAGEiwAHCgG3hR45E9be1jjtIIsRWYVq2AuvuY-mTTYI5FATkUHzf-WsifSSrBdoxoCI8kQAvD_BwE" H 8425 5750 50  0001 C CNN
 	1    8425 5750
 	1    0    0    -1  
 $EndComp
@@ -324,7 +324,7 @@ P 3725 3975
 F 0 "SW1" V 3679 4093 50  0000 L CNN
 F 1 "SW_PUSH" V 3770 4093 50  0000 L CNN
 F 2 "Button_Switch_SMD:SW_SPST_KMR2" H 3725 3975 50  0001 C CNN
-F 3 "http://www.mouser.com/ds/2/60/KMR2_9aug12-25127.pdf" H 3725 3975 50  0001 C CNN
+F 3 "https://www.digikey.com/product-detail/en/c-k/KMR211NG-LFS/CKN10243CT-ND/2176494" H 3725 3975 50  0001 C CNN
 F 4 "KMR211NG LFS" V 3725 3975 50  0001 C CNN "Part Number"
 	1    3725 3975
 	0    1    1    0   
@@ -336,7 +336,7 @@ P 4675 3975
 F 0 "SW2" V 4629 4093 50  0000 L CNN
 F 1 "SW_PUSH" V 4720 4093 50  0000 L CNN
 F 2 "Button_Switch_SMD:SW_SPST_KMR2" H 4675 3975 50  0001 C CNN
-F 3 "http://www.mouser.com/ds/2/60/KMR2_9aug12-25127.pdf" H 4675 3975 50  0001 C CNN
+F 3 "https://www.digikey.com/product-detail/en/c-k/KMR211NG-LFS/CKN10243CT-ND/2176494" H 4675 3975 50  0001 C CNN
 F 4 "KMR211NG LFS" V 4675 3975 50  0001 C CNN "Part Number"
 	1    4675 3975
 	0    1    1    0   
@@ -346,11 +346,11 @@ L Connector_Generic:Conn_01x02 BATTERY?
 U 1 1 5B6741D2
 P 8400 4825
 AR Path="/5936D89B/5B6741D2" Ref="BATTERY?"  Part="1" 
-AR Path="/5936D8F6/5B6741D2" Ref="BATTERY3"  Part="1" 
-F 0 "BATTERY3" H 8478 4866 50  0000 L CNN
+AR Path="/5936D8F6/5B6741D2" Ref="PACK2"  Part="1" 
+F 0 "PACK2" H 8478 4866 50  0000 L CNN
 F 1 "CONN_01X02" H 8478 4775 50  0000 L CNN
 F 2 "open-automation:XT60" H 8400 4825 50  0001 C CNN
-F 3 "https://www.digikey.com/product-detail/en/phoenix-contact/1934861/277-1607-ND/568644" H 8400 4825 50  0001 C CNN
+F 3 "https://www.getfpv.com/xt60-power-connectors-5-pair.html?utm_source=google&utm_medium=cpc&adpos=1o1&scid=scplp1100&sc_intid=1100&gclid=CjwKCAjwhLHaBRAGEiwAHCgG3hR45E9be1jjtIIsRWYVq2AuvuY-mTTYI5FATkUHzf-WsifSSrBdoxoCI8kQAvD_BwE" H 8400 4825 50  0001 C CNN
 	1    8400 4825
 	1    0    0    -1  
 $EndComp
@@ -380,11 +380,11 @@ L Connector_Generic:Conn_01x02 BATTERY?
 U 1 1 5B674842
 P 8400 4450
 AR Path="/5936D89B/5B674842" Ref="BATTERY?"  Part="1" 
-AR Path="/5936D8F6/5B674842" Ref="BATTERY2"  Part="1" 
-F 0 "BATTERY2" H 8478 4491 50  0000 L CNN
+AR Path="/5936D8F6/5B674842" Ref="PACK1"  Part="1" 
+F 0 "PACK1" H 8478 4491 50  0000 L CNN
 F 1 "CONN_01X02" H 8478 4400 50  0000 L CNN
 F 2 "open-automation:XT60" H 8400 4450 50  0001 C CNN
-F 3 "https://www.digikey.com/product-detail/en/phoenix-contact/1934861/277-1607-ND/568644" H 8400 4450 50  0001 C CNN
+F 3 "https://www.getfpv.com/xt60-power-connectors-5-pair.html?utm_source=google&utm_medium=cpc&adpos=1o1&scid=scplp1100&sc_intid=1100&gclid=CjwKCAjwhLHaBRAGEiwAHCgG3hR45E9be1jjtIIsRWYVq2AuvuY-mTTYI5FATkUHzf-WsifSSrBdoxoCI8kQAvD_BwE" H 8400 4450 50  0001 C CNN
 	1    8400 4450
 	1    0    0    -1  
 $EndComp
