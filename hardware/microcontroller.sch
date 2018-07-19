@@ -223,18 +223,6 @@ Text HLabel 6175 4750 3    50   Input ~ 0
 I02
 Text Notes 7025 6950 0    197  ~ 0
 MICRO
-$Comp
-L Connector_Generic:Conn_02x20_Top_Bottom J2
-U 1 1 5B5DD319
-P 8675 3800
-F 0 "J2" H 8725 4917 50  0000 C CNN
-F 1 "Conn_02x20_Top_Bottom" H 8725 4826 50  0000 C CNN
-F 2 "Connector_PinSocket_2.54mm:PinSocket_2x20_P2.54mm_Vertical" H 8675 3800 50  0001 C CNN
-F 3 "~" H 8675 3800 50  0001 C CNN
-F 4 "SFH11-PBPC-D20-ST-BK" H 8675 3800 50  0001 C CNN "Part Number"
-	1    8675 3800
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	10000 2950 10100 2950
 Wire Wire Line
@@ -430,13 +418,14 @@ MOSI
 Text Label 5375 4725 3    50   ~ 0
 MOSI
 $Comp
-L Connector_Generic:Conn_02x20_Odd_Even J?
+L Connector_Generic:Conn_02x20_Odd_Even J2
 U 1 1 5B768BB7
 P 10300 3850
-F 0 "J?" H 10350 4967 50  0000 C CNN
+F 0 "J2" H 10350 4967 50  0000 C CNN
 F 1 "Conn_02x20_Odd_Even" H 10350 4876 50  0000 C CNN
-F 2 "" H 10300 3850 50  0001 C CNN
+F 2 "Connector_PinSocket_2.54mm:PinSocket_2x20_P2.54mm_Vertical" H 10300 3850 50  0001 C CNN
 F 3 "~" H 10300 3850 50  0001 C CNN
+F 4 "SFH11-PBPC-D20-ST-BK" H 10300 3850 50  0001 C CNN "Part Number"
 	1    10300 3850
 	1    0    0    -1  
 $EndComp
