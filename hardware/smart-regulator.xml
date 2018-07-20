@@ -2,7 +2,7 @@
 <export version="D">
   <design>
     <source>/home/chris/circuits/smart-regulator/hardware/smart-regulator.sch</source>
-    <date>Mon 16 Jul 2018 03:04:25 PM CDT</date>
+    <date>Fri 20 Jul 2018 09:42:25 AM CDT</date>
     <tool>Eeschema 5.0.0-rc3-unknown-3df2743~65~ubuntu17.10.1</tool>
     <sheet number="1" name="/" tstamps="/">
       <title_block>
@@ -82,9 +82,9 @@
     <comp ref="C2">
       <value>C_1uF</value>
       <footprint>Capacitor_SMD:C_0603_1608Metric_Pad1.05x0.95mm_HandSolder</footprint>
-      <datasheet>https://www.digikey.com/product-detail/en/yageo/CC0603ZRY5V7BB105/311-1372-1-ND/2103156</datasheet>
+      <datasheet>https://www.digikey.com/product-detail/en/samsung-electro-mechanics/CL10B105MO8NNWC/1276-6524-1-ND/5961383</datasheet>
       <fields>
-        <field name="Part Number">CL10B105KA8VPNC</field>
+        <field name="Part Number">CL10B105MO8NNWC</field>
       </fields>
       <libsource lib="open-automation" part="C_1uF" description="1uF 0603 Capacitor"/>
       <sheetpath names="/microcontroller/" tstamps="/5936D792/"/>
@@ -93,9 +93,9 @@
     <comp ref="R3">
       <value>R_10k</value>
       <footprint>Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder</footprint>
-      <datasheet>https://www.digikey.com/product-detail/en/yageo/RC0603JR-0710KL/311-10KGRCT-ND/729647</datasheet>
+      <datasheet>https://www.digikey.com/product-detail/en/susumu/RR0816P-103-D/RR08P10.0KDCT-ND/432748</datasheet>
       <fields>
-        <field name="Part Number">RC0603JR-0710KL</field>
+        <field name="Part Number">RR0816P-103-D</field>
       </fields>
       <libsource lib="open-automation" part="R_10k" description="Resistor"/>
       <sheetpath names="/microcontroller/" tstamps="/5936D792/"/>
@@ -104,9 +104,9 @@
     <comp ref="R2">
       <value>R_10k</value>
       <footprint>Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder</footprint>
-      <datasheet>https://www.digikey.com/product-detail/en/yageo/RC0603JR-0710KL/311-10KGRCT-ND/729647</datasheet>
+      <datasheet>https://www.digikey.com/product-detail/en/susumu/RR0816P-103-D/RR08P10.0KDCT-ND/432748</datasheet>
       <fields>
-        <field name="Part Number">RC0603JR-0710KL</field>
+        <field name="Part Number">RR0816P-103-D</field>
       </fields>
       <libsource lib="open-automation" part="R_10k" description="Resistor"/>
       <sheetpath names="/microcontroller/" tstamps="/5936D792/"/>
@@ -115,9 +115,9 @@
     <comp ref="R1">
       <value>R_10k</value>
       <footprint>Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder</footprint>
-      <datasheet>https://www.digikey.com/product-detail/en/yageo/RC0603JR-0710KL/311-10KGRCT-ND/729647</datasheet>
+      <datasheet>https://www.digikey.com/product-detail/en/susumu/RR0816P-103-D/RR08P10.0KDCT-ND/432748</datasheet>
       <fields>
-        <field name="Part Number">RC0603JR-0710KL</field>
+        <field name="Part Number">RR0816P-103-D</field>
       </fields>
       <libsource lib="open-automation" part="R_10k" description="Resistor"/>
       <sheetpath names="/microcontroller/" tstamps="/5936D792/"/>
@@ -126,24 +126,24 @@
     <comp ref="C1">
       <value>C_10uF</value>
       <footprint>Capacitor_SMD:C_0603_1608Metric_Pad1.05x0.95mm_HandSolder</footprint>
-      <datasheet>https://www.digikey.com/product-detail/en/murata-electronics-north-america/GRM188R61A106ME69D/490-10475-1-ND/5026393</datasheet>
+      <datasheet>https://www.digikey.com/product-detail/en/murata-electronics-north-america/GRM188C80G106ME47D/490-10470-1-ND/5026387</datasheet>
       <fields>
-        <field name="Part Number">GRM188R61A106ME69D</field>
+        <field name="Part Number">GRM188C80G106ME47D</field>
       </fields>
       <libsource lib="open-automation" part="C_10uF" description="10uF 10V 0603 Capacitor"/>
       <sheetpath names="/microcontroller/" tstamps="/5936D792/"/>
       <tstamp>5A10664F</tstamp>
     </comp>
     <comp ref="J2">
-      <value>Conn_02x20_Top_Bottom</value>
+      <value>Conn_02x20_Odd_Even</value>
       <footprint>Connector_PinSocket_2.54mm:PinSocket_2x20_P2.54mm_Vertical</footprint>
       <datasheet>~</datasheet>
       <fields>
         <field name="Part Number">SFH11-PBPC-D20-ST-BK</field>
       </fields>
-      <libsource lib="Connector_Generic" part="Conn_02x20_Top_Bottom" description="Generic connector, double row, 02x20, top/bottom pin numbering scheme (row 1: 1...pins_per_row, row2: pins_per_row+1 ... num_pins), script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <libsource lib="Connector_Generic" part="Conn_02x20_Odd_Even" description="Generic connector, double row, 02x20, odd/even pin numbering scheme (row 1 odd numbers, row 2 even numbers), script generated (kicad-library-utils/schlib/autogen/connector/)"/>
       <sheetpath names="/microcontroller/" tstamps="/5936D792/"/>
-      <tstamp>5B5DD319</tstamp>
+      <tstamp>5B768BB7</tstamp>
     </comp>
     <comp ref="P1">
       <value>USB_A_2</value>
@@ -200,9 +200,9 @@
     <comp ref="R6">
       <value>R_10k</value>
       <footprint>Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder</footprint>
-      <datasheet>https://www.digikey.com/product-detail/en/yageo/RC0603JR-0710KL/311-10KGRCT-ND/729647</datasheet>
+      <datasheet>https://www.digikey.com/product-detail/en/susumu/RR0816P-103-D/RR08P10.0KDCT-ND/432748</datasheet>
       <fields>
-        <field name="Part Number">RC0603JR-0710KL</field>
+        <field name="Part Number">RR0816P-103-D</field>
       </fields>
       <libsource lib="open-automation" part="R_10k" description="Resistor"/>
       <sheetpath names="/interface/" tstamps="/5936D8F6/"/>
@@ -211,9 +211,9 @@
     <comp ref="R4">
       <value>R_10k</value>
       <footprint>Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder</footprint>
-      <datasheet>https://www.digikey.com/product-detail/en/yageo/RC0603JR-0710KL/311-10KGRCT-ND/729647</datasheet>
+      <datasheet>https://www.digikey.com/product-detail/en/susumu/RR0816P-103-D/RR08P10.0KDCT-ND/432748</datasheet>
       <fields>
-        <field name="Part Number">RC0603JR-0710KL</field>
+        <field name="Part Number">RR0816P-103-D</field>
       </fields>
       <libsource lib="open-automation" part="R_10k" description="Resistor"/>
       <sheetpath names="/interface/" tstamps="/5936D8F6/"/>
@@ -222,9 +222,9 @@
     <comp ref="R5">
       <value>R_10k</value>
       <footprint>Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder</footprint>
-      <datasheet>https://www.digikey.com/product-detail/en/yageo/RC0603JR-0710KL/311-10KGRCT-ND/729647</datasheet>
+      <datasheet>https://www.digikey.com/product-detail/en/susumu/RR0816P-103-D/RR08P10.0KDCT-ND/432748</datasheet>
       <fields>
-        <field name="Part Number">RC0603JR-0710KL</field>
+        <field name="Part Number">RR0816P-103-D</field>
       </fields>
       <libsource lib="open-automation" part="R_10k" description="Resistor"/>
       <sheetpath names="/interface/" tstamps="/5936D8F6/"/>
@@ -298,9 +298,9 @@
     <comp ref="C12">
       <value>4.7uF</value>
       <footprint>Capacitor_SMD:C_0603_1608Metric_Pad1.05x0.95mm_HandSolder</footprint>
-      <datasheet>https://www.digikey.com/product-detail/en/samsung-electro-mechanics-america-inc/CL10B475KQ8NQNC/1276-2087-1-ND/3890173</datasheet>
+      <datasheet>https://www.digikey.com/product-detail/en/samsung-electro-mechanics/CL10A475KQ8NNNC/1276-1045-1-ND/3889131</datasheet>
       <fields>
-        <field name="Part Number">CL10B475KQ8NQNC</field>
+        <field name="Part Number">CL10A475KQ8NNNC</field>
       </fields>
       <libsource lib="open-automation" part="C_4.7uF" description="0.1uF 50V 0603 Capacitor"/>
       <sheetpath names="/Power/" tstamps="/5936D89B/"/>
@@ -320,9 +320,9 @@
     <comp ref="R20">
       <value>R_10k</value>
       <footprint>Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder</footprint>
-      <datasheet>https://www.digikey.com/product-detail/en/yageo/RC0603JR-0710KL/311-10KGRCT-ND/729647</datasheet>
+      <datasheet>https://www.digikey.com/product-detail/en/susumu/RR0816P-103-D/RR08P10.0KDCT-ND/432748</datasheet>
       <fields>
-        <field name="Part Number">RC0603JR-0710KL</field>
+        <field name="Part Number">RR0816P-103-D</field>
       </fields>
       <libsource lib="open-automation" part="R_10k" description="Resistor"/>
       <sheetpath names="/Power/" tstamps="/5936D89B/"/>
@@ -331,9 +331,9 @@
     <comp ref="C8">
       <value>C_0.1uF</value>
       <footprint>Capacitor_SMD:C_0603_1608Metric_Pad1.05x0.95mm_HandSolder</footprint>
-      <datasheet>https://www.digikey.com/product-detail/en/kemet/C0603C104K5RACTU/399-5089-1-ND/1465623</datasheet>
+      <datasheet>https://www.digikey.com/product-detail/en/murata-electronics-north-america/GCM188R71C104KA37D/490-4774-1-ND/1641693</datasheet>
       <fields>
-        <field name="Part Number">CC0603ZRY5V9BB104</field>
+        <field name="Part Number">GCM188R71C104KA37D</field>
       </fields>
       <libsource lib="open-automation" part="C_0.1uF" description="0.1uF 50V 0603 Capacitor"/>
       <sheetpath names="/Power/" tstamps="/5936D89B/"/>
@@ -375,9 +375,9 @@
     <comp ref="R15">
       <value>R_10k</value>
       <footprint>Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder</footprint>
-      <datasheet>https://www.digikey.com/product-detail/en/yageo/RC0603JR-0710KL/311-10KGRCT-ND/729647</datasheet>
+      <datasheet>https://www.digikey.com/product-detail/en/susumu/RR0816P-103-D/RR08P10.0KDCT-ND/432748</datasheet>
       <fields>
-        <field name="Part Number">RC0603JR-0710KL</field>
+        <field name="Part Number">RR0816P-103-D</field>
       </fields>
       <libsource lib="open-automation" part="R_10k" description="Resistor"/>
       <sheetpath names="/Power/" tstamps="/5936D89B/"/>
@@ -386,9 +386,9 @@
     <comp ref="R16">
       <value>R_10k</value>
       <footprint>Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder</footprint>
-      <datasheet>https://www.digikey.com/product-detail/en/yageo/RC0603JR-0710KL/311-10KGRCT-ND/729647</datasheet>
+      <datasheet>https://www.digikey.com/product-detail/en/susumu/RR0816P-103-D/RR08P10.0KDCT-ND/432748</datasheet>
       <fields>
-        <field name="Part Number">RC0603JR-0710KL</field>
+        <field name="Part Number">RR0816P-103-D</field>
       </fields>
       <libsource lib="open-automation" part="R_10k" description="Resistor"/>
       <sheetpath names="/Power/" tstamps="/5936D89B/"/>
@@ -408,9 +408,9 @@
     <comp ref="C3">
       <value>C_0.1uF</value>
       <footprint>Capacitor_SMD:C_0603_1608Metric_Pad1.05x0.95mm_HandSolder</footprint>
-      <datasheet>https://www.digikey.com/product-detail/en/tdk-corporation/C1608X8R1H104K080AB/445-8818-1-ND/3248223</datasheet>
+      <datasheet>https://www.digikey.com/product-detail/en/murata-electronics-north-america/GCM188R71C104KA37D/490-4774-1-ND/1641693</datasheet>
       <fields>
-        <field name="Part Number">CC0603ZRY5V9BB104</field>
+        <field name="Part Number">GCM188R71C104KA37D</field>
       </fields>
       <libsource lib="open-automation" part="C_0.1uF" description="0.1uF 50V 0603 Capacitor"/>
       <sheetpath names="/Power/" tstamps="/5936D89B/"/>
@@ -419,9 +419,9 @@
     <comp ref="C4">
       <value>C_10uF</value>
       <footprint>Capacitor_SMD:C_0603_1608Metric_Pad1.05x0.95mm_HandSolder</footprint>
-      <datasheet>https://www.digikey.com/product-detail/en/samsung-electro-mechanics/CL10A106MP8NNNC/1276-1871-1-ND/3889957</datasheet>
+      <datasheet>https://www.digikey.com/product-detail/en/murata-electronics-north-america/GRM188C80G106ME47D/490-10470-1-ND/5026387</datasheet>
       <fields>
-        <field name="Part Number">CL10A106MP8NNNC</field>
+        <field name="Part Number">GRM188C80G106ME47D</field>
       </fields>
       <libsource lib="open-automation" part="C_10uF" description="10uF 10V 0603 Capacitor"/>
       <sheetpath names="/Power/" tstamps="/5936D89B/"/>
@@ -496,9 +496,9 @@
     <comp ref="C9">
       <value>C_0.1uF</value>
       <footprint>Capacitor_SMD:C_0603_1608Metric_Pad1.05x0.95mm_HandSolder</footprint>
-      <datasheet>https://www.digikey.com/product-detail/en/kemet/C0603C104K5RACTU/399-5089-1-ND/1465623</datasheet>
+      <datasheet>https://www.digikey.com/product-detail/en/murata-electronics-north-america/GCM188R71C104KA37D/490-4774-1-ND/1641693</datasheet>
       <fields>
-        <field name="Part Number">CC0603ZRY5V9BB104</field>
+        <field name="Part Number">GCM188R71C104KA37D</field>
       </fields>
       <libsource lib="open-automation" part="C_0.1uF" description="0.1uF 50V 0603 Capacitor"/>
       <sheetpath names="/Power/" tstamps="/5936D89B/"/>
@@ -518,9 +518,9 @@
     <comp ref="C10">
       <value>C_0.1uF</value>
       <footprint>Capacitor_SMD:C_0603_1608Metric_Pad1.05x0.95mm_HandSolder</footprint>
-      <datasheet>https://www.digikey.com/product-detail/en/kemet/C0603C104K5RACTU/399-5089-1-ND/1465623</datasheet>
+      <datasheet>https://www.digikey.com/product-detail/en/murata-electronics-north-america/GCM188R71C104KA37D/490-4774-1-ND/1641693</datasheet>
       <fields>
-        <field name="Part Number">CC0603ZRY5V9BB104</field>
+        <field name="Part Number">GCM188R71C104KA37D</field>
       </fields>
       <libsource lib="open-automation" part="C_0.1uF" description="0.1uF 50V 0603 Capacitor"/>
       <sheetpath names="/Power/" tstamps="/5936D89B/"/>
@@ -562,9 +562,9 @@
     <comp ref="R11">
       <value>R_10k</value>
       <footprint>Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder</footprint>
-      <datasheet>https://www.digikey.com/product-detail/en/yageo/RC0603JR-0710KL/311-10KGRCT-ND/729647</datasheet>
+      <datasheet>https://www.digikey.com/product-detail/en/susumu/RR0816P-103-D/RR08P10.0KDCT-ND/432748</datasheet>
       <fields>
-        <field name="Part Number">RC0603JR-0710KL</field>
+        <field name="Part Number">RR0816P-103-D</field>
       </fields>
       <libsource lib="open-automation" part="R_10k" description="Resistor"/>
       <sheetpath names="/Power/" tstamps="/5936D89B/"/>
@@ -573,9 +573,9 @@
     <comp ref="R12">
       <value>R_10k</value>
       <footprint>Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder</footprint>
-      <datasheet>https://www.digikey.com/product-detail/en/yageo/RC0603JR-0710KL/311-10KGRCT-ND/729647</datasheet>
+      <datasheet>https://www.digikey.com/product-detail/en/susumu/RR0816P-103-D/RR08P10.0KDCT-ND/432748</datasheet>
       <fields>
-        <field name="Part Number">RC0603JR-0710KL</field>
+        <field name="Part Number">RR0816P-103-D</field>
       </fields>
       <libsource lib="open-automation" part="R_10k" description="Resistor"/>
       <sheetpath names="/Power/" tstamps="/5936D89B/"/>
@@ -617,9 +617,9 @@
     <comp ref="R13">
       <value>R_10k</value>
       <footprint>Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder</footprint>
-      <datasheet>https://www.digikey.com/product-detail/en/yageo/RC0603JR-0710KL/311-10KGRCT-ND/729647</datasheet>
+      <datasheet>https://www.digikey.com/product-detail/en/susumu/RR0816P-103-D/RR08P10.0KDCT-ND/432748</datasheet>
       <fields>
-        <field name="Part Number">RC0603JR-0710KL</field>
+        <field name="Part Number">RR0816P-103-D</field>
       </fields>
       <libsource lib="open-automation" part="R_10k" description="Resistor"/>
       <sheetpath names="/Power/" tstamps="/5936D89B/"/>
@@ -628,9 +628,9 @@
     <comp ref="R14">
       <value>R_10k</value>
       <footprint>Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder</footprint>
-      <datasheet>https://www.digikey.com/product-detail/en/yageo/RC0603JR-0710KL/311-10KGRCT-ND/729647</datasheet>
+      <datasheet>https://www.digikey.com/product-detail/en/susumu/RR0816P-103-D/RR08P10.0KDCT-ND/432748</datasheet>
       <fields>
-        <field name="Part Number">RC0603JR-0710KL</field>
+        <field name="Part Number">RR0816P-103-D</field>
       </fields>
       <libsource lib="open-automation" part="R_10k" description="Resistor"/>
       <sheetpath names="/Power/" tstamps="/5936D89B/"/>
@@ -639,9 +639,9 @@
     <comp ref="C7">
       <value>C_10uF</value>
       <footprint>Capacitor_SMD:C_1206_3216Metric_Pad1.42x1.75mm_HandSolder</footprint>
-      <datasheet>https://www.digikey.com/product-detail/en/rohm-semiconductor/TCA1C106M8R/511-1473-1-ND/923771</datasheet>
+      <datasheet>https://www.digikey.com/product-detail/en/murata-electronics-north-america/GRM188C80G106ME47D/490-10470-1-ND/5026387</datasheet>
       <fields>
-        <field name="Part Number">TCA1C106M8R</field>
+        <field name="Part Number">GRM188C80G106ME47D</field>
       </fields>
       <libsource lib="open-automation" part="C_10uF" description="10uF 10V 0603 Capacitor"/>
       <sheetpath names="/Power/" tstamps="/5936D89B/"/>
@@ -650,9 +650,9 @@
     <comp ref="C5">
       <value>C_10uF</value>
       <footprint>Capacitor_SMD:C_1206_3216Metric_Pad1.42x1.75mm_HandSolder</footprint>
-      <datasheet>https://www.digikey.com/product-detail/en/rohm-semiconductor/TCA1C106M8R/511-1473-1-ND/923771</datasheet>
+      <datasheet>https://www.digikey.com/product-detail/en/murata-electronics-north-america/GRM188C80G106ME47D/490-10470-1-ND/5026387</datasheet>
       <fields>
-        <field name="Part Number">TCA1C106M8R</field>
+        <field name="Part Number">GRM188C80G106ME47D</field>
       </fields>
       <libsource lib="open-automation" part="C_10uF" description="10uF 10V 0603 Capacitor"/>
       <sheetpath names="/Power/" tstamps="/5936D89B/"/>
@@ -661,9 +661,9 @@
     <comp ref="C6">
       <value>C_10uF</value>
       <footprint>Capacitor_SMD:C_1206_3216Metric_Pad1.42x1.75mm_HandSolder</footprint>
-      <datasheet>https://www.digikey.com/product-detail/en/rohm-semiconductor/TCA1C106M8R/511-1473-1-ND/923771</datasheet>
+      <datasheet>https://www.digikey.com/product-detail/en/murata-electronics-north-america/GRM188C80G106ME47D/490-10470-1-ND/5026387</datasheet>
       <fields>
-        <field name="Part Number">TCA1C106M8R</field>
+        <field name="Part Number">GRM188C80G106ME47D</field>
       </fields>
       <libsource lib="open-automation" part="C_10uF" description="10uF 10V 0603 Capacitor"/>
       <sheetpath names="/Power/" tstamps="/5936D89B/"/>
@@ -683,9 +683,9 @@
     <comp ref="R19">
       <value>R_10k</value>
       <footprint>Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder</footprint>
-      <datasheet>https://www.digikey.com/product-detail/en/yageo/RC0603JR-0710KL/311-10KGRCT-ND/729647</datasheet>
+      <datasheet>https://www.digikey.com/product-detail/en/susumu/RR0816P-103-D/RR08P10.0KDCT-ND/432748</datasheet>
       <fields>
-        <field name="Part Number">RC0603JR-0710KL</field>
+        <field name="Part Number">RR0816P-103-D</field>
       </fields>
       <libsource lib="open-automation" part="R_10k" description="Resistor"/>
       <sheetpath names="/Power/" tstamps="/5936D89B/"/>
@@ -694,9 +694,9 @@
     <comp ref="R21">
       <value>R_10k</value>
       <footprint>Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder</footprint>
-      <datasheet>https://www.digikey.com/product-detail/en/yageo/RC0603JR-0710KL/311-10KGRCT-ND/729647</datasheet>
+      <datasheet>https://www.digikey.com/product-detail/en/susumu/RR0816P-103-D/RR08P10.0KDCT-ND/432748</datasheet>
       <fields>
-        <field name="Part Number">RC0603JR-0710KL</field>
+        <field name="Part Number">RR0816P-103-D</field>
       </fields>
       <libsource lib="open-automation" part="R_10k" description="Resistor"/>
       <sheetpath names="/Power/" tstamps="/5936D89B/"/>
@@ -705,9 +705,9 @@
     <comp ref="C16">
       <value>C_10uF</value>
       <footprint>Capacitor_SMD:C_1206_3216Metric_Pad1.42x1.75mm_HandSolder</footprint>
-      <datasheet>https://www.digikey.com/product-detail/en/rohm-semiconductor/TCA1C106M8R/511-1473-1-ND/923771</datasheet>
+      <datasheet>https://www.digikey.com/product-detail/en/murata-electronics-north-america/GRM188C80G106ME47D/490-10470-1-ND/5026387</datasheet>
       <fields>
-        <field name="Part Number">TCA1C106M8R</field>
+        <field name="Part Number">GRM188C80G106ME47D</field>
       </fields>
       <libsource lib="open-automation" part="C_10uF" description="10uF 10V 0603 Capacitor"/>
       <sheetpath names="/Power/" tstamps="/5936D89B/"/>
@@ -716,9 +716,9 @@
     <comp ref="C13">
       <value>C_1uF</value>
       <footprint>Capacitor_SMD:C_0603_1608Metric_Pad1.05x0.95mm_HandSolder</footprint>
-      <datasheet>https://www.digikey.com/product-detail/en/yageo/CC0603ZRY5V7BB105/311-1372-1-ND/2103156</datasheet>
+      <datasheet>https://www.digikey.com/product-detail/en/samsung-electro-mechanics/CL10B105MO8NNWC/1276-6524-1-ND/5961383</datasheet>
       <fields>
-        <field name="Part Number">CL10B105KA8VPNC</field>
+        <field name="Part Number">CL10B105MO8NNWC</field>
       </fields>
       <libsource lib="open-automation" part="C_1uF" description="1uF 0603 Capacitor"/>
       <sheetpath names="/Power/" tstamps="/5936D89B/"/>
@@ -727,9 +727,9 @@
     <comp ref="C11">
       <value>C_10uF</value>
       <footprint>Capacitor_SMD:C_0603_1608Metric_Pad1.05x0.95mm_HandSolder</footprint>
-      <datasheet>https://www.digikey.com/product-detail/en/murata-electronics-north-america/GRM188R61A106ME69D/490-10475-1-ND/5026393</datasheet>
+      <datasheet>https://www.digikey.com/product-detail/en/murata-electronics-north-america/GRM188C80G106ME47D/490-10470-1-ND/5026387</datasheet>
       <fields>
-        <field name="Part Number">GRM188R61A106ME69D</field>
+        <field name="Part Number">GRM188C80G106ME47D</field>
       </fields>
       <libsource lib="open-automation" part="C_10uF" description="10uF 10V 0603 Capacitor"/>
       <sheetpath names="/Power/" tstamps="/5936D89B/"/>
@@ -746,6 +746,17 @@
       <sheetpath names="/Power/" tstamps="/5936D89B/"/>
       <tstamp>5B6E0991</tstamp>
     </comp>
+    <comp ref="R22">
+      <value>R_10k</value>
+      <footprint>Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder</footprint>
+      <datasheet>https://www.digikey.com/product-detail/en/susumu/RR0816P-103-D/RR08P10.0KDCT-ND/432748</datasheet>
+      <fields>
+        <field name="Part Number">RR0816P-103-D</field>
+      </fields>
+      <libsource lib="open-automation" part="R_10k" description="Resistor"/>
+      <sheetpath names="/Power/" tstamps="/5936D89B/"/>
+      <tstamp>5B71B230</tstamp>
+    </comp>
     <comp ref="U14">
       <value>SI7006-A20</value>
       <footprint>open-automation:SI7020-A20</footprint>
@@ -760,9 +771,9 @@
     <comp ref="C14">
       <value>C_0.1uF</value>
       <footprint>Capacitor_SMD:C_0603_1608Metric_Pad1.05x0.95mm_HandSolder</footprint>
-      <datasheet>https://www.digikey.com/product-detail/en/kemet/C0603C104K5RACTU/399-5089-1-ND/1465623</datasheet>
+      <datasheet>https://www.digikey.com/product-detail/en/murata-electronics-north-america/GCM188R71C104KA37D/490-4774-1-ND/1641693</datasheet>
       <fields>
-        <field name="Part Number">CC0603ZRY5V9BB104</field>
+        <field name="Part Number">GCM188R71C104KA37D</field>
       </fields>
       <libsource lib="open-automation" part="C_0.1uF" description="0.1uF 50V 0603 Capacitor"/>
       <sheetpath names="/environment/" tstamps="/59C50990/"/>
@@ -771,9 +782,9 @@
     <comp ref="C15">
       <value>C_0.1uF</value>
       <footprint>Capacitor_SMD:C_0603_1608Metric_Pad1.05x0.95mm_HandSolder</footprint>
-      <datasheet>https://www.digikey.com/product-detail/en/kemet/C0603C104K5RACTU/399-5089-1-ND/1465623</datasheet>
+      <datasheet>https://www.digikey.com/product-detail/en/murata-electronics-north-america/GCM188R71C104KA37D/490-4774-1-ND/1641693</datasheet>
       <fields>
-        <field name="Part Number">CC0603ZRY5V9BB104</field>
+        <field name="Part Number">GCM188R71C104KA37D</field>
       </fields>
       <libsource lib="open-automation" part="C_0.1uF" description="0.1uF 50V 0603 Capacitor"/>
       <sheetpath names="/environment/" tstamps="/59C50990/"/>
@@ -807,15 +818,15 @@
         <pin num="2" name="Pin_2" type="passive"/>
       </pins>
     </libpart>
-    <libpart lib="Connector_Generic" part="Conn_02x20_Top_Bottom">
-      <description>Generic connector, double row, 02x20, top/bottom pin numbering scheme (row 1: 1...pins_per_row, row2: pins_per_row+1 ... num_pins), script generated (kicad-library-utils/schlib/autogen/connector/)</description>
+    <libpart lib="Connector_Generic" part="Conn_02x20_Odd_Even">
+      <description>Generic connector, double row, 02x20, odd/even pin numbering scheme (row 1 odd numbers, row 2 even numbers), script generated (kicad-library-utils/schlib/autogen/connector/)</description>
       <docs>~</docs>
       <footprints>
         <fp>Connector*:*_2x??_*</fp>
       </footprints>
       <fields>
         <field name="Reference">J</field>
-        <field name="Value">Conn_02x20_Top_Bottom</field>
+        <field name="Value">Conn_02x20_Odd_Even</field>
       </fields>
       <pins>
         <pin num="1" name="Pin_1" type="passive"/>
@@ -1265,93 +1276,92 @@
     </library>
   </libraries>
   <nets>
-    <net code="1" name="/V_PANEL">
-      <node ref="U7" pin="1"/>
-      <node ref="U7" pin="2"/>
-      <node ref="PANEL1" pin="1"/>
+    <net code="1" name="/V_MAIN">
+      <node ref="D5" pin="1"/>
+      <node ref="U12" pin="1"/>
+      <node ref="D6" pin="1"/>
+      <node ref="D4" pin="1"/>
     </net>
-    <net code="2" name="/SDA">
+    <net code="2" name="/V_USB">
+      <node ref="J2" pin="4"/>
+      <node ref="P1" pin="2"/>
       <node ref="J2" pin="2"/>
+      <node ref="C16" pin="1"/>
+      <node ref="R19" pin="1"/>
+      <node ref="U3" pin="2"/>
+    </net>
+    <net code="3" name="/SDA">
       <node ref="U14" pin="1"/>
-      <node ref="U1" pin="30"/>
+      <node ref="R1" pin="1"/>
+      <node ref="J2" pin="3"/>
       <node ref="U11" pin="1"/>
+      <node ref="U1" pin="30"/>
       <node ref="U8" pin="6"/>
+      <node ref="U9" pin="6"/>
       <node ref="U15" pin="3"/>
       <node ref="U10" pin="6"/>
-      <node ref="R1" pin="1"/>
-      <node ref="U9" pin="6"/>
     </net>
-    <net code="3" name="/SCL">
-      <node ref="U10" pin="5"/>
-      <node ref="U11" pin="2"/>
-      <node ref="U9" pin="5"/>
-      <node ref="J2" pin="3"/>
-      <node ref="U15" pin="4"/>
-      <node ref="R2" pin="1"/>
+    <net code="4" name="/SCL">
       <node ref="U14" pin="6"/>
-      <node ref="U1" pin="31"/>
+      <node ref="U9" pin="5"/>
+      <node ref="U15" pin="4"/>
+      <node ref="U11" pin="2"/>
+      <node ref="J2" pin="5"/>
       <node ref="U8" pin="5"/>
+      <node ref="U10" pin="5"/>
+      <node ref="R2" pin="1"/>
+      <node ref="U1" pin="31"/>
     </net>
-    <net code="4" name="/PANEL_SW">
-      <node ref="U1" pin="27"/>
+    <net code="6" name="/V_PANEL">
+      <node ref="PANEL1" pin="1"/>
+      <node ref="U7" pin="1"/>
+      <node ref="U7" pin="2"/>
     </net>
-    <net code="5" name="/V_USB">
-      <node ref="C16" pin="1"/>
-      <node ref="J2" pin="22"/>
-      <node ref="J2" pin="21"/>
-      <node ref="U3" pin="2"/>
-      <node ref="R19" pin="1"/>
-      <node ref="P1" pin="2"/>
-    </net>
-    <net code="6" name="/POWER_EN">
-      <node ref="U1" pin="28"/>
-    </net>
-    <net code="7" name="/V_MAIN">
-      <node ref="U12" pin="1"/>
-      <node ref="D5" pin="1"/>
-      <node ref="D4" pin="1"/>
-      <node ref="D6" pin="1"/>
-    </net>
-    <net code="9" name="/I02">
+    <net code="8" name="/I02">
       <node ref="R3" pin="2"/>
       <node ref="U1" pin="24"/>
     </net>
+    <net code="9" name="/USB_EN">
+      <node ref="U3" pin="5"/>
+      <node ref="R22" pin="1"/>
+      <node ref="U1" pin="28"/>
+    </net>
     <net code="10" name="/PACK3">
       <node ref="R8" pin="2"/>
-      <node ref="C6" pin="1"/>
       <node ref="U10" pin="2"/>
-      <node ref="PACK3" pin="1"/>
       <node ref="R13" pin="1"/>
+      <node ref="C6" pin="1"/>
+      <node ref="PACK3" pin="1"/>
     </net>
     <net code="11" name="/PACK2">
-      <node ref="R11" pin="1"/>
       <node ref="R7" pin="2"/>
+      <node ref="R11" pin="1"/>
       <node ref="PACK2" pin="1"/>
-      <node ref="U9" pin="2"/>
       <node ref="C5" pin="1"/>
+      <node ref="U9" pin="2"/>
     </net>
     <net code="12" name="/PACK1">
-      <node ref="R10" pin="2"/>
-      <node ref="R15" pin="1"/>
       <node ref="C7" pin="1"/>
-      <node ref="U8" pin="2"/>
       <node ref="PACK1" pin="1"/>
+      <node ref="R15" pin="1"/>
+      <node ref="R10" pin="2"/>
+      <node ref="U8" pin="2"/>
     </net>
     <net code="13" name="/PROG">
-      <node ref="U1" pin="25"/>
       <node ref="R6" pin="2"/>
       <node ref="SW3" pin="1"/>
+      <node ref="U1" pin="25"/>
     </net>
     <net code="14" name="/RXD">
-      <node ref="U1" pin="34"/>
+      <node ref="J2" pin="10"/>
       <node ref="P1" pin="4"/>
-      <node ref="J2" pin="25"/>
+      <node ref="U1" pin="34"/>
       <node ref="P1" pin="6"/>
     </net>
     <net code="15" name="/TXD">
-      <node ref="J2" pin="24"/>
-      <node ref="P1" pin="5"/>
       <node ref="P1" pin="3"/>
+      <node ref="P1" pin="5"/>
+      <node ref="J2" pin="8"/>
       <node ref="U1" pin="35"/>
     </net>
     <net code="16" name="/EN">
@@ -1364,165 +1374,168 @@
       <node ref="R4" pin="2"/>
       <node ref="U1" pin="13"/>
     </net>
-    <net code="18" name="Net-(J2-Pad8)">
-      <node ref="J2" pin="8"/>
-    </net>
-    <net code="19" name="Net-(J2-Pad7)">
-      <node ref="J2" pin="7"/>
-    </net>
-    <net code="20" name="Net-(J2-Pad6)">
-      <node ref="J2" pin="6"/>
-    </net>
-    <net code="21" name="Net-(J2-Pad40)">
-      <node ref="J2" pin="40"/>
-    </net>
-    <net code="22" name="Net-(J2-Pad4)">
-      <node ref="J2" pin="4"/>
-    </net>
-    <net code="23" name="Net-(J2-Pad39)">
-      <node ref="J2" pin="39"/>
-    </net>
-    <net code="24" name="Net-(J2-Pad38)">
-      <node ref="J2" pin="38"/>
-    </net>
-    <net code="25" name="Net-(J2-Pad36)">
-      <node ref="J2" pin="36"/>
-    </net>
-    <net code="26" name="3V3">
-      <node ref="C15" pin="1"/>
+    <net code="18" name="3V3">
       <node ref="U10" pin="7"/>
-      <node ref="U12" pin="2"/>
-      <node ref="U11" pin="13"/>
+      <node ref="U9" pin="7"/>
       <node ref="U8" pin="7"/>
-      <node ref="D3" pin="2"/>
+      <node ref="U11" pin="13"/>
       <node ref="C12" pin="1"/>
+      <node ref="C15" pin="1"/>
       <node ref="C14" pin="1"/>
-      <node ref="D2" pin="2"/>
+      <node ref="U12" pin="2"/>
+      <node ref="U14" pin="5"/>
       <node ref="D1" pin="2"/>
       <node ref="D8" pin="2"/>
       <node ref="U15" pin="1"/>
-      <node ref="U14" pin="5"/>
-      <node ref="J2" pin="9"/>
-      <node ref="U1" pin="2"/>
-      <node ref="R2" pin="2"/>
-      <node ref="U9" pin="7"/>
-      <node ref="C1" pin="1"/>
-      <node ref="C2" pin="1"/>
+      <node ref="D2" pin="2"/>
+      <node ref="D3" pin="2"/>
       <node ref="J2" pin="1"/>
+      <node ref="J2" pin="17"/>
+      <node ref="C2" pin="1"/>
+      <node ref="C1" pin="1"/>
       <node ref="R1" pin="2"/>
+      <node ref="R2" pin="2"/>
+      <node ref="U1" pin="2"/>
     </net>
-    <net code="27" name="Net-(J2-Pad11)">
-      <node ref="J2" pin="11"/>
-    </net>
-    <net code="28" name="Net-(J2-Pad10)">
-      <node ref="J2" pin="10"/>
-    </net>
-    <net code="29" name="Net-(J2-Pad12)">
-      <node ref="J2" pin="12"/>
-    </net>
-    <net code="30" name="Net-(J2-Pad14)">
-      <node ref="J2" pin="14"/>
-    </net>
-    <net code="31" name="Net-(J2-Pad15)">
-      <node ref="J2" pin="15"/>
-    </net>
-    <net code="32" name="Net-(J2-Pad16)">
+    <net code="19" name="Net-(J2-Pad16)">
       <node ref="J2" pin="16"/>
     </net>
-    <net code="33" name="Net-(J2-Pad17)">
-      <node ref="J2" pin="17"/>
+    <net code="20" name="Net-(J2-Pad12)">
+      <node ref="J2" pin="12"/>
     </net>
-    <net code="34" name="Net-(J2-Pad18)">
-      <node ref="J2" pin="18"/>
+    <net code="21" name="Net-(J2-Pad15)">
+      <node ref="J2" pin="15"/>
     </net>
-    <net code="35" name="Net-(J2-Pad19)">
+    <net code="22" name="/microcontroller/SCLK">
+      <node ref="J2" pin="23"/>
+      <node ref="U1" pin="20"/>
+    </net>
+    <net code="23" name="/microcontroller/MISO">
+      <node ref="J2" pin="21"/>
+      <node ref="U1" pin="14"/>
+    </net>
+    <net code="24" name="/microcontroller/MOSI">
       <node ref="J2" pin="19"/>
+      <node ref="U1" pin="16"/>
     </net>
-    <net code="36" name="Net-(J2-Pad34)">
-      <node ref="J2" pin="34"/>
-    </net>
-    <net code="37" name="Net-(J2-Pad26)">
-      <node ref="J2" pin="26"/>
-    </net>
-    <net code="38" name="Net-(J2-Pad28)">
-      <node ref="J2" pin="28"/>
-    </net>
-    <net code="39" name="Net-(J2-Pad29)">
+    <net code="25" name="Net-(J2-Pad29)">
       <node ref="J2" pin="29"/>
     </net>
-    <net code="40" name="Net-(J2-Pad31)">
+    <net code="26" name="Net-(J2-Pad27)">
+      <node ref="J2" pin="27"/>
+    </net>
+    <net code="27" name="Net-(J2-Pad31)">
       <node ref="J2" pin="31"/>
     </net>
-    <net code="41" name="Net-(J2-Pad32)">
-      <node ref="J2" pin="32"/>
-    </net>
-    <net code="42" name="Net-(J2-Pad33)">
+    <net code="28" name="Net-(J2-Pad33)">
       <node ref="J2" pin="33"/>
     </net>
-    <net code="43" name="GND">
-      <node ref="U11" pin="9"/>
+    <net code="29" name="Net-(J2-Pad37)">
+      <node ref="J2" pin="37"/>
+    </net>
+    <net code="30" name="Net-(J2-Pad35)">
+      <node ref="J2" pin="35"/>
+    </net>
+    <net code="31" name="Net-(J2-Pad38)">
+      <node ref="J2" pin="38"/>
+    </net>
+    <net code="32" name="Net-(J2-Pad36)">
+      <node ref="J2" pin="36"/>
+    </net>
+    <net code="33" name="Net-(J2-Pad40)">
+      <node ref="J2" pin="40"/>
+    </net>
+    <net code="34" name="Net-(J2-Pad26)">
+      <node ref="J2" pin="26"/>
+    </net>
+    <net code="35" name="Net-(J2-Pad28)">
+      <node ref="J2" pin="28"/>
+    </net>
+    <net code="36" name="Net-(J2-Pad32)">
+      <node ref="J2" pin="32"/>
+    </net>
+    <net code="37" name="Net-(J2-Pad18)">
+      <node ref="J2" pin="18"/>
+    </net>
+    <net code="38" name="Net-(J2-Pad22)">
+      <node ref="J2" pin="22"/>
+    </net>
+    <net code="39" name="Net-(J2-Pad24)">
+      <node ref="J2" pin="24"/>
+    </net>
+    <net code="40" name="Net-(J2-Pad7)">
+      <node ref="J2" pin="7"/>
+    </net>
+    <net code="41" name="GND">
       <node ref="C3" pin="2"/>
-      <node ref="R17" pin="2"/>
+      <node ref="C2" pin="2"/>
       <node ref="C4" pin="2"/>
-      <node ref="R3" pin="1"/>
+      <node ref="U12" pin="3"/>
+      <node ref="U14" pin="2"/>
+      <node ref="R17" pin="2"/>
+      <node ref="R18" pin="2"/>
+      <node ref="R16" pin="2"/>
+      <node ref="C12" pin="2"/>
+      <node ref="U7" pin="5"/>
+      <node ref="U8" pin="3"/>
+      <node ref="U11" pin="11"/>
+      <node ref="U11" pin="3"/>
+      <node ref="U11" pin="9"/>
+      <node ref="C14" pin="2"/>
+      <node ref="U1" pin="1"/>
+      <node ref="C15" pin="2"/>
+      <node ref="R20" pin="2"/>
       <node ref="C8" pin="1"/>
       <node ref="U8" pin="8"/>
-      <node ref="C12" pin="2"/>
-      <node ref="C1" pin="2"/>
-      <node ref="R16" pin="2"/>
-      <node ref="U7" pin="5"/>
-      <node ref="U11" pin="3"/>
-      <node ref="U12" pin="3"/>
-      <node ref="U11" pin="11"/>
-      <node ref="R18" pin="2"/>
-      <node ref="U8" pin="3"/>
-      <node ref="R20" pin="2"/>
-      <node ref="J2" pin="23"/>
-      <node ref="U15" pin="2"/>
-      <node ref="J2" pin="27"/>
-      <node ref="J2" pin="30"/>
-      <node ref="PACK3" pin="2"/>
-      <node ref="PANEL1" pin="2"/>
-      <node ref="J2" pin="20"/>
-      <node ref="SW3" pin="2"/>
-      <node ref="J2" pin="5"/>
-      <node ref="J2" pin="37"/>
-      <node ref="J2" pin="35"/>
-      <node ref="C15" pin="2"/>
-      <node ref="C14" pin="2"/>
-      <node ref="U14" pin="2"/>
-      <node ref="J2" pin="13"/>
-      <node ref="P1" pin="7"/>
-      <node ref="P1" pin="1"/>
-      <node ref="C2" pin="2"/>
-      <node ref="U1" pin="1"/>
       <node ref="PACK1" pin="2"/>
+      <node ref="SW3" pin="2"/>
       <node ref="PACK2" pin="2"/>
       <node ref="SW2" pin="2"/>
+      <node ref="J2" pin="25"/>
       <node ref="SW1" pin="2"/>
-      <node ref="U6" pin="5"/>
+      <node ref="J2" pin="30"/>
+      <node ref="U15" pin="2"/>
+      <node ref="PACK3" pin="2"/>
+      <node ref="J2" pin="20"/>
+      <node ref="J2" pin="14"/>
+      <node ref="P1" pin="1"/>
+      <node ref="J2" pin="34"/>
+      <node ref="P1" pin="7"/>
+      <node ref="J2" pin="39"/>
+      <node ref="J2" pin="6"/>
+      <node ref="J2" pin="9"/>
+      <node ref="PANEL1" pin="2"/>
+      <node ref="U4" pin="3"/>
+      <node ref="R22" pin="2"/>
+      <node ref="U4" pin="5"/>
+      <node ref="C11" pin="2"/>
       <node ref="C13" pin="2"/>
       <node ref="C16" pin="2"/>
-      <node ref="U4" pin="5"/>
-      <node ref="R21" pin="2"/>
-      <node ref="U3" pin="5"/>
-      <node ref="U3" pin="3"/>
-      <node ref="R14" pin="2"/>
-      <node ref="U5" pin="5"/>
-      <node ref="C10" pin="1"/>
-      <node ref="U9" pin="8"/>
-      <node ref="U9" pin="3"/>
-      <node ref="U10" pin="3"/>
-      <node ref="U10" pin="8"/>
-      <node ref="C9" pin="1"/>
-      <node ref="C11" pin="2"/>
-      <node ref="U5" pin="3"/>
       <node ref="R12" pin="2"/>
+      <node ref="C1" pin="2"/>
+      <node ref="R21" pin="2"/>
+      <node ref="U10" pin="8"/>
+      <node ref="U10" pin="3"/>
+      <node ref="C9" pin="1"/>
+      <node ref="U9" pin="8"/>
+      <node ref="U5" pin="3"/>
+      <node ref="U5" pin="5"/>
+      <node ref="U9" pin="3"/>
+      <node ref="R14" pin="2"/>
+      <node ref="C10" pin="1"/>
       <node ref="U6" pin="3"/>
-      <node ref="U4" pin="3"/>
-      <node ref="C6" pin="2"/>
-      <node ref="C5" pin="2"/>
+      <node ref="U6" pin="5"/>
+      <node ref="R3" pin="1"/>
       <node ref="C7" pin="2"/>
+      <node ref="C5" pin="2"/>
+      <node ref="C6" pin="2"/>
+      <node ref="U3" pin="3"/>
+    </net>
+    <net code="42" name="Net-(J2-Pad11)">
+      <node ref="J2" pin="11"/>
+    </net>
+    <net code="43" name="Net-(J2-Pad13)">
+      <node ref="J2" pin="13"/>
     </net>
     <net code="44" name="Net-(U1-Pad36)">
       <node ref="U1" pin="36"/>
@@ -1548,155 +1561,149 @@
     <net code="51" name="Net-(U1-Pad9)">
       <node ref="U1" pin="9"/>
     </net>
-    <net code="52" name="Net-(U1-Pad33)">
-      <node ref="U1" pin="33"/>
-    </net>
-    <net code="54" name="Net-(U1-Pad20)">
-      <node ref="U1" pin="20"/>
-    </net>
-    <net code="55" name="Net-(U1-Pad10)">
-      <node ref="U1" pin="10"/>
-    </net>
-    <net code="56" name="Net-(U1-Pad11)">
-      <node ref="U1" pin="11"/>
-    </net>
-    <net code="57" name="Net-(U1-Pad12)">
-      <node ref="U1" pin="12"/>
-    </net>
-    <net code="58" name="Net-(U1-Pad14)">
-      <node ref="U1" pin="14"/>
-    </net>
-    <net code="59" name="Net-(U1-Pad16)">
-      <node ref="U1" pin="16"/>
-    </net>
-    <net code="60" name="Net-(U1-Pad17)">
-      <node ref="U1" pin="17"/>
-    </net>
-    <net code="61" name="Net-(U1-Pad18)">
-      <node ref="U1" pin="18"/>
-    </net>
-    <net code="62" name="Net-(U1-Pad19)">
-      <node ref="U1" pin="19"/>
-    </net>
-    <net code="63" name="Net-(U1-Pad21)">
+    <net code="53" name="Net-(U1-Pad21)">
       <node ref="U1" pin="21"/>
     </net>
-    <net code="64" name="Net-(U1-Pad22)">
+    <net code="54" name="Net-(U1-Pad10)">
+      <node ref="U1" pin="10"/>
+    </net>
+    <net code="55" name="Net-(U1-Pad11)">
+      <node ref="U1" pin="11"/>
+    </net>
+    <net code="56" name="Net-(U1-Pad12)">
+      <node ref="U1" pin="12"/>
+    </net>
+    <net code="57" name="Net-(U1-Pad17)">
+      <node ref="U1" pin="17"/>
+    </net>
+    <net code="58" name="Net-(U1-Pad18)">
+      <node ref="U1" pin="18"/>
+    </net>
+    <net code="59" name="Net-(U1-Pad19)">
+      <node ref="U1" pin="19"/>
+    </net>
+    <net code="60" name="Net-(U1-Pad22)">
       <node ref="U1" pin="22"/>
     </net>
-    <net code="65" name="Net-(U1-Pad23)">
+    <net code="61" name="Net-(U1-Pad23)">
       <node ref="U1" pin="23"/>
     </net>
-    <net code="66" name="Net-(U1-Pad26)">
+    <net code="62" name="Net-(U1-Pad26)">
       <node ref="U1" pin="26"/>
     </net>
-    <net code="67" name="Net-(U1-Pad29)">
+    <net code="63" name="Net-(U1-Pad27)">
+      <node ref="U1" pin="27"/>
+    </net>
+    <net code="64" name="Net-(U1-Pad29)">
       <node ref="U1" pin="29"/>
     </net>
-    <net code="68" name="/Power/REG2_PRE">
-      <node ref="D4" pin="2"/>
-      <node ref="R7" pin="1"/>
-      <node ref="U9" pin="1"/>
-      <node ref="U4" pin="2"/>
+    <net code="65" name="Net-(U1-Pad33)">
+      <node ref="U1" pin="33"/>
     </net>
-    <net code="69" name="/Power/REG_POWER">
-      <node ref="U4" pin="1"/>
-      <node ref="U7" pin="11"/>
-      <node ref="U7" pin="3"/>
-      <node ref="U7" pin="4"/>
-      <node ref="C13" pin="1"/>
-      <node ref="U3" pin="1"/>
-      <node ref="C4" pin="1"/>
-      <node ref="U5" pin="1"/>
-      <node ref="C11" pin="1"/>
-      <node ref="U6" pin="1"/>
-    </net>
-    <net code="70" name="Net-(C9-Pad2)">
-      <node ref="U9" pin="4"/>
-      <node ref="C9" pin="2"/>
-    </net>
-    <net code="71" name="Net-(C10-Pad2)">
-      <node ref="U10" pin="4"/>
-      <node ref="C10" pin="2"/>
-    </net>
-    <net code="72" name="/Power/OUT2">
+    <net code="66" name="/Power/OUT2">
       <node ref="U4" pin="4"/>
       <node ref="U11" pin="12"/>
       <node ref="R11" pin="2"/>
       <node ref="R12" pin="1"/>
     </net>
-    <net code="73" name="/Power/OUT1">
-      <node ref="U6" pin="4"/>
-      <node ref="U11" pin="10"/>
-      <node ref="R15" pin="2"/>
-      <node ref="R16" pin="1"/>
+    <net code="67" name="/Power/REG2_PRE">
+      <node ref="R7" pin="1"/>
+      <node ref="U4" pin="2"/>
+      <node ref="U9" pin="1"/>
+      <node ref="D4" pin="2"/>
     </net>
-    <net code="74" name="Net-(D8-Pad1)">
+    <net code="68" name="/Power/REG_POWER">
+      <node ref="U5" pin="1"/>
+      <node ref="U4" pin="1"/>
+      <node ref="C11" pin="1"/>
+      <node ref="U3" pin="1"/>
+      <node ref="C13" pin="1"/>
+      <node ref="U7" pin="4"/>
+      <node ref="U7" pin="11"/>
+      <node ref="C4" pin="1"/>
+      <node ref="U7" pin="3"/>
+      <node ref="U6" pin="1"/>
+    </net>
+    <net code="69" name="Net-(C9-Pad2)">
+      <node ref="U9" pin="4"/>
+      <node ref="C9" pin="2"/>
+    </net>
+    <net code="70" name="Net-(C10-Pad2)">
+      <node ref="C10" pin="2"/>
+      <node ref="U10" pin="4"/>
+    </net>
+    <net code="71" name="Net-(D8-Pad1)">
       <node ref="R20" pin="1"/>
       <node ref="D8" pin="1"/>
     </net>
-    <net code="75" name="/Power/OUT3">
-      <node ref="U11" pin="14"/>
-      <node ref="U5" pin="4"/>
+    <net code="72" name="/Power/OUT1">
+      <node ref="U11" pin="10"/>
+      <node ref="R16" pin="1"/>
+      <node ref="R15" pin="2"/>
+      <node ref="U6" pin="4"/>
+    </net>
+    <net code="73" name="/Power/OUT3">
       <node ref="R13" pin="2"/>
+      <node ref="U11" pin="14"/>
       <node ref="R14" pin="1"/>
+      <node ref="U5" pin="4"/>
+    </net>
+    <net code="74" name="/Power/REG3_PRE">
+      <node ref="U5" pin="2"/>
+      <node ref="D5" pin="2"/>
+      <node ref="R8" pin="1"/>
+      <node ref="U10" pin="1"/>
+    </net>
+    <net code="75" name="Net-(R19-Pad2)">
+      <node ref="U3" pin="4"/>
+      <node ref="R21" pin="1"/>
+      <node ref="R19" pin="2"/>
     </net>
     <net code="76" name="/Power/REG1_PRE">
       <node ref="R10" pin="1"/>
       <node ref="U8" pin="1"/>
-      <node ref="U6" pin="2"/>
       <node ref="D6" pin="2"/>
+      <node ref="U6" pin="2"/>
     </net>
-    <net code="77" name="/Power/REG3_PRE">
-      <node ref="U5" pin="2"/>
-      <node ref="R8" pin="1"/>
-      <node ref="U10" pin="1"/>
-      <node ref="D5" pin="2"/>
-    </net>
-    <net code="78" name="Net-(R19-Pad2)">
-      <node ref="R21" pin="1"/>
-      <node ref="U3" pin="4"/>
-      <node ref="R19" pin="2"/>
-    </net>
-    <net code="79" name="Net-(R9-Pad2)">
+    <net code="77" name="Net-(R9-Pad2)">
       <node ref="U7" pin="6"/>
       <node ref="R9" pin="2"/>
     </net>
-    <net code="80" name="Net-(C8-Pad2)">
+    <net code="78" name="Net-(C8-Pad2)">
       <node ref="U8" pin="4"/>
       <node ref="C8" pin="2"/>
     </net>
-    <net code="81" name="Net-(U11-Pad5)">
-      <node ref="U11" pin="5"/>
-    </net>
-    <net code="82" name="Net-(U11-Pad4)">
-      <node ref="U11" pin="4"/>
-    </net>
-    <net code="83" name="Net-(U11-Pad8)">
+    <net code="79" name="Net-(U11-Pad8)">
       <node ref="U11" pin="8"/>
     </net>
-    <net code="84" name="Net-(R17-Pad1)">
-      <node ref="R17" pin="1"/>
-      <node ref="U11" pin="6"/>
+    <net code="80" name="Net-(U11-Pad5)">
+      <node ref="U11" pin="5"/>
     </net>
-    <net code="85" name="Net-(R18-Pad1)">
-      <node ref="R18" pin="1"/>
+    <net code="81" name="Net-(U11-Pad4)">
+      <node ref="U11" pin="4"/>
+    </net>
+    <net code="82" name="Net-(R18-Pad1)">
       <node ref="U11" pin="7"/>
+      <node ref="R18" pin="1"/>
     </net>
-    <net code="86" name="+3V3">
-      <node ref="U7" pin="12"/>
+    <net code="83" name="Net-(R17-Pad1)">
+      <node ref="U11" pin="6"/>
+      <node ref="R17" pin="1"/>
+    </net>
+    <net code="84" name="+3V3">
       <node ref="R9" pin="1"/>
+      <node ref="U7" pin="12"/>
       <node ref="C3" pin="1"/>
     </net>
-    <net code="87" name="Net-(D3-Pad1)">
-      <node ref="D3" pin="1"/>
+    <net code="85" name="Net-(D3-Pad1)">
       <node ref="R6" pin="1"/>
+      <node ref="D3" pin="1"/>
     </net>
-    <net code="88" name="Net-(D2-Pad1)">
+    <net code="86" name="Net-(D2-Pad1)">
       <node ref="R5" pin="1"/>
       <node ref="D2" pin="1"/>
     </net>
-    <net code="89" name="Net-(D1-Pad1)">
+    <net code="87" name="Net-(D1-Pad1)">
       <node ref="R4" pin="1"/>
       <node ref="D1" pin="1"/>
     </net>

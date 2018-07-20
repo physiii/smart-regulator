@@ -58,8 +58,8 @@ P 2825 3775
 F 0 "C2" H 2825 3875 50  0000 L CNN
 F 1 "C_1uF" H 2575 3675 50  0000 L CNN
 F 2 "Capacitor_SMD:C_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 2925 4075 50  0001 C CNN
-F 3 "https://www.digikey.com/product-detail/en/yageo/CC0603ZRY5V7BB105/311-1372-1-ND/2103156" H 2825 3525 50  0001 C CNN
-F 4 "CL10B105KP8NNNC" H 2950 3975 60  0001 C CNN "Part Number"
+F 3 "https://www.digikey.com/product-detail/en/samsung-electro-mechanics/CL10B105MO8NNWC/1276-6524-1-ND/5961383" H 2825 3525 50  0001 C CNN
+F 4 "CL10B105MO8NNWC" H 2950 3975 60  0001 C CNN "Part Number"
 	1    2825 3775
 	1    0    0    -1  
 $EndComp
@@ -83,8 +83,8 @@ P 6400 4700
 F 0 "R3" V 6400 4700 50  0000 C CNN
 F 1 "R_10k" V 6325 4700 50  0000 C CNN
 F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" V 6330 4700 50  0001 C CNN
-F 3 "https://www.digikey.com/product-detail/en/yageo/RC0603JR-0710KL/311-10KGRCT-ND/729647" V 6480 4700 50  0001 C CNN
-F 4 "RC0603JR-0710KL" V 6580 4800 60  0001 C CNN "Part Number"
+F 3 "https://www.digikey.com/product-detail/en/susumu/RR0816P-103-D/RR08P10.0KDCT-ND/432748" V 6480 4700 50  0001 C CNN
+F 4 "RR0816P-103-D" V 6580 4800 60  0001 C CNN "Part Number"
 	1    6400 4700
 	0    1    1    0   
 $EndComp
@@ -102,8 +102,8 @@ P 3450 3700
 F 0 "R2" V 3450 3700 50  0000 C CNN
 F 1 "R_10k" H 3325 3850 50  0000 C CNN
 F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" V 3380 3700 50  0001 C CNN
-F 3 "https://www.digikey.com/product-detail/en/yageo/RC0603JR-0710KL/311-10KGRCT-ND/729647" V 3530 3700 50  0001 C CNN
-F 4 "RC0603JR-0710KL" V 3630 3800 60  0001 C CNN "Part Number"
+F 3 "https://www.digikey.com/product-detail/en/susumu/RR0816P-103-D/RR08P10.0KDCT-ND/432748" V 3530 3700 50  0001 C CNN
+F 4 "RR0816P-103-D" V 3630 3800 60  0001 C CNN "Part Number"
 	1    3450 3700
 	-1   0    0    1   
 $EndComp
@@ -114,8 +114,8 @@ P 3350 3700
 F 0 "R1" V 3350 3700 50  0000 C CNN
 F 1 "R_10k" H 3475 3850 50  0000 C CNN
 F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" V 3280 3700 50  0001 C CNN
-F 3 "https://www.digikey.com/product-detail/en/yageo/RC0603JR-0710KL/311-10KGRCT-ND/729647" V 3430 3700 50  0001 C CNN
-F 4 "RC0603JR-0710KL" V 3530 3800 60  0001 C CNN "Part Number"
+F 3 "https://www.digikey.com/product-detail/en/susumu/RR0816P-103-D/RR08P10.0KDCT-ND/432748" V 3430 3700 50  0001 C CNN
+F 4 "RR0816P-103-D" V 3530 3800 60  0001 C CNN "Part Number"
 	1    3350 3700
 	-1   0    0    1   
 $EndComp
@@ -138,8 +138,8 @@ P 2425 3775
 F 0 "C1" H 2450 3875 50  0000 L CNN
 F 1 "C_10uF" H 2125 3675 50  0000 L CNN
 F 2 "Capacitor_SMD:C_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 2525 4075 50  0001 C CNN
-F 3 "https://www.digikey.com/product-detail/en/murata-electronics-north-america/GRM188R61A106ME69D/490-10475-1-ND/5026393" H 2425 3525 50  0001 C CNN
-F 4 "GRM188R61A106ME69D" H 2550 3975 60  0001 C CNN "Part Number"
+F 3 "https://www.digikey.com/product-detail/en/murata-electronics-north-america/GRM188C80G106ME47D/490-10470-1-ND/5026387" H 2425 3525 50  0001 C CNN
+F 4 "GRM188C80G106ME47D" H 2550 3975 60  0001 C CNN "Part Number"
 	1    2425 3775
 	1    0    0    -1  
 $EndComp

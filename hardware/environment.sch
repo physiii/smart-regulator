@@ -37,8 +37,8 @@ P 3550 3625
 F 0 "C14" H 3575 3725 50  0000 L CNN
 F 1 "C_0.1uF" H 3250 3525 50  0000 L CNN
 F 2 "Capacitor_SMD:C_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 3650 3925 50  0001 C CNN
-F 3 "https://www.digikey.com/product-detail/en/kemet/C0603C104K5RACTU/399-5089-1-ND/1465623" H 3550 3375 50  0001 C CNN
-F 4 "CC0603ZRY5V9BB104" H 3675 3825 60  0001 C CNN "Part Number"
+F 3 "https://www.digikey.com/product-detail/en/murata-electronics-north-america/GCM188R71C104KA37D/490-4774-1-ND/1641693" H 3550 3375 50  0001 C CNN
+F 4 "GCM188R71C104KA37D" H 3675 3825 60  0001 C CNN "Part Number"
 	1    3550 3625
 	1    0    0    -1  
 $EndComp
@@ -53,8 +53,8 @@ P 7200 3700
 F 0 "C15" H 7225 3800 50  0000 L CNN
 F 1 "C_0.1uF" H 6900 3600 50  0000 L CNN
 F 2 "Capacitor_SMD:C_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 7300 4000 50  0001 C CNN
-F 3 "https://www.digikey.com/product-detail/en/kemet/C0603C104K5RACTU/399-5089-1-ND/1465623" H 7200 3450 50  0001 C CNN
-F 4 "CC0603ZRY5V9BB104" H 7325 3900 60  0001 C CNN "Part Number"
+F 3 "https://www.digikey.com/product-detail/en/murata-electronics-north-america/GCM188R71C104KA37D/490-4774-1-ND/1641693" H 7200 3450 50  0001 C CNN
+F 4 "GCM188R71C104KA37D" H 7325 3900 60  0001 C CNN "Part Number"
 	1    7200 3700
 	1    0    0    -1  
 $EndComp
