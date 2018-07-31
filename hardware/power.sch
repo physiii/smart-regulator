@@ -198,18 +198,6 @@ SDA
 Text HLabel 8525 5300 0    50   Input ~ 0
 V_MAIN
 $Comp
-L open-automation:LM2576 U6
-U 1 1 5B3BDAB3
-P 1500 3425
-F 0 "U6" H 1550 3862 60  0000 C CNN
-F 1 "LM2576" H 1550 3756 60  0000 C CNN
-F 2 "open-automation:Regulator-LM2576" H 1900 3375 60  0001 C CNN
-F 3 "https://www.digikey.com/product-detail/en/microchip-technology/MIC29302WU-TR/576-1125-1-ND/771851" H 1900 3375 60  0001 C CNN
-F 4 "MIC29302WU-TR" H 1550 3658 50  0001 C CNN "Part Number"
-	1    1500 3425
-	1    0    0    -1  
-$EndComp
-$Comp
 L open-automation:R_10m R10
 U 1 1 5B3BA943
 P 2350 3425
@@ -815,18 +803,6 @@ Wire Wire Line
 Wire Wire Line
 	5300 5825 5550 5825
 $Comp
-L open-automation:LM2576 U4
-U 1 1 5B5754B6
-P 1450 4675
-F 0 "U4" H 1500 5112 60  0000 C CNN
-F 1 "LM2576" H 1500 5006 60  0000 C CNN
-F 2 "open-automation:Regulator-LM2576" H 1850 4625 60  0001 C CNN
-F 3 "https://www.digikey.com/product-detail/en/microchip-technology/MIC29302WU-TR/576-1125-1-ND/771851" H 1850 4625 60  0001 C CNN
-F 4 "MIC29302WU-TR" H 1500 4908 50  0001 C CNN "Part Number"
-	1    1450 4675
-	1    0    0    -1  
-$EndComp
-$Comp
 L open-automation:R_10m R7
 U 1 1 5B5754BE
 P 2300 4675
@@ -953,18 +929,6 @@ Text Label 525  4575 0    50   ~ 0
 REG_POWER
 Wire Wire Line
 	525  4575 950  4575
-$Comp
-L open-automation:LM2576 U5
-U 1 1 5B584421
-P 1475 5950
-F 0 "U5" H 1525 6387 60  0000 C CNN
-F 1 "LM2576" H 1525 6281 60  0000 C CNN
-F 2 "open-automation:Regulator-LM2576" H 1875 5900 60  0001 C CNN
-F 3 "https://www.digikey.com/product-detail/en/microchip-technology/MIC29302WU-TR/576-1125-1-ND/771851" H 1875 5900 60  0001 C CNN
-F 4 "MIC29302WU-TR" H 1525 6183 50  0001 C CNN "Part Number"
-	1    1475 5950
-	1    0    0    -1  
-$EndComp
 $Comp
 L open-automation:R_10m R8
 U 1 1 5B584429
@@ -1155,7 +1119,7 @@ U 1 1 5B7D4194
 P 3625 3600
 F 0 "C7" H 3740 3646 50  0000 L CNN
 F 1 "C_10uF" H 3740 3555 50  0000 L CNN
-F 2 "Capacitor_SMD:C_1206_3216Metric_Pad1.42x1.75mm_HandSolder" H 3725 3900 50  0001 C CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 3725 3900 50  0001 C CNN
 F 3 "https://www.digikey.com/product-detail/en/murata-electronics-north-america/GRM188C80G106ME47D/490-10470-1-ND/5026387" H 3625 3350 50  0001 C CNN
 F 4 "GRM188C80G106ME47D" H 3750 3800 60  0001 C CNN "Part Number"
 	1    3625 3600
@@ -1167,7 +1131,7 @@ U 1 1 5B7E1BCB
 P 3575 4850
 F 0 "C5" H 3690 4896 50  0000 L CNN
 F 1 "C_10uF" H 3690 4805 50  0000 L CNN
-F 2 "Capacitor_SMD:C_1206_3216Metric_Pad1.42x1.75mm_HandSolder" H 3675 5150 50  0001 C CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 3675 5150 50  0001 C CNN
 F 3 "https://www.digikey.com/product-detail/en/murata-electronics-north-america/GRM188C80G106ME47D/490-10470-1-ND/5026387" H 3575 4600 50  0001 C CNN
 F 4 "GRM188C80G106ME47D" H 3700 5050 60  0001 C CNN "Part Number"
 	1    3575 4850
@@ -1179,22 +1143,10 @@ U 1 1 5B7EEB20
 P 3600 6125
 F 0 "C6" H 3715 6171 50  0000 L CNN
 F 1 "C_10uF" H 3715 6080 50  0000 L CNN
-F 2 "Capacitor_SMD:C_1206_3216Metric_Pad1.42x1.75mm_HandSolder" H 3700 6425 50  0001 C CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 3700 6425 50  0001 C CNN
 F 3 "https://www.digikey.com/product-detail/en/murata-electronics-north-america/GRM188C80G106ME47D/490-10470-1-ND/5026387" H 3600 5875 50  0001 C CNN
 F 4 "GRM188C80G106ME47D" H 3725 6325 60  0001 C CNN "Part Number"
 	1    3600 6125
-	1    0    0    -1  
-$EndComp
-$Comp
-L open-automation:LM2576 U3
-U 1 1 5B4FC426
-P 8750 3900
-F 0 "U3" H 8800 4337 60  0000 C CNN
-F 1 "LM2576" H 8800 4231 60  0000 C CNN
-F 2 "open-automation:Regulator-LM2576" H 9150 3850 60  0001 C CNN
-F 3 "https://www.digikey.com/product-detail/en/microchip-technology/MIC29302WU-TR/576-1125-1-ND/771851" H 9150 3850 60  0001 C CNN
-F 4 "MIC29302WU-TR" H 8800 4133 50  0001 C CNN "Part Number"
-	1    8750 3900
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -1288,7 +1240,7 @@ U 1 1 5B4FC482
 P 10225 4075
 F 0 "C16" H 10340 4121 50  0000 L CNN
 F 1 "C_10uF" H 10340 4030 50  0000 L CNN
-F 2 "Capacitor_SMD:C_1206_3216Metric_Pad1.42x1.75mm_HandSolder" H 10325 4375 50  0001 C CNN
+F 2 "Capacitor_SMD:C_0603_1608Metric_Pad1.05x0.95mm_HandSolder" H 10325 4375 50  0001 C CNN
 F 3 "https://www.digikey.com/product-detail/en/murata-electronics-north-america/GRM188C80G106ME47D/490-10470-1-ND/5026387" H 10225 3825 50  0001 C CNN
 F 4 "GRM188C80G106ME47D" H 10350 4275 60  0001 C CNN "Part Number"
 	1    10225 4075
@@ -1477,6 +1429,54 @@ F 1 "GND" H 7955 4077 50  0000 C CNN
 F 2 "" H 7950 4250 50  0000 C CNN
 F 3 "" H 7950 4250 50  0000 C CNN
 	1    7950 4250
+	1    0    0    -1  
+$EndComp
+$Comp
+L open-automation:MIC29302 U6
+U 1 1 5B6453AA
+P 8750 3900
+F 0 "U6" H 8800 4337 60  0000 C CNN
+F 1 "MIC29302" H 8800 4231 60  0000 C CNN
+F 2 "open-automation:Regulator-LM2576" H 8750 3500 60  0001 C CNN
+F 3 "https://www.digikey.com/product-detail/en/microchip-technology/MIC29302WU-TR/576-1125-1-ND/771851" H 8700 3600 60  0001 C CNN
+F 4 "IC29302WU-TR" H 8800 4133 50  0000 C CNN "Part Number"
+	1    8750 3900
+	1    0    0    -1  
+$EndComp
+$Comp
+L open-automation:MIC29302 U4
+U 1 1 5B645600
+P 1475 5950
+F 0 "U4" H 1525 6387 60  0000 C CNN
+F 1 "MIC29302" H 1525 6281 60  0000 C CNN
+F 2 "open-automation:Regulator-LM2576" H 1475 5550 60  0001 C CNN
+F 3 "https://www.digikey.com/product-detail/en/microchip-technology/MIC29302WU-TR/576-1125-1-ND/771851" H 1425 5650 60  0001 C CNN
+F 4 "IC29302WU-TR" H 1525 6183 50  0000 C CNN "Part Number"
+	1    1475 5950
+	1    0    0    -1  
+$EndComp
+$Comp
+L open-automation:MIC29302 U3
+U 1 1 5B645766
+P 1450 4675
+F 0 "U3" H 1500 5112 60  0000 C CNN
+F 1 "MIC29302" H 1500 5006 60  0000 C CNN
+F 2 "open-automation:Regulator-LM2576" H 1450 4275 60  0001 C CNN
+F 3 "https://www.digikey.com/product-detail/en/microchip-technology/MIC29302WU-TR/576-1125-1-ND/771851" H 1400 4375 60  0001 C CNN
+F 4 "IC29302WU-TR" H 1500 4908 50  0000 C CNN "Part Number"
+	1    1450 4675
+	1    0    0    -1  
+$EndComp
+$Comp
+L open-automation:MIC29302 U5
+U 1 1 5B6532CD
+P 1500 3425
+F 0 "U5" H 1550 3862 60  0000 C CNN
+F 1 "MIC29302" H 1550 3756 60  0000 C CNN
+F 2 "open-automation:Regulator-LM2576" H 1500 3025 60  0001 C CNN
+F 3 "https://www.digikey.com/product-detail/en/microchip-technology/MIC29302WU-TR/576-1125-1-ND/771851" H 1450 3125 60  0001 C CNN
+F 4 "IC29302WU-TR" H 1550 3658 50  0000 C CNN "Part Number"
+	1    1500 3425
 	1    0    0    -1  
 $EndComp
 $EndSCHEMATC
