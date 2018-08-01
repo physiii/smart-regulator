@@ -144,22 +144,6 @@ X FILTER 6 400 -100 150 L 50 50 1 1 U
 ENDDRAW
 ENDDEF
 #
-# open-automation:+3V3
-#
-DEF open-automation:+3V3 #PWR 0 0 Y Y 1 F P
-F0 "#PWR" 0 -150 50 H I C CNN
-F1 "open-automation:+3V3" 0 140 50 H V C CNN
-F2 "" 0 0 50 H V C CNN
-F3 "" 0 0 50 H V C CNN
-ALIAS +3.3V
-DRAW
-P 2 0 1 0 -30 50 0 100 N
-P 2 0 1 0 0 0 0 100 N
-P 2 0 1 0 0 100 30 50 N
-X +3V3 1 0 0 0 U 50 50 1 1 W N
-ENDDRAW
-ENDDEF
-#
 # open-automation:C_0.1uF
 #
 DEF open-automation:C_0.1uF C 0 10 N Y 1 F N
@@ -384,21 +368,21 @@ X A 2 150 0 100 L 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# open-automation:LM2576
+# open-automation:MIC29302
 #
-DEF open-automation:LM2576 U 0 40 Y Y 1 F N
+DEF open-automation:MIC29302 U 0 40 Y Y 1 F N
 F0 "U" 350 200 60 H V C CNN
-F1 "open-automation:LM2576" 50 -200 60 H V C CNN
-F2 "open-automation:Regulator-LM2576" 400 -50 60 H I C CNN
-F3 "https://www.digikey.com/product-detail/en/microchip-technology/MIC29302WU-TR/576-1125-1-ND/771851" 400 -50 60 H I C CNN
+F1 "open-automation:MIC29302" 50 -200 60 H V C CNN
+F2 "open-automation:Regulator-LM2576" 0 -400 60 H I C CNN
+F3 "https://www.digikey.com/product-detail/en/microchip-technology/MIC29302WU-TR/576-1125-1-ND/771851" -50 -300 60 H I C CNN
 F4 "IC29302WU-TR" 450 300 50 H V C CNN "Part Number"
 DRAW
 S 400 150 -300 -150 0 1 0 f
-X Vin 1 -500 100 200 R 50 50 1 1 I
-X Output 2 600 0 200 L 50 50 1 1 I
+X EN 1 -500 0 200 R 50 50 1 1 I
+X IN 2 -500 100 200 R 50 50 1 1 I
 X GND 3 -500 -100 200 R 50 50 1 1 I
-X Feedback 4 600 100 200 L 50 50 1 1 I
-X ~EN 5 -500 0 200 R 50 50 1 1 I
+X Output 4 600 0 200 L 50 50 1 1 I
+X Feedback 5 600 100 200 L 50 50 1 1 I
 ENDDRAW
 ENDDEF
 #
