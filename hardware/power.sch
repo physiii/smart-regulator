@@ -244,7 +244,7 @@ L dk_Current-Transducers:ACS712ELCTR-05B-T_NRND U7
 U 1 1 5B449183
 P 1850 2025
 F 0 "U7" H 1625 2325 60  0000 C CNN
-F 1 "ACS712ELCTR-05B-T_NRND" H 2775 1700 60  0000 C CNN
+F 1 "ACS712ELCTR-05B-T_NRND" H 1875 1500 60  0000 C CNN
 F 2 "open-automation:ACS711" H 2050 2225 60  0001 L CNN
 F 3 "https://www.digikey.com/product-detail/en/allegro-microsystems-llc/ACS711KEXLT-15AB-T/620-1483-1-ND/3868192" H 2050 2325 60  0001 L CNN
 F 4 "ACS711KEXLT-15AB-T" H 2050 2425 60  0001 L CNN "Part Number"
@@ -313,7 +313,7 @@ $EndComp
 Wire Wire Line
 	2900 2025 2900 2075
 Wire Wire Line
-	2250 2025 2900 2025
+	2250 2025 2600 2025
 Wire Wire Line
 	2900 2025 2975 2025
 Connection ~ 2900 2025
@@ -352,7 +352,7 @@ Connection ~ 1400 1975
 Wire Wire Line
 	1400 1975 1400 2025
 Wire Wire Line
-	2900 2375 2900 2450
+	2900 2375 2900 2425
 $Comp
 L open-automation:GND #PWR018
 U 1 1 5B437055
@@ -1550,14 +1550,71 @@ Text GLabel 1675 750  1    50   Input ~ 0
 3V3
 Text GLabel 2975 2025 2    50   Input ~ 0
 MAIN_CURRENT_SENSE
-Text GLabel 5300 4425 0    60   Input ~ 0
+Text GLabel 5725 4425 2    60   Input ~ 0
 3V3
-Text GLabel 5300 3425 0    60   Input ~ 0
+Text GLabel 5725 3425 2    60   Input ~ 0
 3V3
-Text GLabel 5300 5575 0    60   Input ~ 0
+Text GLabel 5725 5575 2    60   Input ~ 0
 3V3
 Text HLabel 6900 3825 2    50   Input ~ 0
 SDA
 Text GLabel 6925 4700 1    60   Input ~ 0
 3V3
+$Comp
+L open-automation:R_10k R26
+U 1 1 5B64294F
+P 2600 2225
+F 0 "R26" H 2450 2150 50  0000 L CNN
+F 1 "R_10k" H 2350 2075 50  0000 L CNN
+F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" V 2530 2225 50  0001 C CNN
+F 3 "https://www.digikey.com/product-detail/en/susumu/RR0816P-103-D/RR08P10.0KDCT-ND/432748" V 2680 2225 50  0001 C CNN
+F 4 "RR0816P-103-D" V 2780 2325 60  0001 C CNN "Part Number"
+	1    2600 2225
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2600 2375 2600 2425
+Wire Wire Line
+	2600 2425 2900 2425
+Connection ~ 2900 2425
+Wire Wire Line
+	2900 2425 2900 2450
+Wire Wire Line
+	2600 2075 2600 2025
+Connection ~ 2600 2025
+Wire Wire Line
+	2600 2025 2900 2025
+$Comp
+L open-automation:GND #PWR?
+U 1 1 5B66331E
+P 5300 5575
+F 0 "#PWR?" H 5300 5325 50  0001 C CNN
+F 1 "GND" H 5305 5402 50  0000 C CNN
+F 2 "" H 5300 5575 50  0000 C CNN
+F 3 "" H 5300 5575 50  0000 C CNN
+	1    5300 5575
+	0    1    1    0   
+$EndComp
+$Comp
+L open-automation:GND #PWR?
+U 1 1 5B663419
+P 5300 4425
+F 0 "#PWR?" H 5300 4175 50  0001 C CNN
+F 1 "GND" H 5305 4252 50  0000 C CNN
+F 2 "" H 5300 4425 50  0000 C CNN
+F 3 "" H 5300 4425 50  0000 C CNN
+	1    5300 4425
+	0    1    1    0   
+$EndComp
+$Comp
+L open-automation:GND #PWR?
+U 1 1 5B663484
+P 5300 3425
+F 0 "#PWR?" H 5300 3175 50  0001 C CNN
+F 1 "GND" H 5305 3252 50  0000 C CNN
+F 2 "" H 5300 3425 50  0000 C CNN
+F 3 "" H 5300 3425 50  0000 C CNN
+	1    5300 3425
+	0    1    1    0   
+$EndComp
 $EndSCHEMATC
