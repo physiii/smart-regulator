@@ -103,8 +103,6 @@ F 4 "RR0816P-103-D" V 10055 6100 60  0001 C CNN "Part Number"
 	1    9875 6000
 	1    0    0    -1  
 $EndComp
-Text GLabel 6900 3825 2    60   Input ~ 0
-3V3
 Wire Wire Line
 	6900 3825 6775 3825
 Wire Wire Line
@@ -146,17 +144,6 @@ F 2 "" H 6925 3700 50  0000 C CNN
 F 3 "" H 6925 3700 50  0000 C CNN
 	1    6925 3700
 	-1   0    0    1   
-$EndComp
-$Comp
-L open-automation:GND #PWR025
-U 1 1 5B3B26E4
-P 5300 3425
-F 0 "#PWR025" H 5300 3175 50  0001 C CNN
-F 1 "GND" V 5305 3297 50  0000 R CNN
-F 2 "" H 5300 3425 50  0000 C CNN
-F 3 "" H 5300 3425 50  0000 C CNN
-	1    5300 3425
-	0    1    1    0   
 $EndComp
 $Comp
 L open-automation:GND #PWR043
@@ -573,8 +560,6 @@ Wire Wire Line
 Connection ~ 2600 3425
 Wire Wire Line
 	2600 3425 3225 3425
-Text Label 2975 2025 0    50   ~ 0
-REG_POWER
 Text Label 575  3325 0    50   ~ 0
 REG_POWER
 Wire Wire Line
@@ -620,7 +605,7 @@ F 4 "INA219AIDCNR" H 6625 4725 60  0001 C CNN "Part Number"
 $EndComp
 Wire Wire Line
 	6925 4725 6925 4700
-Text GLabel 6900 4825 2    60   Input ~ 0
+Text GLabel 6900 5975 2    60   Input ~ 0
 3V3
 Wire Wire Line
 	6900 4825 6775 4825
@@ -652,24 +637,13 @@ $EndComp
 $Comp
 L open-automation:GND #PWR035
 U 1 1 5B55FD46
-P 6925 4700
-F 0 "#PWR035" H 6925 4450 50  0001 C CNN
-F 1 "GND" H 6930 4527 50  0000 C CNN
-F 2 "" H 6925 4700 50  0000 C CNN
-F 3 "" H 6925 4700 50  0000 C CNN
-	1    6925 4700
-	-1   0    0    1   
-$EndComp
-$Comp
-L open-automation:GND #PWR026
-U 1 1 5B55FD4C
-P 5300 4425
-F 0 "#PWR026" H 5300 4175 50  0001 C CNN
-F 1 "GND" V 5305 4297 50  0000 R CNN
-F 2 "" H 5300 4425 50  0000 C CNN
-F 3 "" H 5300 4425 50  0000 C CNN
-	1    5300 4425
-	0    1    1    0   
+P 6900 4825
+F 0 "#PWR035" H 6900 4575 50  0001 C CNN
+F 1 "GND" H 6905 4652 50  0000 C CNN
+F 2 "" H 6900 4825 50  0000 C CNN
+F 3 "" H 6900 4825 50  0000 C CNN
+	1    6900 4825
+	0    -1   -1   0   
 $EndComp
 Text HLabel 6900 5025 2    50   Input ~ 0
 SCL
@@ -720,8 +694,6 @@ F 4 "INA219AIDCNR" H 6625 5875 60  0001 C CNN "Part Number"
 $EndComp
 Wire Wire Line
 	6925 5875 6925 5850
-Text GLabel 6900 5975 2    60   Input ~ 0
-3V3
 Wire Wire Line
 	6900 5975 6775 5975
 Wire Wire Line
@@ -759,17 +731,6 @@ F 2 "" H 6925 5850 50  0000 C CNN
 F 3 "" H 6925 5850 50  0000 C CNN
 	1    6925 5850
 	-1   0    0    1   
-$EndComp
-$Comp
-L open-automation:GND #PWR027
-U 1 1 5B56935F
-P 5300 5575
-F 0 "#PWR027" H 5300 5325 50  0001 C CNN
-F 1 "GND" V 5305 5447 50  0000 R CNN
-F 2 "" H 5300 5575 50  0000 C CNN
-F 3 "" H 5300 5575 50  0000 C CNN
-	1    5300 5575
-	0    1    1    0   
 $EndComp
 Text HLabel 6900 6175 2    50   Input ~ 0
 SCL
@@ -1586,5 +1547,17 @@ F 4 "PMEG3030EP,115" H 2400 5526 50  0001 C CNN "Part Number"
 	-1   0    0    1   
 $EndComp
 Text GLabel 1675 750  1    50   Input ~ 0
+3V3
+Text GLabel 2975 2025 2    50   Input ~ 0
+MAIN_CURRENT_SENSE
+Text GLabel 5300 4425 0    60   Input ~ 0
+3V3
+Text GLabel 5300 3425 0    60   Input ~ 0
+3V3
+Text GLabel 5300 5575 0    60   Input ~ 0
+3V3
+Text HLabel 6900 3825 2    50   Input ~ 0
+SDA
+Text GLabel 6925 4700 1    60   Input ~ 0
 3V3
 $EndSCHEMATC

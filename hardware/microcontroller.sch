@@ -438,10 +438,10 @@ SCLK
 Text Label 10000 4050 2    50   ~ 0
 SCLK
 Wire Wire Line
-	4875 3700 4750 3700
+	4875 3500 4750 3500
 Text HLabel 4750 3600 0    50   Input ~ 0
 REG1_EN
-Text HLabel 4750 3700 0    50   Input ~ 0
+Text HLabel 4750 3500 0    50   Input ~ 0
 REG2_EN
 Wire Wire Line
 	4875 3600 4750 3600
@@ -449,4 +449,8 @@ Wire Wire Line
 	4875 3400 4750 3400
 Text HLabel 4750 3400 0    50   Input ~ 0
 REG3_EN
+Wire Wire Line
+	4875 3700 4750 3700
+Text GLabel 4750 3700 0    50   Input ~ 0
+MAIN_CURRENT_SENSE
 $EndSCHEMATC
