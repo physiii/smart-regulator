@@ -225,7 +225,7 @@ Wire Wire Line
 Wire Wire Line
 	3225 3425 3225 3450
 $Comp
-L dk_Current-Transducers:ACS712ELCTR-05B-T_NRND U7
+L smart-regulator-rescue:ACS712ELCTR-05B-T_NRND-dk_Current-Transducers U7
 U 1 1 5B449183
 P 1850 2025
 F 0 "U7" H 1625 2325 60  0000 C CNN
@@ -401,7 +401,7 @@ Connection ~ 1400 2175
 Wire Wire Line
 	1400 2175 1400 2225
 $Comp
-L open-automation:ZLDO1117G33TA U12
+L smart-regulator-rescue:ZLDO1117G33TA-open-automation U12
 U 1 1 5B4FF25D
 P 9025 5400
 F 0 "U12" H 9000 5725 50  0000 C CNN
@@ -1456,18 +1456,6 @@ REG3_EN
 Wire Wire Line
 	5425 2050 5375 2050
 Connection ~ 5375 2050
-$Comp
-L open-automation:D D7
-U 1 1 5B805AA1
-P 8100 5350
-F 0 "D7" H 8100 5134 50  0000 C CNN
-F 1 "D" H 8100 5225 50  0000 C CNN
-F 2 "open-automation:SOD128" H 8000 5350 50  0001 C CNN
-F 3 "https://www.digikey.com/product-detail/en/diodes-incorporated/MURS320-13-F/MURS320-13FDICT-ND/3053318" H 8100 5450 50  0001 C CNN
-F 4 "PMEG3030EP,115" H 8100 5226 50  0001 C CNN "Part Number"
-	1    8100 5350
-	-1   0    0    1   
-$EndComp
 Wire Wire Line
 	8250 5350 8425 5350
 Wire Wire Line
@@ -1489,7 +1477,7 @@ U 1 1 5B8629F6
 P 8100 5675
 F 0 "D9" H 8100 5459 50  0000 C CNN
 F 1 "D" H 8100 5550 50  0000 C CNN
-F 2 "open-automation:SOD128" H 8000 5675 50  0001 C CNN
+F 2 "Diode_SMD:D_SMC" H 8000 5675 50  0001 C CNN
 F 3 "https://www.digikey.com/product-detail/en/diodes-incorporated/MURS320-13-F/MURS320-13FDICT-ND/3053318" H 8100 5775 50  0001 C CNN
 F 4 "PMEG3030EP,115" H 8100 5551 50  0001 C CNN "Part Number"
 	1    8100 5675
@@ -1619,4 +1607,16 @@ Wire Wire Line
 	9025 5150 9025 4975
 Text GLabel 9025 4975 1    60   Input ~ 0
 3V3
+$Comp
+L open-automation:D D7
+U 1 1 5B805AA1
+P 8100 5350
+F 0 "D7" H 8100 5134 50  0000 C CNN
+F 1 "D" H 8100 5225 50  0000 C CNN
+F 2 "Diode_SMD:D_SMC" H 8000 5350 50  0001 C CNN
+F 3 "https://www.digikey.com/product-detail/en/diodes-incorporated/MURS320-13-F/MURS320-13FDICT-ND/3053318" H 8100 5450 50  0001 C CNN
+F 4 "PMEG3030EP,115" H 8100 5226 50  0001 C CNN "Part Number"
+	1    8100 5350
+	-1   0    0    1   
+$EndComp
 $EndSCHEMATC

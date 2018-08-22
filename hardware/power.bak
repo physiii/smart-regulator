@@ -43,11 +43,7 @@ Connection ~ 9475 5400
 Wire Wire Line
 	9475 5450 9475 5400
 Wire Wire Line
-	7850 5150 7950 5150
-Wire Wire Line
-	8575 5500 8625 5500
-Wire Wire Line
-	8575 5550 8575 5500
+	7850 5350 7950 5350
 Wire Wire Line
 	9375 5400 9475 5400
 Wire Wire Line
@@ -167,22 +163,11 @@ F 3 "" H 9475 5850 50  0000 C CNN
 	1    9475 5850
 	1    0    0    -1  
 $EndComp
-$Comp
-L open-automation:GND #PWR039
-U 1 1 5B3C48E7
-P 8575 5550
-F 0 "#PWR039" H 8575 5300 50  0001 C CNN
-F 1 "GND" H 8580 5377 50  0000 C CNN
-F 2 "" H 8575 5550 50  0000 C CNN
-F 3 "" H 8575 5550 50  0000 C CNN
-	1    8575 5550
-	1    0    0    -1  
-$EndComp
 Text HLabel 6900 4025 2    50   Input ~ 0
 SCL
 Text HLabel 6900 3925 2    50   Input ~ 0
 SDA
-Text HLabel 7850 5150 0    50   Input ~ 0
+Text HLabel 7850 5350 0    50   Input ~ 0
 V_MAIN
 $Comp
 L open-automation:R_10m R10
@@ -1474,40 +1459,40 @@ Connection ~ 5375 2050
 $Comp
 L open-automation:D D7
 U 1 1 5B805AA1
-P 8100 5150
-F 0 "D7" H 8100 4934 50  0000 C CNN
-F 1 "D" H 8100 5025 50  0000 C CNN
-F 2 "open-automation:SOD128" H 8000 5150 50  0001 C CNN
-F 3 "https://www.digikey.com/product-detail/en/diodes-incorporated/MURS320-13-F/MURS320-13FDICT-ND/3053318" H 8100 5250 50  0001 C CNN
-F 4 "PMEG3030EP,115" H 8100 5026 50  0001 C CNN "Part Number"
-	1    8100 5150
+P 8100 5350
+F 0 "D7" H 8100 5134 50  0000 C CNN
+F 1 "D" H 8100 5225 50  0000 C CNN
+F 2 "open-automation:SOD128" H 8000 5350 50  0001 C CNN
+F 3 "https://www.digikey.com/product-detail/en/diodes-incorporated/MURS320-13-F/MURS320-13FDICT-ND/3053318" H 8100 5450 50  0001 C CNN
+F 4 "PMEG3030EP,115" H 8100 5226 50  0001 C CNN "Part Number"
+	1    8100 5350
 	-1   0    0    1   
 $EndComp
 Wire Wire Line
-	8250 5150 8425 5150
+	8250 5350 8425 5350
 Wire Wire Line
-	8425 5150 8425 5300
+	8425 5350 8425 5500
 Wire Wire Line
-	8425 5300 8625 5300
+	8425 5500 8625 5500
 Wire Wire Line
-	8425 5300 8425 5475
+	8425 5500 8425 5675
 Wire Wire Line
-	8425 5475 8250 5475
-Connection ~ 8425 5300
+	8425 5675 8250 5675
+Connection ~ 8425 5500
 Wire Wire Line
-	7950 5475 7875 5475
-Text Label 7875 5475 2    50   ~ 0
+	7950 5675 7875 5675
+Text Label 7875 5675 2    50   ~ 0
 REG_POWER
 $Comp
 L open-automation:D D9
 U 1 1 5B8629F6
-P 8100 5475
-F 0 "D9" H 8100 5259 50  0000 C CNN
-F 1 "D" H 8100 5350 50  0000 C CNN
-F 2 "open-automation:SOD128" H 8000 5475 50  0001 C CNN
-F 3 "https://www.digikey.com/product-detail/en/diodes-incorporated/MURS320-13-F/MURS320-13FDICT-ND/3053318" H 8100 5575 50  0001 C CNN
-F 4 "PMEG3030EP,115" H 8100 5351 50  0001 C CNN "Part Number"
-	1    8100 5475
+P 8100 5675
+F 0 "D9" H 8100 5459 50  0000 C CNN
+F 1 "D" H 8100 5550 50  0000 C CNN
+F 2 "open-automation:SOD128" H 8000 5675 50  0001 C CNN
+F 3 "https://www.digikey.com/product-detail/en/diodes-incorporated/MURS320-13-F/MURS320-13FDICT-ND/3053318" H 8100 5775 50  0001 C CNN
+F 4 "PMEG3030EP,115" H 8100 5551 50  0001 C CNN "Part Number"
+	1    8100 5675
 	-1   0    0    1   
 $EndComp
 $Comp
@@ -1516,7 +1501,7 @@ U 1 1 5B872546
 P 2525 3000
 F 0 "D6" H 2525 2784 50  0000 C CNN
 F 1 "D" H 2525 2875 50  0000 C CNN
-F 2 "open-automation:SOD128" H 2425 3000 50  0001 C CNN
+F 2 "Diode_SMD:D_SMC" H 2425 3000 50  0001 C CNN
 F 3 "https://www.digikey.com/product-detail/en/diodes-incorporated/MURS320-13-F/MURS320-13FDICT-ND/3053318" H 2525 3100 50  0001 C CNN
 F 4 "PMEG3030EP,115" H 2525 2876 50  0001 C CNN "Part Number"
 	1    2525 3000
@@ -1528,7 +1513,7 @@ U 1 1 5B881DD6
 P 2425 4350
 F 0 "D5" H 2425 4134 50  0000 C CNN
 F 1 "D" H 2425 4225 50  0000 C CNN
-F 2 "open-automation:SOD128" H 2325 4350 50  0001 C CNN
+F 2 "Diode_SMD:D_SMC" H 2325 4350 50  0001 C CNN
 F 3 "https://www.digikey.com/product-detail/en/diodes-incorporated/MURS320-13-F/MURS320-13FDICT-ND/3053318" H 2425 4450 50  0001 C CNN
 F 4 "PMEG3030EP,115" H 2425 4226 50  0001 C CNN "Part Number"
 	1    2425 4350
@@ -1540,7 +1525,7 @@ U 1 1 5B8916A8
 P 2400 5650
 F 0 "D4" H 2400 5434 50  0000 C CNN
 F 1 "D" H 2400 5525 50  0000 C CNN
-F 2 "open-automation:SOD128" H 2300 5650 50  0001 C CNN
+F 2 "Diode_SMD:D_SMC" H 2300 5650 50  0001 C CNN
 F 3 "https://www.digikey.com/product-detail/en/diodes-incorporated/MURS320-13-F/MURS320-13FDICT-ND/3053318" H 2400 5750 50  0001 C CNN
 F 4 "PMEG3030EP,115" H 2400 5526 50  0001 C CNN "Part Number"
 	1    2400 5650
@@ -1550,21 +1535,21 @@ Text GLabel 1675 750  1    50   Input ~ 0
 3V3
 Text GLabel 2975 2025 2    50   Input ~ 0
 MAIN_CURRENT_SENSE
-Text GLabel 5300 4425 0    60   Input ~ 0
+Text GLabel 5725 4425 2    60   Input ~ 0
 3V3
-Text GLabel 5300 3425 0    60   Input ~ 0
+Text GLabel 5725 3425 2    60   Input ~ 0
 3V3
-Text GLabel 5300 5575 0    60   Input ~ 0
+Text GLabel 5725 5575 2    60   Input ~ 0
 3V3
 Text HLabel 6900 3825 2    50   Input ~ 0
 SDA
 Text GLabel 6925 4700 1    60   Input ~ 0
 3V3
 $Comp
-L open-automation:R_10k R?
+L open-automation:R_10k R26
 U 1 1 5B64294F
 P 2600 2225
-F 0 "R?" H 2450 2150 50  0000 L CNN
+F 0 "R26" H 2450 2150 50  0000 L CNN
 F 1 "R_10k" H 2350 2075 50  0000 L CNN
 F 2 "Resistor_SMD:R_0603_1608Metric_Pad1.05x0.95mm_HandSolder" V 2530 2225 50  0001 C CNN
 F 3 "https://www.digikey.com/product-detail/en/susumu/RR0816P-103-D/RR08P10.0KDCT-ND/432748" V 2680 2225 50  0001 C CNN
@@ -1584,4 +1569,54 @@ Wire Wire Line
 Connection ~ 2600 2025
 Wire Wire Line
 	2600 2025 2900 2025
+$Comp
+L open-automation:GND #PWR0116
+U 1 1 5B66331E
+P 5300 5575
+F 0 "#PWR0116" H 5300 5325 50  0001 C CNN
+F 1 "GND" H 5305 5402 50  0000 C CNN
+F 2 "" H 5300 5575 50  0000 C CNN
+F 3 "" H 5300 5575 50  0000 C CNN
+	1    5300 5575
+	0    1    1    0   
+$EndComp
+$Comp
+L open-automation:GND #PWR0117
+U 1 1 5B663419
+P 5300 4425
+F 0 "#PWR0117" H 5300 4175 50  0001 C CNN
+F 1 "GND" H 5305 4252 50  0000 C CNN
+F 2 "" H 5300 4425 50  0000 C CNN
+F 3 "" H 5300 4425 50  0000 C CNN
+	1    5300 4425
+	0    1    1    0   
+$EndComp
+$Comp
+L open-automation:GND #PWR0118
+U 1 1 5B663484
+P 5300 3425
+F 0 "#PWR0118" H 5300 3175 50  0001 C CNN
+F 1 "GND" H 5305 3252 50  0000 C CNN
+F 2 "" H 5300 3425 50  0000 C CNN
+F 3 "" H 5300 3425 50  0000 C CNN
+	1    5300 3425
+	0    1    1    0   
+$EndComp
+$Comp
+L open-automation:GND #PWR039
+U 1 1 5B3C48E7
+P 8550 5300
+F 0 "#PWR039" H 8550 5050 50  0001 C CNN
+F 1 "GND" H 8555 5127 50  0000 C CNN
+F 2 "" H 8550 5300 50  0000 C CNN
+F 3 "" H 8550 5300 50  0000 C CNN
+	1    8550 5300
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8625 5300 8550 5300
+Wire Wire Line
+	9025 5150 9025 4975
+Text GLabel 9025 4975 1    60   Input ~ 0
+3V3
 $EndSCHEMATC
